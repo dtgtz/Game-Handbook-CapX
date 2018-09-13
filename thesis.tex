@@ -1,0 +1,244 @@
+% do not change these two lines (this is a hard requirement
+% there is one exception: you might replace oneside by twoside in case you deliver 
+% the printed version in the accordant format
+\documentclass[11pt,titlepage,oneside,openany]{book}
+\usepackage{times}
+
+
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{ntheorem}
+
+% \usepackage{paralist}
+\usepackage{tabularx}
+
+% this packaes are useful for nice algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% well, when your work is concerned with definitions, proposition and so on, we suggest this
+% feel free to add Corrolary, Theorem or whatever you need
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+
+
+% its always useful to have some shortcuts (some are specific for algorithms
+% if you do not like your formating you can change it here (instead of scanning through the whole text)
+\renewcommand{\algorithmiccomment}[1]{\ensuremath{\rhd} \textit{#1}}
+\def\MYCALL#1#2{{\small\textsc{#1}}(\textup{#2})}
+\def\MYSET#1{\scshape{#1}}
+\def\MYAND{\textbf{ and }}
+\def\MYOR{\textbf{ or }}
+\def\MYNOT{\textbf{ not }}
+\def\MYTHROW{\textbf{ throw }}
+\def\MYBREAK{\textbf{break }}
+\def\MYEXCEPT#1{\scshape{#1}}
+\def\MYTO{\textbf{ to }}
+\def\MYNIL{\textsc{Nil}}
+\def\MYUNKNOWN{ unknown }
+% simple stuff (not all of this is used in this examples thesis
+\def\INT{{\mathcal I}} % interpretation
+\def\ONT{{\mathcal O}} % ontology
+\def\SEM{{\mathcal S}} % alignment semantic
+\def\ALI{{\mathcal A}} % alignment
+\def\USE{{\mathcal U}} % set of unsatisfiable entities
+\def\CON{{\mathcal C}} % conflict set
+\def\DIA{\Delta} % diagnosis
+% mups and mips
+\def\MUP{{\mathcal M}} % ontology
+\def\MIP{{\mathcal M}} % ontology
+% distributed and local entities
+\newcommand{\cc}[2]{\mathit{#1}\hspace{-1pt} \# \hspace{-1pt} \mathit{#2}}
+\newcommand{\cx}[1]{\mathit{#1}}
+% complex stuff
+\def\MER#1#2#3#4{#1 \cup_{#3}^{#2} #4} % merged ontology
+\def\MUPALL#1#2#3#4#5{\textit{MUPS}_{#1}\left(#2, #3, #4, #5\right)} % the set of all mups for some concept
+\def\MIPALL#1#2{\textit{MIPS}_{#1}\left(#2\right)} % the set of all mips
+
+
+
+
+
+\begin{document}
+
+\pagenumbering{roman}
+% lets go for the title page, something like this should be okay
+\begin{titlepage}
+	\vspace*{2cm}
+  \begin{center}
+   {\Large Capitalism X\\}
+   \vspace{2cm} 
+   {Handbook \& Documentation\\}
+   \vspace{2cm}
+   {presented by\\
+    Xy \\
+   }
+   \vspace{1cm} 
+   {submitted to the\\
+    Data and Web Science Group\\
+    Prof.\ Dr.\ Heiner Stuckenschmidt\\
+    University of Mannheim\\} \vspace{2cm}
+   {February 2019}
+  \end{center}
+\end{titlepage} 
+
+% no lets make some add some table of contents
+\tableofcontents
+\newpage
+
+\listoffigures
+
+\listoftables
+
+% evntuelly you might add something like this
+% \listtheorems{definition}
+% \listtheorems{proposition}
+
+\newpage
+% okay, start new numbering ... here is where it really starts
+\pagenumbering{arabic}
+\chapter{From a small startup to a global enterprise}
+\label{cha:intro}
+\section{What to expect from Capitalism X (CapX)}
+
+Business simulation games...Fancy introduction, Target audience
+
+\begin{itemize}
+	\item A table can be found in Section \ref{sec:results}. This example (Table \ref{tab:confonly}) is only a suggestion. You are allowed to format your tables in your preferred style.
+\end{itemize}
+
+User skills? Thinking economic entrepreneurial spirtit.. blablabla
+
+\emph{Very Important:} Besides being a game-play handbook, this document also addresses the game mechanisms working in the background
+ 
+\section{Player's role}
+ 
+CEO role... 
+
+\section{Story \& Setting}
+
+Goals, Timeframe, Progress
+
+\section{Environment}
+
+General 
+
+\chapter{How to play CapX}
+\label{cha:theory}
+ This chapter deals with the interface, options, content of the game
+
+
+
+
+\section{Getting started with CapX}
+\label{sec:prelim}
+Starting screen selections, first steps
+\begin{definition}
+\label{def:evil}
+An entity is evil if it is not a good entity.
+\end{definition}
+
+\section{Interface \& Features}
+\label{sec:good}
+
+\subsection{Controls}
+
+War Room and what to choose?
+\subsection{Financials}
+Caaaaash
+\subsection{HR}
+Text
+\subsection{Government}
+Text
+
+\section{Build up an empire business}
+\label{sec:good}
+https://www.youtube.com/watch?v=NisCkxU544c
+\subsection{Choose the portfolio}
+
+Description of products
+
+\subsection{Lead the right employees}
+
+Think and ace like a boss
+
+\subsection{Make your company grow}
+Stages of the game
+
+
+\section{Challenges \& Opportunities}
+\label{sec:evil}
+
+
+What to be confronted with 
+\chapter{Game Mechanics}
+\label{cha:alg}
+Technical description of the game, the backend
+\section{Features of the Game}
+\label{sec:comp-good}
+
+\section{Measurements \& Indicators}
+\label{sec:diag}
+
+\section{Products}
+\label{sec:diag}
+
+\section{Customer Simulation}
+\label{sec:customsim}
+
+\section{Linkages \& Interdependencies}
+\label{sec:link}
+
+\section{Flowboard}
+
+A flowboard is the best way to document a game’s structure. The term is derived
+from a flowchart and a storyboard. Storyboards are a linear series of pictures
+used by filmmakers to plan a set of shots. Flowcharts are diagrams used
+by programmers for documenting an algorithm. A flowboard combines these
+two ideas. Each picture is a sketch or a mockup of the screen, in one specific
+gameplay mode or menu. The pictures are connected via arrows that indicate
+under what circumstances the transition takes place. (1, p. 57; 3.) The flowboard
+does not necessarily need pictures in it to work. A simpler approach (Figure
+2) might even be better in some cases.
+
+Many roads lead to Rome. Only one is the best. Choosing the strategy is one thing, making the right decicions another. 
+
+\subsection{Creating uncertainty through random events}
+
+\chapter{Marketing}
+\label{cha:exp}
+
+\section{Marketing proposals}
+\label{sec:setting}
+How to sell to company
+
+
+\chapter{Conclusion}
+\label{cha:conclusion}
+
+
+\section{Summary}
+\label{sec:sum}
+
+\section{Future Work}
+\label{sec:future}
+
+\bibliographystyle{plain}
+\bibliography{thesis-ref}
+
+
+\appendix
+
+\chapter{Appendix}
+\label{cha:appendix-a}
+
+\newpage
+
+
+\pagestyle{empty}
+
+
+\end{document}
