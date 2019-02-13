@@ -1,0 +1,64 @@
+\section{HR Simulation}
+
+\subsection{Employee types}
+The following list shows possible employee types that can be hired. The role of HR and Finance is performed by the player itself, thus not requiring employees in these departments.
+\begin{itemize}
+    \item Production
+    \item Logistics
+    \item Sales
+    \item Marketing
+\end{itemize}
+
+
+
+\subsection{Key Performance Indicators}
+\subsubsection{Job Satisfaction}
+The job satisfaction is an essential part of a Key Performance Indicator framework in order to measure the management quality of the player. Many different parts in the cooperation depend on the job satisfaction of employees, thus, in order to increase the performance, managers need to make sure that the satisfaction of their employees is constantly high.\cite{KOYS}
+
+The job satisfaction is such an important factor due to the fact that the employer branding is influenced by it. This is critical as the employer branding has a huge impact on how the company is perceived on the markets by potential employees but also by customers and suppliers. Moreover, the employer branding is also influenced by the general company image and can be influenced through marketing and PR activities. 
+
+The success of a company highly depends on the ability of attracting the best people. The ease of recruitment is highly dependent on the job satisfaction of the employees. Extrinsic motivation need to be provided to attract employees in case the job satisfaction and by this the employer branding are low. A low job satisfaction makes it necessary to pay higher salaries. Not only the recruiting of employees is more difficult with a lower job satisfaction but also the employee turnover is higher. \cite{frederiksen2016}
+
+Different factors exist which influence the job satisfaction. \cite{Kapur} The implementation and integration of softfactors which influence the job satisfaction was not the primary goal for CapX, we concentrated on the hardfactors which include Salary and Paymix, Worktime, the Skills and Education and the provided Benefits by the company. 
+
+\subsubsection{Company Image}
+
+\subsubsection{Quality of Work}
+The quality of work is a measure for the output quality of every process step in the corporation where an employee is involved. We are aware, that the quality of process outputs is influenced by more than the chosen factors here. However, for the sake of the realization of the game, we concentrated on the factors which can be chosen by a player simulating the role of a CEO or Chief Human Resources Officer (CHRO). Besides the influencing factors, which are defined and explained below, the skill level is the most important factor for the quality of an employee. The underlying assumption is that higher skilled employees have more experience and perform similar activities better than employees with a lower skilllevel in a comparable position.
+
+The skilllevel becomes a strategic mechanism as it influences the quality of work significantly. In fact, a better quality of work leads to higher output of the production, can decrease product failure and improve the quality of the products, allows new products to be developed, and for example in case of sales employees generate more sales.
+
+
+\subsection{Training}
+Emplyoees can be categorized into 5 groups:
+\begin{itemize}
+    \item Worker
+    \item Student
+    \item Graduate
+    \item Specialist
+    \item Expert
+\end{itemize}
+The initial skill level for these employees is set to (20, 30, 40, 60, 80) according to the order of the list above. In order to improve the skilllevel and by this the quality of work of the employees, training can be added to the learningjourney of employees. 
+
+Trainings can be assigned to a certain number of employees. The cost per training and also the increase of the skill level of the single employees depends on the kind of training. Some courses are only relevant for employees of specific departments.
+
+The following list summarizes the possible trainings which are offered and can be assigned to specific departments.
+\begin{itemize}
+\item Hot topics in manufacturing - Production
+\item Lean production methods - Production, Logistics
+\item Psychology of work - Sales, Marketing
+\item Best practice in employer branding - Marketing, Sales
+\item AIDA principle - Marketing, Sales
+\item Environmental friendly processes - Production, Logistics
+\item Sustainability in transport - Logistics
+\item Persuasion techniques - Sales
+\item Personality matters - Marketing, Sales
+\end{itemize}
+\ \\
+The single KPIs are calculated as follows: 
+\begin{itemize}
+\item Skill Level = initial Skill level + influence trainings
+\item Job satisfaction = 0,30*Job attractiveness + 0,65*Quality of work + 0,05*Skill Level
+\item Company branding = Job satisfaction*0,2 + Company image*0,8 
+\item Employer branding = Job satisfaction*0,6 + Company image*0,4 
+\end{itemize}
