@@ -1,5 +1,5 @@
 \section{HR Simulation}
-
+The HR simulation handles all parts of the Human Resources Process which are described in the following subchapters.
 \subsection{Employee types}
 The following list shows possible employee types that can be hired. The role of HR and Finance is performed by the player itself, thus not requiring employees in these departments.
 \begin{itemize}
@@ -17,32 +17,202 @@ The job satisfaction is an essential part of a Key Performance Indicator framewo
 
 The job satisfaction is such an important factor due to the fact that the employer branding is influenced by it. This is critical as the employer branding has a huge impact on how the company is perceived on the markets by potential employees but also by customers and suppliers. Moreover, the employer branding is also influenced by the general company image and can be influenced through marketing and PR activities. 
 
-The success of a company highly depends on the ability of attracting the best people. The ease of recruitment is highly dependent on the job satisfaction of the employees. Extrinsic motivation need to be provided to attract employees in case the job satisfaction and by this the employer branding are low. A low job satisfaction makes it necessary to pay higher salaries. Not only the recruiting of employees is more difficult with a lower job satisfaction but also the employee turnover is higher. \cite{frederiksen2016}
+The success of a company highly depends on the ability of attracting the best people. The ease of recruitment is highly dependent on the job satisfaction of the employees. Extrinsic motivation needs to be provided to attract employees in case the job satisfaction and by this the employer branding are low. A low job satisfaction makes it necessary to pay higher salaries. Not only the recruiting of employees is more difficult with a lower job satisfaction but also the employee turnover is higher. \cite{frederiksen2016}
 
 Different factors exist which influence the job satisfaction. \cite{Kapur} The implementation and integration of softfactors which influence the job satisfaction was not the primary goal for CapX, we concentrated on the hardfactors which include Salary and Paymix, Worktime, the Skills and Education and the provided Benefits by the company. 
 
+The following table shows the possible influencing factors which can be chosen by the player to influence the employees job satisfaction.
+\begin{itemize}
+    \item Salary
+    \begin{itemize}
+        \item 10\% below market average (0)
+        \item Market average (2)
+        \item 10\% above market average (4)
+    \end{itemize}
+    \item Worktime per day
+    \begin{itemize}
+        \item 6 hours (4)
+        \item 8 hours (2)
+        \item 10 hours (0)
+    \end{itemize}
+    \item Company Car
+    \begin{itemize}
+        \item Offered (4)
+        \item Do not offered (2)
+    \end{itemize}
+    \item Homeoffice
+    \begin{itemize}
+        \item Fixed model (0)
+        \item Flextime model (1)
+        \item Trust-based working hours (TB) (2)
+        \item TB + allow HO one time per week (3)
+        \item TB + always allow HO (4)
+    \end{itemize}
+    \item IT Equipment
+    \begin{itemize}
+        \item High End (4)
+        \item Market Average (2)
+    \end{itemize}
+    \item Food / Coffee
+    \begin{itemize}
+        \item For free (4)
+        \item Employee payment (2)
+    \end{itemize}
+    \item Gym / Sports
+    \begin{itemize}
+        \item For free / Voucher system (4)
+        \item No offering (2)
+    \end{itemize}
+\end{itemize}
+
+For each of the above mentioned categories (Salary, Worktime, Company Car, Homeoffice, IT Equipment, Food and Sports) the player needs to make a decision which benefit category to offer. The numbers in brackets show the points which adds up to a total job satisfaction score after the player made all necessary choices. The job satisfaction score can have a minimum of 0 points and a maximum of 28 points.
+
+As this scale is too simple in order to be somehow realistic, a manipulation of the original scale is needed. The marginal impact of an additional increase of factors which lead to a higher job satisfaction decreases over time, e.g. an employee which has an above average salary, a company car, trusted based working hours and all other benefits on the highest level, would not value the additional offering of a free sports club voucher as much as an employee that has no benefits at all and gets a sports club voucher. Thus the scale of 0 - 28 was transformed to a root function.
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = Original Scale (OS),
+    ylabel = Job Satisfaction Score (JSS),
+    grid style = dashed,
+    legend pos=north west
+]
+
+\addplot [
+    domain=0:28, 
+    samples=28, 
+    color=red,
+]
+{x^(1/3)* 33};
+\addlegendentry{$JSS=\sqrt[3]{OS}*33$}
+\end{axis}
+\end{tikzpicture}
+
 \subsubsection{Company Image}
+The company image is a very important KPI to measure the company reputation. The company image is the sum of many small activities which leaves a footprint that can be recognized with the company. Single activities can improve or destroy the company image from the point of view of individuals. The goal of a high valued company image is of course monetary benefit. Therefore, activities which tend to increase the company image are not for free and it is always a difficult assessment whether to invest in a certain activity or not. In the game we concentrated on factors which can be realistically and interestingly be influenced by the player.
+
+\begin{itemize}
+    \item Social Engagement
+    \begin{itemize}
+        \item CSR Donations (as percentage of the previous year's profit)
+            \begin{itemize}
+                \item 0\% (0)
+                \item 0\% - 1\% (1)
+                \item 1\% - 2\% (2)
+                \item 2\% - 5\% (3)
+                \item More than 5\% (4)
+            \end{itemize}
+    \end{itemize}
+    \item Support refugee programs
+    \begin{itemize}
+        \item Never (0)
+        \item 1 project per year (1)
+        \item 2 projects per year (2)
+        \item 3 projects per year (3)
+        \item 4 projects per year (4)
+    \end{itemize}
+    \item Environmental friendly production
+    \begin{itemize}
+        \item Supplier
+            \begin{itemize}
+                \item Eco-friendly (2)
+                \item Standard (non eco friendly) (0)
+            \end{itemize}
+        \item Logistics Partner
+            \begin{itemize}
+                \item Eco-friendly (2)
+                \item Standard (non eco friendly) (0)
+            \end{itemize}    
+    \end{itemize}
+    \item Promotes a green image
+    \begin{itemize}
+       \item Mandatory training for employees (Go Green)
+            \begin{itemize}
+                \item Never (0)
+                \item 1 time per year (1)
+                \item 2 times per year (2)
+                \item 3 times per year (3)
+                \item 4 times per year (4)
+            \end{itemize}
+        \item Green marketing campaign
+            \begin{itemize}
+                \item Never (0)
+                \item 1 time per year (1)
+                \item 2 times per year (2)
+                \item 3 times per year (3)
+                \item 4 times per year (4)
+            \end{itemize}
+    \end{itemize}
+    \item Promotes diversity
+    \begin{itemize}
+       \item Mandatory diversity training
+            \begin{itemize}
+                \item Never (0)
+                \item 1 time per year (1)
+                \item 2 times per year (2)
+                \item 3 times per year (3)
+                \item 4 times per year (4)
+            \end{itemize}
+        \item Diversity Campaign
+            \begin{itemize}
+                \item Never (0)
+                \item 1 time per year (1)
+                \item 2 times per year (2)
+                \item 3 times per year (3)
+                \item 4 times per year (4)
+            \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+The total sum of the above possible choices is the total Company Image Score (CIS). The score can reach values from 0 to 28 as it is the case for the Employee Satisfaction Score. In order to build also here a more realistic representation we figured out that the marginal benefit of an increase of the company image increases with the collected amount of points. Therefore, we manipulated also this formula and came up with the following function.
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = Original Scale (OS),
+    ylabel = Company Image Score (CIS),
+    grid style = dashed,
+    legend pos=north west
+]
+
+\addplot [
+    domain=0:28, 
+    samples=28, 
+    color=red,
+]
+{x^2/7.84};
+\addlegendentry{$CIS=OS^2/7.84$}
+\end{axis}
+\end{tikzpicture}
+
+The original scale of 0 to 28 is squared and divided by the factor of 7.84 in order to map the original scale on a scale of 0 to 100. In this case the rational behind the mapping is the fact that little activities do not have such  a big influence on the overall image of a company. When a company starts to combine all its activities it can generate huge impact and publicity which leads to a strong increase of the Company Image Score.
 
 \subsubsection{Quality of Work}
 The quality of work is a measure for the output quality of every process step in the corporation where an employee is involved. We are aware, that the quality of process outputs is influenced by more than the chosen factors here. However, for the sake of the realization of the game, we concentrated on the factors which can be chosen by a player simulating the role of a CEO or Chief Human Resources Officer (CHRO). Besides the influencing factors, which are defined and explained below, the skill level is the most important factor for the quality of an employee. The underlying assumption is that higher skilled employees have more experience and perform similar activities better than employees with a lower skilllevel in a comparable position.
 
-The skilllevel becomes a strategic mechanism as it influences the quality of work significantly. In fact, a better quality of work leads to higher output of the production, can decrease product failure and improve the quality of the products, allows new products to be developed, and for example in case of sales employees generate more sales.
+The skilllevel becomes a strategic mechanism as it influences the quality of work significantly. In fact, a better quality of work leads to higher output of the production, can decrease product failure and improve the quality of the products, allows new products to be developed, and for example in case of sales employees generate more sales. 
+
+The skilllevel alone is not enough to describe the influence on the Quality of work. The happiness and satisfaction with the job is also a measure that influences the quality of the delivered work by the employees. 
+
+Thus, the total quality of work is measured by an equal weighted average of the skilllevel and the job satisfaction. 
+
+The skilllevel of employees can be influenced by trainings which is described in the section below.
 
 
-\subsection{Training}
-Emplyoees can be categorized into 5 groups:
+\subsubsection{Training}
+Emplyees can be categorized into 5 groups:
 \begin{itemize}
-    \item Worker
-    \item Student
-    \item Graduate
-    \item Specialist
-    \item Expert
+    \item Worker (20)
+    \item Student (30)
+    \item Graduate (40)
+    \item Specialist (60)
+    \item Expert (80)
 \end{itemize}
-The initial skill level for these employees is set to (20, 30, 40, 60, 80) according to the order of the list above. In order to improve the skilllevel and by this the quality of work of the employees, training can be added to the learningjourney of employees. 
+The initial skill level for these employees is set to (20, 30, 40, 60, 80) according to the order of the list above. In order to improve the skilllevel and by this the quality of work of the employees, training can be added to the learning journey of employees. 
 
-Trainings can be assigned to a certain number of employees. The cost per training and also the increase of the skill level of the single employees depends on the kind of training. Some courses are only relevant for employees of specific departments.
+Training can be assigned to a certain number of employees. The cost per training and also the increase of the skill level of the single employees depends on the kind of training. The courses are only relevant for employees of specific departments.
 
-The following list summarizes the possible trainings which are offered and can be assigned to specific departments.
+The following list summarizes the possible training which are offered and can be assigned to specific departments.
 \begin{itemize}
 \item Hot topics in manufacturing - Production
 \item Lean production methods - Production, Logistics
@@ -55,10 +225,48 @@ The following list summarizes the possible trainings which are offered and can b
 \item Personality matters - Marketing, Sales
 \end{itemize}
 \ \\
+
+\subsubsection{Employer Branding}
+The employer branding score is the score which is reported to the external world in order to measure the value of the company as an employer in total. This score is comparable to the total score for companies which is presented on websites like kununu or glassdoor. The employer branding is a combined score out of the Job Satisfaction and the Company Image. As the Company Image implicitly incluences the Job Satisfaction rating it is weighted with 0.4 in the calculation of the employer branding score. The general formula is
+\begin{center}
+$Employer Branding = 0.4 * CIS + 0.6 * JSS$ \\
+with \\
+CIS = Company Image Score   \\
+JSS = Job Satiscation Score
+\end{center}
+
+In order to make the employer branding rating more realistic, we need to think about extreme cases where either the employee satisfaction or the company image is rated very low. The usage of a simple weighted average would have the effect that values of $JSS = 100$ and $CIS = 0$ lead to an overall score of 60.
+Therefore we need to include an indicator function which incorporates a punishment for smaller values.
+This can be done by incorporating a multiplier which is based on an IF statement. See the \textit{Excel} implementation below:
+\begin{center}
+    $=ROUND(((0.4*CIS+0.6*JSS)*IF(CIS<30,0.5,IF(CIS<60,0.8,IF(CIS>60,1))))/10,0)$
+\end{center}
+
+The following pseudo code explains the statement above.
+
+\begin{itemize}
+    \item score = 0.4*CIS + 0.6*JSS
+    \item IF CIS smaller than 30 THEN Employer Branding = Employer Branding * 0.5
+    \item ELSEIF CIS smaller than 60 THEN Employer Branding = Employer Branding * 0.8
+    \item ELSEIF CIS higher than 60 THEN Employer Branding = Employer Branding * 1
+\end{itemize}
+
+By this we ensure a sufficient punishment of the overall Employer Branding score. To achieve this we need to create a matrix and a 3D graph to visualize the possible implications on the employer branding. The following graphic shows the implications of the two input parameters on the Employer Branding.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=12.5cm]{images/EBS.jpg}
+	\caption{Employer Branding Score Caculation}
+	\label{img:EBS}
+\end{figure}
+
+\subsection{Summary}
+
 The single KPIs are calculated as follows: 
 \begin{itemize}
-\item Skill Level = initial Skill level + influence trainings
-\item Job satisfaction = 0,30*Job attractiveness + 0,65*Quality of work + 0,05*Skill Level
-\item Company branding = Job satisfaction*0,2 + Company image*0,8 
-\item Employer branding = Job satisfaction*0,6 + Company image*0,4 
+\item Quality of Work = JSS * 0.5 + Skilllevel * 0.5
+\item Skill Level = Initial Skill Level (based on employee category + influence training
+\item Job Satisfaction Score = Calculation based on JSS section above
+\item Company Image Score = Calculation based on CIS section above
+\item Employer Branding = Job satisfaction*0,6 + Company image*0,4 and performing the punishment function. 
 \end{itemize}

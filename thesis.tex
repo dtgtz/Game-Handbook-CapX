@@ -4,6 +4,8 @@
 \documentclass[11pt,titlepage,oneside,openany]{book}
 \usepackage{times}
 
+\usepackage{pgfplots}
+\pgfplotsset{width=11.5cm,compat=1.9}
 
 \usepackage{graphicx}
 \usepackage{latexsym}
@@ -189,9 +191,19 @@ Nike and Salih
 War Room and what to choose? How does everything look like, which buttons etc.
 \subsection{Financials}
 Nike, Salih\\
-Internal and external financing vs. equity and debt financing\\
+Internal and external financing vs. equity and debt financing\\ short theoretic description, but not all is relevant in our game. \\
 credit and loan from bank: SALIH \\
+basic Idea: Player asks for a loan \& gets 2-3 offers with different loan types. 
+\begin{itemize}
+    \item short term: 1-12 months (interest rate 6-18\%)
+    \item midterm: 1-5 years (interest rate 3-6\%)
+    \item Long term greater than 5 years (1.85-2\%)
+\end{itemize}
+Player always receives an offer from the bank matching the business situation (more precisely in the Game Mechanism). The receives an offer for the 01th of the following month with fixed amount, fixed interest rate, fixed retirement, fixed term.
+The player has the choice of accepting or rejecting the offer.\\
+
 Dashboards for Investments, profit and loss statement, liquidity, capital demand and profitability --> how to "do" finance \\
+
 Caaaaash\\
 Financials occur throughout the whole company as it can be seen as the engine that keeps the whole company running. 
 \begin{itemize}
@@ -234,6 +246,9 @@ manufacturing
  \end{itemize}
  \item eco-index(explain range)- how eco-index deteriorates, improves, events that may be triggered that require government intervention
 \end{itemize}
+
+\subsubsection{Procurement}
+Nike, Maike explain how to use the procurement part.
 
 \subsection{Marketing}
 Janine\\
@@ -353,7 +368,7 @@ how to play your game successfully
 
 
 \section{Challenges \& Opportunities}
-Daniel
+Daniel \\
 Planning is important but, but not everything can be foreseen 
 Explain real-world background
 External factors play a role in real life
@@ -395,6 +410,54 @@ SELLING - above in finance setion!  how does it influence the revenue\\
 
 
 \input{hr_simulation.tex}
+
+
+\section{Procurement Simulation}
+The procurement simulation represents the marketplace for suppliers in our game. In other words, this is the place where the player can buy the components needed for his / her products.\\
+One supplier for each of our predefined categories (good, medium or bad) is offered, which results in three different suppliers for each component. \\
+Moreover, every component has the following attributes: \\
+- baseCost\\
+- baseQuality\\
+- ecoIndex\\
+- baseUtility\\
+- availabilityDate\\
+
+Each of these attributes fulfils a specif need. 
+For example, the baseCost of a component depends (not linearly) on the baseQuality and the ecoIndex.\\
+This is accomplished by the follwing set-up.
+
+    \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|r|r|}
+    \hline
+    Comonent Category & baseCost & baseQuality & ecoIndex \\
+    good & \\
+    medium   &             &            &           \\
+    bad  &             &            &           \\
+    ...         &             &            &           \\
+    total       & average     & average    & average   & average   \\
+    \hline
+    \end{tabular}
+    \caption{}
+    \label{MR_customer_satisfaction}
+    \end{table}
+
+The three factors shown in the table above (baseCost, baseQuality and ecoIndex) are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting.\\
+In addition to that, the three different value ranges of the factors of the component categories (good, medium, bad) are overlapping, which increases the difficulty level for the user because this could result in the possibility that a medium component has a better baseCost-ecoIndex-baseQuality tradeoff than a good component.\\
+An example for a “good” component is explained in the following:\\
+The price of a good component is calculated as follows:\\
+component price x (randomized(1.1-1.5)) --> chooses a decimal number\\
+Whereas, the ecoIndex and baseQuality are calculated this way:\\
+randomized(80-100) --> chooses an integer value\\
+
+Explain baseUtility and availabilityDate\\
+
+Further ideas for procurement that are not implemented nor tested in our prototype yet but also part of our concept: \\
+Rename products (e.g. NikePhone) \\
+Add products to product portfolio \\
+opportunity to offer more than one product of each product category to test out the market (e.g. two smartphones, one expensive and one cheap version)\\
+(NICE TO HAVE: volume discounts, e.g. 10 percent for >=300 units. We postponed this idea because the first prototype does not include units in the procurement simulation. The player just needs to select the component and it is assumed that the desired quantity is delivered for just-in-time production (FIFO principle if not enough production capacity --> e.g. if the player startet to produce smartphone A before smartphone B in the game, then smartphone A must be produced before smartphone B when there is not enough production capacity). \\
+However, the goal is to give the buying decision to the user, who would have to calculate the tradeoff between benefit from cheaper prices per components due to volume discounts and higher warehousing costs for storing all components that cannot be manufactured.)
 
 \section{Production Simulation}
 \label{sec:products}
@@ -691,20 +754,6 @@ Calculation
     \end{itemize}
 \end{itemize}
 
-\section{Procurement Simulation}
-Marketplace for suppliers \\
-3 suppliers per product component \\
-→ randomly choose 3 combinations out of eco-index factor x quality factor (e.g. eco-index factor: medium and quality factor: good)\\
-Quality \\
-Eco-Index \\
-Price \\
-price of component is independent on eco index and quality. This increases the difficulty level for the user, because the price factor is overlapping. This results in the possibility, that a medium component has a better price-eco-index-quality tradeoff than a good component and the economically best option is to choose the medium component instead of the good component. All factors, so eco-index, quality and the price are randomized within a specific range, to break up static pricing behavior and make the game more interesting.\\
-Other ideas for procurement: Rename products (e.g. NikePhone) \\
-Add products to product portfolio \\
-opportunity to offer more than one product of each product category to test out the market (e.g. two smartphones, one expensive and one cheap version)\\
-(NICE TO HAVE: volume discounts, e.g. 10 percent for >=300 units. We postponed this idea because the first prototype does not include units in the procurement simulation. The player just needs to select the component and it is assumed that the desired quantity is delivered for just-in-time production (FIFO principle if not enough production capacity --> e.g. if the player startet to produce smartphone A before smartphone B in the game, then smartphone A must be produced before smartphone B when there is not enough production capacity). \\
-However, the goal is to give the buying decision to the user, who would have to calculate the tradeoff between benefit from cheaper prices per components due to volume discounts and higher warehousing costs for storing all components that cannot be manufactured.)
-
 \section{Competitor Simulation}
 Steffen
 
@@ -753,7 +802,7 @@ Matrix as graphic
 How decided what is conditional what is random
 
 
-This section deals with the influence of events that happen during the course of the game. Companies have to deal with influencing factors which are neither planned nor foreseeable.\cite{Campbell} This section refers to 'external' events as they are out of the players explicit and obvious control. Actions taken may still have an influence on an event's probability to happen, but this is invisible for the player. From a location point of view events can take place inside the company, for example strikes, or outside like rising taxes. Punishment for mistakes is common, but the player may also be rewarded when outstanding performance is present.  
+This section deals with the influence of events that happen during the course of the game. Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section refers to 'external' events as they are out of the players explicit and obvious control. Actions taken may still have an influence on an event's probability to happen, but this is invisible for the player. From a location point of view events can take place inside the company, for example strikes, or outside like rising taxes. Punishment for mistakes is common, but the player may also be rewarded when outstanding performance is present.  
 There are 19 distinct events divided into 5 categories and acting as counterparts to the game features. In addition, they reflect different areas of of the company's business: 
 
 \begin{itemize}
@@ -761,12 +810,10 @@ There are 19 distinct events divided into 5 categories and acting as counterpart
 \item Money and Taxes. intervene with content of the finance simulation.  
 \item Employees covers one event (strikes) which deals with the HR simulation.
 \item Natural Disasters have an internal source for gaming purposes, but come from outside of the company. 
-\item Government and Politics are a bit invisible 
+\item Government and Politics are a mostly invisible force that acts in the game. They are not visible to the player, but the impact is significant. 
 \end{itemize}
 
-Events are usually cross-functional. This means that the trigger of an event in a specific category comes from another one. 
-This is also the case for the outcome of events. The categorization itself orientates on the nature of the event.
-
+Events are usually cross-functional. This means that the trigger of an event in a specific category comes from another one. This is also the case for the outcome of events. The categorization itself orientates on the nature of the event.
 
 Characteristics of the events
 \begin{itemize}
@@ -775,7 +822,6 @@ Characteristics of the events
 \item Threshold applicable: yes / no
 \item Impact on an Game Mechanic: yes / no
 \end{itemize}
-
 The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which is also applicable for events. Their nature and likeliness to happen are to be transferred to the game environment. But there are aspects which are contradictory to this intend. Empirical evidence for the probability of events might be rare or the probability is so low that they would happen almost never throughout the game. Events having such an impact that they lead to a Game-Over must not happen in an early state and frustrate the player. In the end gaming should be fun too, not only replaying the real-world. Reflecting the latter is also limited as a simulation can never cover every 'live' aspect. As a result of these considerations, a probability can distort from its real-world example. If suitable, an event can even have a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. 
 
 
@@ -784,12 +830,12 @@ Adapting real-world examples in most cases, all events have in common that they 
 
 The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet.
 \section{Prototype implementation}
-Steffen
-Mechanics, how we did testing
+Steffen\\
+Mechanics, how we did testing\\
 Testing in each section
 
 \chapter{Marketing Proposals}
-Philipp
+Philipp\\
 \label{cha:exp}
 \label{sec:setting}
 How to sell to company
