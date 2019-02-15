@@ -428,18 +428,17 @@ This is accomplished by the follwing set-up.
 
     \begin{table}[ht]
     \centering
-    \begin{tabular}{|l|r|r|}
+    \begin{tabular}{|l|r|r|r|}
     \hline
-    Comonent Category & baseCost & baseQuality & ecoIndex \\
-    good & \\
-    medium   &             &            &           \\
-    bad  &             &            &           \\
-    ...         &             &            &           \\
-    total       & average     & average    & average   & average   \\
+    Component Category & baseCost & baseQuality & ecoIndex \\
+    \hline
+    good & 1.1 - 1.5 & 80 - 100\% & 80 - 100\% \\
+    medium & 0.85 - 1.2 & 55 - 85\% & 55 - 85\%\\
+    bad  & 0.7 - 1.0 & 10 - 60\% & 10 - 60\%\\
     \hline
     \end{tabular}
-    \caption{}
-    \label{MR_customer_satisfaction}
+    \caption{Settings for baseCost, baseQuality and ecoIndex}
+    \label{component_price_calculation}
     \end{table}
 
 The three factors shown in the table above (baseCost, baseQuality and ecoIndex) are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting.\\
@@ -450,13 +449,15 @@ component price x (randomized(1.1-1.5)) --> chooses a decimal number\\
 Whereas, the ecoIndex and baseQuality are calculated this way:\\
 randomized(80-100) --> chooses an integer value\\
 
+Moreover, each component has one baseUtility which is defined manually. This is the case, because there are different changes of the baseUtility between the different versions of a component. For example for cameras the increase in the baseUtility from "1.2 MP" to "2 MP" is much smaller than the increase from "2 MP" to "5 MP". \\
+
 Explain baseUtility and availabilityDate\\
 
 Further ideas for procurement that are not implemented nor tested in our prototype yet but also part of our concept: \\
 Rename products (e.g. NikePhone) \\
 Add products to product portfolio \\
 opportunity to offer more than one product of each product category to test out the market (e.g. two smartphones, one expensive and one cheap version)\\
-(NICE TO HAVE: volume discounts, e.g. 10 percent for >=300 units. We postponed this idea because the first prototype does not include units in the procurement simulation. The player just needs to select the component and it is assumed that the desired quantity is delivered for just-in-time production (FIFO principle if not enough production capacity --> e.g. if the player startet to produce smartphone A before smartphone B in the game, then smartphone A must be produced before smartphone B when there is not enough production capacity). \\
+(NICE TO HAVE: volume discounts, e.g. 10 percent for >=300 units. We postponed this idea because the first prototype does not include units in the procurement simulation. The player just needs to select the component and it is assumed that the desired quantity is delivered for just-in-time production (FIFO principle if not enough production capacity --> e.g. if the player started to produce smartphone A before smartphone B in the game, then smartphone A must be produced before smartphone B when there is not enough production capacity). \\
 However, the goal is to give the buying decision to the user, who would have to calculate the tradeoff between benefit from cheaper prices per components due to volume discounts and higher warehousing costs for storing all components that cannot be manufactured.)
 
 \section{Production Simulation}
@@ -618,11 +619,6 @@ Overall support (OS)
 \section{Marketing Simulation}
 Janine 
 \subsection{Market Research}
-\begin{itemize}
-    \item Internal marketing activities can only be performed if the company has a marketing employee
-    \item Internal market research only possible if the company has a marketing employee
-    \item external research always possible 
-\end{itemize}
 
 \subsubsection{Price Sensitive Research}
     \begin{itemize}
@@ -745,12 +741,13 @@ Calculation
 \begin{itemize}
     \item Overall Product Quality (OPQ)
     \item Overall support (OS) reference calculation in support (ToDo)
-    \item Company branding (CB) = 0,9*Company Image + 0,1*Job Satisfaction reference calculation if alreday defined in the doc (ToDo)
+    \item Company branding (CB) = 0,9*Company Image + 0,1*Job Satisfaction
+    \item Employer branding (EB) 
     \item Customer Satisfaction (CS)
     \begin{itemize}
-    \item If $OPQ \leq \ $40: (0,80*OPQ + 0,1*OS + 0,10*CB)
-    \item ElseIf $OPQ \leq \ $60: (0,70*OPQ + 0,2*OS + 0,10*CB)
-    \item Else: (0,60*OPQ + 0,3*OS + 0,10*CB)
+    \item If $OPQ \leq \ $40: (0,75*OPQ + 0,1*OS + 0,1*CB + 0,05*EB )
+    \item ElseIf $OPQ \leq \ $60: (0,65*OPQ + 0,2*OS + 0,1*CB + 0,05*EB)
+    \item Else: (0,55*OPQ + 0,3*OS + 0,1*CB + 0,05*EB)
     \end{itemize}
 \end{itemize}
 
