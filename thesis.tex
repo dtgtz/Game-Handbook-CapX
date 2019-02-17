@@ -3,7 +3,8 @@
 % the printed version in the accordant format
 \documentclass[11pt,titlepage,oneside,openany]{book}
 \usepackage{times}
-
+\usepackage{caption}
+\usepackage{longtable}
 \usepackage{pgfplots}
 \pgfplotsset{width=11.5cm,compat=1.9}
 
@@ -11,9 +12,10 @@
 \usepackage{latexsym}
 \usepackage{amsmath}
 \usepackage{amssymb}
-
+\usepackage{glossaries}
+\usepackage{lscape}
 \usepackage{ntheorem}
-
+%\usepackage[table,xcdraw]{xcolor}
 % \usepackage{paralist}
 \usepackage{tabularx}
 
@@ -60,7 +62,12 @@
 \def\MUPALL#1#2#3#4#5{\textit{MUPS}_{#1}\left(#2, #3, #4, #5\right)} % the set of all mups for some concept
 \def\MIPALL#1#2{\textit{MIPS}_{#1}\left(#2\right)} % the set of all mips
 
+\makeglossaries
 
+\newglossaryentry{cs}{%
+name={cs},%
+description={Customer Satisfaction}%
+}
 
 
 
@@ -101,7 +108,7 @@ Steffen Waldmann \\
 \listoffigures
 
 \listoftables
-
+\printglossary[style=long]
 % evntuelly you might add something like this
 % \listtheorems{definition}
 % \listtheorems{proposition}
@@ -113,43 +120,34 @@ Steffen Waldmann \\
 \chapter{From a small startup to a global enterprise}
 \label{cha:intro}
 \section{What to expect from Capitalism X (CapX)}
-Nike, Maike \\
-Business simulation games...Fancy introduction, Target audience \\
-Goal of business simulation game \\
+Nike\\
+Business simulation games...Fancy introduction, Target audience\\
+Goal of business simulation game\\
 User skills? Thinking economic entrepreneurial spirit...\\
 
 Did you ever tested out your economic skills and entrepreneurial spirit? Did you ever wish to take action and do things your way? Did you ever thought that with the steering wheel in your hand, you'd give a company a whole new direction and possibility to rise? \\
-CapitalismX now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades.
-
-\begin{itemize}
-	\item A table can be found in Section \ref{sec:results}. This example (Table \ref{tab:confonly}) is only a suggestion. You are allowed to format your tables in your preferred style.
-\end{itemize}
+CapitalismX now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades.\\
 
 \emph{Very Important:} Besides being a game-play handbook, this document also addresses the game mechanisms working in the background
  
 \section{Player's role}
-Nike, Maike \\
-Combination of CEO role, Marketing, Sales, ... \\
-
-The user will take the role of a CEO for either a start-up or a medium sized company which is about to fail. During his or her career, the user faces several obstacles and has to manage the company. The player has to slip into different roles, such as head of HR, Manufacturing and Logistics to accomplish the actions needed in order to run a successful firm. Daily tasks involve hiring, firing, motivating and educating employees, innovate and manufacture products and decide on the product portfolio, handling governmental issues, and so on...
+Maike\\
+The user assumes the role of CEO for either a start-up or a midsize company which is about to fail. During his career, the player encounters several obstacles and leads the business. So, the user slips into various roles, such as head of human resources, production or logistics, in order to take the necessary measures to run a successful business. Daily tasks include hiring, firing, motivating and training employees, innovating and manufacturing products, deciding on the product portfolio, dealing with government issues and taking financial figures into account.
+In summary, the player decides on all the features provided in our game. These decisions are included in finance, human resources, procurement, production, warehouse, logistics and marketing and affect the performance of the company.
 
 \section{Setting \& Story}
-Nike, Maike \\
-\cite{mochol08matcher}
-Setting (by Philipp und Livja) \\
-
-Goals, Timeframe from 1990 to 2017 in the first phase, Progress \\
-The setting of the game is a fictional map of a town/city.  The player has to choose where to set up his first shop, in a vacant distant area or downtown. \\
+\label{SettingStory}
+Maike\\
+Timeframe from 1990 to 2017 in the first phase, Progress\\
+The setting of the game is a fictional map of a town/city.  The player has to choose where to set up his first shop, in a vacant distant area or downtown.\\
 Functional\ Non-functional buildings\\
 Functional buildings: bank, government building, consultant firm, harbor(import/export), marketing firm, competitors \\
 Non-functional buildings: City centre, Parks(increase employee satisfaction), sea/ river, roads(transportation)\\
 Own currency: capcoins cc (value comparable to US Dollars) \\
 Democratic government \\
-One year in real time is represented by 1 hour gameplay (1 month in real time = 5 minutes gameplay)
-Total playtime: 60 hours.\\
-
-Storyline 
-
+One day in the game is 3 seconds in real time\\
+Total playtime: 15 hours.\\
+Storyline:\\
 Mid-size IT company\\
 Start option 1: We buy a mid size IT company which is about to fail 
 (bad management)\\
@@ -157,15 +155,13 @@ Start option 2: We found a new Start-Up, so we can choose our employees and prod
 Different starting capitals\\
 Products: see Product Flow Charts\\
 Trading components\\
-Make or Buy decisions\\
-Organize your entire company from the CEO's perspective 
-(incl. HR, Finance, Manufacturing, ect.)\\
+Make or Buy decisions for some products, not components\\
+Organize your entire company from the CEO's perspective (incl. HR, Finance, Manufacturing, ect.)\\
 Customer simulation regarding services, support and products \\
-Handle random events (defined in Problem-Influence-Matrix)\\
-Integration of games within CapX, e.g. play a round of Tetris to clean up the mess  in your warehouse\\
-Events that will be triggered by game settings(fire-old machines,company shut down- low eco-index,etc... ) or random(natural disasters)
-
-
+External events:\\
+Handle random events(e.g natural disasters) (defined in Problem-Influence-Matrix)\\
+And handle events that will be triggered by game settings(fire-old machines, company shut down - low eco-index,etc... )\\
+Integration of games within CapX, e.g. play a round of Tetris to clean up the mess  in your warehouse (put in Outlook?)\\
 
 
 \chapter{How to play CapX}
@@ -173,8 +169,8 @@ Events that will be triggered by game settings(fire-old machines,company shut do
  This chapter deals with the interface, options, content of the game
 
 \section{Getting started with CapX}
-Steffen
-Halbe Seite
+Steffen, Nike
+Halbe Seite\\
 
 \label{sec:prelim}
 Starting screen selections, first steps
@@ -183,16 +179,33 @@ Starting screen selections, first steps
 An entity is evil if it is not a good entity.
 \end{definition}
 
+Did you ever tested out your economic skills and entrepreneurial spirit? Did you ever wish to take action and do things your way? Did you ever thought that with the steering wheel in your hand, you'd give a company a whole new direction and possibility to rise? \\
+CapitalismX now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades.\\
+
+
 \section{Interface \& Features}
 \label{sec:good}
 
 \subsection{Controls}  
 Nike and Salih
-War Room and what to choose? How does everything look like, which buttons etc.
+War Room and what to choose? How does everything look like, which buttons etc. pause button / fast-forward button???\\
 \subsection{Financials}
 Nike, Salih\\
 Internal and external financing vs. equity and debt financing\\ short theoretic description, but not all is relevant in our game. \\
-credit and loan from bank: SALIH \\
+
+Financials occur throughout the whole company as it can be seen as the engine that keeps the whole company running. The entry point for the financial actions is the finance dashboard. You may find it by clicking on the finance button [screenshot] from the navigation bar at the top left. The dashboard gives you a detailed overview about several areas at first glance:
+
+\begin{itemize}
+    \item Cashflow, which is basically your profit and loss statement displaying revenues, expenses, and profit on a quarterly basis.
+    \item Statistics, showing the development of salaries and total sales in visualized graphs.
+    \item Company information, divided into cash, assets, liabilities and company net worth. This view gives you information about the current liquidity of your company.
+    \item Bank, providing the possibility to request a loan from the bank or to get an overview about current loans.
+    \item Investments, where the you might invest some money in the stock market.
+    \item Product performance, giving an overview about product specific key performance indicators, such as the sum of material costs per product.
+\end{itemize}
+
+The cashflow, statistics, company information and product performance are solely descriptive information, that is generated from the actual settings defined by you as the player or by your company’s performance. The goal of these areas is to provide an overview about the general financial performance status of the company and should give you hints about adapting some parameters. \\
+The bank and the investment areas need input from your side. To start with the bank, [SALIHs STUFF].\\
 basic Idea: Player asks for a loan \& gets 2-3 offers with different loan types. 
 \begin{itemize}
     \item short term: 1-12 months (interest rate 6-18\%)
@@ -202,21 +215,13 @@ basic Idea: Player asks for a loan \& gets 2-3 offers with different loan types.
 Player always receives an offer from the bank matching the business situation (more precisely in the Game Mechanism). The receives an offer for the 01th of the following month with fixed amount, fixed interest rate, fixed retirement, fixed term.
 The player has the choice of accepting or rejecting the offer.\\
 
-Dashboards for Investments, profit and loss statement, liquidity, capital demand and profitability --> how to "do" finance \\
+Apart from that, you might invest some money into innovations on the stock market, which is similar to the well known DAX stock market. As this may be a risky undertaking, due to the regular oscillations on this market, a good idea is to spend only a reasonable amount of money there. \\
+%\include{finance/investments.tex}
 
-Caaaaash\\
-Financials occur throughout the whole company as it can be seen as the engine that keeps the whole company running. 
-\begin{itemize}
-    \item Interfaces to all other departments
-    \item controlling function
-    \item pricing 
-    \item budget plan
-    \item loaning money from the bank
-    \item finance strategy
-\end{itemize}
+Pricing and selling of goods might appear as a financial task to you, but in fact, you will find information about these topics in the manufacturing view.\\ 
 
-Pricing and selling \\
-pricing: user sees cumulated costs per product incl. employee costs (LIVJAS formel) and may decide on a profit margin to add to the costs. He gets some hints and the value addded as percent. (explain UI part in 4.x chapter).
+%Pricing and selling -- put into production view \\
+%pricing: user sees cumulated costs per product incl. employee costs (LIVJAS formel) and may decide on a profit margin to add to the costs. He gets some hints and the value addded as percent. (explain UI part in 4.x chapter).
 
 \subsection{HR}
 Maike and Philipp \\
@@ -228,7 +233,7 @@ Personnel planning contains the determination of employee requirements, includin
 How are all these components considered in our game? What is the goal of the player from the HR point of view?
 
 \subsection{Production}
-Livja \\
+Livja, (Nike for Pricing and Selling) \\
  production is composed of three main elements: procurement(harbour), manufacturing, logistics(relate to following paragraph)\\
 explain each sub-unit of these elements and adapt explanation and functions to the mock-up
 procurement of products - component, component level, units, price, supplier \\
@@ -248,7 +253,7 @@ manufacturing
 \end{itemize}
 
 \subsubsection{Procurement}
-Nike, Maike explain how to use the procurement part.
+Nike explain how to use the procurement part.
 
 \subsection{Marketing}
 Janine\\
@@ -407,58 +412,11 @@ Describe how implemented in prototype: net worth of company equals profit, taxes
 PRICING - above in finance section! how is the function displayed in simulation  \\
 SELLING - above in finance setion!  how does it influence the revenue\\
 
-
+\include{finance/investments.tex}
 
 \input{hr_simulation.tex}
 
-
-\section{Procurement Simulation}
-The procurement simulation represents the marketplace for suppliers in our game. In other words, this is the place where the player can buy the components needed for his / her products.\\
-One supplier for each of our predefined categories (good, medium or bad) is offered, which results in three different suppliers for each component. \\
-Moreover, every component has the following attributes: \\
-- baseCost\\
-- baseQuality\\
-- ecoIndex\\
-- baseUtility\\
-- availabilityDate\\
-
-Each of these attributes fulfils a specif need. 
-For example, the baseCost of a component depends (not linearly) on the baseQuality and the ecoIndex.\\
-This is accomplished by the follwing set-up.
-
-    \begin{table}[ht]
-    \centering
-    \begin{tabular}{|l|r|r|r|}
-    \hline
-    Component Category & baseCost & baseQuality & ecoIndex \\
-    \hline
-    good & 1.1 - 1.5 & 80 - 100\% & 80 - 100\% \\
-    medium & 0.85 - 1.2 & 55 - 85\% & 55 - 85\%\\
-    bad  & 0.7 - 1.0 & 10 - 60\% & 10 - 60\%\\
-    \hline
-    \end{tabular}
-    \caption{Settings for baseCost, baseQuality and ecoIndex}
-    \label{component_price_calculation}
-    \end{table}
-
-The three factors shown in the table above (baseCost, baseQuality and ecoIndex) are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting.\\
-In addition to that, the three different value ranges of the factors of the component categories (good, medium, bad) are overlapping, which increases the difficulty level for the user because this could result in the possibility that a medium component has a better baseCost-ecoIndex-baseQuality tradeoff than a good component.\\
-An example for a “good” component is explained in the following:\\
-The price of a good component is calculated as follows:\\
-component price x (randomized(1.1-1.5)) --> chooses a decimal number\\
-Whereas, the ecoIndex and baseQuality are calculated this way:\\
-randomized(80-100) --> chooses an integer value\\
-
-Moreover, each component has one baseUtility which is defined manually. This is the case, because there are different changes of the baseUtility between the different versions of a component. For example for cameras the increase in the baseUtility from "1.2 MP" to "2 MP" is much smaller than the increase from "2 MP" to "5 MP". \\
-
-Explain baseUtility and availabilityDate\\
-
-Further ideas for procurement that are not implemented nor tested in our prototype yet but also part of our concept: \\
-Rename products (e.g. NikePhone) \\
-Add products to product portfolio \\
-opportunity to offer more than one product of each product category to test out the market (e.g. two smartphones, one expensive and one cheap version)\\
-(NICE TO HAVE: volume discounts, e.g. 10 percent for >=300 units. We postponed this idea because the first prototype does not include units in the procurement simulation. The player just needs to select the component and it is assumed that the desired quantity is delivered for just-in-time production (FIFO principle if not enough production capacity --> e.g. if the player started to produce smartphone A before smartphone B in the game, then smartphone A must be produced before smartphone B when there is not enough production capacity). \\
-However, the goal is to give the buying decision to the user, who would have to calculate the tradeoff between benefit from cheaper prices per components due to volume discounts and higher warehousing costs for storing all components that cannot be manufactured.)
+\input{Procurement/procurementSimulation.tex}
 
 \section{Production Simulation}
 \label{sec:products}
@@ -499,222 +457,27 @@ Give functions, equations for measuring each of the factors that affect producti
 explain graph : production is dependent of the production process and the product itself 
 
 \section{Warehouse Simulation}
-Janine \\
-\begin{itemize}
-    \item All produced products go directly into the warehouse but it only costs if they are not sold / delivered at the same day they are produced.
-    \item For each product in the warehouse at the end of the day (after all packages are delivered according the demand) the company has to pay
-    \item If the warehouse is full, it shouldn't’t be possible to produce more products. That means production is limited to the storage capacity! 
-    \item Storage capacity is shared between components and products. To make it a bit more realistic: components need 1/2 unit and products 1 unit
-    \item number of products in the warehouse forms the basis for the number of products that can be sold
-    \item Characteristics 
-    \begin{itemize}
-        \item can be build / bought or rented
-        \item linear depreciation over 25 years, building losses every year AC/25 on value 
-        \item capacity of 5000 units
-    \end{itemize}
-    \item Cost 
-    \begin{itemize}
-        \item building-costs (one time) | rental cost (monthly)
-        \item maintenance costs (yearly or monthly) 
-        \item Daily costs for storage = number units * storing cost per unit per day
-    \end{itemize}
-\end{itemize}
+Janine\ \\
+% \input{Logistic, Support, Warehouse/Warehouse.tex}
 
 \section{Logistic and Support Simulation}
-Janine\\
-Internal logistic:
-\begin{itemize}
-    \item The capacity of the logistics fleet is measured by the number of trucks
-    \item If the demand for products is higher than the inventory, all products are sold from the warehouse. That means the inventory represents the maximum sales quantity for a product
-    \item If the demand for a product is lower than the inventory, only the demanded quantity is sold and thus delivered. The remaining products stay in the warehouse and cause storage costs 
-    \item Trucks
-    \begin{itemize}
-        \item Capacity = 1000 products  
-        \item purchase price = tbd 
-        \item maintenance cost (yearly or monthly) = tbd
-        \item eco index (EF) = [20,40,60,80,100]
-        \item quality index (QF) = [20,40,60,80,100]
-        \item Logistic employees: Quality of work (QWLE)
-        \item Depreciation 
-        \begin{itemize}
-            \item linear over 9 years
-            \item = aquicion cost / 9 
-        \end{itemize}
-        \item Fleet index (FI) = EF*0,2 + QF*0,8
-        \item  = FI*0,6 + QWLE*0,4
-        \item Internal logistic index (ILI)
-        \begin{itemize}
-            \item If $QWLE \leq \ $40: (FI*0,5 + QWLE*0,5)
-            \item Else: (FI*0,6 + QWLE*0,4)
-        \end{itemize}
-    \end{itemize}
-    \item Delivery Cost:
-    \begin{itemize}
-        \item number of products = deliver capacity: deliver costs  = (number of products / 1000) * cost per delivery
-        \item number of products < deliver capacity: delivery cost = round up to the next int (number of products / 1000) * cost per delivery
-        \item number of products > deliver capacity: delivery cost = number trucks * cost per delivery + cost delivery external (-> see cost external logistic partner) 
-        \item if no external logistic partner is hired, the delivery of one product costs -tbd
-    \end{itemize}
-\end{itemize}
+Janine\ \\
+\subsection{Logistic}
+% \input{Logistic, Support, Warehouse/Logistic.tex}
 
-External logistic partner:
-\begin{itemize}
-    \item The player is able to fire the actual partner and hire a new one. Only one logistic partner at the same time should be possible. (can be hired in the job market)
-    \item If an external partner is hired own trucks are not needed but can be
-    \item Characteristics of the partners:
-    \begin{itemize}
-        \item Quality (QLP) = [20,40,60,80,100]
-        \item Eco-Index (ELP)= [20,40,60,80,100]
-        \item Reliability (RLP) = [20,40,60,80,100]
-    \end{itemize}
-    \item Beyond a certain limit of reliability, this characteristic of an external partner has a greater impact on the external logistic index: $Reliability \leq \ $40
-    \item External logistic index (ELI)
-    \begin{itemize}
-        \item If $RLP \leq \ $40: (RLP*0,5 + 0,5*(QLP*0,8 + ELP*0,2))
-        \item Else: (RLP*0,4 + 0,6*(QLP*0,8 + ELP*0,2))
-    \end{itemize}
-    \item Cost of an external logistic partner:
-    \begin{itemize}
-        \item cost per delivery of one package 
-        \item contractually agreed fixed costs (yearly or monthly)
-        \item cost delivery external = (number of products - number trucks * 1000) * cost per delivery of one package (external)
-    \end{itemize}
-\end{itemize}
-
-logistic index (LI):
-\begin{itemize}
-\item (ELI * number packages delivered external + ILI * number packages delivered internal) / number all packages delivered 
-\end{itemize}
-
-Product Support:
-\begin{itemize}
-\item only possible with sales employees 
-\item support infrastructure cost: initial cost + yearly maintenance cost  
-\item Based on the support type, the quality o work (QWSE) and the job satisfaction (JSSE) of the sales employees
-\item Types and indexes (STI)
-\begin{itemize}
-\item No product service (0)
-\item online self service = 5
-\item online support = 25
-\item telephone support = 30  
-\item store support = 40
-\item All four (100)
-\end{itemize}
-\item Employee Index Sales (EIS) = JSSE*0,4 + QWSE*0,6
-\item Support type index (STI) = Sum Indexes offered support types
-\item Product support index (PSI) 
-\begin{itemize}
-\item If $EIS \leq \ $50: (0,4*EIS + STI*0,6)
-\item Else: (0,4*EIS + STI*0,6)
-\end{itemize}
-\end{itemize}
-
-Overall support (OS)
-\begin{itemize}
-\item If LI $LI \leq \ $40: (LI*0,5 + PSI*0,5)
-\item ElseIf $LI \leq \ $50: (LI*0,6 + PSI*0,4)
-\item Else: (LI*0,7 + PSI*0,3)
-\end{itemize}
+\subsection{Product Support}
+% \input{Logistic, Support, Warehouse/Support.tex}
 
 \section{Marketing Simulation}
-Janine 
+Janine\ \\
 \subsection{Market Research}
+% \input{Marketing/Market Research.tex}
 
-\subsubsection{Price Sensitive Research}
-    \begin{itemize}
-        \item Provides a price sensitive analysis for a specific product
-        \item The research shows the results for 9 price levels around the reference price (input), the price levels are from -20\% to +20\% in 5\% steps
-        \item more than the reference value: x = ((100 * new value) / ref value) - 100
-        \item less than the reference value: x = ((1 - (new value / ref value)) / 100
-        \item Output includes: 
-        \begin{itemize}
-            \item all the values are calculated based on the actual values and the defined market price, changes are calculated based on the reference market price 
-            market price
-            \item margin, sales number, sales volume, total cost, market share, margin change, market share change
-        \end{itemize}
-        \end{itemize}
-       
-       \begin{table}[ht]
-        \centering
-        \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|}
-        \hline
-        key figures             & -20\% & -15\% & -10\% & -5\%  & 0\%   & +5\%  & +10\% & +15\%   \\
-        market price            &       &       &       &       &       &       &       &         \\
-        product costs           &       &       &       &       &       &       &       &         \\
-        margin                  &       &       &       &       &       &       &       &         \\
-        sales number            &       &       &       &       &       &       &       &         \\
-        sales volume            &       &       &       &       &       &       &       &         \\
-        market share            &       &       &       &       &       &       &       &         \\
-        margin change           &       &       &       &       &       &       &       &         \\
-        market share change     &       &       &       &       &       &       &       &         \\
-        net change              &       &       &       &       &       &       &       &         \\
-        \hline
-        \end{tabular}
-        \caption{Structure price sensitive research}
-        \label{MR_price_sensitive}
-        \end{table}
-
-\subsubsection{Customer Satisfaction Research}
-    \begin{itemize}
-        \item company at all (last four quarters): Calculation of the customer satisfaction for the last four quarters 
-        \item specific product (last four quarters): Calculation of the customer satisfaction for the specific product for the last four quarters 
-    \end{itemize}
-    
-    \begin{table}[ht]
-    \centering
-    \begin{tabular}{|l|r|r|r|r|}
-    \hline
-                & quarter 1   & quarter 2  & quarter 3 & quarter 4 \\
-    product 1   &             &            &           &           \\
-    product 1   &             &            &           &           \\
-    product 1   &             &            &           &           \\
-    ...         &             &            &           &           \\
-    total       & average     & average    & average   & average   \\
-    \hline
-    \end{tabular}
-    \caption{Structure customer satisfaction research}
-    \label{MR_customer_satisfaction}
-    \end{table}
-    
-\subsubsection{Market Statistic Research}
-    \begin{itemize}
-        \item overall company, product level
-        \item provides a variety of market information: 
-        \item Costs: fix price for external and internal survey
-        \item Includes: product price, market share, sales numbers, product quality, service quality 
-    \end{itemize}
-    
-    \begin{table}[ht]
-    \centering
-    \begin{tabular}{|l|r|r|r|r|}
-    \hline
-                            & product 1   & product 2  & product 3 & ...       \\
-    product price           &             &            &           &           \\
-    market share            &             &            &           &           \\
-    sales numbers           &             &            &           &           \\
-    product quality         &             &            &           &           \\
-    service quality         &             &            &           &           \\
-    customer satisfaction   &             &            &           &           \\
-    \hline
-    \end{tabular}
-    \caption{Structure market statistic research}
-    \label{MR_market_statistic}
-    \end{table}
-    
 \subsection{Lobbyist}
-If the company is in contact with a lobbyist, he tries to mitigate negative government decisions on the company. For its services the lobbyist demands a compensation payment, which of course has to be renewed regularly.
+% \input{Marketing/Lobbyist.tex}
 
 \subsection{Management Consultancy}
-If the company contacts a management consultancy, they try to investigate possible optimization points and report them to the player. (ToDo: Whats the goal of the consultancy -> optimize customer satisfaction?) 
-
-ToDo: What influence do the external statements and campaigns have? Should they directly influence the buying behaviour or only the image of the brand? 
-
-ToDo: How do the internal trainings influence the employee satisfaction? Or should we leaf it out for the first take and as a point for optimization) 
-
-ToDo: How do we want to calculate the market share? 
-
-Cost calculations 
-
+% \input{Marketing/Management Consultancy.tex}
 
 \section{Customer Simulation}
 \label{sec:customsim}
@@ -770,7 +533,7 @@ Demand simulation:
 \end{itemize}
 \item In order to determine what percentage of the offered products will be sold (y) the chosen retail price divided by the base price in the current year will be used as x in the following formula.
 \begin{equation}
-y = 167.905104 * \E^{ -2.990914872 * 10^{ -1 } * x^{ 2 }}
+%y = 167.905104 * \E^{ -2.990914872 * 10^{ -1 } * x^{ 2 }}
 \end{equation}
 \begin{itemize}
     \item if the result is \textgreater 100; demand = 100\%
@@ -794,11 +557,6 @@ does not necessarily need pictures in it to work. A simpler approach (Figure
 2) might even be better in some cases.
 
 \section{External events}
-Daniel
-Matrix as graphic
-How decided what is conditional what is random
-
-
 This section deals with the influence of events that happen during the course of the game. Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section refers to 'external' events as they are out of the players explicit and obvious control. Actions taken may still have an influence on an event's probability to happen, but this is invisible for the player. From a location point of view events can take place inside the company, for example strikes, or outside like rising taxes. Punishment for mistakes is common, but the player may also be rewarded when outstanding performance is present.  
 There are 19 distinct events divided into 5 categories and acting as counterparts to the game features. In addition, they reflect different areas of of the company's business: 
 
@@ -824,6 +582,44 @@ The decision which event should get which characteristic was based on multiple a
 
 
 Adapting real-world examples in most cases, all events have in common that they have a significant impact on an indicator of the game mechanics. Some events are exaggerated compared to real-world examples. 
+
+
+\begin{landscape}
+\begin{table}[]
+%{
+\fontsize{7}{8} \selectfont
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+ & \textbf{External Event} & \textbf{\begin{tabular}[c]{@{}l@{}}Random / \\ Conditional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Influencing \\ Indicators\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Starting \\ Threshold\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Probability or\\ Preconditions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Final \\ Threshold\end{tabular}} & \textbf{Impact on} & \textbf{Remarks} \\ \hline
+\textbf{} & \textbf{Production and Market:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
+1 & \begin{tabular}[c]{@{}l@{}}Production Problems \\ PopUp\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product\\ Quality\end{tabular} & 0,3 & (-1*Product Quality+2) & 0 & n/a & Decreasing Function \\ \hline
+2 & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product \\ Quality\end{tabular} &  &  &  & Customer Satisfaction & \begin{tabular}[c]{@{}l@{}}Boosts Customer \\ Satisfaction for 20 cycles\end{tabular} \\ \hline
+3 & \begin{tabular}[c]{@{}l@{}}Company Aqcuistion \\ possibility offered\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Constant \\ Increasing \\ Revenue\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Revenue increases\\ 25\% per year \\ over 5 years\end{tabular} &  & \begin{tabular}[c]{@{}l@{}}Indicators of \\ Acquisition integrated\end{tabular} & \begin{tabular}[c]{@{}l@{}}Acquistion costs xy, \\  minigame possible\end{tabular} \\ \hline
+4 & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & Random & n/a &  & 0,05 &  & Revenue & \begin{tabular}[c]{@{}l@{}}Only possibe if revenue \\ above xx CapCoins\end{tabular} \\ \hline
+5 & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Customer \\ Satisfaction\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Customer satisfaction \\ below threshold of XY\end{tabular} & n/a & Demand &  \\ \hline
+6 & \begin{tabular}[c]{@{}l@{}}Computer virus \\ attacks\end{tabular} & Random & n/a & n/a & 0,1 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity and\\ Reputation\end{tabular} & After Year 2000 \\ \hline
+\textbf{} & \textbf{Finance and Taxes:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & {\color[HTML]{FE0000} } \\ \hline
+7 & \begin{tabular}[c]{@{}l@{}}Tax Changes lead to \\ higher or less rates\end{tabular} & Random & n/a & n/a & -2 to 5 percent &  &  & In-/Decrease over time \\ \hline
+8 & Stricter Eco Laws & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 2 & 0.12 * Eco Index \textasciicircum 1.3 & 5 & \begin{tabular}[c]{@{}l@{}}Financial Fine or \\ Game Over\end{tabular} & Shutdown by Government \\ \hline
+9 & Inflation changes & Random & n/a & n/a & \begin{tabular}[c]{@{}l@{}}0 - 2 \% \\ (random)\end{tabular} & n/a &  & Example Germany \\ \hline
+10 & \begin{tabular}[c]{@{}l@{}}Stealing inside of\\ the company\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Job \\ Satisfaction\end{tabular} & 50\% & \begin{tabular}[c]{@{}l@{}}-4 * Job\\ Satisfaction + 2\end{tabular} & 25\% & Revenue & \begin{tabular}[c]{@{}l@{}}Financial decrease even \\ if sales high and cost \\ low (Incosistency)\end{tabular} \\ \hline
+\textbf{} & \textbf{Employees:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
+11 & Strikes and union fightings & Conditional & Salary &  & Scaling to be defined &  & \begin{tabular}[c]{@{}l@{}}Production \\ Performance\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ salaries are risen\end{tabular} \\ \hline
+\textbf{} & \textbf{Natural Disasters:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
+12 & \begin{tabular}[c]{@{}l@{}}Flu goes around \\ causing Ill employees\end{tabular} & Random & n/a & n/a & 0,2 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity \\ Decrease of 10\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Temporary impact vanishes\\ after 100 Game Cycles\end{tabular} \\ \hline
+13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornados, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 2 & 0.12 * Eco Index \textasciicircum 1.3 & 5 &  &  \\ \hline
+14 & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ warehouse\end{tabular} & Conditional & Inventory & \begin{tabular}[c]{@{}l@{}}Warehouses \\ at 80\%\end{tabular} & Game Cycles *0,001 & \begin{tabular}[c]{@{}l@{}}100 Game \\ Cylces\end{tabular} & Inventory & \begin{tabular}[c]{@{}l@{}}Only if warehouse\\ at or over 80\% full\end{tabular} \\ \hline
+\textbf{} & \textbf{Government and Politics:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
+15 & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Supplier \\ quality\end{tabular} &  & Future work &  &  &  \\ \hline
+16 & Change of power & Random & n/a & n/a & 0,2 &  & Tax rate & Most once the whole game \\ \hline
+17 & Anonymous bomb threats & Conditional &  &  &  &  &  &  \\ \hline
+18 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ beacause of riots\end{tabular} & Conditional & Company Image &  & Future work &  &  &  \\ \hline
+19 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} & n/a & n/a & n/a & n/a & Future Work \\ \hline
+\end{tabular}
+    \caption{External events}
+    \label{events_list}
+\end{table}
+\end{landscape}
 
 The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet.
 \section{Prototype implementation}

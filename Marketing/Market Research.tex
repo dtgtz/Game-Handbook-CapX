@@ -1,0 +1,81 @@
+\gls{cs} %Customer Satisfaction from glossary
+\subsubsection{Price Sensitive Research}
+    \begin{itemize}
+        \item Provides a price sensitive analysis for a specific product
+        \item The research shows the results for 9 price levels around the reference price (input), the price levels are from -20\% to +20\% in 5\% steps
+        \item more than the reference value: x = ((100 * new value) / ref value) - 100
+        \item less than the reference value: x = ((1 - (new value / ref value)) / 100
+        \item Output includes: 
+        \begin{itemize}
+            \item all the values are calculated based on the actual values and the defined market price, changes are calculated based on the reference market price 
+            market price
+            \item margin, sales number, sales volume, total cost, market share, margin change, market share change
+        \end{itemize}
+        \end{itemize}
+       
+       \begin{table}[ht]
+        \centering
+        \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|}
+        \hline
+        key figures             & -20\% & -15\% & -10\% & -5\%  & 0\%   & +5\%  & +10\% & +15\%   \\
+        market price            &       &       &       &       &       &       &       &         \\
+        product costs           &       &       &       &       &       &       &       &         \\
+        margin                  &       &       &       &       &       &       &       &         \\
+        sales number            &       &       &       &       &       &       &       &         \\
+        sales volume            &       &       &       &       &       &       &       &         \\
+        market share            &       &       &       &       &       &       &       &         \\
+        margin change           &       &       &       &       &       &       &       &         \\
+        market share change     &       &       &       &       &       &       &       &         \\
+        net change              &       &       &       &       &       &       &       &         \\
+        \hline
+        \end{tabular}
+        \caption{Structure price sensitive research}
+        \label{MR_price_sensitive}
+        \end{table}
+
+\subsubsection{Customer Satisfaction Research}
+    \begin{itemize}
+        \item company at all (last four quarters): Calculation of the customer satisfaction for the last four quarters 
+        \item specific product (last four quarters): Calculation of the customer satisfaction for the specific product for the last four quarters 
+    \end{itemize}
+    
+    \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|r|r|r|r|}
+    \hline
+                & quarter 1   & quarter 2  & quarter 3 & quarter 4 \\
+    product 1   &             &            &           &           \\
+    product 1   &             &            &           &           \\
+    product 1   &             &            &           &           \\
+    ...         &             &            &           &           \\
+    total       & average     & average    & average   & average   \\
+    \hline
+    \end{tabular}
+    \caption{Structure customer satisfaction research}
+    \label{MR_customer_satisfaction}
+    \end{table}
+    
+\subsubsection{Market Statistic Research}
+    \begin{itemize}
+        \item overall company, product level
+        \item provides a variety of market information: 
+        \item Costs: fix price for external and internal survey
+        \item Includes: product price, market share, sales numbers, product quality, service quality 
+    \end{itemize}
+    
+    \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|r|r|r|r|}
+    \hline
+                            & product 1   & product 2  & product 3 & ...       \\
+    product price           &             &            &           &           \\
+    market share            &             &            &           &           \\
+    sales numbers           &             &            &           &           \\
+    product quality         &             &            &           &           \\
+    service quality         &             &            &           &           \\
+    customer satisfaction   &             &            &           &           \\
+    \hline
+    \end{tabular}
+    \caption{Structure market statistic research}
+    \label{MR_market_statistic}
+    \end{table}

@@ -1,0 +1,49 @@
+\section{Procurement Simulation}
+Maike\\
+The procurement simulation represents the marketplace for suppliers in our game. In other words, this is the place where the player can buy the components needed for his / her products.\\
+One supplier for each of our predefined categories (good, medium or bad) is offered, which results in three different suppliers for each component. \\
+Moreover, every component has the following attributes: \\
+- baseCost\\
+- baseQuality\\
+- ecoIndex\\
+- baseUtility\\
+- availabilityDate\\
+
+Each of these attributes fulfils a specif need. 
+For example, the baseCost of a component depends (not linearly) on the baseQuality and the ecoIndex.\\
+This is accomplished by the follwing set-up.
+
+    \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|r|r|r|}
+    \hline
+    Component Category & baseCost & baseQuality & ecoIndex \\
+    \hline
+    good & 1.1 - 1.5 & 80 - 100\% & 80 - 100\% \\
+    medium & 0.85 - 1.2 & 55 - 85\% & 55 - 85\%\\
+    bad  & 0.7 - 1.0 & 10 - 60\% & 10 - 60\%\\
+    \hline
+    \end{tabular}
+    \caption{Settings for baseCost, baseQuality and ecoIndex}
+    \label{component_price_calculation}
+    \end{table}
+
+The three factors (baseCost, baseQuality and ecoIndex) shown in table \ref{component_price_calculation} are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting.\\
+In addition, the value ranges of the three different factors of the component categories (good, medium, bad) overlap, which increases the degree of difficulty for the user, as this could lead to a medium component having a better baseCost-ecoIndex-baseQuality tradeoff than a good component.\\
+An example of a good component is explained below:\\
+The price of a good component is calculated as follows:\\
+componentPrice x (randomized(1.1-1.5)) --> chooses a decimal number\\
+The componentPrice is the initial price of a component that has been determined on the basis of literature and Internet research.\\
+ecoIndex and baseQuality are calculated by selecting a random value within the specified value range:\\
+randomized(80-100) --> chooses an integer value
+\newline
+Furthermore, each component has a baseUtility which is defined manually. This is the case because the changes of the baseUtility differ greatly between the different versions of a component. For example, for cameras, the increase in baseUtility from the first version to the second version, from "1.2 MP" to "2 MP", is much lower than the increase in baseUtility from the second to the third version, from "2 MP" to "5 MP".\\
+
+Additionally, each component also has an availabilityDate that is needed for the activation of a component. This means that a particular version of a component is activated when it reaches the year in which it is released. This year ha also defined based on iterature and Internet research.\\
+
+Further ideas for procurement that are not implemented nor tested in our prototype yet but also part of our concept: \\
+Rename products (e.g. NikePhone) \\
+Add products to product portfolio \\
+opportunity to offer more than one product of each product category to test out the market (e.g. two smartphones, one expensive and one cheap version)\\
+(NICE TO HAVE: volume discounts, e.g. 10 percent for >=300 units. We postponed this idea because the first prototype does not include units in the procurement simulation. The player just needs to select the component and it is assumed that the desired quantity is delivered for just-in-time production (FIFO principle if not enough production capacity --> e.g. if the player started to produce smartphone A before smartphone B in the game, then smartphone A must be produced before smartphone B when there is not enough production capacity). \\
+However, the goal is to give the buying decision to the user, who would have to calculate the tradeoff between benefit from cheaper prices per components due to volume discounts and higher warehousing costs for storing all components that cannot be manufactured.)

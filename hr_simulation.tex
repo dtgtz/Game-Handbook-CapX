@@ -21,49 +21,53 @@ The success of a company highly depends on the ability of attracting the best pe
 
 Different factors exist which influence the job satisfaction. \cite{Kapur} The implementation and integration of softfactors which influence the job satisfaction was not the primary goal for CapX, we concentrated on the hardfactors which include Salary and Paymix, Worktime, the Skills and Education and the provided Benefits by the company. 
 
-The following table shows the possible influencing factors which can be chosen by the player to influence the employees job satisfaction.
-\begin{itemize}
-    \item Salary
-    \begin{itemize}
-        \item 10\% below market average (0)
-        \item Market average (2)
-        \item 10\% above market average (4)
-    \end{itemize}
-    \item Worktime per day
-    \begin{itemize}
-        \item 6 hours (4)
-        \item 8 hours (2)
-        \item 10 hours (0)
-    \end{itemize}
-    \item Company Car
-    \begin{itemize}
-        \item Offered (4)
-        \item Do not offered (2)
-    \end{itemize}
-    \item Homeoffice
-    \begin{itemize}
-        \item Fixed model (0)
-        \item Flextime model (1)
-        \item Trust-based working hours (TB) (2)
-        \item TB + allow HO one time per week (3)
-        \item TB + always allow HO (4)
-    \end{itemize}
-    \item IT Equipment
-    \begin{itemize}
-        \item High End (4)
-        \item Market Average (2)
-    \end{itemize}
-    \item Food / Coffee
-    \begin{itemize}
-        \item For free (4)
-        \item Employee payment (2)
-    \end{itemize}
-    \item Gym / Sports
-    \begin{itemize}
-        \item For free / Voucher system (4)
-        \item No offering (2)
-    \end{itemize}
-\end{itemize}
+The following table shows the possible influencing factors which can be chosen by the player to influence the employees job satisfaction. The monetary impact is counted in dollars per employee per month. 
+
+\begin{table}[]
+    \centering
+\begin{tabular}{l|c|c}
+    \hline
+     \textbf{Benefit} & \textbf{Points} & \textbf{Monetary impact} \\
+     \hline \hline
+     \multicolumn{1}{c|}{\underline{\textbf{Salary}}} & & \\
+     Salary below average & 0 &  \\
+     Salary on average & 2 &  \\
+     Salary above average & 4 &   \\
+     \hline
+     \multicolumn{1}{c|}{\underline{\textbf{Worktime}}} & & \\
+     6 hours & 4 & -100\$  \\
+     8 hours & 2 & 0\$  \\
+     10 hours & 0 & 80\$  \\
+     \hline
+     \multicolumn{1}{c|}{\underline{\textbf{Company Car}}} & & \\
+     Not offered & 0 & -100\$  \\
+     Medium Size & 2 & 0\$  \\
+     Full Size & 4 & 80\$  \\
+     \hline
+     \multicolumn{1}{c|}{\underline{\textbf{Home Office (HO)}}} & & \\
+     Fixed Model & 0 & 0\$  \\
+     Flextime model & 1 & 100\$  \\
+     Trust-based (TB) & 2 & 200\$  \\
+     Trust-based (TB) + HO one time per week & 3 & 280\$  \\
+     Trust-based (TB) + always HO allowed & 4 & 350\$  \\
+     \hline
+     \multicolumn{1}{c|}{\underline{\textbf{IT Equipment}}} & & \\
+     High End & 4 & -50\$  \\
+     Market Average & 0 & 0\$  \\
+     \hline
+     \multicolumn{1}{c|}{\underline{\textbf{Food / Coffee}}} & & \\
+     Offered for free & 4 & -100\$  \\
+     Employee payment & 0 & 0\$  \\
+     \hline
+     \multicolumn{1}{c|}{\underline{\textbf{Gym / Sports}}} & & \\
+     Offered for free & 4 & -100\$  \\
+     Not offered & 0 & 0\$  \\
+     \hline
+
+\end{tabular}
+\caption{Benefits influencing the Job Satisfaction}
+    \label{tab:benefitsJSS}
+\end{table}
 
 For each of the above mentioned categories (Salary, Worktime, Company Car, Homeoffice, IT Equipment, Food and Sports) the player needs to make a decision which benefit category to offer. The numbers in brackets show the points which adds up to a total job satisfaction score after the player made all necessary choices. The job satisfaction score can have a minimum of 0 points and a maximum of 28 points.
 
@@ -91,78 +95,62 @@ As this scale is too simple in order to be somehow realistic, a manipulation of 
 \subsubsection{Company Image}
 The company image is a very important KPI to measure the company reputation. The company image is the sum of many small activities which leaves a footprint that can be recognized with the company. Single activities can improve or destroy the company image from the point of view of individuals. The goal of a high valued company image is of course monetary benefit. Therefore, activities which tend to increase the company image are not for free and it is always a difficult assessment whether to invest in a certain activity or not. In the game we concentrated on factors which can be realistically and interestingly be influenced by the player.
 
-\begin{itemize}
-    \item Social Engagement
-    \begin{itemize}
-        \item CSR Donations (as percentage of the previous year's profit)
-            \begin{itemize}
-                \item 0\% (0)
-                \item 0\% - 1\% (1)
-                \item 1\% - 2\% (2)
-                \item 2\% - 5\% (3)
-                \item More than 5\% (4)
-            \end{itemize}
-    \end{itemize}
-    \item Support refugee programs
-    \begin{itemize}
-        \item Never (0)
-        \item 1 project per year (1)
-        \item 2 projects per year (2)
-        \item 3 projects per year (3)
-        \item 4 projects per year (4)
-    \end{itemize}
-    \item Environmental friendly production
-    \begin{itemize}
-        \item Supplier
-            \begin{itemize}
-                \item Eco-friendly (2)
-                \item Standard (non eco friendly) (0)
-            \end{itemize}
-        \item Logistics Partner
-            \begin{itemize}
-                \item Eco-friendly (2)
-                \item Standard (non eco friendly) (0)
-            \end{itemize}    
-    \end{itemize}
-    \item Promotes a green image
-    \begin{itemize}
-       \item Mandatory training for employees (Go Green)
-            \begin{itemize}
-                \item Never (0)
-                \item 1 time per year (1)
-                \item 2 times per year (2)
-                \item 3 times per year (3)
-                \item 4 times per year (4)
-            \end{itemize}
-        \item Green marketing campaign
-            \begin{itemize}
-                \item Never (0)
-                \item 1 time per year (1)
-                \item 2 times per year (2)
-                \item 3 times per year (3)
-                \item 4 times per year (4)
-            \end{itemize}
-    \end{itemize}
-    \item Promotes diversity
-    \begin{itemize}
-       \item Mandatory diversity training
-            \begin{itemize}
-                \item Never (0)
-                \item 1 time per year (1)
-                \item 2 times per year (2)
-                \item 3 times per year (3)
-                \item 4 times per year (4)
-            \end{itemize}
-        \item Diversity Campaign
-            \begin{itemize}
-                \item Never (0)
-                \item 1 time per year (1)
-                \item 2 times per year (2)
-                \item 3 times per year (3)
-                \item 4 times per year (4)
-            \end{itemize}
-    \end{itemize}
-\end{itemize}
+\begin{longtable}[]{l|c|c}
+     \textbf{Action} & \textbf{Points} & \textbf{Monetary impact} \\
+     \hline \hline
+     \underline{\textbf{Social Engagement}} & & \\ [1ex]
+     \multicolumn{1}{c|}{\textbf{CSR Donations (in \% of profit)}} & & Depending on profit \\
+     No donations & 0 &  \\
+     0 \% - 1 \% & 1 &  \\
+     1 \% - 2 \% & 2 &   \\
+     2 \% - 5 \% & 3 &   \\
+     More than 5 \% & 4 &   \\ [1ex]
+     \multicolumn{1}{c|}{\textbf{Support Refugee Projects}} & & \\
+     Never & 0 &  \\
+     1 project per year & 1 & -1000 \$ per year  \\
+     2 projects per year & 2 & -2000 \$ per year   \\
+     3 projects per year & 3 & -3000 \$ per year  \\
+     4 projects per year & 4 & -4000 \$ per year  \\
+     \hline \hline
+     \underline{\textbf{Environmental Friendly Production}} & & \\ [1ex]
+     \multicolumn{1}{c|}{\textbf{Supplier}} & & \\
+     Eco-friendly & 2 & +10\% of cost \\
+     Standard & 0 & 0\$  \\
+     \multicolumn{1}{c|}{\textbf{Logistics Partner}} & & \\
+     Eco-friendly & 2 & +10\% of cost \\
+     Standard & 0 & 0\$  \\
+     \hline \hline
+     \underline{\textbf{Promotes a green image}} & & \\ [1ex]
+     \multicolumn{1}{c|}{\textbf{Mandatory training for employees}} & & \\
+     Never & 0 & 0 \\
+     1 time per year & 1 & -1000\$ per employee  \\
+     2 time per year & 2 & -2000\$ per employee  \\
+     3 time per year & 3 & -3000\$ per employee  \\
+     4 time per year & 4 & -4000\$ per employee  \\
+     \multicolumn{1}{c|}{\textbf{Green marketing campaign}} & & \\
+     Never & 0 & 0 \\
+     1 time per year & 1 & -2500 \$  \\
+     2 time per year & 2 & -5000 \$  \\
+     3 time per year & 3 & -7500 \$  \\
+     4 time per year & 4 & -10000 \$  \\
+     \hline \hline
+     \underline{\textbf{Promotes diversity}} & & \\ [1ex]
+     \multicolumn{1}{c|}{\textbf{Mandatory diversity training}} & & \\
+     Never & 0 & 0 \\
+     1 time per year & 1 & -1000\$ per employee  \\
+     2 time per year & 2 & -2000\$ per employee  \\
+     3 time per year & 3 & -3000\$ per employee  \\
+     4 time per year & 4 & -4000\$ per employee  \\
+     \multicolumn{1}{c|}{\textbf{Diversity campaign}} & & \\
+     Never & 0 & 0 \\
+     1 time per year & 1 & -3000 \$  \\
+     2 time per year & 2 & -6000 \$  \\
+     3 time per year & 3 & -9000 \$  \\
+     4 time per year & 4 & -12000 \$  \\
+     \hline 
+\caption{Actions influencing the Company Image}
+    \label{tab:benefitsCIS}
+\end{longtable}
 
 The total sum of the above possible choices is the total Company Image Score (CIS). The score can reach values from 0 to 28 as it is the case for the Employee Satisfaction Score. In order to build also here a more realistic representation we figured out that the marginal benefit of an increase of the company image increases with the collected amount of points. Therefore, we manipulated also this formula and came up with the following function.
 
@@ -192,12 +180,8 @@ The quality of work is a measure for the output quality of every process step in
 
 The skilllevel becomes a strategic mechanism as it influences the quality of work significantly. In fact, a better quality of work leads to higher output of the production, can decrease product failure and improve the quality of the products, allows new products to be developed, and for example in case of sales employees generate more sales. 
 
-The skilllevel alone is not enough to describe the influence on the Quality of work. The happiness and satisfaction with the job is also a measure that influences the quality of the delivered work by the employees. 
-
-Thus, the total quality of work is measured by an equal weighted average of the skilllevel and the job satisfaction. 
-
-The skilllevel of employees can be influenced by trainings which is described in the section below.
-
+The skilllevel alone is not enough to describe the influence on the Quality of work. The happiness and satisfaction with the job is also a measure that influences the quality of the delivered work by the employees.
+Thus, the total quality of work is measured by an equal weighted average of the skilllevel and the job satisfaction. The skilllevel of employees can be influenced by trainings which is described in the section below.
 
 \subsubsection{Training}
 Emplyees can be categorized into 5 groups:
@@ -224,7 +208,6 @@ The following list summarizes the possible training which are offered and can be
 \item Persuasion techniques - Sales
 \item Personality matters - Marketing, Sales
 \end{itemize}
-\ \\
 
 \subsubsection{Employer Branding}
 The employer branding score is the score which is reported to the external world in order to measure the value of the company as an employer in total. This score is comparable to the total score for companies which is presented on websites like kununu or glassdoor. The employer branding is a combined score out of the Job Satisfaction and the Company Image. As the Company Image implicitly incluences the Job Satisfaction rating it is weighted with 0.4 in the calculation of the employer branding score. The general formula is
@@ -246,9 +229,9 @@ The following pseudo code explains the statement above.
 
 \begin{itemize}
     \item score = 0.4*CIS + 0.6*JSS
-    \item IF CIS smaller than 30 THEN Employer Branding = Employer Branding * 0.5
-    \item ELSEIF CIS smaller than 60 THEN Employer Branding = Employer Branding * 0.8
-    \item ELSEIF CIS higher than 60 THEN Employer Branding = Employer Branding * 1
+    \item IF CIS $\leq$ 30 THEN Employer Branding = Employer Branding * 0.5
+    \item ELSEIF CIS $\leq$ 60 THEN Employer Branding = Employer Branding * 0.8
+    \item ELSEIF CIS $\geq$ 60 THEN Employer Branding = Employer Branding * 1
 \end{itemize}
 
 By this we ensure a sufficient punishment of the overall Employer Branding score. To achieve this we need to create a matrix and a 3D graph to visualize the possible implications on the employer branding. The following graphic shows the implications of the two input parameters on the Employer Branding.
@@ -264,9 +247,9 @@ By this we ensure a sufficient punishment of the overall Employer Branding score
 
 The single KPIs are calculated as follows: 
 \begin{itemize}
-\item Quality of Work = JSS * 0.5 + Skilllevel * 0.5
+\item Quality of Work = $JSS * 0.5 + Skilllevel * 0.5$
 \item Skill Level = Initial Skill Level (based on employee category + influence training
-\item Job Satisfaction Score = Calculation based on JSS section above
-\item Company Image Score = Calculation based on CIS section above
-\item Employer Branding = Job satisfaction*0,6 + Company image*0,4 and performing the punishment function. 
+\item Job Satisfaction Score (JSS) = Calculation based on JSS section above
+\item Company Image Score (CIS) = Calculation based on CIS section above
+\item Employer Branding = $JSS*0.6 + CIS*0.4$ and applying the punishment function. 
 \end{itemize}

@@ -1,0 +1,95 @@
+The delivery of the products always takes place at the end of the day directly from the warehouse. Basically there are three ways to manage the logistic of the company: 
+\begin{itemize}
+    \item The company has its own logistics fleet
+    \item The company has outsourced the logistics to an external partner
+    \item The company simply sends products by mail
+\end{itemize}
+
+The player can combine these variants in the way he considers best for his company.  Basically, there are four logical approaches:
+\begin{enumerate}
+    \item The player decides to send all his products by post 
+    \item The player decides to completely outsource the logistics and signs a contract with an external logistics partner
+    \item The player exclusively employs his own logistics fleet and ships products that exceed his delivery capacity at high cost by post
+    \item The player has his own fleet and delivers products which exceed his capacity by an external logistics partner
+\end{enumerate}
+	
+In the following sections, the functionality of the individual variants and the costs incurred are explained in detail.
+
+\subsubsection{Internal logistic fleet}
+The internal logistics fleet consists of purchased trucks and the company's logistics employees. The quality of the company's own logistics is calculated on the basis of their characteristics and motivation.
+
+Every truck has certain characteristics, these consist of:
+\begin{itemize}
+    \item A capacity of products that can be transported, this is the same for all trucks and amounts to 1000 packages. For reasons of simplification, we do not distinguish the size of individual products.  Each product is equivalent to one package. 
+    \item An environmental index that expresses how environmentally friendly the vehicle is.
+    \item A quality index that expresses the quality of the transport.
+    \item A purchase price that depends on the quality and environmental friendliness of the truck.
+    \item Monthly maintenance costs corresponding to ...\% of the initial purchase price divided by 12 months (REFERENCE)
+    \item And a depreciation rate that is linear and amounts to 9 years for each truck (REFERENCE) 
+\end{itemize}
+
+----
+
+Internal logistic:
+\begin{itemize}
+    \item The capacity of the logistics fleet is measured by the number of trucks
+    \item If the demand for products is higher than the inventory, all products are sold from the warehouse. That means the inventory represents the maximum sales quantity for a product
+    \item If the demand for a product is lower than the inventory, only the demanded quantity is sold and thus delivered. The remaining products stay in the warehouse and cause storage costs 
+    \item Trucks
+    \begin{itemize}
+        \item Capacity = 1000 products  
+        \item purchase price = tbd 
+        \item maintenance cost (yearly or monthly) = tbd
+        \item eco index (EF) = [20,40,60,80,100]
+        \item quality index (QF) = [20,40,60,80,100]
+        \item Logistic employees: Quality of work (QWLE)
+        \item Depreciation 
+        \begin{itemize}
+            \item linear over 9 years
+            \item = aquicion cost / 9 
+        \end{itemize}
+        \item Fleet index (FI) = EF*0,2 + QF*0,8
+        \item  = FI*0,6 + QWLE*0,4
+        \item Internal logistic index (ILI)
+        \begin{itemize}
+            \item If $QWLE \leq \ $40: (FI*0,5 + QWLE*0,5)
+            \item Else: (FI*0,6 + QWLE*0,4)
+        \end{itemize}
+    \end{itemize}
+    \item Delivery Cost:
+    \begin{itemize}
+        \item number of products = deliver capacity: deliver costs  = (number of products / 1000) * cost per delivery
+        \item number of products < deliver capacity: delivery cost = round up to the next int (number of products / 1000) * cost per delivery
+        \item number of products > deliver capacity: delivery cost = number trucks * cost per delivery + cost delivery external (-> see cost external logistic partner) 
+        \item if no external logistic partner is hired, the delivery of one product costs -tbd
+    \end{itemize}
+\end{itemize}
+
+External logistic partner:
+\begin{itemize}
+    \item The player is able to fire the actual partner and hire a new one. Only one logistic partner at the same time should be possible. (can be hired in the job market)
+    \item If an external partner is hired own trucks are not needed but can be
+    \item Characteristics of the partners:
+    \begin{itemize}
+        \item Quality (QLP) = [20,40,60,80,100]
+        \item Eco-Index (ELP)= [20,40,60,80,100]
+        \item Reliability (RLP) = [20,40,60,80,100]
+    \end{itemize}
+    \item Beyond a certain limit of reliability, this characteristic of an external partner has a greater impact on the external logistic index: $Reliability \leq \ $40
+    \item External logistic index (ELI)
+    \begin{itemize}
+        \item If $RLP \leq \ $40: (RLP*0,5 + 0,5*(QLP*0,8 + ELP*0,2))
+        \item Else: (RLP*0,4 + 0,6*(QLP*0,8 + ELP*0,2))
+    \end{itemize}
+    \item Cost of an external logistic partner:
+    \begin{itemize}
+        \item cost per delivery of one package 
+        \item contractually agreed fixed costs (yearly or monthly)
+        \item cost delivery external = (number of products - number trucks * 1000) * cost per delivery of one package (external)
+    \end{itemize}
+\end{itemize}
+
+logistic index (LI):
+\begin{itemize}
+\item (ELI * number packages delivered external + ILI * number packages delivered internal) / number all packages delivered 
+\end{itemize}
