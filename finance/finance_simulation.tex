@@ -4,22 +4,33 @@ Nike, Salih\\
 %description of finance graph – insert picture of our graph here 
 The finance simulation is connected to almost all other simulations, as costs and profits are ruling an enterprise's daily work. The main financial key figure is the company net worth. [ref + what exactly is net worth and how it is calculated in the real world]. However, in CapitalismX the company net worth as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. 
 [PICTURE]
+
 The company’s net worth is calculated from the EBIT, that the player has obtained through his or her actions during the game. Added to the EBIT there are the loans a player might have borrowed from the bank, the interest that the player has to expend in order to amortize the loan, and the income tax the player has to pay for all earnings. [insert formula]
-Net worth = EBIT 
+Net worth = EBIT + loan amount + (loan interests /360) if day == 01, then Net worth = (EBIT + loan amount + (loan interests / 360) ) * taxPercentage.
 
-In CapitalismX the income tax amounting to 20% is levied on a monthly basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IFRS [reference?], although of course realistically the income tax is levied annually. In order to provide the player a more structured overview about the company’s financials, we decided to provide the player with a monthly income tax.
+Net worth is an ad hoc calculated key figure, which means that periodically occurring costs, such as interests for loans, that are due on a monthly basis are not included until the beginning of the next month. 
 
-[Banking part?]
+In CapitalismX the income tax amounting to 20\% is levied on a monthly basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IAS 12 \textit{Income Taxes} paragraph from the IFRS\footnote{https://www.ifrs.org/-/media/feature/meetings/2018/october/iasb/ap12c-ias12.pdf}, although of course realistically the income tax is levied annually. In order to provide the player a more structured overview about the company’s financial situation, we decided to provide the player with a monthly income tax, that is subtracted from the net worth. Hence, at the beginning of a month the net worth decreases by the amount calculated with the tax e.g. net worth = current net worth * (1-tax percentage). However, by hiring powerful lobbyists, the income tax percentage can be decreased up to a total value of 3 \%, which is explained in chapter [CHAPTER REFERENCE].
+
+Banking system
+The bank simulation ensures that the player has an additional opportunity to raise capital in case of bottlenecks or investments. Three types of credit are offered to the player in case of a request. 
+The short-term loan requires a repayment within one and twelve months. The interest rate varies between 6\% and 18\%. The medium-term loan is payable within 1-5 years, while the interest rate is between 3\% and 6\%. A long-term loan has a term of more than 10 years (maximum 15 years?) with an interest rate between 1\% and 3\%. The bank's credit offers are randomized in the defined intervals to make the game more interesting for the player. The three types of credit are provided as amortization loans. Thus, the player has a fixed interest rate and a fixed monthly amortization. This reduces the repayment amount over time.
+However, the raising of capital from the bank is restricted.
+The requested loan must not be larger than 30 percent of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers. In the event of a negative check by the bank, the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 30\% of the company value. See the attached activity chart. 
+The following formulas and variables are defined for the calculation of the repayment, but also for the observation of the bank restrictions. [add formula and resources]
 
 The next level under the company net worth is the EBIT, which is [add reference plus definiton]. Again, the calculation of the EBIT is simplified for the business simulation game at hand. All revenues are added to the EBIT and the total expenses are subtracted. Revenues are the sum of all incoming cash flows, which are:
 \begin{itemize}
     \item Goods sold, displayed by the total sales of products, which can be derived by multiplying a product’s price, which is set by the user with the amount of units sold. All sales of all product categories must be cumulated of course. [formula: 
-Sales per product: S(Pa) = pricea x units sold / 356. 
+Sales per product: S(Pa) = pricea x units sold / 360. 
 All sales: S(P) = SUM(P)]
     \item Equipment sold. The player has the possibility to sell used machinery, that he or she do not need anymore. The calculation for the residual value can be found in chapter [CHAPTER Reference].
     \item Land and buildings sold, which are calculated similar to the equipment sold and described in chapter [CHAPTER Reference].
     \item Investments, which are either positive or negative incomes from the investment area in the financial dashboard.
 \end{itemize}
+
+FUNCTIONS for revenues in this part - Salih\\
+
 On the other side, there are the total expenses, which are the costs and expenditures that occur across all other simulations, such as:
 \begin{itemize}
     \item Total Salaries from the HR simulation, which is the sum of all salaries. The calculation of these costs can be found in chapter [CHAPTER Reference].
@@ -28,26 +39,14 @@ On the other side, there are the total expenses, which are the costs and expendi
     \item Production costs, which occur when manufacturing components to products. The calculation of these costs can be found in chapter [CHAPTER Reference].
 \end{itemize}
 
-Part of the production costs are the component prices, which depend on the component’s level and the component’s base price. [Base price generation description]. The user has to procure the components in the procurement view [screenshot]. Depending on a component availability date, different levels of a component are unlocked. The procurement price is calculated
-
-Net worth is an ad hoc calculated key figure, which means that periodically occurring costs, such as interests for loans, that are due on a monthly basis are not included until the beginning of the next month. 
-
-EQUITY vs dept etc. w/ references and short explanation how this looks in the backend. 
-
-graph (differentiate between price and cost, variable vs fixed costs, different sources (e.g. from HR, manufacturing...), financial calculation, kpis (TO DO)\\
-
-
-Banking system\\
-The bank simulation ensures that the player has an additional opportunity to raise capital in case of bottlenecks or investments. Three types of credit are offered to the player in case of a request. 
-The short-term loan requires a repayment within one and twelve months. The interest rate varies between 6\% and 18\%. The medium-term loan is payable within 1-5 years, while the interest rate is between 3\% and 6\%. A long-term loan has a term of more than 10 years (maximum 15 years?) with an interest rate between 1\% and 3\%. The bank's credit offers are randomized in the defined intervals to make the game more interesting for the player. The three types of credit are provided as amortization loans. Thus, the player has a fixed interest rate and a fixed monthly amortization. This reduces the repayment amount over time.
-However, the raising of capital from the bank is restricted.
-The requested loan must not be larger than 30 percent of the company value, which is for reasons of simplification the current profit. If this is fulfilled, the player receives three offers. In the event of a negative check by the bank, the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 30\% of the company value. See the attached activity chart. 
-The following formulas and variables are defined for the calculation of the repayment, but also for the observation of the bank restrictions.[add formula and resources]\\ 
-
-initial prices plus cost function for components for single component - basis for manufacturing. in form of data table, based on free imagination. Built flow diagrams for products, defining which components the product might have for entering the next level. From that we derived initial component level prices. Approx. calculation [can we find a reference for that???]: we researched prices for products for the respective decades / years and defined that the sum of components  cumulated component costs per product must not be larger than xx percent of end price in order to add a profit margin, the production costs (salaries, rent, electricity, etc.) \\
+This seen, the EBIT can be calculated as follows: [formula]. 
 
 Describe UI – what is behind the Finance dashboard? E.g. cashflow – all values mentioned above on a quarterly basis, net worth on a daily basis, etc.\\
 
-Describe how implemented in prototype: net worth of company equals profit, taxes are not considered - profit equals ebit, so interests and taxes are substracted to get net worth\\
+EQUITY vs dept etc. w/ references and short explanation how this looks in the backend. – Salih \\
 
 STEFFEN investments\\
+
+Describe how implemented in prototype: net worth of company equals profit, taxes are not considered - profit equals ebit, so interests and taxes are substracted to get net worth\\
+
+Tax?

@@ -4,9 +4,7 @@
 Maike\\
 In this game, the customer simulation is a weighted combination of the product price and the customer satisfaction (CS). %Add reference
 This means that product price and customer satisfaction are the two key indicators for customers' buying decisions. Thus, these two factors determine the extent to which customers are interested in buying a product or not.\\ %Add reference
-
 How exactly the customer interest is calculated is discussed in detail in the Demand section. The prerequisite for this is the calculation of customer satisfaction, which will be discussed in more detail in the following section.\\
-
 % \begin{equation}
 %    Buying Interest (price, CS) = 0,7 * price + 0,3 * CS
 % \end{equation}
@@ -15,7 +13,6 @@ How exactly the customer interest is calculated is discussed in detail in the De
 
 % Since the price has a higher influence on the buying decision of the customer, the price is weighted higher than the customer satisfaction. 
 % Add reference
-
 As well as in reality, the customer satisfaction plays an important role in terms of the number of products sold and thus in terms of sales. %Add reference
 The Customer satisfaction is designed to directly influence potential customers' interest in a particular product. The higher the customer satisfaction in general, the more customers are willing to pay for exactly the same product. 
 In this game, the customer satisfaction is composed of the values listed below:
@@ -34,23 +31,30 @@ In this game, the customer satisfaction is composed of the values listed below:
       \end{enumerate}
       \item Satisfaction with the LogisticIndex (lI), based on
       \begin{enumerate}
-         \item externalLogisticIndex (eLI)
-         \item internalLogisticIndex (iLI)
+         \item externalLogisticIndex
+         \item internalLogisticIndex
       \end{enumerate}
-      \item Satisfaction with the companyBranding (cB) and employerBranding (eB), both based on 
+      \item Satisfaction with the companyImage (cI), based on
       \begin{enumerate}
-          \item CompanyImage (cI)
-          \item totalJobSatisfaction (tJS)
+          \item Marketing campaigns
+      \end{enumerate}
+      \item Satisfaction with the employerBranding (eB), based on 
+      \begin{enumerate}
+          \item totalJobSatisfaction
+          \item companyImage
       \end{enumerate}
    \end{enumerate}
 The customer satisfaction is ultimately calculated as follows:
     \begin{equation}
     \begin{aligned}
-    If \; tPQ \leq \ 40: (0,6*tPQ + 0,15*tSQ + 0,1*cB + 0,05*eB + 0,1*tLQ)\\
-    ElseIf \; tPQ \leq \ 60: (0,5*tPQ + 0,2*tSQ + 0,15*cB + 0,05*eB + 0,1*tLQ)\\
-    Else: (0,45*tPQ + 0,25*tSQ + 0,15*cB + 0,05*eB + 0,1*tLQ)
+    If \; tPQ \leq \ 40: (0,6*tPQ + 0,15*tSQ + + 0,1*lI + 0,1*cI + 0,05*eB)\\
+    ElseIf \; tPQ \leq \ 60: (0,5*tPQ + 0,2*tSQ + + 0,1*lI + 0,15*cI + 0,05*eB)\\
+    Else: (0,45*tPQ + 0,25*tSQ + + 0,1*lI + 0,15*cI + 0,05*eB)
     \end{aligned}
     \end{equation}
+    
+%Die Variablen sind nicht statisch, daher ist auch die Berechnung der Customer Satisfaction nicht statisch.    
+    
 %Most common types of customer needs regarding products and the main levels of customer requirements: Functionality, price, design, reliability/availability/durability, performance, safety and sustainability\\
 
 %Levels of customer requirements: Must haves, satisfiers and delighters. Must haves are the bare minimum requirements expected of customers. The customers do not show exceptional appreciation for the must haves, but if they are not met, the customer will show dissatisfaction. Satisfiers are the requirements that the customer expressly wishes. If you offer better or more of these satisfiers, then the customers will appreciate it more and be more satisfied. Delighters are the extras or the add-ons. The lack of these characteristics will not make the customer dissatisfied but adding these would greatly increase the customer's satisfaction. In our game, realized these three levels of customer requirements in the context of our product components. If the user chooses newer, better components for producing his / her product, then specific satisfiers or delighters are met, depending on how good the chosen components are.\\
