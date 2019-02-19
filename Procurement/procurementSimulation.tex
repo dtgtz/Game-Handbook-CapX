@@ -1,18 +1,15 @@
 \section{Procurement Simulation}
+\label{procuresim}
 Maike\\
-The procurement simulation represents the marketplace for suppliers in our game. In other words, this is the place where the player can buy the components needed for his / her products.\\
-One supplier for each of our predefined categories (good, medium or bad) is offered, which results in three different suppliers for each component. \\
-Moreover, every component has the following attributes: \\
-- baseCost\\
-- baseQuality\\
-- ecoIndex\\
-- baseUtility\\
-- availabilityDate\\
-
-Each of these attributes fulfils a specif need. 
-For example, the baseCost of a component depends (not linearly) on the baseQuality and the ecoIndex.\\
-This is accomplished by the follwing set-up.
-
+The procurement simulation represents the marketplace for suppliers in this game. So, it represents the place where the player can buy the components needed for producing the products. In order to be able to produce a product, the player needs all the required components of a certain product. For example, he needs the following components to produce a smartphone: CPU, storage, screen and camera. Moreover, each component has different versions, such as the "camera" component which has versions "1.2 MP", "2 MP", "5 MP", "8 MP" and "12 MP".  As soon as the player chooses to produce a new smartphone, the first version of the components is selected. For the component "camera" this would be the version "1.2 MP". The different versions of a component are considered as individual components. One supplier for each component category (good, medium, bad) is offered, which results in three different suppliers for each individual component. Apart from that, each individual component has the following attributes:
+\begin{itemize}
+    \item baseCost
+    \item baseQuality
+    \item ecoIndex
+    \item baseUtility
+    \item availabilityDate
+\end{itemize}
+Each of these attributes fulfils a specific need. For example, the \textit{baseCost} of a component, which represents a components purchase price, depends (not linearly) on the \textit{baseQuality} and the \textit{ecoIndex}, which is achieved by the following settings:
     \begin{table}[ht]
     \centering
     \begin{tabular}{|l|r|r|r|}
@@ -24,26 +21,33 @@ This is accomplished by the follwing set-up.
     bad  & 0.7 - 1.0 & 10 - 60\% & 10 - 60\%\\
     \hline
     \end{tabular}
-    \caption{Settings for baseCost, baseQuality and ecoIndex}
+    \caption{Value ranges for baseCost, baseQuality and ecoIndex}
     \label{component_price_calculation}
     \end{table}
-
-The three factors (baseCost, baseQuality and ecoIndex) shown in table \ref{component_price_calculation} are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting.\\
-In addition, the value ranges of the three different factors of the component categories (good, medium, bad) overlap, which increases the degree of difficulty for the user, as this could lead to a medium component having a better baseCost-ecoIndex-baseQuality tradeoff than a good component.\\
-An example of a good component is explained below:\\
-The price of a good component is calculated as follows:\\
-componentPrice x (randomized(1.1-1.5)) --> chooses a decimal number\\
-The componentPrice is the initial price of a component that has been determined on the basis of literature and Internet research.\\
-ecoIndex and baseQuality are calculated by selecting a random value within the specified value range:\\
-randomized(80-100) --> chooses an integer value
 \newline
-Furthermore, each component has a baseUtility which is defined manually. This is the case because the changes of the baseUtility differ greatly between the different versions of a component. For example, for cameras, the increase in baseUtility from the first version to the second version, from "1.2 MP" to "2 MP", is much lower than the increase in baseUtility from the second to the third version, from "2 MP" to "5 MP".\\
+The three factors (\textit{baseCost, baseQuality, ecoIndex}) shown in table \ref{component_price_calculation} are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting. In addition, the value ranges of the three different component categories (good, medium, bad) overlap. This increases the degree of difficulty for the user, as this could lead to a medium component having a better \textit{baseCost-ecoIndex-baseQuality} trade-off than a good component. An example of a good component is explained in the following:\\
+The \textit{baseCost} of a good component are calculated by multiplying the \textit{componentPrice (cP)} by a random decimal value from the value range 1.1 to 1.5.
+\begin{equation}
+    baseCost(good \; component) = cP * (randomized(1.1-1.5))
+\end{equation}
+The \textit{componentPrice} is the initial price of a component that has been determined on the basis of literature and Internet research.\\ %Add reference
+In addition, \textit{ecoIndex} and \textit{baseQuality} are calculated by selecting a random integer value within the defined value range, which for a good component ranges from 80\% to 100\%.
+\begin{equation}
+    ecoIndex(good \; component) = randomized(80-100)
+\end{equation}
+\begin{equation}
+    baseQuality(good \; component) = randomized(80-100)
+\end{equation}
+Furthermore, each component has a \textit{baseUtility}, which is defined manually. This is the case because the changes of the \textit{baseUtility} differ greatly between the different versions of a component. For example, for cameras, the increase in \textit{baseUtility} from the first version to the second version, from "1.2 MP" to "2 MP", is much lower than the increase from the second to the third version, from "2 MP" to "5 MP". A table including all components and their \textit{baseUtility} can be found in the appendix. %Add reference
+\newline
+Moreover, each component has an \textit{availabilityDate} that is required to activate a component version. This means that a particular version of a component is activated when it reaches the year in which it is released. The \textit{availabilityDate} was determined on the basis of literature and Internet research. % Add reference 
+In summary, the use of the \textit{availabilityDate} ensures that the player cannot directly select the latest version of a component, but is bound to the chronological development of the components.\\
+% Rename products (e.g. NikePhone)
+%Add products to product portfolio \\
+%Opportunity to offer more than one product of each product category to test out the market (e.g. two smartphones, one expensive and one cheap version)\\
+\newline
+In the following, further ideas for the procurement simulation are explained which have not yet been implemented or tested in our prototype, but which are also part of our concept.\\
+A volume discount would allow the player to get a 10 percent discount, for example, if he buys more than 300 units of a component. We postponed this idea because our prototype does not include units in the procurement simulation yet. Currently, the player only needs to select a component and it is assumed that the desired quantity is delivered for just-in-time production. 
+The aim, however, is to leave the purchase decision to the user, who would have to calculate the trade-off between the benefits of lower prices per component due to volume discounts and higher storage costs for storing all non-producible components.
 
-Additionally, each component also has an availabilityDate that is needed for the activation of a component. This means that a particular version of a component is activated when it reaches the year in which it is released. This year ha also defined based on iterature and Internet research.\\
-
-Further ideas for procurement that are not implemented nor tested in our prototype yet but also part of our concept: \\
-Rename products (e.g. NikePhone) \\
-Add products to product portfolio \\
-opportunity to offer more than one product of each product category to test out the market (e.g. two smartphones, one expensive and one cheap version)\\
-(NICE TO HAVE: volume discounts, e.g. 10 percent for >=300 units. We postponed this idea because the first prototype does not include units in the procurement simulation. The player just needs to select the component and it is assumed that the desired quantity is delivered for just-in-time production (FIFO principle if not enough production capacity --> e.g. if the player started to produce smartphone A before smartphone B in the game, then smartphone A must be produced before smartphone B when there is not enough production capacity). \\
-However, the goal is to give the buying decision to the user, who would have to calculate the tradeoff between benefit from cheaper prices per components due to volume discounts and higher warehousing costs for storing all components that cannot be manufactured.)
+%(FIFO principle if not enough production capacity --> e.g. if the player started to produce smartphone A before smartphone B in the game, then smartphone A must be produced before smartphone B when there is not enough production capacity). --> explain in chapter 4.4 Production Simulation \\

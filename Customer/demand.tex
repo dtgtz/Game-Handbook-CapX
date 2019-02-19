@@ -1,0 +1,29 @@
+\subsection{Demand Calculation}
+
+Janine \\
+Demand simulation: 
+\begin{itemize}
+\item How much products are sold depends on the Customer Satisfaction and also the sum of the component prices in the current year. We assume the potential customers use as baseline a product with the most recent components. 
+\item The customer satisfaction influences how much the customers are willing to pay for the product 
+\item The component prices are the basis for the price were 100\% of the potential customers are interested in buying the product. This is defined for the customer satisfaction to be between 50 and 40.
+
+\begin{itemize}
+\item $CS \geq \ $80: component price * 1,2 
+\item 80 \textgreater $CS \geq \ $60: component price * 1,1
+\item 60 \textgreater $CS \geq $50: component price * 1,05
+\item 50 \textgreater $CS \geq $40: component price * 1
+\item 40 \textgreater $CS \geq $20: component price * 0,9
+\item CS \textless 20: component price * 0,8
+\end{itemize}
+
+\item In order to determine how many people are interested in buying the products (y) the chosen retail price divided by the base price in the current year will be used as x in the following formula.
+
+\begin{equation}
+    y = 167.905104 * \E^{ -2.990914872 * 10^{ -1 } * x^{ 2 }}
+\end{equation}
+
+\begin{itemize}
+    \item if the result is \textgreater 100; demand = 100\%
+    \item if the result is \textless 0; demand = 0\%
+\end{itemize}
+\end{itemize}

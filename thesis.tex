@@ -137,7 +137,7 @@ In summary, the player decides on all the features provided in our game. These d
 
 \section{Setting \& Story}
 \label{SettingStory}
-Maike\\
+Livja and Philipp\\
 Timeframe from 1990 to 2017 in the first phase, Progress\\
 The setting of the game is a fictional map of a town/city.  The player has to choose where to set up his first shop, in a vacant distant area or downtown.\\
 Functional\ Non-functional buildings\\
@@ -189,48 +189,12 @@ CapitalismX now gives you the possibility to become CEO! This business simulatio
 \subsection{Controls}  
 Nike and Salih
 War Room and what to choose? How does everything look like, which buttons etc. pause button / fast-forward button???\\
-\subsection{Financials}
-Nike, Salih\\
-Internal and external financing vs. equity and debt financing\\ short theoretic description, but not all is relevant in our game. \\
 
-Financials occur throughout the whole company as it can be seen as the engine that keeps the whole company running. The entry point for the financial actions is the finance dashboard. You may find it by clicking on the finance button [screenshot] from the navigation bar at the top left. The dashboard gives you a detailed overview about several areas at first glance:
-
-\begin{itemize}
-    \item Cashflow, which is basically your profit and loss statement displaying revenues, expenses, and profit on a quarterly basis.
-    \item Statistics, showing the development of salaries and total sales in visualized graphs.
-    \item Company information, divided into cash, assets, liabilities and company net worth. This view gives you information about the current liquidity of your company.
-    \item Bank, providing the possibility to request a loan from the bank or to get an overview about current loans.
-    \item Investments, where the you might invest some money in the stock market.
-    \item Product performance, giving an overview about product specific key performance indicators, such as the sum of material costs per product.
-\end{itemize}
-
-The cashflow, statistics, company information and product performance are solely descriptive information, that is generated from the actual settings defined by you as the player or by your company’s performance. The goal of these areas is to provide an overview about the general financial performance status of the company and should give you hints about adapting some parameters. \\
-The bank and the investment areas need input from your side. To start with the bank, [SALIHs STUFF].\\
-basic Idea: Player asks for a loan \& gets 2-3 offers with different loan types. 
-\begin{itemize}
-    \item short term: 1-12 months (interest rate 6-18\%)
-    \item midterm: 1-5 years (interest rate 3-6\%)
-    \item Long term greater than 5 years (1.85-2\%)
-\end{itemize}
-Player always receives an offer from the bank matching the business situation (more precisely in the Game Mechanism). The receives an offer for the 01th of the following month with fixed amount, fixed interest rate, fixed retirement, fixed term.
-The player has the choice of accepting or rejecting the offer.\\
-
-Apart from that, you might invest some money into innovations on the stock market, which is similar to the well known DAX stock market. As this may be a risky undertaking, due to the regular oscillations on this market, a good idea is to spend only a reasonable amount of money there. \\
+ \input{finance/finance_manual.tex}
+ 
 %\include{finance/investments.tex}
 
-Pricing and selling of goods might appear as a financial task to you, but in fact, you will find information about these topics in the manufacturing view.\\ 
-
-%Pricing and selling -- put into production view \\
-%pricing: user sees cumulated costs per product incl. employee costs (LIVJAS formel) and may decide on a profit margin to add to the costs. He gets some hints and the value addded as percent. (explain UI part in 4.x chapter).
-
-\subsection{HR}
-Maike and Philipp \\
-Fundamentals of HR: the vision / mission, the corporate policy and the sustainability of a company.\\
-Individual components contained in an HR process:
-This includes personnel planning, recruitment, compensation and benefits, training and development and performance management.\\
-Personnel planning contains the determination of employee requirements, including number (capacity per head), quality, time/duration, location (domestic/foreign, location, department, cost center) and costs. Steps of recruitment are needs assessment, advertising, selection, negotiation and introduction / training. The aim is to achieve a cost-effective and fast procurement of the desired employees. This involves identifying, interviewing and hiring high-performing employees and is essential for long-term success. In addition, guidelines and procedures must be established for the hiring and recruitment process. Compensation and benefits means creating, managing and improving a company's compensation and performance structures. Wages and benefits are two crucial factors that ultimately determine how well your employees feel about your company and how likely they are to stay with it in the future. Therefore, a company must develop an effective compensation system. Training and development includes the ability to create training programs that solve the performance problems of employees and create additional incentives for employees to improve further and thus also advance the company. Thereby, employee feedback is necessary to continuously improve the quality of a company's training programs. Furthermore, the development and implementation of a complete performance management and improvement process is an essential capability of a company. The design of the performance assessment process, its maintenance and the effective monitoring of its implementation represent challenging tasks for a company.
-\\
-How are all these components considered in our game? What is the goal of the player from the HR point of view?
+\input{HR/how_to_play_hr.tex}
 
 \subsection{Production}
 Livja, (Nike for Pricing and Selling) \\
@@ -253,7 +217,7 @@ manufacturing
 \end{itemize}
 
 \subsubsection{Procurement}
-Nike explain how to use the procurement part.
+Nike explains how to use the procurement part.
 
 \subsection{Marketing}
 Janine\\
@@ -395,26 +359,11 @@ What to be confronted with - ralle ich nicht... whut?
 Game Mechanics were tested via prototype
 Technical description of the game, the backend
 
-\section{Finance Simulation}
-\label{sec:diag}
-Nike, Salih\\
-The finance simulation is connecting (?) all other simulations, as costs and profits are ruling an enterprise's daily work. All costs, be it employee costs or costs for training from HR, or manufacturing costs, are collected and subtracted from the profit. On the other side, revenues from either goods sold, machinery sold or shares (?) are added to the profit. Model: simple calculation with adding incoming revenues and substracting costs. Profit is directly mapped to the companies net worth - TAXES????????
-\\
-graph (differentiate between price and cost, variable vs fixed costs, different sources (e.g. from HR, manufacturing...), financial calculation, kpis (TO DO)\\
-Banking system\\
-to start manufacturing, player must probably loan money from the bank. Given is xxxx Cap Coins equity capital. The bank has some constraints for giving out loans. The loan must not be larger than 30 percent of the company value, which is for reasons of simplification the current profit. Of course, before manufacturing there is no profit yet, so the first loan is based on the equity capital.\\
-If the requested loan is larger than the bank's constraints, the loan is rejected and a personalized offer is provided. In this case, the player can either accept the personalized offer or enter a new loan amount.\\
-The bank offers different loan models with varying interests.\\ 
-interfaces to all other departments / simulations?\\
-initial prices plus cost function for components for single component - basis for manufacturing. in form of data table, based on free imagination.\\
-Describe UI \\
-Describe how implemented in prototype: net worth of company equals profit, taxes are not considered - profit equals ebit, so interests and taxes are substracted to get net worth\\
-PRICING - above in finance section! how is the function displayed in simulation  \\
-SELLING - above in finance setion!  how does it influence the revenue\\
+\input{finance/finance_simulation.tex}
 
-\include{finance/investments.tex}
+\input{finance/investments.tex}
 
-\input{hr_simulation.tex}
+\input{HR/hr_simulation.tex}
 
 \input{Procurement/procurementSimulation.tex}
 
@@ -456,90 +405,28 @@ Productivity: factors that influence it \\
 Give functions, equations for measuring each of the factors that affect productivity \\
 explain graph : production is dependent of the production process and the product itself 
 
-\section{Warehouse Simulation}
 Janine\ \\
-% \input{Logistic, Support, Warehouse/Warehouse.tex}
+\input{LSW/Warehouse.tex}
 
 \section{Logistic and Support Simulation}
 Janine\ \\
-\subsection{Logistic}
-% \input{Logistic, Support, Warehouse/Logistic.tex}
+\input{LSW/Logistic.tex}
 
-\subsection{Product Support}
-% \input{Logistic, Support, Warehouse/Support.tex}
+\input{LSW/Support.tex}
 
 \section{Marketing Simulation}
 Janine\ \\
-\subsection{Market Research}
-% \input{Marketing/Market Research.tex}
+\input{Marketing/MarketResearch.tex}
 
-\subsection{Lobbyist}
-% \input{Marketing/Lobbyist.tex}
+\input{Marketing/Lobbyist.tex}
 
-\subsection{Management Consultancy}
-% \input{Marketing/Management Consultancy.tex}
+\input{Marketing/Mng.tex}
 
-\section{Customer Simulation}
-\label{sec:customsim}
-Janine, Maike \\
-Most common types of customer needs regarding products and the main levels of customer requirements: Functionality, price, design, reliability/availability/durability, performance, safety and sustainability
-\\
-The customer simulation is a weighted combination of the product price and the customer satisfaction. 
-That means that customer satisfaction and price are the two key indicators for the buying decision of the customers. The buying decision determines to what extent the customers are willing to buy a product. 
-For example: Buying Decision (Price, Customer Satisfaction) = 0,6 * Price + 0,4 * Customer Satisfaction
-\\
- Levels of customer requirements: Must haves, satisfiers and delighters. Must haves are the bare minimum requirements expected of customers. The customers do not show exceptional appreciation for the must haves, but if they are not met, the customer will show dissatisfaction. Satisfiers are the requirements that the customer expressly wishes. If you offer better or more of these satisfiers, then the customers will appreciate it more and be more satisfied. Delighters are the extras or the add-ons. The lack of these characteristics will not make the customer dissatisfied but adding these would greatly increase the customer's satisfaction. In our game, realized these three levels of customer requirements in the context of our product components. If the user chooses newer, better components for producing his / her product, then specific satisfiers or delighters are met, depending on how good the chosen components are.
- \\
- Main categories of customer satisfaction that are necessary for our game: \\
-- Satisfaction with the support quality, based on \\
-    o Satisfaction with the support quality \\
-    o Satisfaction with the support \\
-- Satisfaction with the product quality, based on \\
-    o Satisfaction with the product quality \\
-    o Satisfaction with the design of the product \\ 
-- Satisfaction with the company image \\
-\\
+% Customer Satisfction and Demand Calculation
 
-Calculation
-\begin{itemize}
-    \item Overall Product Quality (OPQ)
-    \item Overall support (OS) reference calculation in support (ToDo)
-    \item Company branding (CB) = 0,9*Company Image + 0,1*Job Satisfaction
-    \item Employer branding (EB) 
-    \item Customer Satisfaction (CS)
-    \begin{itemize}
-    \item If $OPQ \leq \ $40: (0,75*OPQ + 0,1*OS + 0,1*CB + 0,05*EB )
-    \item ElseIf $OPQ \leq \ $60: (0,65*OPQ + 0,2*OS + 0,1*CB + 0,05*EB)
-    \item Else: (0,55*OPQ + 0,3*OS + 0,1*CB + 0,05*EB)
-    \end{itemize}
-\end{itemize}
+\input{Customer/customerSimulation.tex}
 
-\section{Competitor Simulation}
-Steffen
-
-Janine \\
-Demand simulation: 
-\begin{itemize}
-\item How much products are sold depends on the Customer Satisfaction and also the sum of the component prices in the current year. We assume the potential customers use as baseline a product with the most recent components. 
-\item The customer satisfaction influences how much the customers are willing to pay for the product 
-\item The component prices are the basis for the price were 100\% are sold. This is defined for the customer satisfaction to be between 50 and 40
-\begin{itemize}
-\item CS >= 80: component price * 1,2 
-\item 80 \textgreater $CS \geq \ $60: component price * 1,1
-\item 60 \textgreater $CS \geq $50: component price * 1,05
-\item 50 \textgreater $CS \geq $40: component price * 1
-\item 40 \textgreater $CS \geq $20: component price * 0,9
-\item CS \textless 20: component price * 0,8
-\end{itemize}
-\item In order to determine what percentage of the offered products will be sold (y) the chosen retail price divided by the base price in the current year will be used as x in the following formula.
-\begin{equation}
-%y = 167.905104 * \E^{ -2.990914872 * 10^{ -1 } * x^{ 2 }}
-\end{equation}
-\begin{itemize}
-    \item if the result is \textgreater 100; demand = 100\%
-    \item if the result is \textless 0; demand = 0\%
-\end{itemize}
-\end{itemize}
+\input{Customer/demand.tex}
 
 \section{Linkages \& Interdependencies}
 \label{sec:link}
@@ -622,10 +509,8 @@ Adapting real-world examples in most cases, all events have in common that they 
 \end{landscape}
 
 The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet.
-\section{Prototype implementation}
-Steffen\\
-Mechanics, how we did testing\\
-Testing in each section
+
+\input{Prototype/implementation.tex}
 
 \chapter{Marketing Proposals}
 Philipp\\
