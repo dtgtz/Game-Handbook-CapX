@@ -464,24 +464,24 @@ Characteristics of the events
 \item Threshold applicable: yes / no
 \item Impact on an Game Mechanic: yes / no
 \end{itemize}
-The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which is also applicable for events. Their nature and likeliness to happen are to be transferred to the game environment. But there are aspects which are contradictory to this intend. Empirical evidence for the probability of events might be rare or the probability is so low that they would happen almost never throughout the game. Events having such an impact that they lead to a Game-Over must not happen in an early state and frustrate the player. In the end gaming should be fun too, not only replaying the real-world. Reflecting the latter is also limited as a simulation can never cover every 'live' aspect. As a result of these considerations, a probability can distort from its real-world example. If suitable, an event can even have a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. 
+The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which is also applicable for one-time events. Their nature and likeliness to happen are to be transferred to the game environment. But there are aspects which are contradictory to this intend. Empirical evidence for the probability of events might be rare or the probability is so low that they would happen almost never throughout the game. Events having such an impact that they lead to a Game-Over must not happen in an early state and frustrate the player. In the end gaming should be fun too, not only replaying the real-world. Reflecting the latter is also limited as a simulation can never cover every 'live' aspect. As a result of these considerations, a probability can distort from its real-world example. If suitable, an event can even have a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. 
+
+All events are linked to real-world examples:
 
 
 
-Adapting real-world examples in most cases, all events have in common that they have a significant impact on an indicator of the game mechanics. Some events are exaggerated compared to real-world examples. 
-
-
-\begin{landscape}
+<table event to real world example>
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[]
-%{
-\fontsize{7}{8} \selectfont
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
 \hline
  & \textbf{External Event} & \textbf{\begin{tabular}[c]{@{}l@{}}Random / \\ Conditional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Influencing \\ Indicators\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Starting \\ Threshold\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Probability or\\ Preconditions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Final \\ Threshold\end{tabular}} & \textbf{Impact on} & \textbf{Remarks} \\ \hline
 \textbf{} & \textbf{Production and Market:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
 1 & \begin{tabular}[c]{@{}l@{}}Production Problems \\ PopUp\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product\\ Quality\end{tabular} & 0,3 & (-1*Product Quality+2) & 0 & n/a & Decreasing Function \\ \hline
 2 & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product \\ Quality\end{tabular} &  &  &  & Customer Satisfaction & \begin{tabular}[c]{@{}l@{}}Boosts Customer \\ Satisfaction for 20 cycles\end{tabular} \\ \hline
-3 & \begin{tabular}[c]{@{}l@{}}Company Aqcuistion \\ possibility offered\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Constant \\ Increasing \\ Revenue\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Revenue increases\\ 25\% per year \\ over 5 years\end{tabular} &  & \begin{tabular}[c]{@{}l@{}}Indicators of \\ Acquisition integrated\end{tabular} & \begin{tabular}[c]{@{}l@{}}Acquistion costs xy, \\  minigame possible\end{tabular} \\ \hline
+3 & \begin{tabular}[c]{@{}l@{}}Company Aqcuistion \\ possibility offered\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Constant \\ Increasing \\ Revenue\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Revenue increases\\ 25\% per year \\ over 5 years\end{tabular} &  & \begin{tabular}[c]{@{}l@{}}Indicators of \\ Acquisition integrated\end{tabular} & \begin{tabular}[c]{@{}l@{}}Acquistion costs xy CapCoins, \\ minigame possible\end{tabular} \\ \hline
 4 & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & Random & n/a &  & 0,05 &  & Revenue & \begin{tabular}[c]{@{}l@{}}Only possibe if revenue \\ above xx CapCoins\end{tabular} \\ \hline
 5 & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Customer \\ Satisfaction\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Customer satisfaction \\ below threshold of XY\end{tabular} & n/a & Demand &  \\ \hline
 6 & \begin{tabular}[c]{@{}l@{}}Computer virus \\ attacks\end{tabular} & Random & n/a & n/a & 0,1 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity and\\ Reputation\end{tabular} & After Year 2000 \\ \hline
@@ -498,9 +498,45 @@ Adapting real-world examples in most cases, all events have in common that they 
 14 & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ warehouse\end{tabular} & Conditional & Inventory & \begin{tabular}[c]{@{}l@{}}Warehouses \\ at 80\%\end{tabular} & Game Cycles *0,001 & \begin{tabular}[c]{@{}l@{}}100 Game \\ Cylces\end{tabular} & Inventory & \begin{tabular}[c]{@{}l@{}}Only if warehouse\\ at or over 80\% full\end{tabular} \\ \hline
 \textbf{} & \textbf{Government and Politics:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
 15 & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Supplier \\ quality\end{tabular} &  & Future work &  &  &  \\ \hline
-16 & Change of power & Random & n/a & n/a & 0,2 &  & Tax rate & Most once the whole game \\ \hline
+16 & Change of power & Random & n/a & n/a & 0,2 &  & Tax rate & Most once throughout the game \\ \hline
 17 & Anonymous bomb threats & Conditional &  &  &  &  &  &  \\ \hline
 18 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ beacause of riots\end{tabular} & Conditional & Company Image &  & Future work &  &  &  \\ \hline
+19 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} & n/a & n/a & n/a & n/a & Future Work \\ \hline
+\end{tabular}
+\end{table}
+Adapting real-world examples in most cases, all events have in common that they have a significant impact on an indicator of the game mechanics. Some events are exaggerated compared to real-world examples. 
+
+
+\begin{landscape}
+\begin{table}[]
+%{
+\fontsize{7}{8} \selectfont
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+ & \textbf{External Event} & \textbf{\begin{tabular}[c]{@{}l@{}}Random / \\ Conditional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Influencing \\ Indicators\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Starting \\ Threshold\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Probability or\\ Preconditions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Final \\ Threshold\end{tabular}} & \textbf{Impact on} & \textbf{Remarks} \\ \hline
+\textbf{} & \textbf{Production and Market:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
+1 & \begin{tabular}[c]{@{}l@{}}Production Problems \\ Popup\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product\\ Quality\end{tabular} & 0,3 & (-1*Product Quality+2) & 0 & n/a & Decreasing Function \\ \hline
+2 & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product \\ Quality\end{tabular} &  &  &  & Customer Satisfaction & \begin{tabular}[c]{@{}l@{}}Boosts Customer \\ Satisfaction for 20 cycles\end{tabular} \\ \hline
+3 & \begin{tabular}[c]{@{}l@{}}Company Acquisition \\ possibility offered\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Constant \\ Increasing \\ Revenue\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Revenue increases\\ 25\% per year \\ over 5 years\end{tabular} &  & \begin{tabular}[c]{@{}l@{}}Indicators of \\ Acquisition integrated\end{tabular} & \begin{tabular}[c]{@{}l@{}}Acquisition costs xy, \\  mini-game possible\end{tabular} \\ \hline
+4 & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & Random & n/a &  & 0,05 &  & Revenue & \begin{tabular}[c]{@{}l@{}}Only possible if revenue \\ above xx CapCoins\end{tabular} \\ \hline
+5 & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Customer \\ Satisfaction\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Customer satisfaction \\ below threshold of XY\end{tabular} & n/a & Demand &  \\ \hline
+6 & \begin{tabular}[c]{@{}l@{}}Computer virus \\ attacks\end{tabular} & Random & n/a & n/a & 0,1 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity and\\ Reputation\end{tabular} & After Year 2000 \\ \hline
+\textbf{} & \textbf{Finance and Taxes:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & {\color[HTML]{FE0000} } \\ \hline
+7 & \begin{tabular}[c]{@{}l@{}}Tax Changes lead to \\ higher or less rates\end{tabular} & Random & n/a & n/a & -2 to 5 percent &  &  & In-/Decrease over time \\ \hline
+8 & Stricter Eco Laws & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 2 & 0.12 * Eco Index \textasciicircum 1.3 & 5 & \begin{tabular}[c]{@{}l@{}}Financial Fine or \\ Game Over\end{tabular} & Shutdown by Government \\ \hline
+9 & Inflation changes & Random & n/a & n/a & \begin{tabular}[c]{@{}l@{}}0 - 2 \% \\ (random)\end{tabular} & n/a &  & Example Germany \\ \hline
+10 & \begin{tabular}[c]{@{}l@{}}Stealing inside of\\ the company\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Job \\ Satisfaction\end{tabular} & 50\% & \begin{tabular}[c]{@{}l@{}}-4 * Job\\ Satisfaction + 2\end{tabular} & 25\% & Revenue & \begin{tabular}[c]{@{}l@{}}Financial decrease even \\ if sales high and cost \\ low (Inconsistency)\end{tabular} \\ \hline
+\textbf{} & \textbf{Employees:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
+11 & Strikes and union fighting & Conditional & Salary &  & Scaling to be defined &  & \begin{tabular}[c]{@{}l@{}}Production \\ Performance\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ salaries are risen\end{tabular} \\ \hline
+\textbf{} & \textbf{Natural Disasters:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
+12 & \begin{tabular}[c]{@{}l@{}}Flu goes around \\ causing Ill employees\end{tabular} & Random & n/a & n/a & 0,2 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity \\ Decrease of 10\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Temporary impact vanishes\\ after 100 Game Cycles\end{tabular} \\ \hline
+13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornadoes, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 2 & 0.12 * Eco Index \textasciicircum 1.3 & 5 &  &  \\ \hline
+14 & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ warehouse\end{tabular} & Conditional & Inventory & \begin{tabular}[c]{@{}l@{}}Warehouses \\ at 80\%\end{tabular} & Game Cycles *0,001 & \begin{tabular}[c]{@{}l@{}}100 Game \\ Cycles\end{tabular} & Inventory & \begin{tabular}[c]{@{}l@{}}Only if warehouse\\ at or over 80\% full\end{tabular} \\ \hline
+\textbf{} & \textbf{Government and Politics:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
+15 & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Supplier \\ quality\end{tabular} &  & Future work &  &  &  \\ \hline
+16 & Change of power & Random & n/a & n/a & 0,2 &  & Tax rate & Most once the whole game \\ \hline
+17 & Anonymous bomb threats & Conditional &  &  &  &  &  &  \\ \hline
+18 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & Conditional & Company Image &  & Future work &  &  &  \\ \hline
 19 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} & n/a & n/a & n/a & n/a & Future Work \\ \hline
 \end{tabular}
     \caption{External events}
@@ -508,7 +544,8 @@ Adapting real-world examples in most cases, all events have in common that they 
 \end{table}
 \end{landscape}
 
-The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet.
+From the UI point of view, the events are displayed as Pop-Up windows. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet.
+
 
 \input{Prototype/implementation.tex}
 

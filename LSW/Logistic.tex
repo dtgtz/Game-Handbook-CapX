@@ -61,16 +61,20 @@ The total capacity thus results from the number of trucks (NT) in the company's 
 
 The overall quality of the logistics vehicles, the so-called fleet index, is calculated on the basis of the quality and environmental friendliness of the individual trucks. 
 \begin{equation}
-Eco Index Fleet (EF) = Sum (EIT) / NT 
-Quality Index Fleet (QF) = Sum (QIT) / NT
-FleetIndex (FI) = EF * 0,2 + QF * 0,8
+\begin{aligned}
+    Eco Index Fleet (EF) = Sum (EIT) / NT 
+    Quality Index Fleet (QF) = Sum (QIT) / NT
+    FleetIndex (FI) = EF * 0,2 + QF * 0,8
+\end{aligned}
 \end{equation}
 
 Like the trucks, also the logistics employees have a certain influence on the quality of the internal logistics. This influence is included through their quality of work (QoWL).
 The calculation of the overall quality of the internal logistics sets different priorities depending on the quality of the work of the logistics employees. If this is sixty or less, it has a greater influence. Following the exact calculation: 
 \begin{equation}
+\begin{aligned}
     InternalLogistic (IL) = if (QoWL <= 60) { FI * 0.5 + QoWL * 0.5 }
               else {FI * 0,6 + QoWL * 0.4 }
+\end{aligned}
 \end{equation}
 
 Of course, the delivery of the products entails costs for the company. These consist of the fixed costs for the ride of a truck (FCD) and the variable costs per delivered package (VCD). 
@@ -79,11 +83,12 @@ A delivery by truck in principle costs 20 Cap Coins. Like the purchase price, th
 The cost of a delivery thus depends on the total number of products to be delivered (DP). 
 The case that the number of products to be delivered exceeds the total capacity of the internal delivery fleet must be considered separately. The additional costs incurred by an external delivery (CED) can either be caused by a contractual external logistics partner or by sending the packages by post. How these costs are composed in detail is described in the following sections. 
 \begin{equation}
+\begin{aligned}
 Delivery cost (DC) = if ( DP = CF ) { (( DP / 1000) * FCD) + ( DP * VCD) }
 elseif ( DP < CF ) { (round up to next int ( DP / 1000) * FCD ) + ( DP * VCD) }
 else { ( NT * FCD ) + ( NT *1000 * VCD ) + CED }
+\end{aligned}
 \end{equation}
-
 
 \subsubsection{External logistic Partner}
 In addition to his own logistics fleet, the player has the option of forming a contract with an external logistics partner. It is possible to outsource the complete product delivery to this partner or only products that exceed the delivery capacity of the own fleet. Basically, only one partner can be contracted at a time, but he can be fired at any time and replaced by another partner available on the market. 
@@ -102,8 +107,12 @@ The contractual costs and the variable costs are calculated by the initial price
 
 (TABLE)
 
-The total influence of an external partner company is measured by the External Logistics Index (ELI). Depending on how high its reliability is, different priorities are set in the calculation. The following formula shows the exact calculation: \begin{equation}
-    External logistic index (ELI) = if RLP ≤ 40: (RLP*0,5 + 0,5*(QLP*0,8 + ELP*0,2)) else: (RLP*0,4 + 0,6*(QLP*0,8 + ELP*0,2))
+The total influence of an external partner company is measured by the External Logistics Index (ELI). Depending on how high its reliability is, different priorities are set in the calculation. The following formula shows the exact calculation: 
+\begin{equation}
+\begin{aligned}
+    External logistic index (ELI) = if RLP ≤ 40: (RLP*0,5 + 0,5*(QLP*0,8 + ELP*0,2)) 
+    else: (RLP*0,4 + 0,6*(QLP*0,8 + ELP*0,2))
+\end{aligned}
 \end{equation}
 ---------------------------------------------------
 
