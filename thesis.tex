@@ -338,21 +338,15 @@ how to play your game successfully
 
 \section{Challenges \& Opportunities}
 Daniel \\
-Planning plays an essential part in business, but not everything can be foreseen. Companies and their executives must deal with uncertainty.  
-Explain real-world background
-External factors play a role in real life
-Influence on the business, but can nonly rarely be influenced vice versa
-Support
-Why does events happen, in which areas, --> interface?! pop-up?
-
-\label{sec:evil}
+Planning plays an essential part in business, but not everything can be foreseen. Companies and their executives must deal with uncertainty. Let's imagine that you just packed your bags for holiday and it gets lost at the airport. Did you consider this scenario before it happened? Running a business is similar: You can cover many scenarios and possibilities, but not everything. Therefore the game includes challenges and opportunities. Some of them are the result of bad management, some are rewarding. Some are influenced by your actions as a player, others come around occasionally.\\
+Their effects become visible on various indicators, like financial figures, warehouse or customer satisfaction. An immediate response is necessary to minimize negative consequences. Or to grab the chance when it is offered. 
 
 \chapter{Approach to the topic}
 \section{Project management}
 Nike, Maike, Philipp \\
 Timeline, iterative, agile working, feedback loops, project charters, meeting minutes, idea list and capx lingo, google drive, slack and trello blah... 
 \section{Way of Working}
-What to be confronted with - ralle ich nicht... whut?
+ralle ich nicht... whut?
 
 \chapter{Game Mechanics and Prototype}
 \label{cha:alg}
@@ -444,58 +438,99 @@ does not necessarily need pictures in it to work. A simpler approach (Figure
 2) might even be better in some cases.
 
 \section{External events}
-This section deals with the influence of events that happen during the course of the game. Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section refers to 'external' events as they are out of the players explicit and obvious control. Actions taken may still have an influence on an event's probability to happen, but this is invisible for the player. From a location point of view events can take place inside the company, for example strikes, or outside like rising taxes. Punishment for mistakes is common, but the player may also be rewarded when outstanding performance is present.  
-There are 18 distinct events divided into 5 categories and acting as counterparts to the game features. In addition, they reflect different areas of of the company's business: 
+This section deals with the influence of events that happen during the course of the game. Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section refers to 'external' events as they are out of the players explicit and obvious control. Actions taken may still have an influence on an event's probability to happen, but this is invisible for the player. From a location point of view events can take place inside the company, for example strikes, or outside like rising taxes. Punishment for mistakes is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events divided into 5 categories and acting as counterparts to the game features:
+\begin{itemize}
+\item Production, Company and Market
+\item Money and Tax
+\item Employees
+\item Natural Disasters
+\item Government and Politics
+\end{itemize}
+
+Events are mostly cross-functional. This means that the trigger of an event belongs to one simulation in the game while the result affects another simulation. The parameters which effect an event are named 'Influencing factors'. Each event is assigned a property of the following 4 characteristics:
+
 \begin{table}[]
-\begin{tabular}{lll}
-\textbf{\#} & \textbf{External Event} & \textbf{Real-World example} \\
-\textbf{1} & Production Problems PopUp & \begin{tabular}[c]{@{}l@{}}Not applicable to real-world, \\ In-Game implementation\end{tabular} \\
-\textbf{2} & New technology increases Quality & \begin{tabular}[c]{@{}l@{}}A paper from 2010 (cite) examined the relationship\\ between technology and customer satisfaciton\end{tabular} \\
-\textbf{3} & Company Aqcuistion offered & \begin{tabular}[c]{@{}l@{}}High-Performing companies like Apple often\\ invest in smaller ones to buy knowledge\end{tabular} \\
-\textbf{4} & Large company overtakes market share & \begin{tabular}[c]{@{}l@{}}The launch of the iPhone led to whole\\ change of the mobile phone market\end{tabular} \\
-\textbf{5} & Company Brand reputation plunges & \begin{tabular}[c]{@{}l@{}}After the failure of several Airbags \\ sales of GM dropped dramatically\end{tabular} \\
-\textbf{6} & Computer virus attacks & \begin{tabular}[c]{@{}l@{}}In 2017 Maersk encountered a cyberattack\\ corrupting operations with a damage of 300 m€\end{tabular} \\
-\textbf{7} & Tax Changes lead to higher or less rates & \begin{tabular}[c]{@{}l@{}}The US and 7 EU countries changed \\ their corporate tax rates for 2018\end{tabular} \\
-\textbf{8} & Stricter Eco Laws & \begin{tabular}[c]{@{}l@{}}As a result of the Diesel scandal many \\ countries enforced the environmental laws\end{tabular} \\
-\textbf{9} & Inflation changes & \begin{tabular}[c]{@{}l@{}}Destatis reported an average inflation \\ change of during the last 20 years of 1.4\%\end{tabular} \\
-\textbf{10} & Stealing inside the company & \begin{tabular}[c]{@{}l@{}}Research (cite) shows a strong relationship between \\ low job satisfaction and stealing by employees\end{tabular} \\
-\textbf{11} & Strikes and union fightings & Strikes occur regularly to enforce salary increases \\
-\textbf{12} & Flu goes around causing Ill employees & \begin{tabular}[c]{@{}l@{}}Disease rates are higher during winter months \\ making employees ill and unable to work\end{tabular} \\
-\textbf{13} & Hurricanes, tornados, earthquakes & \begin{tabular}[c]{@{}l@{}}Hurricanes regularly destroy companies' inventories. Global \\ warming is claimed to increase the number of natural disasters\end{tabular} \\
-\textbf{14} & Fire / Flooding in warehouse & \begin{tabular}[c]{@{}l@{}}Over 1,210 fires happen in warehouses across the US on average.\\ In the game this only happens if warehouses are full (punishment)\end{tabular} \\
-\textbf{15} & Problems with customs at the harbour & \begin{tabular}[c]{@{}l@{}}The upcoming brexit leads to chaos at harbours due unclear customs. \\ This event is to be further defined when harbours are implemented\end{tabular} \\
-\textbf{16} & Change of power & \begin{tabular}[c]{@{}l@{}}New governments set new financial priorities including changes \\ to the taxation system. Typical examples are the parties in the US\end{tabular} \\
-\textbf{17} & Blocked roads beacause of riots & \begin{tabular}[c]{@{}l@{}}Exact indicators are future work as infrastructure elements are \\ not part of the game yet. Energy companies are often targets of riots\end{tabular} \\
-\textbf{18} & Tensions between our country and other countries & \begin{tabular}[c]{@{}l@{}}Tensions between the US and Iran impact companies on their business. \\ Part of future work as the game currently focuses at one country.\end{tabular}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Characteristic} & \textbf{Description} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Random or \\ Conditional\end{tabular} & \begin{tabular}[c]{@{}l@{}}Random events have a probability which is not changed throughout the game. \\ Conditional events have some preconditions that must be met to get the probability activated.\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Rising probability or\\ certain occurence\end{tabular} & \begin{tabular}[c]{@{}l@{}}Probabilities may rise when an influencing indicator gets worse. \\ Alternatively the occurence is certain if a specific threshold is hit.\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Starting or final \\ thresholds applicable\end{tabular} & \begin{tabular}[c]{@{}l@{}}To get a probability higher than 0, some threshold value of an influencing factor must \\ be met. A threshold is not mandatory and by nature, not applicable to random events.\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Impact on a\\ game mechanic\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only notification events do not impact a variable in one of the game simulations. \\ An event normally impacts a game mechanic when triggered.\end{tabular} \\ \hline
 \end{tabular}
+\caption{Characteristics of external Events}
+    \label{characteristic_events}
 \end{table}
-\begin{itemize}
-\item Production and Market events map to the production and procurement simulation. 
-\item Money and Taxes. intervene with content of the finance simulation.  
-\item Employees covers one event (strikes) which deals with the HR simulation.
-\item Natural Disasters have an internal source for gaming purposes, but come from outside of the company. 
-\item Government and Politics are a mostly invisible force that acts in the game. They are not visible to the player, but the impact is significant. 
-\end{itemize}
 
-Events are usually cross-functional. This means that the trigger of an event in a specific category comes from another one. This is also the case for the outcome of events. The categorization itself orientates on the nature of the event.
-
-Characteristics of the events
-\begin{itemize}
-\item Random vs. Conditional probability
-\item Rising Probability vs. Certain occurrence
-\item Threshold applicable: yes / no
-\item Impact on an Game Mechanic: yes / no
-\end{itemize}
 The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which is also applicable for one-time events. Their nature and likeliness to happen are to be transferred to the game environment. But there are aspects which are contradictory to this intend. Empirical evidence for the probability of events might be rare or the probability is so low that they would happen almost never throughout the game. Events having such an impact that they lead to a Game-Over must not happen in an early state and frustrate the player. In the end gaming should be fun too, not only replaying the real-world. Reflecting the latter is also limited as a simulation can never cover every 'live' aspect. As a result of these considerations, a probability can distort from its real-world example. If suitable, an event can even have a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. 
 
 All events are linked to real-world examples:
-
-<table event to real world example>
-
-
+\\
+\begin{table}[]
+\centering
+\fontsize{8}{10} \selectfont
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{\#} & \textbf{External Event} & \textbf{Real-World example} \\ \hline
+\textbf{1} & \begin{tabular}[c]{@{}l@{}}Production Problems \\ PopUp\end{tabular} & \begin{tabular}[c]{@{}l@{}}Not applicable to real-world, \\ In-Game implementation\end{tabular} \\ \hline
+\textbf{2} & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & \begin{tabular}[c]{@{}l@{}}A paper from 2010 (cite) examined the relationship\\ between technology and customer satisfaciton\end{tabular} \\ \hline
+\textbf{3} & \begin{tabular}[c]{@{}l@{}}Company Aqcuistion \\ offered\end{tabular} & \begin{tabular}[c]{@{}l@{}}High-Performing companies like Apple often\\ invest in smaller ones to buy knowledge\end{tabular} \\ \hline
+\textbf{4} & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & \begin{tabular}[c]{@{}l@{}}The launch of the iPhone led to whole\\ change of the mobile phone market\end{tabular} \\ \hline
+\textbf{5} & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & \begin{tabular}[c]{@{}l@{}}After the failure of several Airbags \\ sales of GM dropped dramatically\end{tabular} \\ \hline
+\textbf{6} & \begin{tabular}[c]{@{}l@{}}Computer virus \\ attacks\end{tabular} & \begin{tabular}[c]{@{}l@{}}In 2017 Maersk encountered a cyberattack\\ corrupting operations with a damage of 300 m€\end{tabular} \\ \hline
+\textbf{7} & \begin{tabular}[c]{@{}l@{}}Tax Changes lead \\ to higher or less rates\end{tabular} & \begin{tabular}[c]{@{}l@{}}The US and 7 EU countries changed \\ their corporate tax rates for 2018\end{tabular} \\ \hline
+\textbf{8} & Stricter Eco Laws & \begin{tabular}[c]{@{}l@{}}As a result of the Diesel scandal many \\ countries enforced the environmental laws\end{tabular} \\ \hline
+\textbf{9} & Inflation changes & \begin{tabular}[c]{@{}l@{}}Destatis reported an average inflation \\ change of during the last 20 years of 1.4\%\end{tabular} \\ \hline
+\textbf{10} & \begin{tabular}[c]{@{}l@{}}Stealing inside\\ the company\end{tabular} & \begin{tabular}[c]{@{}l@{}}Research (cite) shows a strong relationship between \\ low job satisfaction and stealing by employees\end{tabular} \\ \hline
+\textbf{11} & Strikes and union fightings & Strikes occur regularly to enforce salary increases \\ \hline
+\textbf{12} & \begin{tabular}[c]{@{}l@{}}Flu goes around causing\\  Ill employees\end{tabular} & \begin{tabular}[c]{@{}l@{}}Disease rates are higher during winter months \\ making employees ill and unable to work\end{tabular} \\ \hline
+\textbf{13} & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornados, \\ earthquakes\end{tabular} & \begin{tabular}[c]{@{}l@{}}Hurricanes regularly destroy companies' inventories. Global \\ warming is claimed to increase the number of natural disasters\end{tabular} \\ \hline
+\textbf{14} & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ the warehouse\end{tabular} & \begin{tabular}[c]{@{}l@{}}Over 1,210 fires happen in warehouses across the US on average.\\ In the game this only happens if warehouses are full (punishment)\end{tabular} \\ \hline
+\textbf{15} & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & \begin{tabular}[c]{@{}l@{}}The upcoming brexit leads to chaos at harbours due unclear customs. \\ This event is to be further defined when harbours are implemented\end{tabular} \\ \hline
+\textbf{16} & Change of power & \begin{tabular}[c]{@{}l@{}}New governments set new financial priorities including changes \\ to the taxation system. Typical examples are the parties in the US\end{tabular} \\ \hline
+\textbf{17} & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & \begin{tabular}[c]{@{}l@{}}Exact indicators are future work as infrastructure elements are \\ not part of the game yet. Energy companies are often targets of riots\end{tabular} \\ \hline
+\textbf{18} & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & \begin{tabular}[c]{@{}l@{}}Tensions between the US and Iran impact companies on their business. \\ Part of future work as the game currently focuses at one country.\end{tabular} \\ \hline
+\end{tabular}
+\caption{Real-world examples for events}
+    \label{Examples_events}
+\end{table}
 Adapting real-world examples in most cases, all events have in common that they have a significant impact on an indicator of the game mechanics. Some events are exaggerated compared to real-world examples. 
 
 
+
+
+From the UI point of view, the events are displayed as Pop-Up windows. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet.
+
+
+\input{Prototype/implementation.tex}
+
+\chapter{Marketing Proposals}
+Philipp\\
+\label{cha:exp}
+\label{sec:setting}
+How to sell to company
+
+
+\chapter{Conclusion}
+\label{cha:conclusion}
+
+
+\section{Summary}
+\label{sec:sum}
+
+\section{Future Work}
+\label{sec:future}
+Idea List\\
+Mobile device integration
+Future timeline
+AR, VR support
+Multiple countries that will enable online multi-players
+3rd phase of the game corporate utopia
+\bibliographystyle{plain}
+\bibliography{thesis-ref}
+
+
+\appendix
 \begin{landscape}
 \begin{table}[]
 %{
@@ -531,40 +566,6 @@ Adapting real-world examples in most cases, all events have in common that they 
     \label{events_list}
 \end{table}
 \end{landscape}
-
-From the UI point of view, the events are displayed as Pop-Up windows. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet.
-
-
-\input{Prototype/implementation.tex}
-
-\chapter{Marketing Proposals}
-Philipp\\
-\label{cha:exp}
-\label{sec:setting}
-How to sell to company
-
-
-\chapter{Conclusion}
-\label{cha:conclusion}
-
-
-\section{Summary}
-\label{sec:sum}
-
-\section{Future Work}
-\label{sec:future}
-Idea List\\
-Mobile device integration
-Future timeline
-AR, VR support
-Multiple countries that will enable online multi-players
-3rd phase of the game corporate utopia
-\bibliographystyle{plain}
-\bibliography{thesis-ref}
-
-
-\appendix
-
 \chapter{Appendix}
 \label{cha:appendix-a}
 
