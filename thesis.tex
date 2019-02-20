@@ -9,6 +9,7 @@
 \pgfplotsset{width=11.5cm,compat=1.9}
 
 \usepackage{graphicx}
+\usepackage{svg}
 \usepackage{latexsym}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -132,8 +133,7 @@ CapitalismX now gives you the possibility to become CEO! This business simulatio
  
 \section{Player's role}
 Maike\\
-The user assumes the role of CEO for either a start-up or a midsize company which is about to fail. During his career, the player encounters several obstacles and leads the business. So, the user slips into various roles, such as head of human resources, production or logistics, in order to take the necessary measures to run a successful business. Daily tasks include hiring, firing, motivating and training employees, innovating and manufacturing products, deciding on the product portfolio, dealing with government issues and taking financial figures into account.
-In summary, the player decides on all the features provided in our game. These decisions are included in finance, human resources, procurement, production, warehouse, logistics and marketing and affect the performance of the company.
+You will take on the role of CEO for either a start-up or a midsize company which is about to fail. During your career, you will encounter several obstacles and lead the business. So, you will slip into various roles, such as head of human resources, production or logistics, in order to take the necessary measures to run a successful business. Daily tasks include hiring, firing, motivating and training employees, innovating and manufacturing products, deciding on the product portfolio, dealing with government issues and taking financial figures into account. In summary, you will decide on all the features provided in this game. Your decisions are then integrated into finance, human resources, procurement, production, warehousing, logistics and marketing and will finally affect the performance of your company.
 
 \section{Setting \& Story}
 \label{SettingStory}
@@ -338,7 +338,7 @@ how to play your game successfully
 
 \section{Challenges \& Opportunities}
 Daniel \\
-Planning is important but, but not everything can be foreseen 
+Planning plays an essential part in business, but not everything can be foreseen. Companies and their executives must deal with uncertainty.  
 Explain real-world background
 External factors play a role in real life
 Influence on the business, but can nonly rarely be influenced vice versa
@@ -445,8 +445,30 @@ does not necessarily need pictures in it to work. A simpler approach (Figure
 
 \section{External events}
 This section deals with the influence of events that happen during the course of the game. Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section refers to 'external' events as they are out of the players explicit and obvious control. Actions taken may still have an influence on an event's probability to happen, but this is invisible for the player. From a location point of view events can take place inside the company, for example strikes, or outside like rising taxes. Punishment for mistakes is common, but the player may also be rewarded when outstanding performance is present.  
-There are 19 distinct events divided into 5 categories and acting as counterparts to the game features. In addition, they reflect different areas of of the company's business: 
-
+There are 18 distinct events divided into 5 categories and acting as counterparts to the game features. In addition, they reflect different areas of of the company's business: 
+\begin{table}[]
+\begin{tabular}{lll}
+\textbf{\#} & \textbf{External Event} & \textbf{Real-World example} \\
+\textbf{1} & Production Problems PopUp & \begin{tabular}[c]{@{}l@{}}Not applicable to real-world, \\ In-Game implementation\end{tabular} \\
+\textbf{2} & New technology increases Quality & \begin{tabular}[c]{@{}l@{}}A paper from 2010 (cite) examined the relationship\\ between technology and customer satisfaciton\end{tabular} \\
+\textbf{3} & Company Aqcuistion offered & \begin{tabular}[c]{@{}l@{}}High-Performing companies like Apple often\\ invest in smaller ones to buy knowledge\end{tabular} \\
+\textbf{4} & Large company overtakes market share & \begin{tabular}[c]{@{}l@{}}The launch of the iPhone led to whole\\ change of the mobile phone market\end{tabular} \\
+\textbf{5} & Company Brand reputation plunges & \begin{tabular}[c]{@{}l@{}}After the failure of several Airbags \\ sales of GM dropped dramatically\end{tabular} \\
+\textbf{6} & Computer virus attacks & \begin{tabular}[c]{@{}l@{}}In 2017 Maersk encountered a cyberattack\\ corrupting operations with a damage of 300 m€\end{tabular} \\
+\textbf{7} & Tax Changes lead to higher or less rates & \begin{tabular}[c]{@{}l@{}}The US and 7 EU countries changed \\ their corporate tax rates for 2018\end{tabular} \\
+\textbf{8} & Stricter Eco Laws & \begin{tabular}[c]{@{}l@{}}As a result of the Diesel scandal many \\ countries enforced the environmental laws\end{tabular} \\
+\textbf{9} & Inflation changes & \begin{tabular}[c]{@{}l@{}}Destatis reported an average inflation \\ change of during the last 20 years of 1.4\%\end{tabular} \\
+\textbf{10} & Stealing inside the company & \begin{tabular}[c]{@{}l@{}}Research (cite) shows a strong relationship between \\ low job satisfaction and stealing by employees\end{tabular} \\
+\textbf{11} & Strikes and union fightings & Strikes occur regularly to enforce salary increases \\
+\textbf{12} & Flu goes around causing Ill employees & \begin{tabular}[c]{@{}l@{}}Disease rates are higher during winter months \\ making employees ill and unable to work\end{tabular} \\
+\textbf{13} & Hurricanes, tornados, earthquakes & \begin{tabular}[c]{@{}l@{}}Hurricanes regularly destroy companies' inventories. Global \\ warming is claimed to increase the number of natural disasters\end{tabular} \\
+\textbf{14} & Fire / Flooding in warehouse & \begin{tabular}[c]{@{}l@{}}Over 1,210 fires happen in warehouses across the US on average.\\ In the game this only happens if warehouses are full (punishment)\end{tabular} \\
+\textbf{15} & Problems with customs at the harbour & \begin{tabular}[c]{@{}l@{}}The upcoming brexit leads to chaos at harbours due unclear customs. \\ This event is to be further defined when harbours are implemented\end{tabular} \\
+\textbf{16} & Change of power & \begin{tabular}[c]{@{}l@{}}New governments set new financial priorities including changes \\ to the taxation system. Typical examples are the parties in the US\end{tabular} \\
+\textbf{17} & Blocked roads beacause of riots & \begin{tabular}[c]{@{}l@{}}Exact indicators are future work as infrastructure elements are \\ not part of the game yet. Energy companies are often targets of riots\end{tabular} \\
+\textbf{18} & Tensions between our country and other countries & \begin{tabular}[c]{@{}l@{}}Tensions between the US and Iran impact companies on their business. \\ Part of future work as the game currently focuses at one country.\end{tabular}
+\end{tabular}
+\end{table}
 \begin{itemize}
 \item Production and Market events map to the production and procurement simulation. 
 \item Money and Taxes. intervene with content of the finance simulation.  
@@ -468,42 +490,9 @@ The decision which event should get which characteristic was based on multiple a
 
 All events are linked to real-world examples:
 
-
-
 <table event to real world example>
-% Please add the following required packages to your document preamble:
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[]
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-\hline
- & \textbf{External Event} & \textbf{\begin{tabular}[c]{@{}l@{}}Random / \\ Conditional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Influencing \\ Indicators\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Starting \\ Threshold\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Probability or\\ Preconditions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Final \\ Threshold\end{tabular}} & \textbf{Impact on} & \textbf{Remarks} \\ \hline
-\textbf{} & \textbf{Production and Market:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-1 & \begin{tabular}[c]{@{}l@{}}Production Problems \\ PopUp\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product\\ Quality\end{tabular} & 0,3 & (-1*Product Quality+2) & 0 & n/a & Decreasing Function \\ \hline
-2 & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product \\ Quality\end{tabular} &  &  &  & Customer Satisfaction & \begin{tabular}[c]{@{}l@{}}Boosts Customer \\ Satisfaction for 20 cycles\end{tabular} \\ \hline
-3 & \begin{tabular}[c]{@{}l@{}}Company Aqcuistion \\ possibility offered\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Constant \\ Increasing \\ Revenue\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Revenue increases\\ 25\% per year \\ over 5 years\end{tabular} &  & \begin{tabular}[c]{@{}l@{}}Indicators of \\ Acquisition integrated\end{tabular} & \begin{tabular}[c]{@{}l@{}}Acquistion costs xy CapCoins, \\ minigame possible\end{tabular} \\ \hline
-4 & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & Random & n/a &  & 0,05 &  & Revenue & \begin{tabular}[c]{@{}l@{}}Only possibe if revenue \\ above xx CapCoins\end{tabular} \\ \hline
-5 & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Customer \\ Satisfaction\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Customer satisfaction \\ below threshold of XY\end{tabular} & n/a & Demand &  \\ \hline
-6 & \begin{tabular}[c]{@{}l@{}}Computer virus \\ attacks\end{tabular} & Random & n/a & n/a & 0,1 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity and\\ Reputation\end{tabular} & After Year 2000 \\ \hline
-\textbf{} & \textbf{Finance and Taxes:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & {\color[HTML]{FE0000} } \\ \hline
-7 & \begin{tabular}[c]{@{}l@{}}Tax Changes lead to \\ higher or less rates\end{tabular} & Random & n/a & n/a & -2 to 5 percent &  &  & In-/Decrease over time \\ \hline
-8 & Stricter Eco Laws & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 2 & 0.12 * Eco Index \textasciicircum 1.3 & 5 & \begin{tabular}[c]{@{}l@{}}Financial Fine or \\ Game Over\end{tabular} & Shutdown by Government \\ \hline
-9 & Inflation changes & Random & n/a & n/a & \begin{tabular}[c]{@{}l@{}}0 - 2 \% \\ (random)\end{tabular} & n/a &  & Example Germany \\ \hline
-10 & \begin{tabular}[c]{@{}l@{}}Stealing inside of\\ the company\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Job \\ Satisfaction\end{tabular} & 50\% & \begin{tabular}[c]{@{}l@{}}-4 * Job\\ Satisfaction + 2\end{tabular} & 25\% & Revenue & \begin{tabular}[c]{@{}l@{}}Financial decrease even \\ if sales high and cost \\ low (Incosistency)\end{tabular} \\ \hline
-\textbf{} & \textbf{Employees:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-11 & Strikes and union fightings & Conditional & Salary &  & Scaling to be defined &  & \begin{tabular}[c]{@{}l@{}}Production \\ Performance\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ salaries are risen\end{tabular} \\ \hline
-\textbf{} & \textbf{Natural Disasters:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-12 & \begin{tabular}[c]{@{}l@{}}Flu goes around \\ causing Ill employees\end{tabular} & Random & n/a & n/a & 0,2 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity \\ Decrease of 10\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Temporary impact vanishes\\ after 100 Game Cycles\end{tabular} \\ \hline
-13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornados, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 2 & 0.12 * Eco Index \textasciicircum 1.3 & 5 &  &  \\ \hline
-14 & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ warehouse\end{tabular} & Conditional & Inventory & \begin{tabular}[c]{@{}l@{}}Warehouses \\ at 80\%\end{tabular} & Game Cycles *0,001 & \begin{tabular}[c]{@{}l@{}}100 Game \\ Cylces\end{tabular} & Inventory & \begin{tabular}[c]{@{}l@{}}Only if warehouse\\ at or over 80\% full\end{tabular} \\ \hline
-\textbf{} & \textbf{Government and Politics:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-15 & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Supplier \\ quality\end{tabular} &  & Future work &  &  &  \\ \hline
-16 & Change of power & Random & n/a & n/a & 0,2 &  & Tax rate & Most once throughout the game \\ \hline
-17 & Anonymous bomb threats & Conditional &  &  &  &  &  &  \\ \hline
-18 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ beacause of riots\end{tabular} & Conditional & Company Image &  & Future work &  &  &  \\ \hline
-19 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} & n/a & n/a & n/a & n/a & Future Work \\ \hline
-\end{tabular}
-\end{table}
+
+
 Adapting real-world examples in most cases, all events have in common that they have a significant impact on an indicator of the game mechanics. Some events are exaggerated compared to real-world examples. 
 
 
@@ -530,14 +519,13 @@ Adapting real-world examples in most cases, all events have in common that they 
 11 & Strikes and union fighting & Conditional & Salary &  & Scaling to be defined &  & \begin{tabular}[c]{@{}l@{}}Production \\ Performance\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ salaries are risen\end{tabular} \\ \hline
 \textbf{} & \textbf{Natural Disasters:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
 12 & \begin{tabular}[c]{@{}l@{}}Flu goes around \\ causing Ill employees\end{tabular} & Random & n/a & n/a & 0,2 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity \\ Decrease of 10\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Temporary impact vanishes\\ after 100 Game Cycles\end{tabular} \\ \hline
-13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornadoes, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 2 & 0.12 * Eco Index \textasciicircum 1.3 & 5 &  &  \\ \hline
+13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornadoes, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 2 & 0.12 * Eco Index \textasciicircum 1.3 & 5 &  Inventory &  \\ \hline
 14 & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ warehouse\end{tabular} & Conditional & Inventory & \begin{tabular}[c]{@{}l@{}}Warehouses \\ at 80\%\end{tabular} & Game Cycles *0,001 & \begin{tabular}[c]{@{}l@{}}100 Game \\ Cycles\end{tabular} & Inventory & \begin{tabular}[c]{@{}l@{}}Only if warehouse\\ at or over 80\% full\end{tabular} \\ \hline
 \textbf{} & \textbf{Government and Politics:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
 15 & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Supplier \\ quality\end{tabular} &  & Future work &  &  &  \\ \hline
 16 & Change of power & Random & n/a & n/a & 0,2 &  & Tax rate & Most once the whole game \\ \hline
-17 & Anonymous bomb threats & Conditional &  &  &  &  &  &  \\ \hline
-18 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & Conditional & Company Image &  & Future work &  &  &  \\ \hline
-19 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} & n/a & n/a & n/a & n/a & Future Work \\ \hline
+17 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & Conditional & Company Image &  & Future work &  &  &  \\ \hline
+18 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} & n/a & n/a & n/a & n/a & Future Work \\ \hline
 \end{tabular}
     \caption{External events}
     \label{events_list}
