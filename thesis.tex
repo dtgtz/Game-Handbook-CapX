@@ -187,8 +187,42 @@ CapitalismX now gives you the possibility to become CEO! This business simulatio
 \label{sec:good}
 
 \subsection{Controls}  
-Nike and Salih
-War Room and what to choose? How does everything look like, which buttons etc. pause button / fast-forward button???\\
+The start screen in CapitalismX is the map of all functional and non-functional buildings, such as:
+\begin{itemize}
+    \item the CapitalismX headquarters, where your finance department, your HR department and your marketing department are located. 
+    \item the bank, where you can request a loan.
+    \item the harbor, where you can procure the components you need in order to manufacture your products.
+    \item the employee market, where you can hire your employees.
+    \item the production facilities, where you can manufacture your products.
+    \item anything else?
+\end{itemize}
+
+You can adapt settings or get an overview about the department specific performance by either clicking on the functional buildings or using the navigation bar at the top of the screen. The departments in the navigation bar are finance, HR, production and marketing and include links to all other functionalities in the game. 
+\begin{figure}
+    \centering
+    \includegraphics [width=\textwidth]{images/navigationBar.png}
+    \caption{Navigation Bar}
+    \label{fig:navigationBar}
+\end{figure} The detailed actions and settings are described in later chapters, but in the following you get an overview about the different actions that you can do by using the navigation bar.
+
+In the HR view, you can adapt all settings regarding human resources and employees, such as hiring and firing employees. Also you get insights about the employee satisfaction and other key figures. For more information about the HR view, please go to chapter \ref{HR_manual}.
+The finance view, provides you with an overview about the financial situation of the company, by giving you dashboard consisting of different performance indicators, such as cashflow and net worth of company. Also, you might take action on financial topics, such as loaning money from the bank. You can find details in chapter \ref{finance_manual}.
+Next, you can procure, produce and sell goods and equipment in the production view. For more insights on procurement, production and selling, please take a look at chapter \ref{production_manual}. 
+Last but not least, you can visit the marketing area, where you can start marketing campaigns, start market research activities or commission consulting companies. You can find more information in chapter \ref{marketing_manual}.
+
+Throughout the game time passes starting from 1990 on. You can revisit this time at the top right corner of the screen and can be seen in picture \ref{fig:time}.
+\begin{figure}
+    \centering
+    \includegraphics{images/time.png}
+    \caption{Time in CapitalismX}
+    \label{fig:time}
+\end{figure}
+Next to the time box, there is a little "pause" sign, where you can pause the time in case you want to adapt some settings and do not want the time to elapse before you finished your adaptations.
+
+Apart from that, at the bottom of the screen you can find a newsticker-banner, that gives you decent hints about possible settings to adapt. [EXAMPLE???]%maybe Daniel you have an example?
+
+In CaptialismX some unexpected incidents may happen to your company or to the environment, for example it could happen that an earthquake destroys part of your production facility or that a sudden hacker attack is going to steal sensitive data from you. In these cases, urgent intervention from you is needed! Therefore, a pop-up window will open, where you have instant decisions to be taken and actions to start. It is absolutely not recommended to ignore such pop-up windows, because omitted action is highly probable to cause your company huge damage.
+
 
  \input{finance/finance_manual.tex}
  
@@ -196,7 +230,7 @@ War Room and what to choose? How does everything look like, which buttons etc. p
 
 \input{HR/how_to_play_hr.tex}
 
-\subsection{Production}
+\subsection{Production} \label{production_manual}
 Livja, (Nike for Pricing and Selling) \\
  production is composed of three main elements: procurement(harbour), manufacturing, logistics(relate to following paragraph)\\
 explain each sub-unit of these elements and adapt explanation and functions to the mock-up
@@ -219,7 +253,21 @@ manufacturing
 \subsubsection{Procurement}
 Nike explains how to use the procurement part.
 
-\subsection{Marketing}
+In order to start manufacturing or retailing goods, you need to procure the components necessary. First, you need to choose a suitable product portfolio for you. In order to do so, please go to the production area and select the procurement tab. There you have the possibility to add a new product to your portfolio. In the beginning, it is reasonable to start with a smaller product portfolio. [screenshot] In later stages of the game however, it might be interesting to test out the production and sale of different products, and maybe even different version of products, for example selling a high-quality, high-priced smartphone and to compare it to selling a low-quality, low-priced smartphone. Insights of such experiments might be derived from market research, sales figures, etc.
+
+Also, you have an overview about the components the engineers need in order to manufacture a specific product. Some might be locked at the beginning and will be unlocked in due time. When clicking on a component, an overlay opens where you have the possibility to select the component from three different suppliers. [screenshot]. There are several features that help you decide which supplier to choose: the price, the eco-index and the quality index. The price varies, depending on the supplier. Next, the eco-index is a measure that defines a supplier’s ecological footprint, influenced by their logistics, sustainability in production, ecological footprint of their suppliers, and so on. This means, the components you choose might also have an influence on your company’s eco-index. Third, the quality index gives you insights about the component’s quality, so the higher the quality index, the higher the component’s quality. Again, the component’s quality has an influence on your final product’s quality index, which you should keep in mind, when defining a product’s price.
+
+After deciding on a component from a supplier, you need to choose the amount of components you want to purchase. For a higher amount, you might get a mass discount, but beware --  buying more components than you manufacture to products may lead to higher warehousing costs. 
+
+%pricing part. do we need to move it?
+Now it is time to generate some revenue for your hard work! After hiring engineers, procuring the components and machinery needed, you have to decide on a market price for your respective product. In order to do so, you might go to the product view tab in the production area. There you get an overview about each product in your portfolio. [screenshot]
+
+First, you can see the product’s name, which you can adapt in the procurement view. Second, you can enter the quantity of products you want to produce. Next to that, you have the amount of units in stock displayed. The amount in stock will be reduced automatically when some customer buys the respective product. This means, that only if the stock is empty, products with new components will be sold to the market. However, you can produce all the time and increase the units in stock if the market is not responding yet.
+Back to the UI: Next to the units in stock you can see the cumulated product costs for a single product, which include the sum of component prices, and other fixed costs, such as electricity, and variable costs that occur during production. Based on this amount of CapCoins you might enter a market price in the next field. The respective profit margin is calculated automatically and displayed next to your defined market price. Again, market research and older sales figures may give you a hint about the reasonableness of your market price.
+
+With that being said, the actions you are required to take are defining the price per product in the production view. Then, as soon as you enter a quantity, the products are produced if sufficient production capacity is available. Otherwise, the products are manufactured according to the FIFO principle. After production, the products are available for purchase by your customers on the market.
+
+\subsection{Marketing} \label{marketing_manual}
 Janine\\
 manage internal communication, external communication and legal topics for your company 
 \\
@@ -298,19 +346,18 @@ Janine
 \label{sec:business}
 https://www.youtube.com/watch?v=NisCkxU544c
 \subsection{Choose the portfolio}
-Nike \\
-Description of products \\
-As mentioned above in chapter xxxx, the player may offer two different types of products. Those two different groups are first manufactured goods, and second, retail products that are simply bought as a whole and resold under the company brand \\
+Nike - Description of products 
 
-To start with the retail products, consisting of two different sub-groups of products: the mass storage devices and the movie playback devices. As the products evolve over the time frame of the game, the scope of the single product group also changes. \\
-Mass storage devices will evolve, given a decent investment to innovate, from CD over DVD to BlueRay, from small SD cards to SD cards with very large memory, and from USB Sticks with small memory and in simple versions to evolved versions with large memory. FURTHER DESCRIPTION OF PRODUCTS NEEDED?!
-Movie playback devices may evolve from simple video recorders for recording tapes to DVD and BlueRay player, that even can become smart. \\
+You as the CEO decide which products you want to offer. In CapitalismX, there are two different types of products. Those two different groups are first manufactured goods, and second, retail products that are simply bought as a whole and resold under the company brand.
+
+To start with the retail products, consisting of two different sub-groups of products: the mass storage devices and the movie playback devices. As the products evolve over the time frame of the game, the scope of the single product group also changes. Mass storage devices will evolve, given a decent investment to innovate, from CD over DVD to BlueRay, from small SD cards to SD cards with very large memory, and from USB Sticks with small memory and in simple versions to evolved versions with large memory. [FURTHER DESCRIPTION OF PRODUCTS NEEDED?!] Movie playback devices may evolve from simple video recorders for recording tapes to DVD and BlueRay player, that even can become smart. 
 
 The larger part of the product portfolio is displayed by the manufactured goods. To produce those, the player has to slip into the role of a strategic head of manufacturing and has to take care about the education and satisfaction of employees in order to provide a high manufacturing and therefore also high product quality; about the procurement of components and warehousing of products; and so on.
-The manufactured goods are divided into four product sub-groups, which are notebooks, phones, gameboys, and televisions. \\
-Contrary to retail products, the manufactured products consist of single components, that the player needs to buy at the procurement (???) harbour. Also, the player needs engineers in order to aggregate the components to products. As described in section XXXX, the education and skills of the engineers influence the quality of the product. Other than that, the product quality is also determined on the component's actuality. Another difference to the retail products is, that the manufactured product's evolution is depicted by different levels, meaning that a notebook always stays a notebook, but it surely evolves to a higher performing version. To put it into a nutshell, the player has to continuously innovate and invest in new components, skilled engineers, and procurement of components in order to achieve the best competitive products. \\
+The manufactured goods are divided into four product sub-groups, which are notebooks, phones, gameboys, and televisions. 
 
-Apart from that, the player has the possibility to produce more than one product from a product sub-group, which offers various strategic advantages. For example, it is possible to produce two different phones at the same time, to test out different features and product strategies in the market. Phone A could be a very basic, simple phone, suitable for basic tasks like phone calls, messages, emails, surfing in the web. Obviously, Phone A would have a rather cheap price, but also the components do not need to be the latest state of the art tech. Phone B on the other side, could be a very advanced hence expensive phone, including a high resolution camera, high-speed internet connectivity and a fast CPU.\\
+Contrary to retail products, the manufactured products consist of single components, that the player needs to procure in the procurement view. Also, the player needs engineers in order to aggregate the components to products. As described in section [CHAPTER REFERENCE]], the education and skills of the engineers influence the quality of the product. Other than that, the product quality is also determined on the component's actuality. Another difference to the retail products is, that the manufactured product's evolution is depicted by different levels, meaning that a notebook always stays a notebook, but it surely evolves to a higher performing version. To put it into a nutshell, the player has to continuously innovate and invest in new components, skilled engineers, and procurement of components in order to achieve the best competitive products. 
+
+Apart from that, the player has the possibility to produce more than one product from a product sub-group, which offers various strategic advantages. For example, it is possible to produce two different phones at the same time, to test out different features and product strategies in the market. Phone A could be a very basic, simple phone, suitable for basic tasks like phone calls, messages, emails, surfing in the web. Obviously, Phone A would have a rather cheap price, but also the components do not need to be the latest state of the art tech. Phone B on the other side, could be a very advanced hence expensive phone, including a high resolution camera, high-speed internet connectivity and a fast CPU.
 
 \subsection{Lead the right employees}
 Janine
