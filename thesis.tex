@@ -17,6 +17,7 @@
 \usepackage{lscape}
 \usepackage{ntheorem}
 \usepackage{comment}
+\usepackage[colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black]{hyperref}
 %\usepackage[table,xcdraw]{xcolor}
 % \usepackage{paralist}
 \usepackage{tabularx}
@@ -108,11 +109,11 @@ Steffen Waldmann \\
 % no lets make some add some table of contents
 \tableofcontents
 \newpage
-
+\printglossary[style=long]
 \listoffigures
 
 \listoftables
-\printglossary[style=long]
+
 % evntuelly you might add something like this
 % \listtheorems{definition}
 % \listtheorems{proposition}
@@ -332,18 +333,14 @@ Technical description of the game, the backend
 
 \section{Linkages \& Interdependencies}
 \label{sec:link}
-Overall Graph
-
-\section{Example Flowboard}
-A flowboard is the best way to document a game’s structure. The term is derived
-from a flowchart and a storyboard. Storyboards are a linear series of pictures
-used by filmmakers to plan a set of shots. Flowcharts are diagrams used
-by programmers for documenting an algorithm. A flowboard combines these
-two ideas. Each picture is a sketch or a mockup of the screen, in one specific
-gameplay mode or menu. The pictures are connected via arrows that indicate
-under what circumstances the transition takes place. (1, p. 57; 3.) The flowboard
-does not necessarily need pictures in it to work. A simpler approach (Figure
-2) might even be better in some cases.
+\begin{landscape}
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.5]{images/Tree-like-thing (1).pdf}
+    \caption{Caption}
+    \label{fig: treeLikeThing}
+\end{figure}
+\end{landscape}
 
 \section{External events}
 This section deals with the influence of events that happen during the course of the game. Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section refers to 'external' events as they are out of the players explicit and obvious control. Actions taken may still have an influence on an event's probability to happen, but this is invisible for the player. From a location point of view events can take place inside the company, for example strikes, or outside like rising taxes. Punishment for mistakes is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events divided into 5 categories and acting as counterparts to the game features:
@@ -359,33 +356,22 @@ Events are mostly cross-functional. This means that the trigger of an event belo
 
 \begin{itemize}
 \item Random or Conditional: Random events have a probability which is not changed throughout the game. Conditional events have some preconditions that must be met to get the probability activated.
-\item Rising probability or certain occurrence: Probabilities may rise exponentially or linear when an influencing indicator gets worse.
+\item Rising probability or certain occurrence: Probabilities may rise exponentially or linear when an influencing indicator gets worse. Alternatively the occurrence is certain if a specific threshold is hit.
+\item Starting or final thresholds applicable: To get a probability higher than 0, some threshold value of an influencing factor must be met. A threshold is not mandatory and by nature, not applicable to random events.
+\item Impact on a game mechanic: Only notification events do not impact a variable in one of the game simulations.An event normally impacts a game mechanic when triggered.
 \end{itemize}
-\begin{table}[]
-\begin{tabular}{|l|l|}
 
-\textbf{Characteristic} & \textbf{Description} \\ \hline
-\begin{tabular}[c]{@{}l@{}}R \\ Conditional\end{tabular} & \begin{tabular}[c]{@{}l@{}} \\ s \\ \end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}\\ \end{tabular} & \begin{tabular}[c]{@{}l@{}} \\ Alternatively the occurrence is certain if a specific threshold is hit.\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}Starting or final \\ thresholds applicable\end{tabular} & \begin{tabular}[c]{@{}l@{}}To get a probability higher than 0, some threshold value of an influencing factor must \\ be met. A threshold is not mandatory and by nature, not applicable to random events.\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}Impact on a\\ game mechanic\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only notification events do not impact a variable in one of the game simulations. \\ An event normally impacts a game mechanic when triggered.\end{tabular} \\ \hline
-\end{tabular}
-\caption{Characteristics of external Events}
-    \label{characteristic_events}
-\end{table}
+The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which is also applicable for one-time events. Their nature and likeliness to happen are to be transferred to the game environment. But there are aspects which are contradictory to this intend. Empirical evidence for the probability of events might be rare or the probability is so low that they would happen almost never throughout the game. Events having such an impact that they lead to a Game-Over must not happen in an early state and frustrate the player. In the end gaming should be fun too, not only replaying the real-world. Reflecting the latter is also limited as a simulation can never cover every 'live' aspect. As a result of these considerations, a probability can distort from its real-world example. If suitable, an event can even have a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. Adapting real-world examples in most cases, events have in common that they significantly change an indicator of the game mechanics. Only Some events are exaggerated compared to real-world examples or have only a notification as a result:
 
-The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which is also applicable for one-time events. Their nature and likeliness to happen are to be transferred to the game environment. But there are aspects which are contradictory to this intend. Empirical evidence for the probability of events might be rare or the probability is so low that they would happen almost never throughout the game. Events having such an impact that they lead to a Game-Over must not happen in an early state and frustrate the player. In the end gaming should be fun too, not only replaying the real-world. Reflecting the latter is also limited as a simulation can never cover every 'live' aspect. As a result of these considerations, a probability can distort from its real-world example. If suitable, an event can even have a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. All are connected to real-world examples:
-\\
-How are the probability values determined? -Real world 
 \begin{table}[]
 \centering
 \fontsize{9}{10} \selectfont
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{\#} & \textbf{External Event} & \textbf{Real-World example} \\ \hline
-\textbf{1} & \begin{tabular}[c]{@{}l@{}}Production Problems \\ PopUp\end{tabular} & \begin{tabular}[c]{@{}l@{}}Not applicable to real-world, \\ In-Game implementation\end{tabular} \\ \hline
+\textbf{1} & \begin{tabular}[c]{@{}l@{}}Production Problems \\ Pop-Up\end{tabular} & \begin{tabular}[c]{@{}l@{}}Not applicable to real-world, \\ In-Game implementation\end{tabular} \\ \hline
 \textbf{2} & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & \begin{tabular}[c]{@{}l@{}}A paper released in 2010 examined the relationship\\ between technology and customer satisfaction\gls{cs}\cite{Ryding}\end{tabular} \\ \hline
-\textbf{3} & \begin{tabular}[c]{@{}l@{}}Company Aqcuistion \\ offered\end{tabular} & \begin{tabular}[c]{@{}l@{}}High-Performing companies like Apple often\\ invest in smaller ones to buy knowledge\end{tabular} \\ \hline
+\textbf{3} & \begin{tabular}[c]{@{}l@{}}Company Acquisition \\ offered\end{tabular} & \begin{tabular}[c]{@{}l@{}}High-Performing companies like Apple often\\ invest in smaller ones to buy knowledge\end{tabular} \\ \hline
 \textbf{4} & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & \begin{tabular}[c]{@{}l@{}}The launch of the iPhone led to whole\\ change of the mobile phone market\end{tabular} \\ \hline
 \textbf{5} & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & \begin{tabular}[c]{@{}l@{}}After the failure of several Airbags \\ sales of GM dropped dramatically\end{tabular} \\ \hline
 \textbf{6} & \begin{tabular}[c]{@{}l@{}}Computer virus \\ attacks\end{tabular} & \begin{tabular}[c]{@{}l@{}}In 2017 Maersk encountered a cyberattack\\ corrupting operations with a damage of 300 m€\end{tabular} \\ \hline
@@ -395,9 +381,9 @@ How are the probability values determined? -Real world
 \textbf{10} & \begin{tabular}[c]{@{}l@{}}Stealing inside\\ the company\end{tabular} & \begin{tabular}[c]{@{}l@{}}Research shows a strong relationship between \\ low job satisfaction and stealing by employees\cite{Kulas}.\end{tabular} \\ \hline
 \textbf{11} & Strikes and union fightings & Strikes occur regularly to enforce salary increases \\ \hline
 \textbf{12} & \begin{tabular}[c]{@{}l@{}}Flu goes around causing\\  Ill employees\end{tabular} & \begin{tabular}[c]{@{}l@{}}Disease rates are higher during winter months \\ making employees ill and unable to work\end{tabular} \\ \hline
-\textbf{13} & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornados, \\ earthquakes\end{tabular} & \begin{tabular}[c]{@{}l@{}}Hurricanes regularly destroy companies' inventories. Global \\ warming is claimed to increase the number of natural disasters\end{tabular} \\ \hline
+\textbf{13} & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornadoes, \\ earthquakes\end{tabular} & \begin{tabular}[c]{@{}l@{}}Hurricanes regularly destroy companies' inventories. Global \\ warming is claimed to increase the number of natural disasters\end{tabular} \\ \hline
 \textbf{14} & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ the warehouse\end{tabular} & \begin{tabular}[c]{@{}l@{}}Over 1,210 fires happen in warehouses across the US on average.\\ In the game this only happens if warehouses are full (punishment)\end{tabular} \\ \hline
-\textbf{15} & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & \begin{tabular}[c]{@{}l@{}}The upcoming brexit leads to chaos at harbours due to customs. \\ Event is to be further defined when harbours are implemented\end{tabular} \\ \hline
+\textbf{15} & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & \begin{tabular}[c]{@{}l@{}}The upcoming Brexit leads to chaos at harbours due to customs. \\ Event is to be further defined when harbours are implemented\end{tabular} \\ \hline
 \textbf{16} & Change of power & \begin{tabular}[c]{@{}l@{}}New governments set new financial priorities including changes \\ to the taxation system. Typical examples are the parties in the US\end{tabular} \\ \hline
 \textbf{17} & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & \begin{tabular}[c]{@{}l@{}}Exact indicators are future work as infrastructure elements are \\ not part of the game yet. Energy companies are often targets of riots\end{tabular} \\ \hline
 \textbf{18} & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & \begin{tabular}[c]{@{}l@{}}Tensions between the US and Iran impact companies on their business. \\ Part of future work as the game currently focuses at one country.\end{tabular} \\ \hline
@@ -406,8 +392,7 @@ How are the probability values determined? -Real world
     \label{Examples_events}
 \end{table}
 
-Adapting real-world examples in most cases, events have in common that they significantly change an indicator of the game mechanics. Only Some events are exaggerated compared to real-world examples. 
-
+How are the probability values determined? -Real world data (empirical from scientific sources, trustworthy google search results, self-estimation (rule of thumb) 
 
 From the UI point of view, the events are displayed as Pop-Up windows. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet.
 
@@ -430,7 +415,6 @@ How to sell to company
 
 \section{Future Work}
 \label{sec:future}
-
 There were far more ideas than could be captured during the development of the game. However, they should not be forgotten as the game can be further extended. 
 Idea List\\
 Mobile device integration
@@ -443,6 +427,7 @@ Multiple countries that will enable online multi-players
 
 
 \appendix
+
 \begin{landscape}
 \begin{table}[]
 %{

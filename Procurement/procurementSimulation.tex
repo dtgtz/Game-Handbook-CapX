@@ -43,10 +43,12 @@ In addition, a component's \textit{ecoIndex} and \textit{baseQuality} are calcul
 \begin{equation}
     baseQuality(good \; component) = randomized(80-100)
 \end{equation}
-Furthermore, each component has a \textit{baseUtility}, which is defined manually. This is the case because the changes of the \textit{baseUtility} differ greatly between the different versions of a component. For example, for cameras, the increase in \textit{baseUtility} from the first level to the second level, from "1.2 MP" to "2 MP", is much lower than the increase from the second to the third level, from "2 MP" to "5 MP". All components including their \textit{baseUtility}, \textit{componentLevel} and \textit{availabilityDate} can be found in the appendix. %Add reference
+The \textit{ecoIndex} and the \textit{baseQuality} represent the variables needed for the calculation of the \textit{totalProcurementQuality (per product)}. The \textit{totalProcurementQuality} then influences the \textit{totalProductQuality (per product)}.\\
+Furthermore, each component has a \textit{baseUtility}, which is defined manually. This is the case because the changes of the \textit{baseUtility} differ greatly between the different versions of a component. For example, for cameras, the increase in \textit{baseUtility} from the first level to the second level, from "1.2 MP" to "2 MP", is much lower than the increase from the second to the third level, from "2 MP" to "5 MP". All components including their \textit{baseUtility}, \textit{componentLevel} and \textit{availabilityDate} can be found in the appendix. %Add reference to table in appendix
 
 Figure \ref{img:totalComponentCosts} should help to understand the complex calculation of a component's \textit{baseCost}, as well as the relation and the influences between the different attributes of a component and a component’s initial price (\textit{initialComponentPrice}).\\
-\begin{figure}
+
+\begin{figure} [!htbp]
 	\centering
 	\includegraphics[width=8.5cm]{images/totalComponentCosts.pdf}
 	\caption{Calculation of totalComponentCosts}
@@ -54,7 +56,11 @@ Figure \ref{img:totalComponentCosts} should help to understand the complex calcu
 \end{figure}
 Starting from the bottom of figure \ref{img:totalComponentCosts}, the \textit{initialComponentPrice} is available for each component and depends on the \textit{componentLevel}.
 The time-based component prices (\textit{timeBasedComponentPrice}) depend on the \textit{componentLevel}, on the \textit{time}, on the \textit{availabilityDate} of component, and on the \textit{initialComponentPrice}.
-The \textit{timeBasedComponentPrice} is dependent on the \textit{time} because we assume that a supplier produces a component in a certain level for a certain amount of time. In the first year, this is then state-of-the-art technology. However, as state-of-the-art technology rapidly become outdated and additionally new \textit{componentLevels} are released, the \textit{timeBasedComponentPrice} decreases starting from the second year on, according to the following polynomic function of fifth degree:
+The \textit{timeBasedComponentPrice} is dependent on the \textit{time} because we assume that a supplier produces a component in a certain level for a certain amount of time. In the first year, this is then state-of-the-art technology. However, as state-of-the-art technology rapidly become outdated and additionally new \textit{componentLevels} are released, the \textit{timeBasedComponentPrice} decreases starting from the second year on, according to the following polynomic function of fifth degree. In order to understand the following formula \ref{Function timeBoundComponentPrice}, the difference between system time and the time t in the formula needs to be explained. The system time starts at 1,990 (which equals year 1990 AD) and ends at 2,017 (which equals year 2017 AD) and the time \textit{t} displayed in the formula starts at 0 and has a maximum of 27, because the maximum duration of the game is 
+\begin{equation}
+    2017 AD - 1990 AD = 27 years
+\end{equation} 
+Also, the availability date of the component is important for this formula. When a component appears on market then it has its \textit{inititalComponentPrice}. After the first year in the market, so if \textit{t>0}, the formula \ref{Function timeBoundComponentPrice} is applied to compute the price development of the component. 
 \begin{equation}
 \label{Function timeBoundComponentPrice}
 \begin{aligned}
@@ -63,7 +69,7 @@ The \textit{timeBasedComponentPrice} is dependent on the \textit{time} because w
 \end{aligned}   
 \end{equation}
 
-\begin{figure}
+\begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=8.5cm]{images/materialCostFunction.pdf}
 	\caption{Material Cost Function}
