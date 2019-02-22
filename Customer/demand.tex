@@ -1,28 +1,49 @@
 \subsection{Demand Calculation}
-Janine \\
-Demand simulation: 
-\begin{itemize}
-\item How much products are sold depends on the Customer Satisfaction and also the sum of the component prices in the current year. We assume the potential customers use as baseline a product with the most recent components. 
-\item The customer satisfaction influences how much the customers are willing to pay for the product 
-\item The component prices are the basis for the price were 100\% of the potential customers are interested in buying the product. This is defined for the customer satisfaction to be between 50 and 40.
-
-\begin{itemize}
-\item $CS \geq \ $80: component price * 1,2 
-\item 80 \textgreater $CS \geq \ $60: component price * 1,1
-\item 60 \textgreater $CS \geq $50: component price * 1,05
-\item 50 \textgreater $CS \geq $40: component price * 1
-\item 40 \textgreater $CS \geq $20: component price * 0,9
-\item CS \textless 20: component price * 0,8
-\end{itemize}
-
-\item In order to determine how many people are interested in buying the products (y) the chosen retail price divided by the base price in the current year will be used as x in the following formula.
-
+In Capitalism X, we assume that the demand for a product is based on customer satisfaction and the selling price. In addition, there is the assumption that the population is aware of the prices of the latest individual components. So they can estimate the value of the product from its components only, if the company uses the latest ones.
+ 
+Table (REF) shows the sum of the component prices (sCP), the current components and their respective prices were used for the calculation.
+ 
+(TABELLE)
+ 
+The customer satisfaction influences the interest of the population in the respective products by shifting the price at which 100\% are interested. In the following this price is called demand Price (dP).
+ 
+The more satisfied customers are with the company, the more they are willing to pay for the same products. However, if customer satisfaction falls below 40, the demand price falls below the assumed component cost that the company has. The following formula shows how customer satisfaction affects the price at which 100\% of the population demand a product.
 \begin{equation}
-    y = 167.905104 * \E^{ -2.990914872 * 10^{ -1 } * x^{ 2 }}
+\begin{aligned}
+if ( cS \geq 80 ) { dP = sCP * 1,2 } \\
+elseif ( 80 > cS \geq 60 ){ dP = sCP * 1,1 } \\
+elseif ( 60 > cS \geq 50 ) { dP = sCP * 1,05 } \\
+elseif ( 50 > cS \geq 40 ) { dP = sCP * 1 } \\
+elseif ( 40 > cS \geq 20 ) { dP = sCP * 0,9 } \\
+else { dP = sCP * 0,8 }  
+\end{aligned}
 \end{equation}
 
-\begin{itemize}
-    \item if the result is \textgreater 100; demand = 100\%
-    \item if the result is \textless 0; demand = 0\%
-\end{itemize}
-\end{itemize}
+The demand in percentage (d) is calculated by determining the ratio of the sales price (sP) of the product to its demand price and using it as input for the following formula.
+\begin{equation}
+\begin{aligned}
+x = sP / dP \\
+d = 167.905104 ∗e^ (−2.990914872 * 10^ -1 * x^2) \\
+if the result is > 100; demand = 100\% \\
+if the result is < 0; demand = 0\% \\    
+\end{aligned}
+\end{equation}
+ 
+The absolute demand (tD) for a product is finally calculated by combining the demand in percent with the population number (p). This approach enables the total demand to be higher than the actual quantity of products offered.
+\begin{equation}
+tD= d * p    
+\end{equation}
+
+The quantity actually sold by the company, so-called sales figures per product (sF), depends on whether the actual demand exceeds the quantity of products offered (oP) or not.
+\begin{equation}
+\begin{aligned}
+if ( tD > op ) { sF = op } \\
+else { sF = tD }    
+\end{aligned}
+\end{equation}
+
+For the calculation of the market share (mS) it is assumed that the proportion of the population who would have liked to buy a product but went away empty-handed buys its product from a competitor. The company's market share is calculated as follows: 
+\begin{equation}
+mS = sF / tD   
+\end{equation}
+

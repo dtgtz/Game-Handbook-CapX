@@ -7,7 +7,7 @@
 \usepackage{longtable}
 \usepackage{pgfplots}
 \pgfplotsset{width=11.5cm,compat=1.9}
-
+\usepackage{xcolor, colortbl}
 \usepackage{graphicx}
 \usepackage{svg}
 \usepackage{latexsym}
@@ -19,6 +19,8 @@
 %\usepackage[table,xcdraw]{xcolor}
 % \usepackage{paralist}
 \usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{algorithmic}
 
 % this packages are useful for nice algorithms
 \usepackage{algorithm}
@@ -122,12 +124,12 @@ Steffen Waldmann \\
 \label{cha:intro}
 \section{What to expect from Capitalism X (CapX)}
 Nike\\
-Business simulation games...Fancy introduction, Target audience\\
-Goal of business simulation game\\
-User skills? Thinking economic entrepreneurial spirit...\\
 
-Did you ever tested out your economic skills and entrepreneurial spirit? Did you ever wish to take action and do things your way? Did you ever thought that with the steering wheel in your hand, you'd give a company a whole new direction and possibility to rise? \\
-CapitalismX now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades.\\
+Did you ever tested out your economic skills and entrepreneurial spirit? Did you ever wish to take action and do things your way? Did you ever thought that with the steering wheel in your hand, you'd give a company a whole new direction and possibility to rise? 
+
+CapitalismX now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades.
+
+The goal of this interactive business simulation game is simple: Maximize your company’s profit! As a CEO you will have to take care of multiple issues, that occur in daily business, such as defining your product portfolio, controlling your financial status, managing employees and so on. However, also unforeseen events might occur suddenly! In these cases, you can prove your decision-making abilities and save your company out of delicate situations. 
 
 \emph{Very Important:} Besides being a game-play handbook, this document also addresses the game mechanisms working in the background
  
@@ -230,119 +232,29 @@ In CaptialismX some unexpected incidents may happen to your company or to the en
 
 \input{HR/how_to_play_hr.tex}
 
-\subsection{Production} \label{production_manual}
-Livja, (Nike for Pricing and Selling) \\
- production is composed of three main elements: procurement(harbour), manufacturing, logistics(relate to following paragraph)\\
-explain each sub-unit of these elements and adapt explanation and functions to the mock-up
-procurement of products - component, component level, units, price, supplier \\
-manufacturing
-\begin{itemize} 
-\item production technology-explain range of measurement, graph, possibilities to purchase machinery
-\item manage individual machines (maintain, upgrade, sell) how these actions affect budget and technology measures
-\item overall status of the machinery in the plant
-\item production performance(production technology+employee skills)graph, how much each of these factors affect the overall production performance
- \item possible investments- player can decide how to improve production performance based on these options, can also decide the amount of Cap-Coins(cc) to invest
- \begin{itemize} 
- \item R\&D
- \item System Security
- \item Automation
- \end{itemize}
- \item eco-index(explain range)- how eco-index deteriorates, improves, events that may be triggered that require government intervention
-\end{itemize}
+\input{Production/productionView.tex}
 
-\subsubsection{Procurement}
-Nike explains how to use the procurement part.
-
-In order to start manufacturing or retailing goods, you need to procure the components necessary. First, you need to choose a suitable product portfolio for you. In order to do so, please go to the production area and select the procurement tab. There you have the possibility to add a new product to your portfolio. In the beginning, it is reasonable to start with a smaller product portfolio. [screenshot] In later stages of the game however, it might be interesting to test out the production and sale of different products, and maybe even different version of products, for example selling a high-quality, high-priced smartphone and to compare it to selling a low-quality, low-priced smartphone. Insights of such experiments might be derived from market research, sales figures, etc.
-
-Also, you have an overview about the components the engineers need in order to manufacture a specific product. Some might be locked at the beginning and will be unlocked in due time. When clicking on a component, an overlay opens where you have the possibility to select the component from three different suppliers. [screenshot]. There are several features that help you decide which supplier to choose: the price, the eco-index and the quality index. The price varies, depending on the supplier. Next, the eco-index is a measure that defines a supplier’s ecological footprint, influenced by their logistics, sustainability in production, ecological footprint of their suppliers, and so on. This means, the components you choose might also have an influence on your company’s eco-index. Third, the quality index gives you insights about the component’s quality, so the higher the quality index, the higher the component’s quality. Again, the component’s quality has an influence on your final product’s quality index, which you should keep in mind, when defining a product’s price.
-
-After deciding on a component from a supplier, you need to choose the amount of components you want to purchase. For a higher amount, you might get a mass discount, but beware --  buying more components than you manufacture to products may lead to higher warehousing costs. 
-
-%pricing part. do we need to move it?
-Now it is time to generate some revenue for your hard work! After hiring engineers, procuring the components and machinery needed, you have to decide on a market price for your respective product. In order to do so, you might go to the product view tab in the production area. There you get an overview about each product in your portfolio. [screenshot]
-
-First, you can see the product’s name, which you can adapt in the procurement view. Second, you can enter the quantity of products you want to produce. Next to that, you have the amount of units in stock displayed. The amount in stock will be reduced automatically when some customer buys the respective product. This means, that only if the stock is empty, products with new components will be sold to the market. However, you can produce all the time and increase the units in stock if the market is not responding yet.
-Back to the UI: Next to the units in stock you can see the cumulated product costs for a single product, which include the sum of component prices, and other fixed costs, such as electricity, and variable costs that occur during production. Based on this amount of CapCoins you might enter a market price in the next field. The respective profit margin is calculated automatically and displayed next to your defined market price. Again, market research and older sales figures may give you a hint about the reasonableness of your market price.
-
-With that being said, the actions you are required to take are defining the price per product in the production view. Then, as soon as you enter a quantity, the products are produced if sufficient production capacity is available. Otherwise, the products are manufactured according to the FIFO principle. After production, the products are available for purchase by your customers on the market.
 
 \subsection{Marketing} \label{marketing_manual}
-Janine\\
-manage internal communication, external communication and legal topics for your company 
-\\
-internal communication: 
-\begin{itemize} 
-\item offering online courses and see an overview of the courses offered the last two years. (go green, stress management, teamwork, diversity, ...) 
-\item perform an employee survey to get information about the employee satisfaction overall and in the single departments
-\item perform an employee survey to see in detail what needs to be improved to achieve a higher employee satisfaction. See statistics of the last three employee surveys. (more internal courses, higher boni, more flexible working times, better work conditions, more training, other factors that play a role in calculating the employee satisfaction)   
-\end{itemize}
-external communication: 
-\begin{itemize} 
-\item Mange campaigns and  have an overview of the campaigns performed during the past two years.
-Green company, diversity, CSR, promoting company, refugee program, etc. 
-\item make official statements for the company to mitigate negative impacts. (data privacy and security efforts, stable prices, safe delivery times, apologize for longer delivery times, ...) 
-\item market research 
-\begin{itemize} 
-\item Conduct market research to get useful information about your products, prices and general market position.
-You are able to do the market research by yourself (in house) or  hire a market research institution (external). The advantage of doing the research in-house is the lower price. For every internal research you can choose between a verbal, telephone, written or online survey. It is important to understand the pros and cons of each type. For example, an oral survey is more expensive than an online one, but yields immediate results. By contrast, an online survey takes longer, which can cause the data to be slightly out of date. 
-A detailed list of the pros and cons can be found in the table below. (insert table -todo) 
-\item See the results of your research performed during the last two years 
-\begin{itemize} 
-\item price sensitive research for a specific product
-\begin{itemize} 
-\item Provides a price sensitive analysis for a specific product
-\item The study isolates the impact of the price on the market shares while holding all the other factors (quality, …) constant.
-\item The research shows the results for 9 price levels around the reference price (input), the price levels are from -20\% to +20\% in 5\% steps 
-\item add example report -todo
-\end{itemize}
-\item customer satisfaction (company at all, specific product / last year in quarters) 
-\begin{itemize} 
-\item provides customer satisfaction estimated for a specific product (input) or the company at all
-\item shows the results for the last four quarters 
-\item add example report -todo
-\end{itemize}
-\item market statistic (overall company, product level) 
-\begin{itemize} 
-\item provides a variety of market information 
-\item add example report -todo
-\end{itemize}
-\end{itemize}
-\end{itemize}
-\end{itemize}
-legal topics: 
-\begin{itemize} 
-\item Lobbying (lobbyists can be used to influence the government and thereby mitigate the impact of e.g. environmental regulations on the company)
-\item hire management consultancy (can help you to make important decisions and uncover mistakes that happen in your company) 
-\end{itemize}
+%Janine
+Now that you have already hired employees, bought components and also manufactured products, you have probably wondered how to advertise them and how to communicate with your customers. It's easy, just switch to the marketing view. This includes internal communication, external communication, legal topics and market research.
 
-\subsection{Logistics}
-Janine
-\begin{itemize} 
-\item products are sold directly out of the warehouse (all produced products go into the warehouse first) 
-\item If the demand for products is higher than the inventory, all products are sold from the warehouse. That means the inventory represents the maximum sales quantity for a product
-\item If the demand for a product is lower than the inventory, only the demanded quantity is sold and thus delivered. The remaining products stay in the warehouse and cause storage costs
-\item The capacity of the logistics fleet is measured by the number of trucks. Each truck makes it possible to deliver 1000 packages per day.
-\item Cost Trucks:
-\begin{itemize}
-\item cost per delivery of 1000 packages
-\item Acquisition costs for the truck (one time)
-\item Maintenance costs for the truck (yearly or monthly)
-\item trucks can be sold if they are not needed anymore. They are linear depreciated over 9 Years  
-\end{itemize}
-\item Is the demand and also the inventory of the products higher than the deliver capacity of the trucks and the company has no external logistic partner, the company has to pay a fix deliver price for each package
-\item External logistic partner:
-\begin{itemize}
-    \item can be hired in the job market
-    \item have a quality, eco and reliability -index
-    \item cost per delivery of one package
-    \item contractually agreed fixed costs (yearly or monthly) 
-    \item possible to fire the actual partner and hire a new one. Only one logistic partner at the same time possible 
-\end{itemize}
-\end{itemize}
+So you can offer your employees additional courses that go beyond their actual work activities, such as stress management or teamwork to name just a few.
+
+If you want to advertise products or put your company in the right light, you can do this through campaigns. Possible campaigns are: promote a green image, CSR campaign, promoting the company itself, and many more.
+
+If you want to communicate certain messages to your customers you can do so with the help of the press releases. For example, you can assure your customers that their data will be handled with care in your company or apologize for delayed deliveries if this should happen.
+
+In addition to communicating with the population, you can also conduct surveys among them. Click on the 'Conduct Research' button to select the report you want at the end. You have the possibility to carry out the market research yourself or to commission a market research institute with it. If you do it yourself, you can even choose how the actual customer survey is to be conducted. For example, an oral survey is more expensive than an online one, but yields immediate results.  By contrast, an online survey takes longer, which can cause the data to be slightly out of date.
+
+You can basically choose between three reports, a price sensitivity analysis, a customer satisfaction analysis and an overview of various market statistics. The price sensitivity analysis shows you how the buying behaviour of your customers changes when you increase or decrease the price. All other influencing factors are kept constant. The customer satisfaction analysis tells you how satisfied your customers are with your individual products as well as with your company as a whole. The general market analysis shows you a series of market key figures for your products at a glance. 
+
+If you feel that you need help managing your business, or if you just want to be more successful, you can hire either a lobbyist or a business consultancy. The lobbyist will positively help you with the government and try to support you in achieving your goals. 
+A management consultancy will take a closer look at your business and try to find areas where you can improve your performance in order to become even more successful.
+
+
 
 \section{Build up an empire business}
-Janine
 \label{sec:business}
 https://www.youtube.com/watch?v=NisCkxU544c
 \subsection{Choose the portfolio}
@@ -384,9 +296,8 @@ how to play your game successfully
 
 
 \section{Challenges \& Opportunities}
-Daniel \\
 Planning plays an essential part in business, but not everything can be foreseen. Companies and their executives must deal with uncertainty. Let's imagine that you just packed your bags for holiday and it gets lost at the airport. Did you consider this scenario before it happened? Running a business is similar: You can cover many scenarios and possibilities, but not everything. Therefore the game includes challenges and opportunities. Some of them are the result of bad management, some are rewarding. Some are influenced by your actions as a player, others come around occasionally.\\
-Their effects become visible on various indicators, like financial figures, warehouse or customer satisfaction. An immediate response is necessary to minimize negative consequences. Or to grab the chance when it is offered. 
+Their effects become visible via various indicators, like financial figures, warehouse or customer satisfaction. An immediate response is necessary to minimize negative consequences. Or to grab the chance when it is offered. 
 
 \chapter{Approach to the topic}
 \section{Project management}
@@ -406,67 +317,32 @@ Technical description of the game, the backend
 
 \input{HR/hr_simulation.tex}
 
+\input{Production/companyEco-Index.tex}
 \input{Procurement/procurementSimulation.tex}
 
-\section{Production Simulation}
-\label{sec:products}
-Livja \\
- Production definition \\
-Production process considering industry best practice \\
-Measures for Production: which ones we aim to increase/ decrease \\
- Factors that affect product quality 
-\begin{itemize}
-\item production technology
-\item employee skills
-\item supplier index
-\item logistics
-\item warehousing (storage facilities)
-\end{itemize}
-Specify which factors were relevant to our simulation \\
-Relate factor to the corresponding chapter, emphasize their correlation in increasing product quality, explain the 5 points Likert scale for each factor\\
-Production Technology: 
-\begin{itemize}
-    \item Deprecated                  Scale: 1
-    \item Old                         Scale: 2
-    \item Good conditions             Scale: 3
-    \item Purchased more than 5 years ago Scale: 4
-    \item Brand new                   Scale: 5
+% Production Simulation
+\input{Production/productionSimulation.tex}
 
-\end{itemize}
-The technology used in production starts at 5 points when all machinery is new. It lowers (-1) point over a 5 years time-span. It lowers (-2), if there is a fire, flood, hurricane.\\
-This measure can be improved by:
-\begin{itemize}
-    \item Purchasing new machinery (level 5)
-\item Maintaining \& repairing (+1)
-\item Upgrading (+2)
-\end{itemize}
-
-
-Productivity: factors that influence it \\
-Give functions, equations for measuring each of the factors that affect productivity \\
-explain graph : production is dependent of the production process and the product itself 
-
-Janine\ \\
+%Warehousing
 \input{LSW/Warehouse.tex}
 
 \section{Logistic and Support Simulation}
-Janine\ \\
+%Logistic
 \input{LSW/Logistic.tex}
-
+%Support
 \input{LSW/Support.tex}
 
 \section{Marketing Simulation}
-Janine\ \\
+%Market Research
 \input{Marketing/MarketResearch.tex}
-
+%Lobbyist
 \input{Marketing/Lobbyist.tex}
-
+%Management Consultancy
 \input{Marketing/Mng.tex}
 
-% Customer Satisfction and Demand Calculation
-
+% Customer Satisfaction 
 \input{Customer/customerSimulation.tex}
-
+% Demand Calculation
 \input{Customer/demand.tex}
 
 \section{Linkages \& Interdependencies}
@@ -500,7 +376,7 @@ Events are mostly cross-functional. This means that the trigger of an event belo
 \begin{tabular}{|l|l|}
 \hline
 \textbf{Characteristic} & \textbf{Description} \\ \hline
-\begin{tabular}[c]{@{}l@{}}Random or \\ Conditional\end{tabular} & \begin{tabular}[c]{@{}l@{}}Random events have a probability which is not changed throughout the game. \\ Conditional events have some preconditions that must be met to get the probability activated.\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Random or \\ Conditional\end{tabular} & \begin{tabular}[c]{@{}l@{}}Random events have a probability which is not changed \\ throughout the game. Conditional events have some preconditions \\ that must be met to get the probability activated.\end{tabular} \\ \hline
 \begin{tabular}[c]{@{}l@{}}Rising probability or\\ certain occurence\end{tabular} & \begin{tabular}[c]{@{}l@{}}Probabilities may rise when an influencing indicator gets worse. \\ Alternatively the occurence is certain if a specific threshold is hit.\end{tabular} \\ \hline
 \begin{tabular}[c]{@{}l@{}}Starting or final \\ thresholds applicable\end{tabular} & \begin{tabular}[c]{@{}l@{}}To get a probability higher than 0, some threshold value of an influencing factor must \\ be met. A threshold is not mandatory and by nature, not applicable to random events.\end{tabular} \\ \hline
 \begin{tabular}[c]{@{}l@{}}Impact on a\\ game mechanic\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only notification events do not impact a variable in one of the game simulations. \\ An event normally impacts a game mechanic when triggered.\end{tabular} \\ \hline
@@ -509,18 +385,16 @@ Events are mostly cross-functional. This means that the trigger of an event belo
     \label{characteristic_events}
 \end{table}
 
-The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which is also applicable for one-time events. Their nature and likeliness to happen are to be transferred to the game environment. But there are aspects which are contradictory to this intend. Empirical evidence for the probability of events might be rare or the probability is so low that they would happen almost never throughout the game. Events having such an impact that they lead to a Game-Over must not happen in an early state and frustrate the player. In the end gaming should be fun too, not only replaying the real-world. Reflecting the latter is also limited as a simulation can never cover every 'live' aspect. As a result of these considerations, a probability can distort from its real-world example. If suitable, an event can even have a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. 
-
-All events are linked to real-world examples:
+The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which is also applicable for one-time events. Their nature and likeliness to happen are to be transferred to the game environment. But there are aspects which are contradictory to this intend. Empirical evidence for the probability of events might be rare or the probability is so low that they would happen almost never throughout the game. Events having such an impact that they lead to a Game-Over must not happen in an early state and frustrate the player. In the end gaming should be fun too, not only replaying the real-world. Reflecting the latter is also limited as a simulation can never cover every 'live' aspect. As a result of these considerations, a probability can distort from its real-world example. If suitable, an event can even have a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. All are connected to real-world examples:
 \\
 \begin{table}[]
 \centering
-\fontsize{8}{10} \selectfont
+\fontsize{9}{10} \selectfont
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{\#} & \textbf{External Event} & \textbf{Real-World example} \\ \hline
 \textbf{1} & \begin{tabular}[c]{@{}l@{}}Production Problems \\ PopUp\end{tabular} & \begin{tabular}[c]{@{}l@{}}Not applicable to real-world, \\ In-Game implementation\end{tabular} \\ \hline
-\textbf{2} & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & \begin{tabular}[c]{@{}l@{}}A paper from 2010 (cite) examined the relationship\\ between technology and customer satisfaciton\end{tabular} \\ \hline
+\textbf{2} & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & \begin{tabular}[c]{@{}l@{}}A paper released in 2010 examined the relationship\\ between technology and customer satisfaction\cite{Ryding}\end{tabular} \\ \hline
 \textbf{3} & \begin{tabular}[c]{@{}l@{}}Company Aqcuistion \\ offered\end{tabular} & \begin{tabular}[c]{@{}l@{}}High-Performing companies like Apple often\\ invest in smaller ones to buy knowledge\end{tabular} \\ \hline
 \textbf{4} & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & \begin{tabular}[c]{@{}l@{}}The launch of the iPhone led to whole\\ change of the mobile phone market\end{tabular} \\ \hline
 \textbf{5} & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & \begin{tabular}[c]{@{}l@{}}After the failure of several Airbags \\ sales of GM dropped dramatically\end{tabular} \\ \hline
@@ -528,12 +402,12 @@ All events are linked to real-world examples:
 \textbf{7} & \begin{tabular}[c]{@{}l@{}}Tax Changes lead \\ to higher or less rates\end{tabular} & \begin{tabular}[c]{@{}l@{}}The US and 7 EU countries changed \\ their corporate tax rates for 2018\end{tabular} \\ \hline
 \textbf{8} & Stricter Eco Laws & \begin{tabular}[c]{@{}l@{}}As a result of the Diesel scandal many \\ countries enforced the environmental laws\end{tabular} \\ \hline
 \textbf{9} & Inflation changes & \begin{tabular}[c]{@{}l@{}}Destatis reported an average inflation \\ change of during the last 20 years of 1.4\%\end{tabular} \\ \hline
-\textbf{10} & \begin{tabular}[c]{@{}l@{}}Stealing inside\\ the company\end{tabular} & \begin{tabular}[c]{@{}l@{}}Research (cite) shows a strong relationship between \\ low job satisfaction and stealing by employees\end{tabular} \\ \hline
+\textbf{10} & \begin{tabular}[c]{@{}l@{}}Stealing inside\\ the company\end{tabular} & \begin{tabular}[c]{@{}l@{}}Research shows a strong relationship between \\ low job satisfaction and stealing by employees\cite{Kulas}.\end{tabular} \\ \hline
 \textbf{11} & Strikes and union fightings & Strikes occur regularly to enforce salary increases \\ \hline
 \textbf{12} & \begin{tabular}[c]{@{}l@{}}Flu goes around causing\\  Ill employees\end{tabular} & \begin{tabular}[c]{@{}l@{}}Disease rates are higher during winter months \\ making employees ill and unable to work\end{tabular} \\ \hline
 \textbf{13} & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornados, \\ earthquakes\end{tabular} & \begin{tabular}[c]{@{}l@{}}Hurricanes regularly destroy companies' inventories. Global \\ warming is claimed to increase the number of natural disasters\end{tabular} \\ \hline
 \textbf{14} & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ the warehouse\end{tabular} & \begin{tabular}[c]{@{}l@{}}Over 1,210 fires happen in warehouses across the US on average.\\ In the game this only happens if warehouses are full (punishment)\end{tabular} \\ \hline
-\textbf{15} & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & \begin{tabular}[c]{@{}l@{}}The upcoming brexit leads to chaos at harbours due unclear customs. \\ This event is to be further defined when harbours are implemented\end{tabular} \\ \hline
+\textbf{15} & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & \begin{tabular}[c]{@{}l@{}}The upcoming brexit leads to chaos at harbours due to customs. \\ Event is to be further defined when harbours are implemented\end{tabular} \\ \hline
 \textbf{16} & Change of power & \begin{tabular}[c]{@{}l@{}}New governments set new financial priorities including changes \\ to the taxation system. Typical examples are the parties in the US\end{tabular} \\ \hline
 \textbf{17} & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & \begin{tabular}[c]{@{}l@{}}Exact indicators are future work as infrastructure elements are \\ not part of the game yet. Energy companies are often targets of riots\end{tabular} \\ \hline
 \textbf{18} & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & \begin{tabular}[c]{@{}l@{}}Tensions between the US and Iran impact companies on their business. \\ Part of future work as the game currently focuses at one country.\end{tabular} \\ \hline

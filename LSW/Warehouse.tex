@@ -1,20 +1,25 @@
 \section{Warehouse Simulation}
+%Janine
+The storage of products in Capitalism X is regulated by warehouses. In order to be able to store products, the player must first purchase a warehouse. They can be rented or built.
+
+Every warehouse has certain characteristics, these include:
 \begin{itemize}
-    \item All produced products go directly into the warehouse but it only costs if they are not sold / delivered at the same day they are produced.
-    \item For each product in the warehouse at the end of the day (after all packages are delivered according the demand) the company has to pay
-    \item If the warehouse is full, it shouldn't’t be possible to produce more products. That means production is limited to the storage capacity! 
-    \item Storage capacity is shared between components and products. To make it a bit more realistic: components need 1/2 unit and products 1 unit
-    \item number of products in the warehouse forms the basis for the number of products that can be sold
-    \item Characteristics 
-    \begin{itemize}
-        \item can be build / bought or rented
-        \item linear depreciation over 25 years, building losses every year AC/25 on value 
-        \item capacity of 5000 units
-    \end{itemize}
-    \item Cost 
-    \begin{itemize}
-        \item building-costs (one time) | rental cost (monthly)
-        \item maintenance costs (yearly or monthly) 
-        \item Daily costs for storage = number units * storing cost per unit per day
-    \end{itemize}
+    \item a one-time construction price (bCW) of (TODO) Cap Coins which is due directly or monthly rental costs (rCW) in the amount of (TODO) Cap Coins
+    \item a capacity (cWH) of 5000 units. A product corresponds to a unit, regardless of the type of product.
+    \item Variable storage costs (vSC) per unit of (TODO) Cap Coins
+    \item Monthly maintenance costs (fMCW) of (TODO) Cap Coins
+    \item and, if the warehouse was built, a resale value. A warehouse is depreciated on a straight-line basis over 25 years (REFERENCE).
 \end{itemize}
+
+After the products are finished, they are taken to a warehouse of the company, no products are sold directly. This means for the production that the total available storage capacity (tCWH) is also the daily maximum total production quantity for the company. At the same time, the quantity of stored products at the end of the day is also the maximum number of products that can be offered on the market. 
+
+The monthly costs for the warehouses (cWH) themselves are calculated on the basis of the number of warehouses (nWH), the maintenance costs and the rental costs for rented warehouses (nRWH). The following formula describes the exact calculation of the costs:
+\begin{equation}
+     cWH = nWH * fMC + nRWH * rCW
+\end{equation}
+
+Always at the end of the day the sold products are taken out of stock, they do not cause any storage costs. Only products that are not sold and remain in stock overnight incur storage costs, these are called stored products (nSP). This means that the calculation of the storage costs must take place after the sold products have been removed from the warehouse. The daily storage costs (sC) are calculated as follows:
+\begin{equation}
+    sC = nSP * vSC
+\end{equation}
+
