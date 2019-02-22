@@ -1,0 +1,26 @@
+\section{Pricing and Selling of Goods}
+\label{sec:pricing_mechanics}
+
+Part of the production simulation is the product view. Here the player can get an overview about the costs of every single component. Also, he or she can define the market price for selling and the quantity to produce there.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ Products & \begin{tabular}{@{}c@{}}Qty to \\ Produce\end{tabular} & \begin{tabular}{@{}c@{}}Amount \\ in Stock\end{tabular} & \begin{tabular}{@{}c@{}}Cumulated Com- \\ ponent Costs\end{tabular} & \begin{tabular}{@{}c@{}}Price for \\ Market (Sell)\end{tabular} & \begin{tabular}{@{}c@{}}Profit \\ Margin\end{tabular} \\ \hline
+ Product A &  & 12 & 332,56 & 599,99 & 47.8\% \\ \hline
+ Product B &  & 554 & 62,05 &   & - \\  \hline
+ Product C &  & - & 164,67 &   & -\\ \hline
+\end{tabular}
+\caption{Production Technology effect on Company}
+\label{table:eco-index-CompanyE}
+\end{table}
+
+Product: from product portfolio - name of product\\
+Wty to produce - input field where player can type in an integer value. iF amount entered >= sum of overall machinery capacity, then display error message “your capacity is not sufficient. Either you produce a smaller amount or buy new machinery”.\\
+Amount in stock - JANINE – do we have such thing? Wenn nicht, dann concept aber derzeit nicht in prototype. \\
+Cumulated Product Costs - per product, includes the xxxxxx (component prices) plus – LIVJA???\\
+Price for market (sell) - input field where player can type in a price (with two decimals) in CapCoins. \\
+Profit margin - \begin{equation}
+    Profit margin = \frac{Price for Market (Sell) - Cumulated Component Costs}{Price for Market (Sell)} * 100
+\end{equation}
