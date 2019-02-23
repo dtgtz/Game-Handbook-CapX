@@ -1,8 +1,10 @@
-\section{Customer Simulation and Demand Calculation}
+\section{Customer Simulation}
 \label{sec:customsim}
 \subsection{Customer Satisfaction}
-Maike\\
-In this game, the customer simulation is a weighted combination of the product price and the customer satisfaction.
+%Maike
+%Only one cS, not for every product
+%for the calculation of cS we included nearly all parts of our game
+In this game, the customer simulation is a weighted combination of the product price and the customer satisfaction (cS).
 This means that product price and customer satisfaction are the two key indicators for customers' buying decisions. Thus, these two factors determine the extent to which customers are interested in buying a product or not.\\
 How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of customer satisfaction, which will be discussed in more detail in this chapter.\\
 As well as in reality, the customer satisfaction plays an important role in terms of the number of products sold and thus in terms of sales. \cite{deptolla_effects_2004}
@@ -14,7 +16,6 @@ In this game, the customer satisfaction is composed of the variables listed belo
       \item Satisfaction with the LogisticIndex (lI)
       \item Satisfaction with the companyImage (cI)
       \item Satisfaction with the employerBranding (eB)
-      \item Satisfaction with productionPerformance (pP)
 \end{enumerate}
 
 \begin{comment}
@@ -60,8 +61,8 @@ Must haves are the bare minimum requirements expected of customers. The customer
     Else: (0,45*tPQ + 0,25*tSQ + 0,1*lI + 0,15*cI + 0,05*eB)
     \end{aligned}
     \end{equation}
-%Check function!
+
 Each line of the calculation \ref{cS_Calc} refers to one of the three main levels of customer requirements. So, the first line of the calculation refers to a product's must haves, the second line refers to satisfiers and the third line refers to the delighters level of the customer requirements.
-Although the calculation \ref{cS_Calc} looks quite static, this is not the case because the variables on which the calculation is based change continuously.
+Although the calculation \ref{cS_Calc} looks quite static, this is not the case as the variables, on which the calculation is based, are not static but change continuously.
     
 %Most common types of customer needs regarding products and the main levels of customer requirements: Functionality, price, design, reliability/availability/durability, performance, safety and sustainability\\

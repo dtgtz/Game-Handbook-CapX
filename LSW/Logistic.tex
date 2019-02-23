@@ -9,12 +9,12 @@
 \gls{cED}  % costExternalDelivery 
 \gls{dC}   % deliveryCost
 \gls{dP}   % deliveredProducts
-\gls{dP}   % ecoIndexPartner
-\gls{dP}   % qualityIndexLogisticPartner
-\gls{dP}   % totalContractualCostLogisticPartner
-\gls{dP}   % variableCostDeliveryExternal
-\gls{dP}   % reliabilityLogisticPartner
-\gls{dP}   % costExternalDelivery 
+\gls{eIP}  % ecoIndexPartner
+\gls{qLP}  % qualityIndexLogisticPartner
+\gls{tCCLP}% totalContractualCostLogisticPartner
+\gls{vCDE} % variableCostDeliveryExternal
+\gls{rLP}  % reliabilityLogisticPartner
+\gls{sF}   % shippingFee
 
 
 %Janine
@@ -49,7 +49,7 @@ Every truck has certain characteristics, these consist of:
     \item And a depreciation rate that is linear and amounts to 9 years for each truck (REFERENCE https://www.lexoffice.de/service/abschreibungstabelle/lkw/) 
 \end{itemize}
 
-As already described, quality and environmental friendliness influence the initial purchase price of a truck, which is 10.000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table (REF) shows how they are composed in detail. 
+As already described, quality and environmental friendliness influence the initial purchase price of a truck, which is 10.000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table \ref{Truck_characteristics} shows how they are composed in detail. 
 
 The quality and the environmental index, are set randomly in the given ranges.The purchase price for the respective truck and the fixed delivery costs are calculated from the based on the base values times the factors which are also randomly assigned in a certain value range. Cause of the fact that the intervals of the individual models overlap, it can happen that a more favourable model has better properties than a more expensive one.
 
@@ -133,7 +133,7 @@ The contractual costs and the variable costs are calculated by the initial price
     \label{External_logistic_partner_characteristics}
 \end{table}
 
-The total influence of an external partner company is measured by the External Logistics Index (ELI). Depending on how high its reliability is, different priorities are set in the calculation. The following formula shows the exact calculation: 
+The total influence of an external partner company is measured by the External Logistics Index (eLI). Depending on how high its reliability is, different priorities are set in the calculation. The following formula shows the exact calculation: 
 \begin{equation}
 \begin{aligned}
     if (rLP ≤ 40) eLI = { (rLP*0,5 + 0,5*(qLP*0,8 + eLP*0,2)) } \\
@@ -151,7 +151,7 @@ If the company has its own logistics fleet, the products are initially delivered
     cED = ( dP – cF ) * vCDE
 \end{equation}
 
-If the company has not engaged an external partner and exceeds the delivery capacity, the remaining products will be sent by post. For each package there will be a shipping fee (SF) of ... Cap Coins. Also in this case delivery quality and environmental friendliness are included. The quality index (qLP) is basically 60 and the eco index (eIP) 40. The external delivery costs are calculated as follows:  
+If the company has not engaged an external partner and exceeds the delivery capacity, the remaining products will be sent by post. For each package there will be a shipping fee (sF) of 15 CapCoins. Also in this case delivery quality and environmental friendliness are included. The quality index (qLP) is basically 60 and the eco index (eIP) 40. The external delivery costs are calculated as follows:  
 \begin{equation}
     cED = ( dP – cF ) * sF
 \end{equation}

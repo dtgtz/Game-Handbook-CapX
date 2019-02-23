@@ -17,6 +17,7 @@
 \usepackage{lscape}
 \usepackage{ntheorem}
 \usepackage{comment}
+\usepackage{caption}
 \usepackage[colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black]{hyperref}
 %\usepackage[table,xcdraw]{xcolor}
 % \usepackage{paralist}
@@ -68,13 +69,106 @@
 \def\MIPALL#1#2{\textit{MIPS}_{#1}\left(#2\right)} % the set of all mips
 
 \makeglossaries
-
 \newglossaryentry{cs}{%
 name={cs},%
 description={Customer Satisfaction}%
 }
-
-
+\newglossaryentry{eB}{%
+name={eB},%
+description={employerBranding}%
+}
+\newglossaryentry{cI}{%
+name={cI},%
+description={companyImage}%
+}
+\newglossaryentry{tJS}{%
+name={tJS},%
+description={totalJobSatisfaction}%
+}
+\newglossaryentry{CSR}{%
+name={CSR},%
+description={Corporate Social Responsibility}%
+}
+\newglossaryentry{oS}{%
+name={oS},%
+description={Original Scale}%
+}
+\newglossaryentry{PInt}{%
+name={PInt},%
+description={Personal Interview}%
+}
+\newglossaryentry{TInt}{%
+name={TInt},%
+description={Telephone Interview}%
+}
+\newglossaryentry{MSur}{%
+name={MSur},%
+description={Mail survey}%
+}
+\newglossaryentry{OSur}{%
+name={OSur},%
+description={Online survey}%
+}
+\newglossaryentry{eIT}{%
+name={eIT},%
+description={ecoIndexTruck}%
+}
+\newglossaryentry{nT}{%
+name={nT},%
+description={numberTrucks}%
+}
+\newglossaryentry{cF}{%
+name={cF},%
+description={capacityInternalLogisticFleet}%
+}
+\newglossaryentry{iLI}{%
+name={iLI},%
+description={internalLogisicIndex}%
+}
+\newglossaryentry{fCD}{%
+name={fCD},%
+description={fixCostsDelivery}%
+}
+\newglossaryentry{vDC}{%
+name={vDC},%
+description={variableCostsDelivered }%
+}
+\newglossaryentry{cED}{%
+name={cED},%
+description={costExternalDelivery }%
+}
+\newglossaryentry{dC}{%
+name={dC},%
+description={deliveryCost}%
+}
+\newglossaryentry{dP}{%
+name={dP},%
+description={deliveredProducts}%
+}
+\newglossaryentry{eIP}{%
+name={eIP},%
+description={ecoIndexPartner}%
+}
+\newglossaryentry{qLP}{%
+name={qLP},%
+description={qualityIndexLogisticPartner}%
+}
+\newglossaryentry{tCCLP}{%
+name={tCCLP},%
+description={totalContractualCostLogisticPartner}%
+}
+\newglossaryentry{vCDE}{%
+name={vCDE},%
+description={variableCostDeliveryExternal}%
+}
+\newglossaryentry{rLP}{%
+name={rLP},%
+description={reliabilityLogisticPartner}%
+}
+\newglossaryentry{sF}{%
+name={sF},%
+description={shippingFee}%
+}
 
 \begin{document}
 
@@ -298,6 +392,7 @@ Technical description of the game, the backend
 %HR
 \input{HR/hr_simulation.tex}
 
+%company eco-index
 \input{Production/companyEco-Index.tex}
 \input{Procurement/procurementSimulation.tex}
 

@@ -12,11 +12,11 @@ Firstly, product quality is considered a very important element in the productio
 \begin{itemize}
 \item Production Technology (PT)
 \item Production Employee Skills (PES)
-\item Supplier Index (SI)
+\item Procurement Quality (PrcQ)
 \item Logistic Quality (LQ)
 \item R\&D
 \end{itemize}
-Product quality is influenced by many elements, that in principle belong to the extense of other departments in the company. To illustrate, employee skills are included in the HR simulation, the supplier index is included in the procurement simulation, logistics and warehousing in their respective simulations, etc.
+Product quality is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, employee skills are included in the HR simulation, the supplier index is included in the procurement simulation, logistics and warehousing in their respective simulations, etc. \\
 These elements all correlate in order to give an estimation of product quality.
 All the elements have a $5$ point Likert-Scale, except from the supplier indexes.
 These indexes, namely Eco-Index of the supplier $(EI_{s})$ and the Base Quality of the supplier $(BQ_{s})$ have a scale of measurement of $3$ points. They vary from good, medium to bad. In order to handle this divergence in scale, we have adjusted the supplier indexes by multiplying their sum with $\frac{5}{6}$.
@@ -110,11 +110,28 @@ As illustrated in Table \ref{table:prod-investments}, all three of these indexes
 Despite these investments being made once, there will come to a point in time, when they will begin loosing their added value to the production process. This loss is represented by Figure \ref{fig:InvestmentGraph}, and its corresponding function is $f(x)=5\times\exp^{-x}$. We take in consideration the $x$ range from $0$ to $10$. This graph encompasses the phenomena of "loss of added value" that we wanted to convey.
 
 \begin{figure}[ht]
-	\centering
-		\includegraphics[scale=0.35]{images/InvestmentGraph.pdf}
-	\caption{Production Investment Graph}
-	\label{fig:InvestmentGraph}
+\centering
+\begin{tikzpicture}[scale=0.9]
+\begin{axis}[
+    axis lines = left,
+    xlabel = Time (Years),
+    ylabel = Investment Level (Il),
+    grid style = dashed,
+    legend pos=north east
+]
+
+\addplot [
+    domain=0:10, 
+    samples=10, 
+    color=red,
+]
+{5*e^(-x)};
+\addlegendentry{$f(x)=5 \times \exp^{-x} $}
+\end{axis}
+\end{tikzpicture}
+\captionof{figure}{\textbf{Production Investment Graph}}	\label{fig:InvestmentGraph}
 \end{figure}
+
 
 In order to avoid the investments to significantly lower product quality, the player must keep in mind to invest in these elements constantly over the duration of the game. Preferably, the investments should be less than $5$ years apart, since the effect of the investment reaches $0$ after this time-span.\\
 There is a special event, we have implemented regarding System Security.
@@ -163,10 +180,5 @@ PPP= [(PT + PES) \times ME]/10_{N\footnotemark}
 \label{eq:PPP}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
-
-Production Performance (PP) is the general indicator, which serves the player to get an overview of how well the Production process is doing. This range also falls between $[0-1]$. 
-\begin{equation}
-PP= \frac{(PQ\times PPP)}{2}
-\label{eq:PP}
-\end{equation}
-To conclude, in our production simulation we explained several elements that influence the production process. These elements include machinery, possible investments and performance metrics. With these elements we have scratched the surface of manufacturing as a process, but they provide a strong basis in order to provide a successful Production Simulation. 
+ 
+To conclude, in our production simulation we explained several elements that influence the production process. These elements include machinery, possible investments and performance metrics. All of these elements derive to the two most important indicators, which are product quality and production process productivity. By creating these indicators we have scratched the surface of manufacturing as a process, but they provide a strong basis in order to provide a successful Production Simulation. 
