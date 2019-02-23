@@ -1,16 +1,15 @@
 \subsubsection{Employer Branding}\label{employer_branding}
 %Philipp
 
-%\gls{eB}    % employerBranding
-%\gls{cI}    % companyImage
-%\gls{tJS}   % totalJobSatiscation
+% eBemployerBranding
+% tJS totalJobSatiscation
 
-The employerBranding (eB) is the score which is reported to the external world in order to measure the value of the company as an employer in total. This score is comparable to the total score for companies which is presented on websites like kununu or glassdoor. The employer branding is a combined score out of the Job Satisfaction and the Company Image. As the Company Image implicitly incluences the Job Satisfaction rating it is weighted with 0.4 in the calculation of the employer branding score. The general formula is
+The employerBranding (\gls{eB}) is the score which is reported to the external world in order to measure the value of the company as an employer in total. This score is comparable to the total score for companies which is presented on websites like kununu or glassdoor. The employer branding is a combined score out of the Job Satisfaction (\gls{tJS}) and the Company Image. As the Company Image implicitly incluences the Job Satisfaction rating it is weighted with 0.4 in the calculation of the employer branding score. The general formula is
 \begin{center}
 \texttt{eB = 0.4 * cIS + 0.6 * tJS} \\
-\texttt{with} \\
-\texttt{cI = companyImage}   \\
-\texttt{tJS = totalJobSatisfactione}
+%\texttt{with} \\
+%\texttt{cI = companyImage}   \\
+%\texttt{\gls{tJS}  = totalJobSatisfactione}
 \end{center}
 
 In order to make the employer branding rating more realistic, we need to think about extreme cases where either the employee satisfaction or the company image is rated very low. The usage of a simple weighted average would have the effect that values of $tJS = 100$ and $cI = 0$ lead to an overall score of 60.

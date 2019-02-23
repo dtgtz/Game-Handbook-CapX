@@ -1,25 +1,37 @@
 \section{Warehouse Simulation} \label{warehouse_simulation}
+
+%\gls{bCW}  % buildingCostWarehouse
+%\gls{rCW}  % rentalCostWarehouse
+%\gls{cW}  % capacityWarehouse
+%\gls{vSC}  % variableStorageCost
+%\gls{fCW}  % fixCostWarehouse
+%\gls{tCWH}  % totalCapacityWarehouse
+%\gls{cWH}  % costsWarehouses
+%\gls{nWH}  % numberWarehouses
+%\gls{nRWH}  % numberRentedWarehouses
+%\gls{nSP}  % numberStoredProducts
+%\gls{sC}  % storageCosts
+
 %Janine
 The storage of products in Capitalism X is regulated by warehouses. In order to be able to store products, the player must first purchase a warehouse. They can be rented or built.
 
 Every warehouse has certain characteristics, these include:
 \begin{itemize}
-    \item a one-time construction price (bCW) of (TODO) Cap Coins which is due directly or monthly rental costs (rCW) in the amount of (TODO) Cap Coins
-    \item a capacity (cWH) of 5000 units. A product corresponds to a unit, regardless of the type of product.
-    \item Variable storage costs (vSC) per unit of (TODO) Cap Coins
-    \item Monthly maintenance costs (fMCW) of (TODO) Cap Coins
-    \item and, if the warehouse was built, a resale value. A warehouse is depreciated on a straight-line basis over 25 years (REFERENCE).
+    \item a one-time construction price (\gls{bCW}) of 250.000 CapCoins (REFERENCE https://kostencheck.de/hallenbau-kosten) which is due directly or monthly rental costs (\gls{rCW}) in the amount of 10.000 CapCoins (REFERENCE https://de.statista.com/statistik/daten/studie/303225/umfrage/mietpreis-fuer-lagerflaechen-in-muenchen/)
+    \item a capacity (\gls{cW}) of 5000 units. A product corresponds to a unit, regardless of the type of product.
+    \item Variable storage costs (\gls{vSC}) per unit of 5 CapCoins
+    \item Monthly maintenance costs (\gls{fCW}) of 1.000 CapCoins
+    \item and, if the warehouse was built, a resale value. A warehouse is depreciated on a straight-line basis over 25 years (REFERENCE https://www.steuern.de/abschreibung-gebaeude.html).
 \end{itemize}
 
-After the products are finished, they are taken to a warehouse of the company, no products are sold directly. This means for the production that the total available storage capacity (tCWH) is also the daily maximum total production quantity for the company. At the same time, the quantity of stored products at the end of the day is also the maximum number of products that can be offered on the market. 
+After the products are finished, they are taken to a warehouse of the company, no products are sold directly. This means for the production that the total available storage capacity (\gls{tCWH}) is also the daily maximum total production quantity for the company. At the same time, the quantity of stored products at the end of the day is also the maximum number of products that can be offered on the market. 
 
-The monthly costs for the warehouses (cWH) themselves are calculated on the basis of the number of warehouses (nWH), the maintenance costs and the rental costs for rented warehouses (nRWH). The following formula describes the exact calculation of the costs:
+The monthly costs for the warehouses (\gls{cWH}) themselves are calculated on the basis of the number of warehouses (\gls{nWH}), the maintenance costs and the rental costs for rented warehouses (\gls{nRWH}). The following formula describes the exact calculation of the costs:
 \begin{equation}
-     cWH = nWH * fMC + nRWH * rCW
+     cWH = nWH * fCW + nRWH * rCW
 \end{equation}
 
-Always at the end of the day the sold products are taken out of stock, they do not cause any storage costs. Only products that are not sold and remain in stock overnight incur storage costs, these are called stored products (nSP). This means that the calculation of the storage costs must take place after the sold products have been removed from the warehouse. The daily storage costs (sC) are calculated as follows:
+Always at the end of the day the sold products are taken out of stock, they do not cause any storage costs. Only products that are not sold and remain in stock overnight incur storage costs, these are called stored products (\gls{nSP}). This means that the calculation of the storage costs must take place after the sold products have been removed from the warehouse. The daily storage costs (\gls{sC}) are calculated as follows:
 \begin{equation}
     sC = nSP * vSC
 \end{equation}
-

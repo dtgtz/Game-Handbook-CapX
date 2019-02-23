@@ -12,23 +12,25 @@ Firstly, product quality is considered a very important element in the productio
 \begin{itemize}
 \item Production Technology (PT)
 \item Production Employee Skills (PES)
-\item Procurement Quality (PrcQ)
+\item Procurement Quality (ProcQ)
 \item Logistic Quality (LQ)
 \item R\&D
 \end{itemize}
 Product quality is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, employee skills are included in the HR simulation, the supplier index is included in the procurement simulation, logistics and warehousing in their respective simulations, etc. \\
 These elements all correlate in order to give an estimation of product quality.
 All the elements have a $5$ point Likert-Scale, except from the supplier indexes.
-These indexes, namely Eco-Index of the supplier $(EI_{s})$ and the Base Quality of the supplier $(BQ_{s})$ have a scale of measurement of $3$ points. They vary from good, medium to bad. In order to handle this divergence in scale, we have adjusted the supplier indexes by multiplying their sum with $\frac{5}{6}$.
+These indexes, namely Eco-Index of the supplier $(EI_{s})$ and the Base Quality of the supplier $(BQ_{s})$ have a scale of measurement of $3$ points. They vary from good, medium to bad. In order to handle this divergence in scale, we have adjusted the supplier indexes by multiplying their sum with $\frac{5}{6}$. These indexes will be attributed to the total Procurement Quality.
+\begin{equation}
+ProcQ=(EIs + BQs)\times \frac{5}{6}
+\end{equation}
 
 In order to converge all the above mentioned elements and to measure Product Quality, we have compiled the following equation.
 \begin{equation}
-ProductQuality = \frac{PES+PT+R\&D+LQ +[(EIs + BQs)\times \frac{5}{6}]}{25_{N\footnotemark}}
+ProductQuality = (PES+PT+R\&D+LQ +ProcQ) \times 0.04_{N\footnotemark}
 \label{eq:PQ}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
-As you can observe all the indexes in the formula, except $EI_{s}$ and $BQ_{s}$ are given equal weights of importance for defining product quality. Whereas $EI_{s}$ and $BQ_{s}$ are grouped and given the weight of $20\%$ of the equation. This happens because both of these indexes belong to the supplier. After making all the calculations a normalization factor was needed to standardize the value of product quality. 
-
+ 
 After giving you an understanding of our concept of product quality, in the following sections we will explain the elements that  are included in this formula, and also further concepts that apply to the production process.
 
 \subsection{Production Technology Level}
