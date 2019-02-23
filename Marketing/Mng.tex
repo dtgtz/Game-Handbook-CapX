@@ -1,8 +1,8 @@
-\subsection{Management Consultancy}
+\subsection{Management Consultancy} \label{management_consultancy_simulation}
 %Janine
 In Capitalism X, the player has the option of engaging a business consultant to give him tips on how to make the company more successful. 
 The consulting firm searches for possible points in the company which can be optimized and presents them to the player.
-There are basically three different types of consulting firms: World-famous firm, Local consultancy and Student consultancy. These differ in their expertise and level of reputation. The more famous the organization is, the more expensive it is. Table (REF) shows the prices of the business consulting firms.
+There are basically three different types of consulting firms: World-famous firm, Local consultancy and Student consultancy. These differ in their expertise and level of reputation. The more famous the organization is, the more expensive it is. Table \ref{mng_consultancy} shows the prices of the business consulting firms.
 
 \begin{table}[ht]
 \centering
@@ -18,25 +18,25 @@ Student consultancy     & Wannabe Consultants    & 1.000     \\
 \label{mng_consultancy}
 \end{table}
 
-The previous concept provided for looking for low values of individual key figures. Since the different key figures do not all have the same significance for the company result, it is important to weight them for the analysis.
+The concept of management consulting is that they search for the relatively weakest KPI of the company. Since the different key figures do not all have the same significance for the company result, it is important to weight them for the analysis.
 Table (REF) shows the key figures which are evaluated by the business consulting company and how they assess their importance.
 The company with the greatest expertise meets with its assessment pretty much exactly the interrelationships implemented in Capitalism X. The other companies have slightly different views on how important the respective indicators are. 
+The worst index of the company is determined by multiplying the current value by the respective weighting. The lowest of the resulting values represents the key figure with the highest optimization potential and is therefore communicated to the company. 
  
 \begin{table}[ht]
 \centering
 \begin{tabular}{|l|r|r|r|}
 \hline
-KPI       & World-famous firm    & Local consultancy    & Student consultancy  \\
-1         &      &     &     \\
-2         &      &     &     \\
-3         &      &     &     \\
-    &      &     &     \\
-    &      &     &     \\
-    &      &     &     \\
-    &      &     &     \\
+KPI                     & World-famous c.   & Local c.   & Student c.\\
+totalSupportQuality     & 0,8               & 0,85       & 0,9       \\
+logisticIndex           & 0,9               & 0,9        & 0,95      \\
+companyImage            & 0,85              & 0,9        & 0,8       \\
+productionTenology      & 0,7               & 0,65       & 0,6       \\
+manufactureEfficiency   & 0,8               & 0,8        & 0,85      \\
+totalJobSatisfaction    & 0,95              & 0,9        & 0,9       \\
 \hline
 \end{tabular}
-\caption{prices market research reports}
-\label{MR_report_price}
+\caption{KPI weighting management consultancies}
+\label{mngc_weighting}
 \end{table}
 

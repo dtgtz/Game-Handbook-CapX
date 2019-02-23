@@ -1,4 +1,22 @@
-\subsection{Logistic}
+\subsection{Logistic} \label{logistic_simulation}
+
+\gls{eIT}  % ecoIndexTruck
+\gls{nT}   % numberTrucks
+\gls{cF}   % capacityInternalLogisticsFleet
+\gls{iLI}  % internalLogisticIndex 
+\gls{fCD}  % fixedCostsDelivery 
+\gls{vDC}  % variableCostsDelivered 
+\gls{cED}  % costExternalDelivery 
+\gls{dC}   % deliveryCost
+\gls{dP}   % deliveredProducts
+\gls{dP}   % ecoIndexPartner
+\gls{dP}   % qualityIndexLogisticPartner
+\gls{dP}   % totalContractualCostLogisticPartner
+\gls{dP}   % variableCostDeliveryExternal
+\gls{dP}   % reliabilityLogisticPartner
+\gls{dP}   % costExternalDelivery 
+
+
 %Janine
 The delivery of the products always takes place at the end of the day directly from the warehouse. Basically there are three ways to manage the logistic of the company: 
 \begin{itemize}
@@ -26,12 +44,12 @@ Every truck has certain characteristics, these consist of:
     \item A capacity of products that can be transported, this is the same for all trucks and amounts to 1000 packages. For reasons of simplification, we do not distinguish the size of individual products.  Each product is equivalent to one package. 
     \item An environmental index (eIT) that expresses how environmentally friendly the vehicle is.
     \item A quality index that expresses the quality of the transport.
-    \item A purchase price that depends on the quality and environmental friendliness of the truck.
-    \item Monthly maintenance costs corresponding to (TODO)\% of the initial purchase price divided by 12 months (REFERENCE)
-    \item And a depreciation rate that is linear and amounts to 9 years for each truck (REFERENCE) 
+    \item A purchase price that depends on the quality and environmental friendliness of the truck. The standard price for a truck is 100000 CapCoins. (REFERENCE https://www.motor-talk.de/forum/wie-teuer-ist-ein-neuer-lkw-t1631664.html)
+    \item Monthly maintenance costs corresponding to 0,1\% of the initial purchase price divided by 12 months (REFERENCE)
+    \item And a depreciation rate that is linear and amounts to 9 years for each truck (REFERENCE https://www.lexoffice.de/service/abschreibungstabelle/lkw/) 
 \end{itemize}
 
-As already described, quality and environmental friendliness influence the initial purchase price of a truck, which is 10.000 Cap Coins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table (REF) shows how they are composed in detail. 
+As already described, quality and environmental friendliness influence the initial purchase price of a truck, which is 10.000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table (REF) shows how they are composed in detail. 
 
 The quality and the environmental index, are set randomly in the given ranges.The purchase price for the respective truck and the fixed delivery costs are calculated from the based on the base values times the factors which are also randomly assigned in a certain value range. Cause of the fact that the intervals of the individual models overlap, it can happen that a more favourable model has better properties than a more expensive one.
 
@@ -53,7 +71,7 @@ The quality and the environmental index, are set randomly in the given ranges.Th
     \label{Truck_characteristics}
 \end{table}
 
-The total capacity thus results from the number of trucks (NT) in the company's own logistics fleet. 
+The total capacity thus results from the number of trucks (nT) in the company's own logistics fleet. 
 \begin{equation}
     Capacity internal logistics fleet (cF) = 1000 * NT
 \end{equation}
@@ -67,16 +85,16 @@ The overall quality internal logistics, the so-called Internal Logistic Index (i
 \end{aligned}
 \end{equation}
 
-Of course, the delivery of the products entails costs for the company. These consist of the fixed costs for the ride of a truck (FCD) and the variable costs per delivered package (VCD). 
-A delivery by truck in principle costs (TODO) Cap Coins. Like the purchase price, the fixed delivery costs also vary on the basis of quality and eco index. The variable delivery costs per product are the same for each truck and amount to (TODO) Cap Coins.
+Of course, the delivery of the products entails costs for the company. These consist of the fixed costs for the ride of a truck (fCD) and the variable costs per delivered package (vCD). 
+A delivery by truck in principle costs 2000 CapCoins. Like the purchase price, the fixed delivery costs also vary on the basis of quality and eco index. The variable delivery costs per product are the same for each truck and amount to 2 CapCoins.
 
-The cost of a delivery thus depends on the total number of products to be delivered (DP). 
-The case that the number of products to be delivered exceeds the total capacity of the internal delivery fleet must be considered separately. The additional costs incurred by an external delivery (CED) can either be caused by a contractual external logistics partner or by sending the packages by post. How these costs are composed in detail is described in the following sections. 
+The cost of a delivery thus depends on the total number of products to be delivered (dP). 
+The case that the number of products to be delivered exceeds the total capacity of the internal delivery fleet must be considered separately. The additional costs incurred by an external delivery (cED) can either be caused by a contractual external logistics partner or by sending the packages by post. How these costs are composed in detail is described in the following sections. 
 \begin{equation}
 \begin{aligned}
-Delivery cost (DC) = if ( DP = CF ) { (( DP / 1000) * FCD) + ( DP * VCD) } \\
-elseif ( DP < CF ) { (round up to next int ( DP / 1000) * FCD ) + ( DP * VCD) } \\
-else { ( NT * FCD ) + ( NT *1000 * VCD ) + CED }
+Delivery cost (dC) = if ( dP = cF ) { (( dP / 1000) * fCD) + ( dP * vCD) } \\
+elseif ( dP < cF ) { (round up to next int ( dP / 1000) * fCD ) + ( dP * vCD) } \\
+else { ( nT * fCD ) + ( nT *1000 * vCD ) + cED }
 \end{aligned}
 \end{equation}
 
@@ -85,11 +103,11 @@ In addition to his own logistics fleet, the player has the option of forming a c
 The external logistics partners also have certain characteristics that influence the quality of the delivery: 
 
 \begin{itemize}
-    \item An eco index (EIP) that expresses how environmentally friendly the external partner is working (0-100)
-    \item A Quality Index (QIP), which expresses how good the quality of the partner's delivery is (0 -100)
-    \item A reliability index (RIP), which expresses how reliable the partner is
-    \item Contractually agreed monthly fixed costs (cFCEP) for the provision of the service, which are based on the quality, environmental friendliness and reliability of the external logistics partner. The basic price is (TODO) Cap Coins 
-    \item And contractually agreed variable delivery costs (vCDE) per delivered product.These are generally (TODO) cap coins, but this price also depends on the characteristics of the service provider
+    \item An eco index (eIP) that expresses how environmentally friendly the external partner is working (0-100)
+    \item A Quality Index (qLP), which expresses how good the quality of the partner's delivery is (0 -100)
+    \item A reliability index (rLP), which expresses how reliable the partner is
+    \item Contractually agreed monthly fixed costs (tCCLP) for the provision of the service, which are based on the quality, environmental friendliness and reliability of the external logistics partner. The basic price is 1000 CapCoins 
+    \item And contractually agreed variable delivery costs (vCDE) per delivered product.These are generally 5 CapCoins, but this price also depends on the characteristics of the service provider
 \end{itemize}
 
 The table \ref{External_logistic_partner_characteristics} shows how exactly the costs are related to the properties and which characteristics can occur in the game. Within the specified value ranges, the values are assigned randomly. 
@@ -99,7 +117,7 @@ The contractual costs and the variable costs are calculated by the initial price
     \centering
     \begin{tabular}{|l|r|r|r|r|}
     \hline
-    Quality Index & Eco Index & Reliability Index & influence cFCEP & influence vCDE \\
+    Quality Index & Eco Index & Reliability Index & influence tCCLP & influence vCDE \\
     60 - 100      & 60 - 100   & 60 - 100  & 1.1 - 1.3    & 0.7 - 0.9     \\
     60 - 100      & 30 - 70    & 30 - 70   & 1.0 - 1.2    & 0.8 - 1.0     \\
     60 - 100      & 0 - 40     & 60 - 100  & 1.0 - 1.2    & 0.8 - 1.0     \\
@@ -123,17 +141,17 @@ The total influence of an external partner company is measured by the External L
 \end{aligned}
 \end{equation}
 
-If the player decides to delivered all products (dP) by an external logistics partner, the daily costs for the company are calculated as follows:
+If the player decides to delivered all products by an external logistics partner, the daily costs for the company are calculated as follows:
 \begin{equation}
     Cost external delivery (cED) = dP * vCDE
 \end{equation}
 
 If the company has its own logistics fleet, the products are initially delivered via it. However, if the company's own capacities are not sufficient, the remaining products are taken over by the external partner. In this case, the costs are calculated as follows: 
 \begin{equation}
-    CED = ( DP – CF ) * VCDE
+    cED = ( dP – cF ) * vCDE
 \end{equation}
 
-If the company has not engaged an external partner and exceeds the delivery capacity, the remaining products will be sent by post. For each package there will be a shipping fee (SF) of ... Cap Coins. Also in this case delivery quality and environmental friendliness are included. The quality index (qIP) is basically (TODO) and the eco index (eIP) (TODO). The external delivery costs are calculated as follows:  
+If the company has not engaged an external partner and exceeds the delivery capacity, the remaining products will be sent by post. For each package there will be a shipping fee (SF) of ... Cap Coins. Also in this case delivery quality and environmental friendliness are included. The quality index (qLP) is basically 60 and the eco index (eIP) 40. The external delivery costs are calculated as follows:  
 \begin{equation}
     cED = ( dP – cF ) * sF
 \end{equation}

@@ -1,5 +1,10 @@
-\subsection{Company Image}
+\subsection{Company Image} \label{company_image}
 %Philipp
+
+\gls{CSR}   % Corporate Social Responsibility
+\gls{cIS}   % companyImage
+\gls{oS}    % originalScale
+
 The company image is a very important KPI to measure the company reputation. The company image is the sum of many small activities which leaves a footprint that can be recognized with the company. Single activities can improve or destroy the company image from the point of view of individuals. The goal of a high valued company image is of course monetary benefit. Therefore, activities which tend to increase the company image are not for free and it is always a difficult assessment whether to invest in a certain activity or not. In the game we concentrated on factors which can be realistically and interestingly be influenced by the player.
 
 \begin{longtable}[]{l|c|c}
@@ -20,12 +25,14 @@ The company image is a very important KPI to measure the company reputation. The
      4 projects per year & 4 & -4000 \$ per year  \\
      \hline \hline
      \underline{\textbf{Environmental Friendly Production}} & & \\ [1ex]
-     \multicolumn{1}{c|}{\textbf{Supplier}} & & \\
-     Eco-friendly & 2 & +10\% of cost \\
-     Standard & 0 & 0\$  \\
-     \multicolumn{1}{c|}{\textbf{Logistics Partner}} & & \\
-     Eco-friendly & 2 & +10\% of cost \\
-     Standard & 0 & 0\$  \\
+     \multicolumn{1}{c|}{\textbf{Promote environmental Friendly Supplier}} & & \\
+     Never & 0 & 0 \\
+     1 time per year & 1 & -2000 \$  \\
+     2 time per year & 2 & -4000 \$  \\
+     \multicolumn{1}{c|}{\textbf{Promote environmental Friendly Logistics Partner}} & & \\
+     Never & 0 & 0 \\
+     1 time per year & 1 & -1000 \$  \\
+     2 time per year & 2 & -2000 \$  \\
      \hline \hline
      \underline{\textbf{Promotes a green image}} & & \\ [1ex]
      \multicolumn{1}{c|}{\textbf{Mandatory training for employees}} & & \\
@@ -59,13 +66,13 @@ The company image is a very important KPI to measure the company reputation. The
     \label{tab:benefitsCIS}
 \end{longtable}
 
-The total sum of the above possible choices is the total Company Image Score (CIS). The score can reach values from 0 to 28 as it is the case for the Employee Satisfaction Score. In order to build also here a more realistic representation we figured out that the marginal benefit of an increase of the company image increases with the collected amount of points. Therefore, we manipulated also this formula and came up with the following function.
+The total sum of the above possible choices is the total Company Image (cI). The score can reach values from 0 to 28 as it is the case for the Employee Satisfaction. In order to build also here a more realistic representation we figured out that the marginal benefit of an increase of the company image increases with the collected amount of points. Therefore, we manipulated also this formula and came up with the following function.
 
 \begin{tikzpicture}
 \begin{axis}[
     axis lines = left,
-    xlabel = Original Scale (OS),
-    ylabel = Company Image Score (CIS),
+    xlabel = Original Scale (oS),
+    ylabel = Company Image  (cIS),
     grid style = dashed,
     legend pos=north west
 ]
@@ -76,7 +83,7 @@ The total sum of the above possible choices is the total Company Image Score (CI
     color=red,
 ]
 {x^2/7.84};
-\addlegendentry{$CIS=OS^2/7.84$}
+\addlegendentry{$cIS=OS^2/7.84$}
 \end{axis}
 \end{tikzpicture}
 
