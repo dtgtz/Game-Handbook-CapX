@@ -21,17 +21,21 @@ Every warehouse has certain characteristics, these include:
     \item a capacity (\gls{cW}) of 5000 units. A product corresponds to a unit, regardless of the type of product.
     \item Variable storage costs (\gls{vSC}) per unit of 5 CapCoins
     \item Monthly maintenance costs (\gls{fCW}) of 1.000 CapCoins
-    \item and, if the warehouse was built, a resale value. A warehouse is depreciated on a straight-line basis over 25 years (REFERENCE https://www.steuern.de/abschreibung-gebaeude.html).
+    \item and, if the warehouse was built, a resale value. A warehouse is depreciated on a straight-line basis over 25 years 
+    %isn't that a bit long, given that the game only has 30 years???
+    (REFERENCE https://www.steuern.de/abschreibung-gebaeude.html).
 \end{itemize}
 
 After the products are finished, they are taken to a warehouse of the company, no products are sold directly. This means for the production that the total available storage capacity (\gls{tCWH}) is also the daily maximum total production quantity for the company. At the same time, the quantity of stored products at the end of the day is also the maximum number of products that can be offered on the market. 
 
 The monthly costs for the warehouses (\gls{cWH}) themselves are calculated on the basis of the number of warehouses (\gls{nWH}), the maintenance costs and the rental costs for rented warehouses (\gls{nRWH}). The following formula describes the exact calculation of the costs:
 \begin{equation}
+\label{func:cWH} % costWarehouses
      cWH = nWH * fCW + nRWH * rCW
 \end{equation}
 
 Always at the end of the day the sold products are taken out of stock, they do not cause any storage costs. Only products that are not sold and remain in stock overnight incur storage costs, these are called stored products (\gls{nSP}). This means that the calculation of the storage costs must take place after the sold products have been removed from the warehouse. The daily storage costs (\gls{sC}) are calculated as follows:
 \begin{equation}
+\label{func:SC} % storageCost
     sC = nSP * vSC
 \end{equation}

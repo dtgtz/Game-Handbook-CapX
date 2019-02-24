@@ -161,6 +161,65 @@ All the above mentioned costs, add up to two major categories, variable costs an
 \end{equation}
 By observing the above equation, we have described how the costs are simulated in the production process. 
 
+%@Livja: is this place ok?
+\subsection{Pricing and Selling of Goods}
+\label{sec:pricing_mechanics}
+
+Part of the production simulation is the product view. Here the player can get an overview about the costs of every single component. Also, he or she can define the market price for selling and the quantity to produce there. This view is displayed in table format for convenient reading in table \ref{table:pricingView}:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ Products & \begin{tabular}{@{}c@{}}Qty to \\ Produce\end{tabular} & \begin{tabular}{@{}c@{}}Amount \\ in Stock\end{tabular} & \begin{tabular}{@{}c@{}}Total Pro- \\ duct Costs\end{tabular} & \begin{tabular}{@{}c@{}}Price for \\ Market (Sell)\end{tabular} & \begin{tabular}{@{}c@{}}Profit \\ Margin\end{tabular} \\ \hline
+ Product A &  & 12 & 332,56 &  & XX.X\% \\ \hline
+ Product B &  & 554 & 62,05 &   & XX.X\% \\  \hline
+ Product C &  & - & 164,67 &   & XX.X\% \\ \hline
+\end{tabular}
+\caption{Pricing View for the Player}
+\label{table:pricingView}
+\end{table}
+
+The first column, "Product" displays the name of a product, that the player when he or she chose the product portfolio. The number of rows depends on the number of products the player added to the product portfolio. 
+
+The "Qty to Produce" field is an input field where the player can type in an integer value. The quantity a player is able to enter is depending on two different factors: the total machinery capacity and the total warehouse capacity. If the amount entered by the player is larger than the accumulated sum of overall machinery capacity, then the player sees the error message: "Your machinery capacity is not sufficient. Either produce a smaller amount or buy new machinery". This is calculated as follows in function \ref{calc:machineryCapacity1} and \ref{calc:machineryCapacity2}:
+\begin{equation}
+\label{calc:machineryCapacity1}
+   If~entered~amount \geqslant total~machinery~capacity, 
+\end{equation}
+whereas 
+\begin{equation}
+\label{calc:machineryCapacity2}
+    Total~machinery~capacity = \sum machinery~capacity
+\end{equation}
+Also, the amount entered must not exceed the total warehouse capacity. The total warehouse capacity is determined as seen in chapter \ref{warehouse_simulation}. To calculate the maximum amount of products that can be produced, the number of stored products needs to be subtracted from the total warehouse capacity, as shown in function \ref{maxValueToProduce}:
+\begin{equation}
+\label{maxValueToProduce}
+    Maximum~value~of~"Qty~to~Produce" = (nWH * cWH) - nSP
+\end{equation}
+
+The next two fields are no input fields but serve the user in order to determine the quantity of products to produce and to define a market price to sell the product. First, the information field "Amount in Stock" displays the player the amount of each product in the warehouse(s), so $nSP_{per Product}$. The "Total Product Costs" show the player the total cost he or she expended for the product, which is the $ProductCost_{perUnit}$. The calculation can be found in chapter \ref{prodCosts_simulation}, function \ref{eq:PQ}.
+
+Next, the "Price for Market (Sell)" field is an input field where the player can type in a price in CapCoins for each product. The price is restricted to a float value with two decimals and a maximum of 99,999.99. As the functions \ref{calc:priceForMarket1} and \ref{calc:priceForMarket2} show, the entered amount must not be smaller than the total product costs, otherwise the player gets the error message: "Price is smaller than the total product costs of this product. Please choose a higher price.".
+\begin{equation}
+\label{calc:priceForMarket1}
+    Price~for~Market~(Sell) \geqslant ProductCost_{perUnit},
+\end{equation}
+whereas
+\begin{equation}
+\label{calc:priceForMarket2}
+    99,999.99 \geqslant Price~for~Market~(Sell) \geqslant ProductCost_{perUnit}
+\end{equation}
+
+Last but not least, the field "Profit Margin" shows the player the profit margin for the respective product, which can be calculated as follows in function \ref{profitMargin}:
+\begin{equation}
+\label{profitMargin}
+    Profit~Margin = \frac{Price~for~Market~(Sell) - Total~Component ~Costs}{Price~for~Market~(Sell)} * 100
+\end{equation}
+This value gives the player possible insights about his or her pricing strategy, as a high profit margin should only be used when using the components with the best quality and eco-index and when also the own company's eco-index and customer satisfaction is very high.
+
+As further clarified in chapter \ref{warehouse_simulation}, the products produced per day are first collected in the warehouse and sent out to the market in the next day. For the player, no further intervention is needed. Once determined how many products to produce, the selling process starts automatically.
+
 \subsection{Performance metrics}
 \label{sub:PM}
 In this section we are going to present some important metrics that help us understand how, not only quality but also production performance is measured in our game. In order to measure production performance there are several other metrics that need to be defined. \\

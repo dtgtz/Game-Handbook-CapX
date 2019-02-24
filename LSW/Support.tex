@@ -31,6 +31,7 @@ Before the company can offer product support to its customers, the player must h
 
 The total support type quality (\gls{tSTQ}) is calculated from the various support types offered; this is simply the sum of the support types. The quality of the total product support (\gls{tSQ}) of the company is influenced not only by the offered support types but also by the dedicated support company, more precisely its quality (\gls{qSP}). The calculation is done as follows:
 \begin{equation}
+\label{func:totalProductSupport}
 \begin{aligned}
     if ( qSP ≤ 50 ) tSQ = { 0,4 *qSP + 0,6 * tSTQ } \\
     else tSQ = { 0,3 * qSP + 0,7 * tSTQ }
@@ -39,5 +40,6 @@ The total support type quality (\gls{tSTQ}) is calculated from the various suppo
 
 The total cost of product support (\gls{tSC}) is calculated from the monthly cost of the support types offered and the general monthly cost (\gls{cSP}) for cooperation with the partner company.
 \begin{equation}
+\label{func:totalSupportCost}
     tSC = sum (cST) + cSP
 \end{equation}

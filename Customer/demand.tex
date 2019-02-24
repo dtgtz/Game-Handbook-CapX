@@ -1,4 +1,4 @@
-\subsection{Demand Calculation}
+\subsection{Demand Calculation} \label{demandCalc}
 
 %\gls{sCP}  % sumComponentPrices
 %\gls{dPR}  % demandPrice
@@ -11,8 +11,6 @@
 %\gls{dPC}  % demandPercentage
 %\gls{tP}  % totalPopulation
 
-
-\label{demandCalc}
 In Capitalism X, we assume that the demand for a product is based on customer satisfaction and the selling price. In addition, there is the assumption that the population is aware of the prices of the latest individual components. So they can estimate the value of the product from its components only, if the company uses the latest ones.
  
 Table \ref{sum_product_component_prices} shows the sum of the component prices (\gls{sCP}), the current components and their respective prices were used for the calculation.
@@ -48,6 +46,7 @@ The customer satisfaction influences the interest of the population in the respe
  
 The more satisfied customers are with the company, the more they are willing to pay for the same products. However, if customer satisfaction falls below 40, the demand price falls below the assumed component cost that the company has. The following formula shows how customer satisfaction affects the price at which 100\% of the population demand a product.
 \begin{equation}
+\label{func:demandPrice}
 \begin{aligned}
 if ( cS \geq 80 ) { dPR = sCP * 1,2 } \\
 elseif ( 80 > cS \geq 60 ){ dPR = sCP * 1,1 } \\
@@ -60,6 +59,7 @@ else { dPR = sCP * 0,8 }
 
 The demand in percentage (\gls{dPC}) is calculated by determining the ratio of the sales price (\gls{sP}) of the product to its demand price and using it as input for the following formula.
 \begin{equation}
+\label{func:demandPercentage}
 \begin{aligned}
 x = sP / dPR \\
 dPC = 167.905104 ∗e^ (−2.990914872 * 10^ -1 * x^2) \\
@@ -75,6 +75,7 @@ tD= dPC * tP
 
 The quantity actually sold by the company, so-called sales figures per product (\gls{sFP}), depends on whether the actual demand exceeds the quantity of products offered (\gls{nOP}) or not.
 \begin{equation}
+\label{func:salesFigure}
 \begin{aligned}
 if ( tD > nOP ) { sFP = nOP } \\
 else { sFP = tD }    
@@ -83,6 +84,7 @@ else { sFP = tD }
 
 For the calculation of the market share (\gls{mS}) it is assumed that the proportion of the population who would have liked to buy a product but went away empty-handed buys its product from a competitor. The company's total market share (\gls{tMS}) is calculated using the sum of the sales figures of the single products and the sum of the demands for them. Following formulas show the calculation of the market share of a product and the total market share of the company.  
 \begin{equation}
+\label{func:marketShare}
 mS = sFP / tD
 tMS = sum(sFP) / sum(tD)   
 \end{equation}
