@@ -65,14 +65,14 @@ Repairs are also very frequent processes in production companies. Machines do no
 \item Upgrading ($+2$) \\
 Upgrading a machine is a process that implements new, better features into the current machine. Alongside with increasing the production technology scale by two levels, upgrading also allows increasing the individual machine production capacity by $20\%$.
 \end{itemize}
-When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a production technology level equal to $5$. The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
+When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a production technology level equal to $5$. It is calculated as the sum of the base price equal to $1000cc$ with the machine capacity times $120\%$.  The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
 \begin{equation}
-buyMachinePrice=(1000cc+MC)\times 120\%
+buyMachinePrice=(basePrice+MC)\times 120\%
 \label{eq:buyMachine}
 \end{equation}
 In this simulation it is also possible to sell your current machines. A player should choose this option if he is low on CapCoins, or has purchased too many machines and they are deteriorating. The selling price will be set by the game mechanics, accordingly with equation \ref{eq:sellMachine}.
 \begin{equation}
-sellMachinePrice=(PT \times 200cc)+MC
+sellMachinePrice=(PT \times levelPrice_{PerPTLevel})+MC
 \label{eq:sellMachine}
 \end{equation}
 \begin{center}
@@ -80,8 +80,12 @@ sellMachinePrice=(PT \times 200cc)+MC
 	PT = Production Technology level \\
 	MC = Machine Capacity
 \end{center}
-In this formula, the selling price is calculated by multiplying the current production technology with a bench-marked value of $200cc$ and adding the capacity value. It is formulated as such because when the player purchases a machine its cost varies in terms of capacity. Whilst, when selling a machine not only the capacity changes between machines but also the production technology level.
-
+In this formula, the selling price is calculated by multiplying the current production technology with a bench-marked value of $200cc$ per production technology level and adding the machine capacity value. It is formulated as such because when the player purchases a machine its cost varies in terms of capacity. Whilst, when selling a machine not only the capacity changes between machines but also the production technology level. And it is precisely our production technology level that accounts for the loss of value effect of the machinery, otherwise known as depreciation. 
+\begin{equation}
+machineryDepreciation= basePrice - (PT \times levelPrice_{PerPTLevel})
+    \label{eq:machineDepreciation}
+\end{equation}
+This approach of calculating depreciation effects is not linear, because we have to keep in mind that our machinery can be maintained or upgraded, which means they will improve their production technology level and depreciate later than other machines, which have not undergone these procedures.
 \subsection{Production Investments}
 The player can decide how to improve Production Performance based on several investment options. These investments are correlated with the measurements of several performance indicators, in the production simulation. The player has to use his instinct and business intuition in order to understand which metric do these investments influence and how. It is the player's decision to insert the amount of Cap-Coins(cc), that he wants to invest. \\
 The available investment possibilities are:
