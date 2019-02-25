@@ -11,7 +11,8 @@ The finance simulation is connected to almost all other simulations, as costs an
     \label{fig:financeGraphPart}
 \end{figure}
 
-The main financial key figure is the company net worth. A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:BalanceSheet} shows an exemplary balance sheet in CapitalismX which is updated monthly for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses. However, in CapitalismX the company net worth as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world.
+The main financial key figure is the company net worth. A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:BalanceSheet} shows %@Nike: in der Pdf sind 3 Fragezeichen?
+an exemplary balance sheet in CapitalismX which is updated monthly for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses. However, in CapitalismX the company net worth as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world.
 
 \begin{table}[ht]
 \label{tab:BalanceSheet}
@@ -36,12 +37,14 @@ The main financial key figure is the company net worth. A company's net worth is
 \caption{Balance Sheet}
 \end{table}
 
-The company’s net worth %@salih: oder der NOPAT???? 
+The company’s net worth %@salih: oder der NOPAT???? @Nike: lass das am Dienstag nochmal besprechen.
 is calculated from the EBIT, that the player has obtained through his or her actions during the game. Added to the EBIT there are the loans a player might have borrowed from the bank, the interest that the player has to expend in order to amortize the loan, and the income tax the player has to pay for all earnings. Accordingly, the net worth is calculated in  function \ref{func:netWorth}.
-% @Salih: ist das jetzt noch so korrekt? Weil die Taxes bezahlt er ja täglich, das passt ja also, aber mit den loan interests war das jetzt wie? :o
+% @Salih: ist das jetzt noch so korrekt? Weil die Taxes bezahlt er ja täglich, das passt ja also, aber mit den loan interests war das jetzt wie?
+% @Nike: Im Finance dashboard werden ja alle Kennzahlen täglich upgedated. Wir haben geschrieben, dass unser balance sheet monatlich geupdated wird. Danach wird die NEt worth Formel aufgestellt und wir schreiben, dass diese ad hoc geupdated wird. Sollten wir uns darauf einigen, dass alle Formeln in der Implementierung auf den tag berechnet werden? Dann wäre deine Frage bzgl. tax update und loan interests geklärt oder?
+:o
 \begin{equation}
 \label{func:netWorth}
-    Net~worth = (EBIT~+~\frac{loan~interests}{356})~*~taxPercentage~+~loan~amount
+    Net~worth = (EBIT~+~\frac{loan~interests}{365})~*~taxPercentage~+~loan~amount
 \end{equation}
 
 %$net~worth = (EBITv+loan\ amount+(loan\ interests/365))* taxPercentage$
@@ -59,9 +62,44 @@ The bank simulation ensures that the player has an additional opportunity to rai
 The short-term loan requires a repayment within one and twelve months. The interest rate varies between 6\% and 18\%. The medium-term loan is payable within 1-5 years, while the interest rate is between 3\% and 6\%. A long-term loan has a term of more than 10 years and a maximum of 15 years with an interest rate between 1\% and 3\% \footnote{https://www.statista.com/statistics/258174/long-term-interest-rates-worldwide}. 
 
 The bank's credit offers are randomized in the defined intervals to make the game more interesting for the player. Hence, both variables, the duration as well as the interest rates, are randomized on a daily basis. The three types of credit are provided as amortization loans. Thus, the player has a fixed interest rate and a fixed monthly amortization. This reduces the repayment amount over time \footnote{\footnote{https://www.investopedia.com/terms/a/amortized\_loan.asp}}.
+After the player has entered the desired loan amount (defined by the variable S), the bank checks the creditworthiness. Based on this, the three loan offers are calculated in the backend. To determine the term (t), a random number is generated for each credit type . Thus, the annual repayment (a) can be determined as follows \ref{func:repayment}:
+
+\begin{equation}
+\label{func:repayment}
+\begin{aligned}
+repayment (a)= {\dfrac{S}{t}}
+\end{aligned}    
+\end{equation}
+
+Once the loan amount and term values have been determined, an interest rate (i) per credit type is generated again randomly using the above intervals. To calculate an annual interest rate, the remaining principal balance per year (S\textsubscript{t}) must first be calculated for each year. The remaining \textsubscript{t}  is the starting value at the beginning of the following year to calculate the interest rate per year (i\textsubscript{t}). This results in the following formulas \ref{func:interestrate}:
+\begin{equation}
+\label{func:interestrate}
+\begin{aligned}
+principal \ balance \ per \ year (S\textsubscript{t})= S- (a*t)\\
+Interest \ rate \ per \ year (i\textsubscript{t}) = S\textsubscript{t} * i
+\end{aligned}    
+\end{equation}
+
+Thus, an annual rate is calculated in function \ref{func: rate}, which has to be paid by the player for the loan amount taken up.
+
+\begin{equation}
+\label{func: rate}
+\begin{aligned}
+Rate (r)= a+ i\textsubscript{t}
+\end{aligned}    
+\end{equation}
+
+% @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder?
 
 However, the raising of capital from the bank is restricted.
-The requested loan must not be larger than 30 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan is in fact larger than 30\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 30\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.
+The requested loan must not be larger than 30 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan is in fact larger than 30\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 30\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.\\
+For a better understanding, the following algorithm can be helpful:
+\begin{equation}
+\begin{aligned}
+If (loan * 30\% ) \geq  \text{net worth} \xrightarrow{} \text{accepted} \ \text{(offer three credit forms)} \\
+If (loan * 30\%) < \text{net worth} \xrightarrow{} \text{reject AND offer} \ (net worth / 30\%)
+\end{aligned}    
+\end{equation}
 
 \begin{figure}
 	\centering
@@ -69,29 +107,6 @@ The requested loan must not be larger than 30 \% of the company value, which is 
 	\caption{Activity Diagram Banking Simulation}
 	\label{jpg:banking}
 \end{figure}
-
-The following variables and formulas are defined for the calculation of the repayment, but also for the observation of the bank restrictions.
-
-\begin{itemize}
-    \item variables:
-    \item Principal of Loan = S; retirement= a; term= t; interest rate= i; principal balance per year= S\textsubscript{n}; Rate= r. 
-    \item formulas:
- $$a={\dfrac{S}{t}}$$
- $$S_n=S-(a*t)$$
- $$Interest\ rate\ per\ year: i_n=S_t*i $$
- $$Rate\ per\ year: r_t=a+i_t$$
-$$Rate\ per\ month:r_m= {\dfrac{r_t}{12}} $$
-    
-\end{itemize}
-
-The Bank observation in CapitalismX is regulated as follows:
-\begin{equation}
-\begin{aligned}
-    If (loan * 30\% ) \geq  \text{net worth} \xrightarrow{} \text{accepted} \ \text{(offer three credit forms)} \\
-    If (loan * 30\%) < \text{net worth} \xrightarrow{} \text{reject AND offer} \ (net worth / 30\%)
-\end{aligned}    
-\end{equation}
-
 
 \subsection{EBIT calcuation}
 
@@ -105,17 +120,21 @@ In order to calculate the EBIT, it is necessary to first consolidate all the rev
         Sales: S(P) = \sum price\index{Product} * units~sold
     \end{equation}
     Goods sold is an aggregated value from the product sale, which is calculated in chapter [CHAPTER REFERENCE].
-    \item Equipment sold. The player has the possibility to sell used machinery or vehicles, that he or she does not need anymore. The calculation for the residual value is based on a straight line depreciation:
+    \item machinery sold. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}.
+    \item vehicle sold. Similar to the resale of machines, it is also possible to sell the vehicles at their residual value if they are no longer used or the delivery is carried out by a logistics partner. The cost of the vehicles and their useful life are described in Chapter \ref{logistic_simulation}. The calculation is based on a simple linear depreciation \ref{calc:depreciation}. The calculation of the residual value is in formula \ref{calc:residualvalue}.
+    
      \begin{equation}
+     \label{calc:depreciation}
      Annual \ depreciation = {\dfrac{cost \ of \ the \ asset}{useful \ life \ of \ the \ asset}}
     \end{equation}
      \begin{equation}
+     \label{calc:residualvalue}
      residual \ value = {{cost \ of \ the \ asset} - {annual \ depreciation * t }}    
      \end{equation}
-    
-    \item Land and buildings sold, which are calculated similar to the equipment sold. %more info needed!!! As above
+     
+    \item Land and buildings sold.The player has the possibility to build a warehouse to store his products. However, it may happen that the warehouse is no longer needed. The calculation of the residual value corresponds to the sale of a vehicle \ref{calc:residualvalue}. Also in this case the building is depreciated on a straight-line basis \ref{calc:depreciation}. The cost calculation of the warehouse and the useful life are described in \ref{warehouse_simulation}.
   
-    \item Investments, which are either positive or negative incomes from the investment area in the financial dashboard. %more info needed!!!
+    \item Investments, which are either positive or negative incomes from the investment area in the financial dashboard. Investing in real estate funds, stocks or venture capital can provide the player with additional revenue. However, if he risks too much, he can suffer high losses and thus put his own company at risk. Chapter \ref{sec:investments_simulation} describes the process in detail.
 \end{itemize}
 
 To put it into a nutshell, the total revenues can be calculated according to the formula \ref{func:totalRevenue}:

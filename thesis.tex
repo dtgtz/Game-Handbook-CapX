@@ -388,33 +388,39 @@ Sth like: you can expect a game, which shows you the economical and xxxx process
 Maike\\
 You will take on the role of CEO for either a start-up or a midsize company which is about to fail. During your career, you will encounter several obstacles and lead the business. So, you will slip into various roles, such as head of human resources, production or logistics, in order to take the necessary measures to run a successful business. Daily tasks include hiring, firing, motivating and training employees, innovating and manufacturing products, deciding on the product portfolio, dealing with government issues and taking financial figures into account. In summary, you will decide on all the features provided in this game. Your decisions are then integrated into finance, human resources, procurement, production, warehousing, logistics and marketing and will finally affect the performance of your company.
 
-\section{Setting \& Story}
+\section{Setting \& Storyline}
 \label{SettingStory}
-Livja and Philipp\\
-Timeframe from 1990 to 2017 in the first phase, Progress\\
-The setting of the game is a fictional map of a town/city.  The player has to choose where to set up his first shop, in a vacant distant area or downtown.\\
-Functional\ Non-functional buildings\\
-Functional buildings: bank, government building, consultant firm, harbor(import/export), marketing firm, competitors \\
-Non-functional buildings: City centre, Parks(increase employee satisfaction), sea/ river, roads(transportation)\\
-Own currency: capcoins cc (value comparable to US Dollars) \\
-Democratic government \\
-One day in the game is 3 seconds in real time\\
-Total playtime: 15 hours.\\
-Storyline:\\
-Mid-size IT company\\
-Start option 1: We buy a mid size IT company which is about to fail 
-(bad management)\\
-Start option 2: We found a new Start-Up, so we can choose our employees and products ourselves
-Different starting capitals\\
-Products: see Product Flow Charts\\
-Trading components\\
-Make or Buy decisions for some products, not components\\
-Organize your entire company from the CEO's perspective (incl. HR, Finance, Manufacturing, ect.)\\
-Customer simulation regarding services, support and products \\
-External events:\\
-Handle random events(e.g natural disasters) (defined in Problem-Influence-Matrix)\\
-And handle events that will be triggered by game settings(fire-old machines, company shut down - low eco-index,etc... )\\
-Integration of games within CapX, e.g. play a round of Tetris to clean up the mess  in your warehouse (put in Outlook?)\\
+The CapitalismX game is created relying on a progressive game-play modality. Meaning that the game will start as a one-man business and then evolve step by step, by employing, producing, expanding, buying and selling  until the end goal is achieved, which is to transform the initial company into a large corporate. 
+\subsubsection{Setting}
+The setting of our game is in a fictional country, which we have designed after having drawn some simple parallels with real countries or cities. These parallels mean that our country has the most important features, that allow an economy to grow. Hence, we divided our map elements into functional and non-functional elements. Where functional buildings are the ones you can interact with, for instance, taking a loan in a bank, advertising in a media building, hiring employees in a job center, etc.  To give another illustration, our fictional country operates with the outside world through the simulation of a harbor in the early stages of the game and then it will be possible to unlock an airport. Whereas non-functional buildings are objects with a decorative purpose to make the map look and feel  more realistic to the user’s perception. The complete list of functional and non-functional buildings can be found in Table \ref{table:map-el}. 
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|l}
+\hline 
+ Functional Elements & Non-functional Elements\\
+\hline \hline
+ Bank & City Center  \\
+ Government Building & Infrastructure \\
+ Media Building & Sea/River \\
+ Harbour & Park/Art Center  \\
+ Competitor Buildings & \\
+\hline
+\end{tabular}
+\caption{Functional/Non-functional map elements}
+\label{table:map-el}
+\end{table}
+
+
+Regarding the timeframe our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence economy and each year in the real world would be represented by one hour of gameplay. Which results in a change of parameters in the game every $5$ minutes, in order to represent monthly real data. This means that the total number of hours you can play CapitalismX is $27$ hours. (is this correct??)
+During the entire timespan of the game, there will be a democratic government that operates and interacts with the game environment. The government can also intervene to impose laws, taxes and additional measures, if the company is not compliant to the current regulations. \\
+Furthermore an additional unique element in this game simulation is the currency. CapitalismX has its own currency, which is the CapCoin(CC), and every function within the game is adapted to operate with this currency.
+\subsubsection{Storyline}
+ The storyline that the player will be operating in, would be that of managing an IT business, which the player has founded as a start-up. The player will be able to choose which employees to hire, which products to manufacture,  how to set the price on these products, etc. These options and many more comprise scenarios and decisions the player will have to face in order to have a successful company. Having said this, it is evident that the player’s role will be that of the CEO of the company. By assuming this role the player will be able to control all the major departments of a company such as, HR, Finance, Manufacturing, Marketing, Procurement, etc. \\
+In the beginning of the simulation all these departments will need immediate changes and additions, in order to start operating according to their functionality. The player should be aware of the importance of developing all departments, whilst keeping an eye on the budget. A player cannot exceed the budget under any circumstance, as this will lead to a fatal “Game Over”. The only possibility for a player to spend more CapCoins than the budget is to take a loan in a bank. \\
+The most basic rule of this game is the cause and consequence effect. Since even in real life everything we do is related to a consequence, the same principle applies to businesses and business simulations. We have based our simulations on this effect and have covered most of the causes and consequences of the actions of a CEO, inside the company. \\
+An important element that is included in the gameplay is the make or buy decision. The player has two options, to either manufacture a product by purchasing all the required components or to buy it from another source and sell it as a retailer. The complete list of products that can be manufactured in-house and a more in detail explanation regarding products can be found in section \ref{sub:portfolio} Choose the portfolio. \\
+Moreover the player will be faced with external events. These events will take place during the timespan of the gameplay, and they will arise as a consequence to the company’s operations or they can be independent. Independent operations are those operation that do not rely on any company indicator and will happen nonetheless. These events will be further explained in section \ref{sec:ectEvent}.	
 
 \chapter{How to play CapX}
 
@@ -493,6 +499,7 @@ In CaptialismX some unexpected incidents may happen to your company or to the en
 \label{sec:business}
 https://www.youtube.com/watch?v=NisCkxU544c
 \subsection{Choose the portfolio}
+\label{sub:portfolio}
 Nike - Description of products 
 
 You as the CEO decide which products you want to offer. In CapitalismX, there are two different types of products. Those two different groups are first manufactured goods, and second, retail products that are simply bought as a whole and resold under the company brand.
@@ -583,6 +590,7 @@ Technical description of the game, the backend
 \end{landscape}
 
 \section{External events}
+\label{sec:ectEvent}
 Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section describes external events which influence the course of the game. The term 'external' events is used as they are out of the player's visible and obvious control. Actions taken may have an influence on an event's probability to happen, but this is invisible to the player. From a location point of view events can take place inside the company, for example strikes, or outside like increasing taxes. A punishing character of events is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events. A full overview of them and their real-world background are listed in table xy at the end of this section. \\ 
 
 The events are divided into 5 categories acting as counterparts to the game features:
