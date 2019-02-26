@@ -27,8 +27,11 @@ The \textit{totalSupportTypeQuality} is calculated from the various support type
 \begin{equation}
 \label{func:totalProductSupport}
 \begin{aligned}
-    if ( qSP \leq  50 ) tSQ = { 0,4 *qSP + 0,6 * tSTQ } \\
-    else tSQ = { 0,3 * qSP + 0,7 * tSTQ }
+    tSQ = &
+    \begin{cases}
+        0.4 *qSP + 0.6 * tSTQ & \text{if } qSP \leq  50\\
+        0.3 * qSP + 0.7 * tSTQ & \text{otherwise}
+    \end{cases}
 \end{aligned}
 \end{equation}
 

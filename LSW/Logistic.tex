@@ -56,7 +56,7 @@ The \textit{qualityIndex} and the \textit{ecoIndex}, are set randomly in the giv
 The total capacity thus results from the \textit{numberTrucks} (\gls{nT}) in the company's own logistics fleet and is called \textit{capacityFleet} (\gls{cF}). 
 \begin{equation}
 \label{func:capacityFleet}
-    cF = 1000 * nT
+    cF = 1000 \times nT
 \end{equation}
 
 The overall quality internal logistics, the so-called \textit{internalLogisticIndex} (\gls{iLI}), is calculated on the basis of the \textit{qualityIndex} and the \textit{ecoIndex} of the individual trucks.  
@@ -65,27 +65,31 @@ The overall quality internal logistics, the so-called \textit{internalLogisticIn
 \begin{aligned}
     Eco Index Fleet (\gls{eF}) = Sum (eIT) / NT \\
     Quality Index Fleet (\gls{qF}) = Sum (qIT) / NT \\
-    Internal Logistic Index (\gls{iLI}) = eF * 0,2 + qF * 0,8 \\
+    Internal Logistic Index (\gls{iLI}) = eF \times 0,2 + qF \times 0,8 \\
 \end{aligned}
 \end{equation}
 
 Of course, the delivery of the products entails costs for the company. These consist of the \textit{fixCostDelivery} and the \textit{variableCostsDelivery} per delivered package (\gls{vCD}). 
-A delivery by truck in principle costs 2,000 CapCoins. Like the purchase price, the fixed delivery costs also vary on the basis of \textit{qualityIndex} and \textit{ecoIndex}. The \textit{variableCostsDelivery} per product are the same for each truck and amount to 2 CapCoins.
+A delivery by truck in principle costs 2,000 CapCoins. Like the purchase price, the fixed delivery costs also vary on the basis of \textit{qualityIndex} and \textit{ecoIndex}. The \textit{variableCostsDelivery} per product are the same for each truck and amount to 2 CapCoins.\\
 
 The cost of a delivery thus depends on the total number of \textit{deliverdProduct} (\gls{dP}). 
-The case that the number of \textit{deliverdProduct} exceeds the \textit{capacityFleet} must be considered separately. The additional \textit{costsExternalDelivery} (\gls{cED}) can either be caused by a contractual external logistics partner or by sending the packages by post. How these costs are composed in detail is described in the following sections. 
+The case that the number of \textit{deliverdProduct} exceeds the \textit{capacityFleet} must be considered separately. The additional \textit{costsExternalDelivery} (\gls{cED}) can either be caused by a contractual external logistics partner or by sending the packages by post. How the costs are composed in detail is described in the following sections. \\
+The following fomular explaines how the total totalDeliveryCost (\gls{tDC}) are calculated. 
 \begin{equation}
 \label{func:deliveryCost}
 \begin{aligned}
-deliveryCost (\gls{dC}) = if ( dP = cF ) { (( dP / 1000) * fCD) + ( dP * vCD) } \\
-elseif ( dP < cF ) { (round up to next int ( dP / 1000) * fCD ) + ( dP * vCD) } \\
-else { ( nT * fCD ) + ( nT *1000 * vCD ) + cED }
+tDC = 
+\begin{cases}
+    (( dP / 1000) \times fCD) + ( dP \times vCD) & \text{if} dP = cF\\
+    (\lceil (dP / 1000) \rceil \times fCD ) + ( dP \times vCD) & \text{if} dP < cF\\
+    ( nT \times fCD ) + ( nT \times1000 \times vCD ) + cED & \text{otherwise}\\
+\end{cases}
 \end{aligned}
 \end{equation}
-
+\\
 As already mentioned, the annual \textit{maintenanceCosts}  per truck amount to 10\% of the purchase value. This is not an increase in the value of the truck, it is simply repairs and registration costs. The sum of these cost for all the trucks in the logistic fleet are called \textit{totalTruckCost} (\gls{tTC}). The monthly costs for the entire logistics fleet are calculated as follows. 
 \begin{equation}
-    tTC = sum(fTC) 
+    tTC = \sum fTC
 \end{equation}
 
 
@@ -127,27 +131,30 @@ The total influence of an external partner company is measured by the \textit{ex
 \begin{equation}
 \label{func:externalLogisticIndex}
 \begin{aligned}
-    if (rLP ≤ 40) eLI = { (rLP*0,5 + 0,5*(qLP*0,8 + eIP*0,2)) } \\
-    else eLI = { (rLP*0,4 + 0,6*(qLP*0,8 + eIP*0,2)) }
+eLI = 
+    \begin{cases}
+     (rLP\times0,5 + 0,5\times(qLP\times0,8 + eIP\times0,2)) & \text{if} rLP \leq 40\\
+     (rLP\times0,4 + 0,6\times(qLP\times0,8 + eIP\times0,2)) & \text{otherwise} \\
+    \end{cases}
 \end{aligned}
 \end{equation}
 
 If the player decides to delivered all products by an external logistics partner, the \textit{costsExternalDelivery} of the company are calculated as follows:
 \begin{equation}
 \label{func:costExternalDelivery_all}
-   cED = dP * vCDE
+   cED = dP \times vCDE
 \end{equation}
 
 If the company has its own logistics fleet, the products are initially delivered via it. However, if the company's own capacities are not sufficient, the remaining products are taken over by the external partner. In this case, the \textit{costsExternalDelivery} are calculated as follows: 
 \begin{equation}
 \label{func:costExternalDelivery_partly}
-    cED = ( dP – cF ) * vCDE
+    cED = ( dP – cF ) \times vCDE
 \end{equation}
 
 If the company has not engaged an external partner and exceeds the \textit{capacityFleet}, the remaining products will be sent by post. For each package there will be a \textit{shippingFee} (\gls{sF}) of 15 CapCoins. Also in this case delivery quality and environmental friendliness are included. The \textit{qualityIndex} is basically 60 and the \textit{ecoIndex} 40. The \textit{costsExternalDelivery} are calculated as follows:  
 \begin{equation}
 \label{func:costExternalDelivery_post}
-    cED = ( dP – cF ) * sF
+    cED = ( dP – cF ) \times sF
 \end{equation}
 
 Together with the \textit{totalTruckCost} the \textit{contractualCost} make up the monthly fixed costs of the logistics department. These are called \textit{costLogistic} (\gls{cL}). 
@@ -156,13 +163,16 @@ The overall quality of the company's logistics as perceived by its customers is 
 \begin{equation}
 \label{func:logisticIndex}
 \begin{aligned}
-    if ( dP > cF ) lI = { ((( dP – cF) * eLI ) + ( cF * iLI )) / dP} \\
-    elseif ( dP = cF ) lI = { cF * iLI } \\
-    else lI = { dP * iLI }  
+lI = 
+\begin{cases}
+     ((( dP – cF) \times eLI ) + ( cF \times iLI )) & \text{if} dP > cF \\
+     cF \times iLI & \text{if} dP = cF\\
+     dP \times iLI & \text{otherwise} \\
+\end{cases}
 \end{aligned}
 \end{equation}
 
 The \textit{totalLogisticCost} (\gls{tLC}) consists of the monthly \textit{logisticCosts} and the daily \textit{deliveryCost}. 
 \begin{equation}
-    tLC = lC + sum over the month (dC) 
+    tLC = (lC/30) + dC
 \end{equation}

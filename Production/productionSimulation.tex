@@ -13,23 +13,24 @@ Firstly, \textit{totalProductQuality} is considered a very important element in 
 
  Several factors that affect the \textit{totalProductQuality} in our CapitalismX simulation are listed below:
 \begin{itemize}
-\item productionTechnology (pT)
-\item totalEngineerQualityOfWork (tEQOW) 
-\item totalProcurementQuality (tProcureQ)
+\item productionTechnology (\gls{pT})
+\item totalEngineerQualityOfWork (\gls{tEQoW}) 
+\item totalProcurementQuality (\gls{tProcureQ})
 \item R\&D
 \end{itemize}
 The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerQualityOfWork} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, logistics and warehousing in their respective simulations, etc. \\
 These elements all correlate in order to give an estimation of the \textit{totalProductQuality} per product.
 All the elements have a $5$ point Likert-Scale, except from the procurement indices. 
 
-These indices, namely a component's \textit{ecoIndex} $(eI_{c})$ and \textit{baseQuality} $(bQ_{c})$ have a scale of measurement of $3$ points. They vary from good, medium to bad. In order to handle this divergence in scale, we have adjusted the indices by multiplying their sum with $\frac{5}{6}$. These indices will be attributed to the \textit{totalProcurementQuality}.
+The procurement indexes, namely a component's \textit{ecoIndex} $(eI_{c})$ and \textit{baseQuality} $(bQ_{c})$ have a scale of measurement of $3$ points. They vary from good, medium to bad. In order to handle this divergence in scale, we have adjusted the indices by multiplying their sum with $\frac{5}{6}$. These indices will be attributed to the \textit{totalProcurementQuality}.
+% add base utility
 \begin{equation}
 tProcureQ=(eIc + bQc)\times \frac{5}{6}
 \end{equation}
-
+% remove logistic index, adapt formula
 In order to converge all the above mentioned elements and to measure the \textit{totalProductQuality} per product, we have compiled the following equation.
 \begin{equation}
-totalProductQuality = (pT+tEQOW+tProcureQ+lI+R\&D) \times 0.04_{N\footnotemark}
+totalProductQuality = (pT+tEQOW+tProcureQ+R\&D) \times 0.04_{N\footnotemark}
 \label{eq:PQ}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
@@ -140,7 +141,7 @@ Despite these investments being made once, there will come to a point in time, w
 \addlegendentry{$f(x)=5 \times \exp^{-x} $}
 \end{axis}
 \end{tikzpicture}
-\captionof{figure}{\textbf{Production Investment Graph}}	\label{fig:InvestmentGraph}
+\captionof{figure}{Production Investment Graph}	\label{fig:InvestmentGraph}
 \end{figure}
 
 
@@ -154,8 +155,8 @@ All the simulation explained in this section will not be visible to the player, 
 \subsection{Production Costs}
 \label{prodCosts_simulation}
 
-To determine the \textit{totalProductCost}, several components have to be taken into account, as demonstrated in Figure \ref{fig:productionCosts}. The first is cP %what is cP? it is explained right below
-which is the sum of all component respective prices, since we need several components in order to have one end product. The overall employee salary would be included in the equation, since all employees, no matter in which department they work in, give an input and add value to the product. But we have decided to separate costs according to departments, that is why the employee salaries will be included in the HR costs. Another cost that we have included in our simulation are the \textit{Eco-Costs}. You can find the details regarding the \textit{Eco-Costs} calculation in section \ref{sec:compEco-idex}. Furthermore we incorporated \textit{purchasedAssetsCosts}. 
+To determine the \textit{totalProductCost}, several components have to be taken into account, as demonstrated in Figure \ref{fig:productionCosts}. The first is \gls{tCC}
+which is the total of all component's costs, since we need several components in order to have one end product. The overall employee salary would be included in the equation, since all employees, no matter in which department they work in, give an input and add value to the product. But we have decided to separate costs according to departments, that is why the employee salaries will be included in the HR costs. Another cost that we have included in our simulation are the \textit{Eco-Costs}. You can find the details regarding the \textit{Eco-Costs} calculation in section \ref{sec:compEco-idex}. Furthermore we incorporated \textit{purchasedAssetsCosts}. 
 Since machinery is purchased, maintained and upgraded, we have to account these expenses to \textit{purchasedAssetsCosts}, which are part of the \textit{Fixed Costs}. \textit{Fixed Costs (FC)} like electricity, \textit{machineryDepreciation} costs or rent are also included because they are inevitable expenses that are present in every production company. 
 
 \begin{figure}[ht]
@@ -167,7 +168,7 @@ Since machinery is purchased, maintained and upgraded, we have to account these 
 All the above mentioned costs, add up to two major categories, \textit{variableCosts} and \textit{fixedCosts}. Together they compose the \textit{totalProductCost}.\\
  In function \ref{eq: PC/u}, we sum up $5$ component prices, as each product can only have $5$ components per unit. In order to complete the \textit{totalProductCost}, the \textit{Eco-Costs} and \textit{Fixed Costs} were added and divided by the number of units in order to get a standardized dependent variable.
 \begin{equation}
-	totalProductCost_{per Unit}= \sum_{n=1}^{n=5}cP + (\frac{Eco–Costs}{nr. Units}) + (\frac{FC}{nr. units}) 
+	totalProductCost_{per Product}= \sum_{n=1}^{n=5}tCC + (\frac{Eco–Costs}{nr. Products}) + (\frac{FC}{nr. Products}) 
 	\label{eq: PC/u}
 \end{equation}
 By observing the above equation, we have described how the costs are simulated in the production process. 
@@ -217,7 +218,7 @@ As further clarified in chapter \ref{warehouse_simulation}, the products produce
 
 \subsection{Performance metrics}
 \label{sub:PM}
-% Please add glossary entries for productionProcessProductivity, employeeSkills, etc.
+
 In this section we are going to present some important metrics that help us understand how, not only quality but also the \textit{productionProcessProductivity} is measured in our game. In order to measure production productivity there are several other metrics that need to be defined. \\
 Equation \ref{eq: PES} shows the calculation of \textit{totalEngineerQualityOfWork}.
 

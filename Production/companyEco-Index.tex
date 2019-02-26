@@ -10,10 +10,10 @@ In this simulation, we measure all events related to the environment, with the c
  Index & Color & Quality of Index & Range \\
 \hline
  5 & \cellcolor[HTML]{228b22}Green & Good & 80-100\\ \hline
- 4 & \cellcolor[HTML]{ffff00}Yellow & Moderate & 60-80\\  \hline
- 3 & \cellcolor[HTML]{ffd700}Orange & Unhealthy & 40-60\\ \hline
- 2 & \cellcolor[HTML]{ff0000}Red & Very Unhealthy & 20-40 \\ \hline
- 1 & \cellcolor[HTML]{a52a2a}Maroon & Hazardous & 0-20\\
+ 4 & \cellcolor[HTML]{ffff00}Yellow & Moderate & 60-79\\  \hline
+ 3 & \cellcolor[HTML]{ffd700}Orange & Unhealthy & 40-59\\ \hline
+ 2 & \cellcolor[HTML]{ff0000}Red & Very Unhealthy & 20-39 \\ \hline
+ 1 & \cellcolor[HTML]{a52a2a}Maroon & Hazardous & 0-19\\
 \hline
 \end{tabular}
 \caption{Company Eco-Index}
@@ -46,8 +46,7 @@ The \textit{ecoIndex} lowers $1$ point down the scale if:
 
 \begin{itemize}
 	\item Old machinery is operating in the production department. After being used for a time-span of more than $5$ years machinery gets less effective and it pollutes more. If not maintained or upgraded the low machinery level will cause the Eco-Index of the company to deteriorate.
-	
-%Trucks and Logistic Partner already have an eco index, can use them for the calculation, makes more sense (in green in he graph) 
+
 \item Logistic vehicles with low regard for the environment are used. If these logistic vehicles have many delivery routes, they pollute the environment more. This is measured by the average logistic eco-index. If it is lower than level $3$, the company's \textit{ecoIndex} will drop by one level.
 \item Each time-span of $3$ years, if the company does not meet with pollution regulatory laws, the company's \textit{ecoIndex} lowers automatically and gives a notification to the player.
 \end{itemize}
@@ -61,6 +60,9 @@ A company can also improve its \textit{ecoIndex} by $1$ point, by choosing one o
 %not  included in the marketing campaigns at the moment,idea in overall graph in green (take green campaigns already defined)  
 % ecoCampains in the Marketing simulation
 %adapt and refer, take values and put in calc for company eco index
+% 11.5 total points can make it 100, make scale range for them
+% if >9 points increase ecoIndex one level
+% together with total list of campaigns they include company image
 \begin{itemize}
 \item Investing in public parks, or donating trees
 \item Making a campaign to clean a public space

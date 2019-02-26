@@ -1,18 +1,30 @@
 \section{HR Simulation}
 \label{sec:HRsim}
-The HR simulation handles all parts of the Human Resources Process which are described in the following subchapters.
-\subsection{Employee types}
-The following list shows possible employee types that can be hired. The role of HR, Finance and Marketing is performed by the player itself, thus not requiring employees in these departments.
-\begin{itemize}
-    \item Engineers % instead of Production
-    %\item Logistics --> not needed, included in Trucks
-    \item Salespeople \\
-    %\item Support --> only external partners
-    %\item Marketing --> not needed
-\end{itemize}
+The HR simulation handles all parts of the Human Resources Process. Two employee types have to be hired: Enigneers and Salespeople. The role of HR, Finance and Marketing is performed by the player itself, thus it is not required to hire employees in these departments for the simulation. 
 
 \subsection{Hiring / Firing}
-The HR process starts with hiring human resources. Therefore, available engineers and salespeople need to be chosen from the market. Each employee has a requested salary. Moreover, hiring and also firing of employees is associated with cost of 5000 \$. \cite{recruiterbox}
+The HR process starts with hiring human resources. Therefore, available engineers and salespeople need to be chosen from the market. Each employee has a requested salary. Moreover, hiring and also firing of employees is associated with cost of 5000 CapCoins. \cite{recruiterbox}
+
+\subsection{Salary}
+Salaries are an important factor in the HR process. In order to make the simulation as realistic as possible, we use the following salaries which are derived from a salary-list of a real world IT company. The salaries of available employees are randomized value out of the corresponding salary-range entry in table \ref{tab:Salaries}
+
+\begin{table}
+    \centering
+\begin{tabular}{c|c}
+    \hline
+     \textbf{Skilllevel} & \textbf{Salary-range in thousands CC} \\
+     \hline \hline
+     0-20 & 38-45  \\
+     21-40 & 45-55 \\
+     41-60 & 55-70  \\
+     61-80 & 70-100  \\
+     81-100 & 100-150  \\
+     \hline
+
+\end{tabular}
+\caption{Salaries}
+    \label{tab:Salaries}
+\end{table}
 
 \subsection{Key Performance Indicators}
 \label{sub:KPI}
@@ -21,13 +33,13 @@ The job satisfaction is an essential part of a Key Performance Indicator framewo
 
 The job satisfaction is such an important factor due to the fact that the employer branding is influenced by it. This is critical as the employer branding has a huge impact on how the company is perceived on the markets by potential employees but also by customers and suppliers. Moreover, the employer branding is also influenced by the general company image and can be influenced through marketing and PR activities. 
 
-The success of a company highly depends on the ability of attracting the best people. The ease of recruitment is highly dependent on the job satisfaction of the employees. Extrinsic motivation needs to be provided to attract employees in case the job satisfaction and by this the employer branding are low. A low job satisfaction makes it necessary to pay higher salaries. Not only the recruiting of employees is more difficult with a lower job satisfaction but also the employee turnover is higher. \cite{frederiksen2016}
+The success of a company highly depends on the ability of attracting the best people. The ease of recruitment is highly dependent on the job satisfaction of the employees. Extrinsic motivation needs to be provided to attract employees in case the job satisfaction and by this the employer branding are low. A low job satisfaction makes it necessary to pay higher salaries. Not only the recruiting of employees is more difficult with a lower job satisfaction but also the employee turnover is higher. A job satisfaction below 50 leads to an increase in hiring costs of 50\% which sums up to 7500 CapCoins \cite{frederiksen2016}
 
-Different factors exist which influence the job satisfaction. \cite{Kapur} The implementation and integration of softfactors which influence the job satisfaction was not the primary goal for CapX, we concentrated on the hardfactors which include Salary and Paymix, Worktime, the Skills and Education and the provided Benefits by the company. 
+Different factors exist which influence the job satisfaction. \cite{Kapur} The implementation and integration of softfactors which influence the job satisfaction was not the primary goal for CapX, we concentrated on the hardfactors which include salary and paymix, worktime, the skills and education and the provided benefits by the company. 
 
-The following table shows the possible influencing factors which can be chosen by the player to influence the employees job satisfaction. The monetary impact is counted in CapCoins per employee per month. 
+The table \ref{tab:benefitsJSS} shows the possible influencing factors which can be chosen by the player to influence the employees job satisfaction. The monetary impact is counted in CapCoins per employee per month. 
 
-\begin{table}[]
+\begin{table}
     \centering
 \begin{tabular}{l|c|c}
     \hline
@@ -73,11 +85,11 @@ The following table shows the possible influencing factors which can be chosen b
     \label{tab:benefitsJSS}
 \end{table}
 
-For each of the above mentioned categories (Salary, Worktime, Company Car, Homeoffice, IT Equipment, Food and Sports) the player needs to make a decision which benefit category to offer. The numbers in brackets show the points which adds up to a total job satisfaction score after the player made all necessary choices. The job satisfaction score can have a minimum of 0 points and a maximum of 28 points.
+For each of the above mentioned categories (salary, worktime, company car, homeoffice, IT equipment, food and sports) the player needs to make a decision which benefit category to offer. The job satisfaction score can have a minimum of 0 points and a maximum of 28 points.
 
 As this scale is too simple in order to be somehow realistic, a manipulation of the original scale is needed. The marginal impact of an additional increase of factors which lead to a higher job satisfaction decreases over time, e.g. an employee which has an above average salary, a company car, trusted based working hours and all other benefits on the highest level, would not value the additional offering of a free sports club voucher as much as an employee that has no benefits at all and gets a sports club voucher. Thus the scale of 0 - 28 was transformed to a root function.
 
-Moreover, the job satisfaction also depends on the level of the employee. Each employee has its own specific requirements and expectations. Generally, we assume that employees with a lower skill level who are younger, are more easily satisfied than employees with a higher skilllevel. In this case the skilllevel  is used as a proxy for the expectations of an employee towards the employer. 
+Moreover, the job satisfaction also depends on the level of the employee. Each employee has its own specific requirements and expectations. Generally, we assume that employees with a lower skill level, are more easily satisfied than employees with a higher skilllevel. In this case the skilllevel  is used as a proxy for the expectations of an employee towards the employer. 
 
 \begin{tikzpicture}
 \begin{axis}[
@@ -117,21 +129,22 @@ Employees can be categorized into 5 groups:
 \end{itemize}
 The initial skill level for these employees is set to (20, 30, 40, 60, 80) according to the order of the list above. In order to improve the skilllevel and by this the quality of work of the employees, training can be added to the learning journey of employees. 
 
-Training can be assigned to a certain number of employees. The cost per training and also the increase of the skill level of the single employees depends on the kind of training. The courses are only relevant for employees of specific departments.
+Training can be assigned to a certain number of employees. The cost per training and also the increase of the skill level of the single employee depends on the kind of training. There are two different training types: courses and workshops. Both training types influence the skilllevel of the employee and the salary of the employee. The  table \ref{tab:trainings_employees} shows the impact of trainings on the salary and the skilllevel of employees.
 
-The following list summarizes the possible training which are offered and can be assigned to specific departments.
-\begin{itemize}
-\item The future of manufacturing- Production
-\item Hot topics in manufacturing - Production
-\item Lean production methods - Production, Logistics
-\item Psychology of work - Sales, Marketing
-\item Best practice in employer branding - Marketing, Sales
-\item AIDA principle - Marketing, Sales
-\item Environmental friendly processes - Production, Logistics
-\item Sustainability in transport - Logistics
-\item Persuasion techniques - Sales
-\item Personality matters - Marketing, Sales
-\end{itemize}
+\begin{table}
+    \centering
+\begin{tabular}{c|c|c}
+    \hline
+     & \textbf{Courses} & \textbf{Workshops} \\
+     \hline \hline
+     Price & 3000 CC & 5500 CC \\
+     Salary & +1\% & +2\%  \\
+     Skilllevel & +1 & +2  \\
+     \hline
+\end{tabular}
+\caption{Influence of trainings on employees}
+    \label{tab:trainings_employees}
+\end{table}
 
 
 \subsection{Summary}

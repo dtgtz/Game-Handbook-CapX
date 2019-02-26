@@ -1,76 +1,45 @@
-\subsection{Demand Calculation} \label{demandCalc}
+\subsection{Demand Calculation} 
+\label{demandCalc}
 
-In Capitalism X, we assume that the demand for a product is based on customer satisfaction and the selling price. In addition, there is the assumption that the population is aware of the prices of the latest individual components. So they can estimate the value of the product from its components only, if the company uses the latest ones.
- 
-Table \ref{sum_product_component_prices} shows the \textit{sumComponentPrices} (\gls{sCP}), the current components and their respective \textit{price} were used for the calculation.
+In Capitalism X, we assume that the demand for a product is based on customer satisfaction and the \textit{salesPrice}, the \textit{proxyPrice}, the \textit{totalProductQuality} and the \textit{proxyQuality}.
 
-\begin{table}[ht]
-    \centering
-    \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|}
-    \hline
-                & \textbf{1990} & \textbf{1991}  & \textbf{1992}  & \textbf{1993}  & \textbf{1994}  & \textbf{1995}  & \textbf{1996}  & \textbf{1997}  & \textbf{1998}  & \textbf{1999}  \\
-    \textbf{Notebook}    & 1380  & 1383  & 1354  & 1330  & 1309  & 1665  & 1661  & 1505  & 1493  & 1477  \\   
-    \textbf{Phone}       & 610   & 612   & 589   & 575   & 562   & 518   & 516   & 458   & 452   & 441   \\ 
-    \textbf{Game Boy}    & 27    & 29    & 17    & 12    & 12    & 12    & 22    & 23    & 17    & 36    \\  
-    \textbf{Television}  & 370   & 372   & 349   & 335   & 322   & 296   & 292   & 270   & 256   & 244    \\ 
-    \hline       
-                & \textbf{2000}  & \textbf{2001}  & \textbf{2002}  & \textbf{2003}  & \textbf{2004}  & \textbf{2005}  & \textbf{2006}  & \textbf{2007}  & \textbf{2008}  & \textbf{2009} \\
-    \textbf{Notebook}    & 1283  & 1356  & 1529  & 1462  & 1400  & 1425  & 1378  & 1365  & 1057  & 1136 \\   
-    \textbf{Phone}       & 427   & 421   & 405   & 390   & 443   & 439   & 424   & 437   & 439   & 410 \\  
-    \textbf{Game Boy}    & 37    & 26    & 16    & 24    & 54    & 50    & 44    & 40    & 54    & 51  \\   
-    \textbf{Television}  & 318   & 316   & 297   & 286   & 277   & 450   & 452   & 435   & 422   & 415 \\ 
-    \hline
-                & \textbf{2010}  & \textbf{2011}  & \textbf{2012}  & \textbf{2013}  & \textbf{2014}  & \textbf{2015}  & \textbf{2016}  & \textbf{2017}  &  &\\
-    \textbf{Notebook}    & 1233  & 1220  & 1364  & 1492  & 1480  & 1416  & 1411  & 1395  &  &\\   
-    \textbf{Phone}       & 386   & 365   & 352   & 312   & 311   & 342   & 333   & 333   &  &\\ 
-    \textbf{Game Boy}    & 37    & 59    & 61    & 53    & 44    & 48    & 40    & 26    & & \\  
-    \textbf{Television}  & 334   & 344   & 329   & 322   & 316   & 233   & 237   & 228   &  &\\ 
-    \hline
-    \end{tabular}
-    \caption{Sum product component prices (sCP) for all products over time}
-    \label{sum_product_component_prices}
-\end{table}
+The customer satisfaction influences the interest of the population in the respective products by shifting the price at which 100\% are interested.
  
-The customer satisfaction influences the interest of the population in the respective products by shifting the price at which 100\% are interested. In the following this price is called \textit{demandPrice} (\gls{dPR}).
- 
-The more satisfied customers are with the company, the more they are willing to pay for the same products. However, if customer satisfaction falls below 40, the demand price falls below the assumed component cost that the company has. The following formula shows how \textit{customerSatisfaction} affects the price at which 100\% of the population demand a product.
+The more satisfied customers are with the company, the more they are willing to pay for the same products. However, if customer satisfaction falls below 0.4, the \textit{overallAppeal} is influenced negatively. The following formula shows how the \textit{customerSatisfaction} affects the \textit{overallAppeal}.
 \begin{equation}
 \label{func:demandPrice}
 \begin{aligned}
-if ( cS \geq 80 ) { dPR = sCP * 1,2 } \\
-elseif ( 80 > cS \geq 60 ){ dPR = sCP * 1,1 } \\
-elseif ( 60 > cS \geq 50 ) { dPR = sCP * 1,05 } \\
-elseif ( 50 > cS \geq 40 ) { dPR = sCP * 1 } \\
-elseif ( 40 > cS \geq 20 ) { dPR = sCP * 0,9 } \\
-else { dPR = sCP * 0,8 }  
+ oA_{demand} = 
+\begin{cases}
+    oA \times 1.2 & \text{if} cS \leq 0.8 \\
+    oA \times 1.1 & \text{if} cS \geq 0.6 \\
+    oA \times 1.05 & \text{if} cS \geq 0.5 \\
+    oA \times 1 & \text{if} cS \geq 0.4 \\
+    oA \times 0.9 & \text{if} cS \geq 0.2 \\
+    oA \times 0.8 & \text{otherwise} \\
+\end{cases}
 \end{aligned}
 \end{equation}
 
-In order to make the demand of CapitalismX clients more similar to that of a real market, the demand curve is an S-shaped curve. This curve shows a larger slope at the beginning and end of the value range we use than in the middle. As a result, even if the price is more than four times the \textit{demandPrice}, there is still a slight interest in the product. On the other hand, however, the interest decreases rapidly towards 100\%, since like in real life it is difficult to convince someone of a product they do not need. 
-The \textit{demandPercentage} (\gls{dPC}) is calculated by determining the ratio of the \textit{salesPrice} (\gls{sP}) of the product to its demand price and using it as input for the following formula.
+In order to make the demand of CapitalismX clients more similar to that of a real market, the demand curve is an S-shaped curve. This curve shows a larger slope at the beginning and end of the value range we use than in the middle.
+
+The \textit{demandPercentage} (\gls{dPC}) is calculated by using the \textit{overallAppeal} as input for the following function. 
 \begin{equation}
 \label{func:demandPercentage}
 \begin{aligned}
-x = sP / dPR \\
-dPC = 167.905104 * e^{−2.990914872 * 10^{ -1* } x^{ 2 } } \\
-if the result is > 100; dPC = 100\% \\
-if the result is < 0; dPC = 0\% \\    
+dPC(oA_{demand}) = 167.905104 \times e^{−2.990914872 \times 10^{ -1 } \times oA_{demand}^{ 2 } } \\
+dPC = 
+    \begin{cases}
+        100\% & \text{if} dPC \geq 100\\
+        0\% & \text{if} dpC \leq 0\\
+    \end{cases}
 \end{aligned}
 \end{equation}
 
-Chart \ref{jpg:demandFunction} shows the course of the demand function for the demand price of 1,000 CapCoins. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=12cm]{images/demandFunction.jpg}
-	\caption{Demand function or dPR = 1.000 CapCoins}
-	\label{jpg:demandFunction}
-\end{figure}
- 
 The \textit{totalDemand} (\gls{tD}) for a product is finally calculated by combining the demand in percent with the \textit{totalPopulation} (\gls{tP}). This approach enables the total demand to be higher than the actual quantity of products offered.
 \begin{equation}
 \label{func:totalDemand}
-tD= dPC * tP    
+tD= dPC \times tP    
 \end{equation}
 
 The quantity actually sold by the company, so-called \textit{salesFigures} per product (\gls{sFP}), depends on whether the actual demand exceeds the \textit{numberOfferedProducts} (\gls{nOP}) or not.

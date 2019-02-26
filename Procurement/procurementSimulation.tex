@@ -1,7 +1,7 @@
 \section{Procurement Simulation}
 \label{procuresim}
 %Maike
-The procurement simulation represents the marketplace for suppliers. So, it represents the place where the player can buy the components needed for producing the products. In order to be able to produce a product, the player needs all the required components of a certain product. For example, he would need the following components to produce a smartphone: Battery, display and case, keypad, CPU, camera, Bluetooth, Internet connectivity. Moreover, each component has different levels, such as the "camera" component, which has the levels "1.2 MP", "2 MP", "5 MP", "8 MP" and "12 MP".  As soon as the player chooses to produce a new smartphone, the first level of a component is selected. For the component "camera" this would be the level "1.2 MP". However, the camera component would not be unlocked until the first level of the camera component is activated. For the camera component this would be the year 2004. This behavior will be explained in more detail later in this chapter.
+The procurement simulation represents the marketplace for suppliers. So, it represents the place where the player can buy the components needed for producing the products. In order to be able to produce a product, the player needs all the required components of a certain product. For example, he would need the following components to produce a smartphone: Battery, display and case, keypad, CPU, camera, Bluetooth, Internet connectivity. Moreover, each component (\gls{c}) has different levels, such as the "camera" component, which has the levels "1.2 MP", "2 MP", "5 MP", "8 MP" and "12 MP".  As soon as the player chooses to produce a new smartphone, the first level of a component is selected. For the component "camera" this would be the level "1.2 MP". However, the camera component would not be unlocked until the first level of the camera component is activated. For the camera component this would be the year 2004. This behavior will be explained in more detail later in this chapter.
 
 Moreover, it is possible to manufacture more than one product in a product category in order to test the market. For example, the player could produce two smartphones, one made of cheap components and with a low price, and one made of expensive components with a higher selling price. Additionally, the player can specify the name of a product to distinguish it from the others. The player can also add and remove products from his product portfolio.
 
@@ -31,54 +31,61 @@ Each of these attributes fulfils a specific need. For example, the \textit{baseC
     \end{table}
 \newline
 The three factors (\textit{baseCost, baseQuality, ecoIndex}) shown in table \ref{component_price_calculation} are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting. In addition, the value ranges of the three different \textit{componentCategories} (good, medium, bad) overlap. This increases the degree of difficulty for the user, as this could lead to a medium component having a better \textit{baseCost-ecoIndex-baseQuality} trade-off than a "good" component. An example of a "good" component is explained in the following.\\
-The \textit{baseCost} of a "good" component is calculated either by multiplying the \textit{timeBasedComponentPrice} (\gls{tBCP}) or the \textit{initialComponentPrice} (\gls{iCP}) by a random decimal value from the value range 1.1 to 1.5. The choice of the variable (tBCP or iCP) depends on the \textit{time} (t). The use of \textit{time} is explained in more detail later in this chapter.
+The \textit{baseCost} of a "good" component is calculated by multiplying the \textit{timeBasedComponentPrice} (\gls{tBCP}) with a random decimal value from the value range 1.1 to 1.5, as shown in equation \ref{baseCost}.
 \begin{equation}
+\label{baseCost}
 \begin{aligned}
-    If \; t > 0: &baseCost(good \; component) = tBCP * (randomized(1.1-1.5))\\
-    Else : &baseCost(good \; component) = iCP * (randomized(1.1-1.5))
+   baseCost_{c}(good \; component) = tBCP_{c} * (randomized(1.1-1.5))
 \end{aligned}    
 \end{equation}
 The \textit{timeBasedComponentPrice} is the calculated price of a component that is based on the \textit{initialComponentPrice} and the \textit{componentLevel} and depends on a component's \textit{availabilityDate}, that has been determined on the basis of literature and Internet research. The \textit{availabilityDate} is required to activate a \textit{componentLevel}. This means that a particular level of a component is activated when it reaches the year in which it is released, as it is locked before exceeding its \textit{availabilityDate}. In summary, the use of the \textit{availabilityDate} ensures that the player cannot directly select the latest level of a component, but is bound to the chronological development of the components.\\
 In addition, a component's \textit{ecoIndex} and \textit{baseQuality} are calculated by selecting a random integer value within the defined value range, which for a "good" component ranges from 80\% to 100\%.
 \begin{equation}
-    ecoIndex(good \; component) = randomized(80-100)
+    ecoIndex_{c}(good \; component) = randomized(80-100)
 \end{equation}
 \begin{equation}
-    baseQuality(good \; component) = randomized(80-100)
+    baseQuality_{c}(good \; component) = randomized(80-100)
 \end{equation}
+Furthermore, each component has a \textit{baseUtility}, which is defined manually. This is the case because the changes of the \textit{baseUtility} differ greatly between the different versions of a component. For example, for cameras, the increase in \textit{baseUtility} from the first level to the second level, from "1.2 MP" to "2 MP", is much lower than the increase from the second to the third level, from "2 MP" to "5 MP". 
 
-The \textit{ecoIndex} and the \textit{baseQuality} represent the variables needed for the calculation of the \textit{totalProcurementQuality} per product, which is shown in formula \ref{totalProcurementQuality}. The \textit{totalProcurementQuality} then influences the \textit{totalProductQuality} per product.\\
-
+The \textit{ecoIndex}, \textit{baseQuality} and \textit{baseUtility} represent the variables needed for the calculation of the \textit{totalProcurementQuality} (\gls{tProcureQ}) per product, which is shown in equation \ref{totalProcurementQuality}. The \textit{totalProcurementQuality} then influences the \textit{totalProductQuality} per product.
 \begin{equation}
 \label{totalProcurementQuality}
-    totalProcurementQuality = 0.4 \times ecoIndex + 0.6 \times baseQuality
+    tProcureQ_{p}= \sum_{c \in C} 0.4 \times ecoIndex_{c} + 0.6 \times baseQuality_{c} \times baseUtility_{c}
 \end{equation}
 
-Furthermore, each component has a \textit{baseUtility}, which is defined manually. This is the case because the changes of the \textit{baseUtility} differ greatly between the different versions of a component. For example, for cameras, the increase in \textit{baseUtility} from the first level to the second level, from "1.2 MP" to "2 MP", is much lower than the increase from the second to the third level, from "2 MP" to "5 MP".\\
 All components including their \textit{componentLevel}, the name of the \textit{componentLevel}, their \textit{availabilityDate} and their \textit{baseUtility} can be found in the appendix \ref{fig:staticComponentAttributes}.\\
 Figure \ref{img:totalComponentCosts} should help to understand the complex calculation of a component's \textit{baseCost}, as well as the relation and the influences between the different attributes of a component and a component’s initial price (\textit{initialComponentPrice}).\\
-
 \begin{figure} [!htbp]
 	\centering
-	\includegraphics[width=8.5cm]{images/totalComponentCosts.pdf}
+	\includegraphics[width=11.5cm]{images/totalComponentCosts.pdf}
 	\caption{Calculation of \textit{totalComponentCosts}}
 	\label{img:totalComponentCosts}
 \end{figure}
 Starting from the bottom of figure \ref{img:totalComponentCosts}, the \textit{initialComponentPrice} is available for each component and depends on the \textit{componentLevel}.
 The \textit{timeBasedComponentPrice} depends on the \textit{time}, on the \textit{availabilityDate} of a component, and on the \textit{initialComponentPrice}, which in turn depends on the \textit{componentLevel}.
-The \textit{timeBasedComponentPrice} is dependent on the \textit{time} because we assume that a supplier produces a component in a certain level for a certain amount of time. In the first year, this is then state-of-the-art technology. However, as state-of-the-art technology rapidly become outdated and additionally new \textit{componentLevels} are released, the \textit{timeBasedComponentPrice} decreases starting from the second year on according to the polynomic function \ref{Function timeBoundComponentPrice} of fifth degree, which was interpolated from component values researched on the Internet.
+The \textit{timeBasedComponentPrice} is dependent on the \textit{time} because we assume that a supplier produces a component in a certain level for a certain amount of time. In the first year, this is then state-of-the-art technology. However, as state-of-the-art technology rapidly become outdated and additionally new \textit{componentLevels} are released, the \textit{timeBasedComponentPrice} decreases starting from the second year on according to the polynomic function \ref{Function timeBoundComponentPrice} of fifth degree, which was interpolated from component values loosely based on historical component prices found on multiple Internet sources such as \href{https://camelcamelcamel.com}{camelcamelcamel.com}.
 \begin{equation}
 \label{Function timeBoundComponentPrice}
 \begin{aligned}
-   f(t, iCP) = & - 0,0001t\textsuperscript{5} + 0,0112t\textsuperscript{4} - 0,4239t\textsuperscript{3} + 7,3219t\textsuperscript{2} \\
-   & - 49,698t + (iCP+43)&& 
+   tBCP_{c}(t, c) = & - 0.0001(t-availabilityDate_{c}+1)^5 \\
+   & - 0.0112(t-availabilityDate_{c}+1)^4 \\
+   & - 0.4239(t-availabilityDate_{c}+1)^3 \\
+   & + 7.3219(t-availabilityDate_{c}+1)^2 \\
+   & - 49.698(t-availabilityDate_{c}+1) \\
+   & + (iCP_{c} + 42.7889) &&
 \end{aligned}   
 \end{equation}
+
+\begin{comment}
 In order to understand the formula \ref{Function timeBoundComponentPrice}, the difference between the system time in the game and the time (\textit{t}) in the formula needs to be explained. The system time of this game starts at 1,990 (which equals year 1990 AD) and ends at 2,017 (which equals year 2017 AD), whereas the time (\textit{t}) displayed in the formula \ref{Function timeBoundComponentPrice} always starts at $0$, when the \textit{availabilityDate} of a component is reached. So, \textit{t} has a threshold of 27, since the maximum duration of the game is
 \begin{equation}
     2017 \; AD - 1990 \; AD = 27 \; years
 \end{equation}
-Moreover, when a component appears on the market, it has its \textit{initialComponentPrice}. After the first year in the market, so if \textit{$t > 0$}, the formula \ref{Function timeBoundComponentPrice} is applied to compute the price development of the component, which results in the calculation of the \textit{timeBasedComponentPrice}.
+\end{comment}
+
+%Moreover, when a component appears on the market, it has its \textit{initialComponentPrice}. After the first year in the market the, so if \textit{$t > 0$}, the formula \ref{Function timeBoundComponentPrice} is applied to compute the price development of the component, which results in the calculation of the \textit{timeBasedComponentPrice}.
+
 \begin{figure}
     \centering
 	\includegraphics[width=9.5cm]{images/timeBasedComponentPriceFunction.pdf}
