@@ -3,7 +3,8 @@
  \begin{quotation}
 "Production is a process of combining various material inputs and immaterial inputs (plans, know-how) in order to make an output for consumption. It is the act of creating an output, a good or service which has value and contributes to the utility of individuals."\cite{noauthor_production_2019}
  \end{quotation}
-The definition above provides us with the basis of the production process. In it we can already start to differentiate separate sectors, such as the Procurement Department for getting the material inputs and the HR department for providing the know-how, the human factor in production. \\
+The definition above provides us with the basis of the production process. In it we can already start to differentiate separate sectors, such as the Procurement Department for getting the material inputs and the HR department for providing the know-how, the human factor in production. 
+
 In this simulation we are going to focus on three very important indicators, namely \textit{totalProductQuality}, 
 \textit{productCost} % instead put product Price
 % product cost is the defined variable, this is not the price of our product, but what it costs the company to produce it
@@ -18,19 +19,18 @@ Firstly, \textit{totalProductQuality} is considered a very important element in 
 \item totalProcurementQuality (\gls{tProcureQ})
 \item R\&D
 \end{itemize}
-The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerQualityOfWork} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, logistics and warehousing in their respective simulations, etc. \\
-These elements all correlate in order to give an estimation of the \textit{totalProductQuality} per product.
+The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerQualityOfWork} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, logistics and warehousing in their respective simulations, etc. These elements all correlate in order to give an estimation of the \textit{totalProductQuality} per product.
 All the elements have a $5$ point Likert-Scale, except from the procurement indices. 
 
 The procurement indexes, namely a component's \textit{ecoIndex} $(eI_{c})$ and \textit{baseQuality} $(bQ_{c})$ have a scale of measurement of $3$ points. They vary from good, medium to bad. In order to handle this divergence in scale, we have adjusted the indices by multiplying their sum with $\frac{5}{6}$. These indices will be attributed to the \textit{totalProcurementQuality}.
 % add base utility
 \begin{equation}
-tProcureQ=(eIc + bQc)\times \frac{5}{6}
+tProcureQ=(eIc + bQc)\cdot \frac{5}{6}
 \end{equation}
 % remove logistic index, adapt formula
 In order to converge all the above mentioned elements and to measure the \textit{totalProductQuality} per product, we have compiled the following equation.
 \begin{equation}
-totalProductQuality = (pT+tEQOW+tProcureQ+R\&D) \times 0.04_{N\footnotemark}
+totalProductQuality = (pT+tEQOW+tProcureQ+R\&D) \cdot 0.04_{N\footnotemark}
 \label{eq:PQ}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
@@ -73,12 +73,12 @@ The cost of upgrading a machine is $500cc$, because alongside with increasing th
 \end{itemize}
 When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a \textit{productionTechnology} level equal to $5$. The \textit{buyMachinePrice} is calculated as the sum of the \textit{machinePrice} equal to $1000cc$, with the \textit{machineCapacity (mC)} times $120\%$.  The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
 \begin{equation}
-buyMachinePrice=(machinePrice+mC)\times 120\%
+buyMachinePrice=(machinePrice+mC)\cdot 120\%
 \label{eq:buyMachine}
 \end{equation}
 In this simulation it is also possible to sell your current machines. A player should choose this option if he is low on CapCoins, or has purchased too many machines and they are deteriorating. The selling price will be set by the game mechanics, accordingly with equation \ref{eq:sellMachine}.
 \begin{equation}
-sellMachinePrice=(pT \times levelPrice_{PerPTLevel})+mC
+sellMachinePrice=(pT \cdot levelPrice_{PerPTLevel})+mC
 \label{eq:sellMachine}
 \end{equation}
 \begin{center}
@@ -88,20 +88,21 @@ sellMachinePrice=(pT \times levelPrice_{PerPTLevel})+mC
 \end{center}
 In this formula, the selling price is calculated by multiplying the current \textit{productionTechnology} with a bench-marked value of $200cc$ per \textit{productionTechnology} level and adding the \textit{machineCapacity} value. It is formulated as such because when the player purchases a machine its cost varies in terms of capacity. Whilst, when selling a machine not only the capacity changes between machines but also the \textit{productionTechnology} level. And it is precisely our \textit{productionTechnology} level that accounts for the loss of value effect of the machinery, otherwise known as depreciation. 
 \begin{equation}
-machineryDepreciation= machinePrice - (pT \times levelPrice_{PerPTLevel})
+machineryDepreciation= machinePrice - (pT \cdot levelPrice_{PerPTLevel})
     \label{eq:machineDepreciation}
 \end{equation}
+
 This approach of calculating depreciation effects is not linear, because we have to keep in mind that our machinery can be maintained or upgraded, which means they will improve their \textit{productionTechnology} level and depreciate later than other machines, which have not undergone these procedures.
 
 \subsection{Production Investments}
-The player can decide how to improve \textit{productionProcessProductivity} based on several \textit{investment} options. These \textit{investments} are correlated with the measurements of several performance indicators in the production simulation. The player must use his instinct and business acumen to understand what metrics influence these \textit{investments} and how. It is the player's decision to insert the amount of CapCoins, that he wants to invest. \\
-The available \textit{investment} possibilities are:
+The player can decide how to improve \textit{productionProcessProductivity} based on several \textit{productionInvestment} options. These investments are correlated with the measurements of several performance indicators in the production simulation. The player must use his instinct and business acumen to understand what metrics influence these investments and how. It is the player's decision to insert the amount of CapCoins, that he wants to invest. \\
+The available \textit{productionInvestment} possibilities are:
 \begin{itemize}
 \item Research and Development (R\&D)
 \item systemSecurity (sS)
 \item processAutomation (pA)
 \end{itemize}
-These investments options are also measured in our standard $5$ points Likert-Scale. The difference in these options lies in the fact that they start at level $1$, considering that in the beginnings the company has no investments operating. The increase or decrease of these indexes is dependent on the amount of CapCoins that is invested in them.
+These investments options are also measured in our standard $5$ points Likert-Scale. The difference in these options lies in the fact that they start at level $1$, considering that in the beginnings the company has no \textit{productionInvestments} operating. The increase or decrease of these indexes is dependent on the amount of CapCoins that is invested in them.
 \begin{table}[ht]
 \centering
 \begin{tabular}{c|c|c}
@@ -119,7 +120,7 @@ These investments options are also measured in our standard $5$ points Likert-Sc
 \label{table:prod-investments}
 \end{table}
 As illustrated in table \ref{table:prod-investments}, all three of these indices will be able to change their current level by investing the corresponding amount of money.\\
-Despite these investments being made once, there will come to a point in time, when they will begin loosing their added value to the production process. This loss is represented by Figure \ref{fig:InvestmentGraph}, and its corresponding function is $f(x)=5\times\exp^{-x}$. We take in consideration the $x$ range from $0$ to $10$. This graph encompasses the phenomena of "loss of added value" that we wanted to convey.
+Despite these investments being made once, there will come to a point in time, when they will begin loosing their added value to the production process. This loss is represented by Figure \ref{fig:InvestmentGraph}, and its corresponding function is $f(x)=5\cdot\exp^{-x}$. We take in consideration the $x$ range from $0$ to $10$. This graph encompasses the phenomena of "loss of added value" that we wanted to convey.
 
 \begin{figure}[ht]
 \centering
@@ -138,17 +139,19 @@ Despite these investments being made once, there will come to a point in time, w
     color=red,
 ]
 {5*e^(-x)};
-\addlegendentry{$f(x)=5 \times \exp^{-x} $}
+\addlegendentry{$f(x)=5 \cdot \exp^{-x} $}
 \end{axis}
 \end{tikzpicture}
 \captionof{figure}{Production Investment Graph}	\label{fig:InvestmentGraph}
 \end{figure}
 
 
-In order to avoid the \textit{investments} to significantly lower the \textit{totalProductQuality}, the player must keep in mind to invest in these elements constantly over the duration of the game. Preferably, the \textit{investments} should be less than $5$ years apart, since the effect of an \textit{investment} reaches $0$ after this time-span.\\
+In order to avoid the \textit{productionInvestment} to significantly lower the \textit{totalProductQuality}, the player must keep in mind to invest in these elements constantly over the duration of the game. Preferably, the \textit{productionInvestments} should be less than $5$ years apart, since the effect of an investment reaches $0$ after this time-span.
+
 There is a special event, we have implemented regarding \textit{systemSecurity}.
-If the \textit{systemSecurity} indicator falls below the $3^{rd}$ level threshold, incidents in the workplace and stealing inside the company will start to occur and they will negatively influence \textit{companyImage}. \\
-\textit{processAutomation} is another \textit{investment} option and it represents the company's \textit{investments} towards more automated, futuristic processes. Its range is the same as the other \textit{investments} and is set by the amount of money invested. We will expand this concept in section \ref{sub:PM}.
+If the \textit{systemSecurity} indicator falls below the $3^{rd}$ level threshold, incidents in the workplace and stealing inside the company will start to occur and they will negatively influence \textit{companyImage}. 
+
+\textit{processAutomation} is another \textit{productionInvestment} option and it represents the company's direction towards more automated, futuristic processes. Its range is the same as the other \textit{productionInvestment} and is set by the amount of money invested. We will expand this concept in section \ref{sub:PM}.
 All the simulation explained in this section will not be visible to the player, in order to increase the level of difficulty of the game and make the player more perceptive to the effect of these elements. 
 
 
@@ -157,7 +160,13 @@ All the simulation explained in this section will not be visible to the player, 
 
 To determine the \textit{totalProductCost}, several components have to be taken into account, as demonstrated in Figure \ref{fig:productionCosts}. The first is \gls{tCC}
 which is the total of all component's costs, since we need several components in order to have one end product. The overall employee salary would be included in the equation, since all employees, no matter in which department they work in, give an input and add value to the product. But we have decided to separate costs according to departments, that is why the employee salaries will be included in the HR costs. Another cost that we have included in our simulation are the \textit{Eco-Costs}. You can find the details regarding the \textit{Eco-Costs} calculation in section \ref{sec:compEco-idex}. Furthermore we incorporated \textit{purchasedAssetsCosts}. 
-Since machinery is purchased, maintained and upgraded, we have to account these expenses to \textit{purchasedAssetsCosts}, which are part of the \textit{Fixed Costs}. \textit{Fixed Costs (FC)} like electricity, \textit{machineryDepreciation} costs or rent are also included because they are inevitable expenses that are present in every production company. 
+
+Since machinery is purchased we have to account this expense to \textit{purchasedAssetsCosts}, which is part of the \textit{Fixed Costs}. \textit{Fixed Costs (FC)} like \textit{machineryDepreciation} costs or rent are also included because they are inevitable expenses that are present in every production company. 
+\begin{equation}
+   \begin{aligned}
+ FC = facilityRent + purchasedAssetCosts \\ +machineryDepreciationCosts
+   \end{aligned}
+   \end{equation}
 
 \begin{figure}[ht]
 	\centering
@@ -193,7 +202,7 @@ The first column, "Product" displays the name of a product, that the player when
 The "Qty to Produce" field is an input field where the player can type in an integer value. The quantity depends on two different factors: the total \textit{machineCapacity} and the total \textit{warehouseCapacity}. If the amount entered by the player is larger than the accumulated sum of the \textit{machineCapacity}, then the player gets an error message: "Your machinery capacity is not sufficient. Either produce a smaller amount or buy new machinery". This is calculated as follows in function \ref{calc:machineryCapacity1} and \ref{calc:machineryCapacity2}.
 \begin{equation}
 \label{calc:machineryCapacity1}
-   If~entered~amount \geqslant totalMachineCapacity, 
+   If~entered~amount \geq totalMachineCapacity, 
 \end{equation}
 whereas 
 \begin{equation}

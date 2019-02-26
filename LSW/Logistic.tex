@@ -20,20 +20,19 @@ In the following sections, the functionality of the individual variants and the 
 
 
 \subsubsection{Internal logistic fleet}
-The internal logistics fleet consists only of purchased trucks.The quality of the company's own logistics is calculated based on the characteristics of the single trucks. 
-
-Every truck has certain characteristics, these consist of:
+The internal logistics fleet consists only of purchased trucks.The quality of the company's own logistics is calculated based on the characteristics of the single trucks.Every truck has certain characteristics, these consist of:
 \begin{itemize}
     \item A \textit{capacity} of products that can be transported, this is the same for all trucks and amounts to 1000 packages. For reasons of simplification, we do not distinguish the size of individual products.  Each product is equivalent to one package. 
     \item An \textit{ecoIndex} (\gls{eIT}) that expresses how environmentally friendly the vehicle is.
     \item A \textit{qualityIndex} (\gls{qIT}) that expresses the quality of the transport.
-    \item A \textit{purchasePrice} that depends on the quality and environmental friendliness of the truck. The base price for a truck is 100,000 CapCoins \cite{televon_wie_nodate}.
+    \item A \textit{purchasePrice} that depends on the quality and environmental friendliness of the truck. The base price for a truck is 100,000 CapCoins 
+    \footnote{https://www.motor-talk.de/forum/wie-teuer-ist-ein-neuer-lkw-t1631664.html}.
     \item Monthly \textit{maintenanceCosts} corresponding to 0,1\% of the initial purchase price divided by 12 months. These monthly cost are called \textit{fixTruckCost} (\gls{fTC})
-    \item And a \textit{depreciationRate} that is linear and amounts to 9 years for each truck \cite{noauthor_amtliche_nodate}.
+    \item And a \textit{depreciationRate} that is linear and amounts to 9 years for each truck \footnote{https://www.betriebsausgabe.de/afa-tabelle/}.
 \end{itemize}
 
-As already described, \textit{qualityIndex} and \textit{ecoIndex} influence the initial \textit{purchasePrice} of a truck, which is 10,000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table \ref{Truck_characteristics} shows how they are composed in detail. 
-
+As already described, \textit{qualityIndex} and \textit{ecoIndex} influence the initial \textit{purchasePrice} of a truck, which is 10,000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table \ref{Truck_characteristics} shows how they are composed in detail.\\
+\\
 The \textit{qualityIndex} and the \textit{ecoIndex}, are set randomly in the given ranges.The \textit{purchasePrice} for the respective truck and the \textit{fixCostsDelivery} (\gls{fCD}) are calculated by multiplying the base price with the factors. These factors are also randomly assigned in a certain value range. Cause of the fact that the intervals of the individual models overlap, it can happen that a more favourable model has better properties than a more expensive one.
 
 \begin{table}[ht]
@@ -59,7 +58,7 @@ The total capacity thus results from the \textit{numberTrucks} (\gls{nT}) in the
     cF = 1000 \times nT
 \end{equation}
 
-The overall quality internal logistics, the so-called \textit{internalLogisticIndex} (\gls{iLI}), is calculated on the basis of the \textit{qualityIndex} and the \textit{ecoIndex} of the individual trucks.  
+The overall quality internal logistics, the so-called \textit{internalLogisticIndex} (\gls{iLI}), is calculated on the basis of the \textit{qualityIndex} and the \textit{ecoIndex} of the individual trucks.
 \begin{equation}
 \label{func:internalLogisticIndex}
 \begin{aligned}
@@ -94,8 +93,9 @@ As already mentioned, the annual \textit{maintenanceCosts}  per truck amount to 
 
 
 \subsubsection{External logistic Partner}
-In addition to his own logistics fleet, the player has the option of forming a contract with an external logistics partner. It is possible to outsource the complete product delivery to this partner or only products that exceed the delivery capacity of the own fleet. Basically, only one partner can be contracted at a time, but he can be fired at any time and replaced by another partner available on the market. 
-The external logistics partners also have certain characteristics that influence the quality of the delivery: 
+In addition to his own logistics fleet, the player has the option of forming a contract with an external logistics partner. It is possible to outsource the complete product delivery to this partner or only products that exceed the delivery capacity of the own fleet. Basically, only one partner can be contracted at a time, but he can be fired at any time and replaced by another partner available on the market. \\
+\\
+The external logistics partners also have certain characteristics that influence the quality of the delivery. This are the attributes of an external logistic partner:  
 
 \begin{itemize}
     \item An \textit{ecoIndex} (\gls{eIP}) that expresses how environmentally friendly the external partner is working (0-100)
@@ -165,14 +165,14 @@ The overall quality of the company's logistics as perceived by its customers is 
 \begin{aligned}
 lI = 
 \begin{cases}
-     ((( dP – cF) \times eLI ) + ( cF \times iLI )) & \text{if} dP > cF \\
+     ((( dP $-$ cF) \times eLI ) + ( cF \times iLI )) & \text{if} dP > cF \\
      cF \times iLI & \text{if} dP = cF\\
      dP \times iLI & \text{otherwise} \\
 \end{cases}
 \end{aligned}
 \end{equation}
 
-The \textit{totalLogisticCost} (\gls{tLC}) consists of the monthly \textit{logisticCosts} and the daily \textit{deliveryCost}. 
+The \textit{totalLogisticCost} (\gls{tLC}) consists of the monthly \textit{logisticCosts} and the daily \textit{deliveryCost}. To determine the \textit{totalLogisticCost} on a daily basis, the monthly \textit{logisticCost} is divided by 30. 
 \begin{equation}
     tLC = (lC/30) + dC
 \end{equation}

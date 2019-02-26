@@ -1,8 +1,6 @@
 \subsubsection{Employer Branding}\label{employer_branding}
 %Philipp
 
-% eBemployerBranding
-% tJS totalJobSatiscation
 
 The employerBranding (\gls{eB}) is the score which is reported to the external world in order to measure the value of the company as an employer in total. This score is comparable to the total score for companies which is presented on websites like kununu or glassdoor. The employer branding is a combined score out of the Job Satisfaction (\gls{tJS}) and the Company Image. As the Company Image implicitly incluences the Job Satisfaction rating it is weighted with 0.4 in the calculation of the employer branding score. The general formula is
 \begin{center}
@@ -28,7 +26,10 @@ The following pseudo code explains the statement above.
     \item ELSEIF CI $\geq$ 60 THEN Employer Branding = Employer Branding * 1
 \end{itemize}
 
-By this we ensure a sufficient punishment of the overall Employer Branding score. To achieve this we need to create a matrix and a 3D graph to visualize the possible implications on the employer branding. Graphic \ref{img:EBS} shows the implications of the two input parameters on the Employer Branding.
+By this we ensure a sufficient punishment of the overall Employer Branding score. 
+
+\begin{comment}
+To achieve this we need to create a matrix and a 3D graph to visualize the possible implications on the employer branding. Graphic \ref{img:EBS} shows the implications of the two input parameters on the Employer Branding.
 
 \begin{figure}
 	\centering
@@ -36,3 +37,4 @@ By this we ensure a sufficient punishment of the overall Employer Branding score
 	\caption{Employer Branding Score Calculation}
 	\label{img:EBS}
 \end{figure}
+\end{comment}

@@ -3,7 +3,7 @@
 %Janine
 In addition to the product itself, a product support strategy is also necessary. This strategy should not only consist of maintaining the actual product functionality, but should also include further services for the customer in order to provide him with the greatest possible value with his product \cite{markeset_design_2003}. Additional services could for example be a mobile app or and actively managed community.  
 In Capitalism X, the player is offered various options how he wishes to design the product support for his products. Table \ref{Support_types} shows the different services that can be purchase from an external partner, how they influence the \textit{totalSupportTypeQuality} (\gls{tSTQ}) with there \textit{typeQuality} (\gls{sTQ}) and the monthly \textit{typeCost} (\gls{cST}). The variants can be combined by the player as desired. If no option is selected, this automatically means that no support is offered.
-Before the company can offer product support to its customers, the player must hire an external support partner. Basically only one partner can be hired at a time, but he can be fired at any time.
+Before the company can offer product support to its customers, the player must hire an external support partner. Basically only one partner can be hired at a time, but he can be fired at any time.\\
 
 \begin{table}[ht]
     \centering
@@ -29,8 +29,8 @@ The \textit{totalSupportTypeQuality} is calculated from the various support type
 \begin{aligned}
     tSQ = &
     \begin{cases}
-        0.4 *qSP + 0.6 * tSTQ & \text{if } qSP \leq  50\\
-        0.3 * qSP + 0.7 * tSTQ & \text{otherwise}
+        0.4 \times qSP + 0.6 \times tSTQ & \text{if } qSP \leq  50\\
+        0.3 \times qSP + 0.7 \times tSTQ & \text{otherwise}
     \end{cases}
 \end{aligned}
 \end{equation}
@@ -38,5 +38,5 @@ The \textit{totalSupportTypeQuality} is calculated from the various support type
 The \textit{totalSupportCost} (\gls{tSC}) are calculated from the sum of the monthly \textit{typeCost} and the \textit{contractualCost} (\gls{cSP}) for cooperation with the partner company.
 \begin{equation}
 \label{func:totalSupportCost}
-    tSC = sum (cST) + cSP
+    tSC = \sum cST + cSP
 \end{equation}

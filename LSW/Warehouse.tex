@@ -1,15 +1,13 @@
 \section{Warehouse Simulation} \label{warehouse_simulation}
 
 %Janine
-The storage of finished products and the individual components in CapitalismX is regulated by warehouses. In order to store products and components, the player must first purchase a warehouse, which can either be rented or built by the company itself.
-
-Every warehouse has certain characteristics, these include:
+The storage of finished products and the individual components in CapitalismX is regulated by warehouses. In order to store products and components, the player must first purchase a warehouse, which can either be rented or built by the company itself. Every warehouse has certain characteristics, these include:
 \begin{itemize}
-    \item a unique construction price of the so called \textit{buildingCost}(\gls{bCW}) of 250.000 CapCoins  \cite{carrot_media_v.o.s._hallenbau_2018} or monthly \textit{rentalCost} (\gls{rCW}) in the amount of 10.000 CapCoins \cite{jll_mietpreisspanne_nodate}.
-    \item a \textit{capacity} (\gls{cW}) of 5000 units. A product corresponds to a unit, regardless of the type of product. Components are counted as half units in order to better account for their proportions. 
+    \item A unique construction price of the so called \textit{buildingCost} (\gls{bCW}) of 250.000 CapCoins  \footnote{https://kostencheck.de/hallenbau-kosten} or monthly \textit{rentalCost} (\gls{rCW}) of 10.000 CapCoins \footnote{https://de.statista.com/statistik/daten/studie/303225/umfrage/mietpreis-fuer-lagerflaechen-in-muenchen/}.
+    \item A \textit{capacity} (\gls{cW}) of 5000 units. A product corresponds to a unit, regardless of the type of product. Components are counted as half units in order to better account for their proportions. 
     \item \textit{variableStorageCost} (\gls{vSC}) per unit of 5 CapCoins
     \item Monthly \textit{maintenanceCost} (\gls{fCW}) of 1.000 CapCoins
-    \item and, if the warehouse was built, a resale value. A warehouse has a \textit{depreciationRate} of 14 years on a straight-line basis.  \cite{noauthor_amtliche_nodate}.
+    \item and, if the warehouse was built, a resale value. A warehouse has a \textit{depreciationRate} of 14 years on a straight-line basis \footnote{https://www.betriebsausgabe.de/afa-tabelle/}.
 \end{itemize}
 
 After the products are finished, they are taken to a warehouse of the company, no products are sold directly. This means for the production that the \textit{capacity} of all the warehouses together, the \textit{totalCapacity} (\gls{tCWH}), is also the daily maximum total production quantity for the company. The actual possible production quantity or the \textit{freeStorage} (\gls{fSWH}) is calculated by subtracting the number of \textit{storedUnits} (\gls{sU}) from the \textit{totalCapacity}. The exact calculation can be taken from the following formula: 

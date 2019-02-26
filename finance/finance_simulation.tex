@@ -81,7 +81,22 @@ The next important key figure is the \gls{NOPAT}. The \textit{NOPAT} can be calc
 \subsection{Income tax}
 \label{sec:incomeTax}
 
-In CapitalismX the \textit{incomeTax} is levied on a daily basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IAS 12 \textit{Income Taxes} paragraph from the IFRS\footnote{https://www.ifrs.org/-/media/feature/meetings/2018/october/iasb/ap12c-ias12.pdf}, which is per default a \textit{taxRate} of 20\%. Realistically the income tax is levied annually, but in order to provide the player a more structured overview about the company’s financial situation, we decided to provide the player with a daily \textit{incomeTax}, as calculated in equation \ref{func:incomeTax}. 
+In CapitalismX the \textit{incomeTax} is levied on a daily basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IAS 12 \textit{Income Taxes} paragraph from the IFRS\footnote{https://www.ifrs.org/-/media/feature/meetings/2018/october/iasb/ap12c-ias12.pdf}, which is per default a \textit{taxRate} of 20\%. 
+
+%To determine realistic tax rates, corporates selling similar products to the ones in the game were compared. Their average is the standard tax rate of CapitalismX. (REFERENCES) \\
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Example & IBM & HP Enterprise & Google & Nintendo & Apple & Average \\
+Tax Rate & 23\% & 16\% & 12\% & 30\% & 18\% & 20\% \\ \hline
+\end{tabular}
+\caption{Example Tax rates}
+\label{Example_Tax}
+\end{table}
+
+Realistically the income tax is levied annually, but in order to provide the player a more structured overview about the company’s financial situation, we decided to provide the player with a daily \textit{incomeTax}, as calculated in equation \ref{func:incomeTax}. 
 \begin{equation}
     \label{func:incomeTax}
     incomeTax = EBIT \cdot taxRate

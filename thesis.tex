@@ -36,7 +36,7 @@
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 
-
+\DeclareMathOperator*{\argmax}{arg\,max}
 % its always useful to have some shortcuts (some are specific for algorithms
 % if you do not like your formatting you can change it here (instead of scanning through the whole text)
 \renewcommand{\algorithmiccomment}[1]{\ensuremath{\rhd} \textit{#1}}
@@ -104,6 +104,10 @@ description={totalHRCosts}%
 \newglossaryentry{tMC}{%
 name={tMC},%
 description={totalMarketingCosts}%
+}
+\newglossaryentry{cc}{%
+name={cc},%
+description={CapCoins}%
 }
 % Glossary Production
 \newglossaryentry{mE}{%
@@ -491,8 +495,6 @@ CapitalismX now gives you the possibility to become CEO! This business simulatio
 The goal of this interactive business simulation game is simple: Maximize your company's profit! As a CEO you will have to take care of multiple issues, that occur in daily business, such as defining your product portfolio, controlling your financial status, managing employees and so on. However, also unforeseen events might occur suddenly! In these cases, you can prove your decision-making abilities and guide your company through delicate situations. 
 
 With CapX you can expect a game which let you experience the core processes of a corporation. Activities in this game match the processes which are derived from real world companies. You will start as a start-up and develop the company through smart decisions and actions to a big corporation. Although, the decisions you will make are based on simplified assumptions, the overall complexity is based on a real world scenario and will give you an overview about inter-dependencies in a company.
-
-\emph{Very Important:} Besides being a game-play handbook, this document also addresses the game mechanisms working in the background
  
 \section{Player's Role}
 %Maike
@@ -529,7 +531,7 @@ Regarding the time-frame our game simulation is going to be set between $1990$ a
 
 During the entire time-span of the game, there will be a democratic government that operates and interacts with the game environment. The government can also intervene to impose laws, taxes and additional measures, if the company is not compliant to the current regulations. 
 
-Furthermore an additional unique element in this game simulation is the currency. CapitalismX has its own currency, which is the CapCoin (CC), and every function within the game is adapted to operate with this currency.
+Furthermore an additional unique element in this game simulation is the currency. CapitalismX has its own currency, which is the CapCoin (\gls{cc}), and every function within the game is adapted to operate with this currency.
 \subsubsection{Storyline}
  The storyline that you will be operating in, would be that of managing an IT business, which you have founded as a start-up. You will be able to choose which employees to hire, which products to manufacture,  how to set the price on these products, etc. These options and many more comprise scenarios and decisions you will have to face in order to have a successful company. Having said this, it is evident that your role will be that of the CEO of the company. By assuming this role you will be able to control all the major departments of the company such as, HR, Finance, Manufacturing, Marketing, Procurement, etc. 
  
@@ -546,16 +548,12 @@ Moreover you will be faced with external events. These events will take place du
 \section{Getting Started with CapX}
 %Steffen, Nike Halbe Seite\\
 
-\begin{figure} [!htbp]
-    \centering
-    \includegraphics [width=\textwidth] {images/startingScreen.png}
-    \caption{Start a Game in CapitalismX}
-    \label{fig:startingScreen}
-\end{figure}
+Are you ready to get started? If yes, enter the following URL to the Google Chrome browser and start your first game of CapitalismX: \\
+\texttt{https://swaldmann.github.io/CapitalismX}
 
-As displayed in figure \ref{fig:startingScreen} You have the possibility to start a new game or load an existing game and start right away where to took off earlier (requires sign-in). When starting a new game, you have to create an account first, so that you can stop the game and continue later on. For registration you will need a valid email address and your name. After successful registration, you can select a nickname and a company name. 
+Now you have the possibility to start a new game or load an existing game and start right away where to took off earlier (requires sign-in). When starting a new game, you have to create an account first, so that you can stop the game and continue later on. For registration you will need a valid email address and your name. After successful registration, you can select a nickname and a company name. 
 
-It is recommended to have a look at the tutorial provided after the registration process if you have not played CapitalismX before. Also, it might be very helpful to read this game manual before, as it gives you a couple of hints about how to handle some situations. The tutorial is a short Video, that gives you an overview about the different buildings and dashbaords in the game. Also, it provides you with step-by-step instructions how to perform the most important activities.
+It is recommended to have a look at the tutorial provided after the registration process if you have not played CapitalismX before. Also, it might be very helpful to read this game manual before, as it gives you a couple of hints about how to handle some situations. The tutorial is a short Video, that gives you an overview about the different buildings and views in the game. Also, it provides you with step-by-step instructions how to perform the most important activities.
 
 \section{Interface and Features}
 
@@ -603,11 +601,11 @@ Apart from that, at the bottom of the screen you can find a newsticker-banner, t
 
 \subsection{Choose the Product Portfolio}
 \label{sub:portfolio}
-Nike - Description of products 
+%Nike - Description of products 
 
 You as the CEO decide which products you want to offer. In CapitalismX, there are two different types of products. Those two different groups are first manufactured goods, and second, retail products that are simply bought as a whole and resold under the company brand.
 
-To start with the retail products, consisting of two different sub-groups of products: the mass storage devices and the movie playback devices. As the products evolve over the time frame of the game, the scope of the single product group also changes. Mass storage devices will evolve, given a decent investment to innovate, from CD over DVD to BlueRay, from small SD cards to SD cards with very large memory, and from USB Sticks with small memory and in simple versions to evolved versions with large memory. [FURTHER DESCRIPTION OF PRODUCTS NEEDED?!] Movie playback devices may evolve from simple video recorders for recording tapes to DVD and BlueRay player, that even can become smart. 
+To start with the retail products, consisting of two different sub-groups of products: the mass storage devices and the movie playback devices. As the products evolve over the time frame of the game, the scope of the single product group also changes. Mass storage devices will evolve, given a decent investment to innovate, from CD over DVD to BlueRay, from small SD cards to SD cards with very large memory, and from USB Sticks with small memory and in simple versions to evolved versions with large memory. Movie playback devices may evolve from simple video recorders for recording tapes to DVD and BlueRay player, that even can become smart. 
 
 The larger part of the product portfolio is displayed by the manufactured goods. To produce those, you have to slip into the role of a strategic head of manufacturing and you have to take care about the education and satisfaction of employees in order to provide a high manufacturing and therefore also high product quality; about the procurement of components and warehousing of products; and so on.
 The manufactured goods are divided into four product sub-groups, which are notebooks, phones, gameboys, and televisions. 
@@ -733,7 +731,7 @@ Events are mostly cross-functional. This means that the trigger of an event belo
 \end{itemize}
 
 The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which includes one-time events. Their nature and likeliness to happen are to be transferred to the game environment. However, there are aspects which are contradictory to this intend.
-Determining probabilities where applicable is based on multiple considerations. Empirical evidence for the probability of events might be rare or the probability is so low that they would only happen happen after a very long game duration. Events having such a high probability that they lead to a Game-Over in an early stage must not happen in an early state as they would frustrate the player. In the end gaming should be fun too, not only reflecting the real-world. Copying the latter is also limited as a simulation can never cover every 'life' aspect.  Following these considerations, probabilities from scientific resources were used when available and realistic for in-game application. If this was not the case, the probability was sourced from other trustworthy sources like reliable newspapers or estimated based on the indicators and scales of the existing game parts. Therefore a probability can distort from its real-world example. If suitable, an event is given a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. Some events have only a notification as a result without manipulating the game mechanics. Transferring real-world events directly to an artificial environment was almost never possible. A full overview of events, influencing factors, thresholds, probabilities and preconditions, impacted factors and remarks is listed in the Appendix table \ref{events_list}. \\
+Determining probabilities where applicable is based on multiple considerations. Empirical evidence for the probability of events might be rare or the probability is so low that they would only happen after a very long game duration. Events having such a high probability that they lead to a Game-Over in an early stage must not happen in an early state as they would frustrate the player. In the end gaming should be fun too, not only reflecting the real-world. Copying the latter is also limited as a simulation can never cover every 'life' aspect.  Following these considerations, probabilities from scientific resources were used when available and realistic for in-game application. If this was not the case, the probability was sourced from other trustworthy sources like reliable newspapers or estimated based on the indicators and scales of the existing game parts. Therefore a probability can distort from its real-world example. If suitable, an event is given a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. Some events have only a notification as a result without manipulating the game mechanics. Transferring real-world events directly to an artificial environment was almost never possible. A full overview of events, influencing factors, thresholds, probabilities and preconditions, impacted factors and remarks is listed in the Appendix table \ref{events_list}. \\
 From an UI point of view, the events displayed as informing Pop-Ups or they are invisible to the player. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet. However, its worth listing them in this section. 
 
 \pagebreak

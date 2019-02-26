@@ -1,7 +1,8 @@
-\section{Customer Simulation}
-\label{sec:customsim}
-\subsection{Customer Satisfaction}
+\section{Customer Simulation} \label{sec:customsim}
 %Maike
+
+\subsection{Customer Satisfaction}
+
 In this game, the customer simulation is a weighted combination of the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} (\gls{cS}).
 This means that the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} are the three key indicators for customers' buying decisions. Thus, these three variables determine the extent to which customers are interested in buying a product or not.\\
 How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of \textit{customerSatisfaction}, which will be discussed in more detail in this chapter.\\
@@ -20,7 +21,7 @@ The \textit{overallAppeal} (oA) will be explained in the following, as it was no
 
 The \textit{overallAppeal} is calculated as follows:
 \begin{equation}
-overallAppeal = \dfrac{productAppeal}{priceAppeal}
+overallAppeal = \dfrac{productAppeal}{priceAppeal} \times 100
 \end{equation}
 Therefore, the \textit{productAppeal} and \textit{priceAppeal} must be defined.
 The \textit{productAppeal} is the \textit{totalProductQuality} (tPQ) devided by the \textit{proxyQuality}.
@@ -28,13 +29,13 @@ The \textit{productAppeal} is the \textit{totalProductQuality} (tPQ) devided by 
     productAppeal = \dfrac{tPQ}{proxyQuality}
 \end{equation}
 The \textit{proxyQuality} represents the maximum of the \textit{marketProductUtility} or the \textit{totalProductQuality} (of the player's own products) regarding the same \textit{productCategory}.
-In turn, the \textit{marketProductUtility} depends on the \textit{time} (t) and on the \textit{productCategory}.The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with $0.7$, which results in the following equation:
+In turn, the \textit{marketProductUtility} depends on the \textit{time} (t) and on the \textit{productCategory}. The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with $0.7$, which results in the following equation:
 \begin{equation}
 \begin{aligned}
     & marketProductUtility(t, productCategory) \\
     & = \sum_{c \in C} baseUtility_{c} \\
-    & (of the most recent level of allComponents in the productCategory) \times 0.7 &&
-    & argmax \limits_{comp\in \{productCategory.allComponents: availabilityDate \leq t\}}(comp.baseUtility) \times 0.7
+    %& (of the most recent level of allComponents in the productCategory) \times 0.7 &&
+    & \argmax\limits_{comp\in \{productCategory.allComponents: availabilityDate \leq t\}}(comp.baseUtility) \times 0.7
 \end{aligned}    
 \end{equation}
 The \textit{priceAppeal} is calculated by the \textit{salesPrice} (set by the player) divided by the \textit{proxyPrice}.
@@ -46,15 +47,26 @@ The \textit{proxyPrice} represents the sum of the \textit{baseCost} of all compo
     proxyPrice = \sum_{c \in C} baseCost_{c} with the same componentLevel
 \end{equation}
 
-Finally, the \textit{customerSatisfaction} is calculated as shown in equation \ref{cSCalc}. This calculation is based on a sigmoid function and has threshold of XXX, as the \textit{customerSatisfaction} cannot become larger than that threshold.
+Finally, the \textit{customerSatisfaction} is calculated as shown in equation \ref{cSCalc}. This calculation is based on a sigmoid function and has a threshold of $1$, as the \textit{customerSatisfaction} cannot become larger than 100\%.
 
 \begin{equation}
 \begin{aligned}
 \label{cSCalc}
     & cS(oA, tSQ, lI, cI, eB) \\
-    & = tanh(\dfrac{(0,5 \times oA + 0,2 \times tSQ + 0,1 \times lI + 0,15 \times cI + 0,05 \times eB)}{threshold}) %threshold must be defined!
+    & = tanh(\dfrac{(0,5 \times oA + 0,2 \times tSQ + 0,1 \times lI + 0,15 \times cI + 0,05 \times eB)}{value}) %value must be defined!
 \end{aligned}    
 \end{equation}
+% tanh((0,5*oA + 0,2*tSQ + 0,1*lI + 0,15*cI + 0,05*eB)/1)
+% tanh((0,5*3500 + 0,2*100 + 0,1*100 + 0,15*100 + 0,05*100)/1)
+% tanh((0,5x + 0,2*100 + 0,1*100 + 0,15*100+ 0,05*100)/1) from 0 to 2
+% value = 1
+% productAppeal: e.g. 300/400
+% priceAppeal: e.g. 250/150
+% Then, the overallAppeal would be: 0,45
+% The oA can have a value within the value from 0 to infinity, because the salesPrice can be much lower than the proxyPrice (e.g. priceAppeal = 1/300 => and e.g. productAppeal = 1 => oA = 1/(1/300) = 300
+% So, we need a threshold for the setting of the salesPrice, which must not be smaller than the proxyPrice!
+% Moreover, we have to multiply the oA with 100 to ensure, that the oA has an equal impact on the cS, such as the other variables (tSQ, etc all have a value range from 0 to 100)
+% e.g. 0,45 * 100 = 45
 
 Moreover, there is only one \textit{customerSatisfaction} calculated. That means, that the \textit{customerSatisfaction} is not calculated for every single product, but has the same influence for each product in the demand calculation, which is explained in more detail in the following chapter \ref{demandCalc}.
 

@@ -1,9 +1,9 @@
 \section{Procurement Simulation}
 \label{procuresim}
 %Maike
-The procurement simulation represents the marketplace for suppliers. So, it represents the place where the player can buy the components needed for producing the products. In order to be able to produce a product, the player needs all the required components of a certain product. For example, he would need the following components to produce a smartphone: Battery, display and case, keypad, CPU, camera, Bluetooth, Internet connectivity. Moreover, each component (\gls{c}) has different levels, such as the "camera" component, which has the levels "1.2 MP", "2 MP", "5 MP", "8 MP" and "12 MP".  As soon as the player chooses to produce a new smartphone, the first level of a component is selected. For the component "camera" this would be the level "1.2 MP". However, the camera component would not be unlocked until the first level of the camera component is activated. For the camera component this would be the year 2004. This behavior will be explained in more detail later in this chapter.
+The procurement simulation represents the marketplace for suppliers, so  the place where the player can buy the components needed for producing the products. In order to be able to produce a product, the player needs all the required components of a certain product. For example, he would need the following components to produce a smartphone: Battery, display and case, keypad, CPU, camera, Bluetooth, Internet connectivity. Moreover, each component (\gls{c}) has different levels, such as the "camera" component, which has the levels "1.2 MP", "2 MP", "5 MP", "8 MP" and "12 MP".  As soon as the player chooses to produce a new smartphone, the first level of a component is selected. For the component "camera" this would be the level "1.2 MP". However, the camera component would not be unlocked until the first level of the camera component is activated. For the camera component this would be the year 2004. This behavior will be explained in more detail later in this chapter.
 
-Moreover, it is possible to manufacture more than one product in a product category in order to test the market. For example, the player could produce two smartphones, one made of cheap components and with a low price, and one made of expensive components with a higher selling price. Additionally, the player can specify the name of a product to distinguish it from the others. The player can also add and remove products from his product portfolio.
+Moreover, it is possible to manufacture more than one product in a product category in order to test the market. For example, the player could produce two smartphones, one made of cheap components and with a low \textit{salesPrice}, and one made of expensive components with a higher \textit{salesPrice}. Additionally, the player can specify the name of a product to distinguish it from the others. The player can also add and remove products from his product portfolio.
 
 Furthermore, the different levels of a component are considered as individual components and one supplier for each \textit{componentCategory} (good, medium, bad) is offered. This results in three different suppliers for each individual component.\\
 Apart from that, each individual component has the following attributes:
@@ -30,15 +30,18 @@ Each of these attributes fulfils a specific need. For example, the \textit{baseC
     \label{component_price_calculation}
     \end{table}
 \newline
-The three factors (\textit{baseCost, baseQuality, ecoIndex}) shown in table \ref{component_price_calculation} are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting. In addition, the value ranges of the three different \textit{componentCategories} (good, medium, bad) overlap. This increases the degree of difficulty for the user, as this could lead to a medium component having a better \textit{baseCost-ecoIndex-baseQuality} trade-off than a "good" component. An example of a "good" component is explained in the following.\\
+
+The three factors (\textit{baseCost, baseQuality, ecoIndex}) shown in table \ref{component_price_calculation} are randomized within a specific value range. That helps to break up static pricing behavior and make the game more interesting. In addition, the value ranges of the three different \textit{componentCategories} (good, medium, bad) overlap. This increases the degree of difficulty for the user, as this could lead to a medium component having a better \textit{baseCost-ecoIndex-baseQuality} trade-off than a "good" component. An example of a "good" component is explained in the following.
+
 The \textit{baseCost} of a "good" component is calculated by multiplying the \textit{timeBasedComponentPrice} (\gls{tBCP}) with a random decimal value from the value range 1.1 to 1.5, as shown in equation \ref{baseCost}.
 \begin{equation}
 \label{baseCost}
 \begin{aligned}
-   baseCost_{c}(good \; component) = tBCP_{c} * (randomized(1.1-1.5))
+   baseCost_{c}(good \; component) = tBCP_{c} \cdot (randomized(1.1-1.5))
 \end{aligned}    
 \end{equation}
-The \textit{timeBasedComponentPrice} is the calculated price of a component that is based on the \textit{initialComponentPrice} and the \textit{componentLevel} and depends on a component's \textit{availabilityDate}, that has been determined on the basis of literature and Internet research. The \textit{availabilityDate} is required to activate a \textit{componentLevel}. This means that a particular level of a component is activated when it reaches the year in which it is released, as it is locked before exceeding its \textit{availabilityDate}. In summary, the use of the \textit{availabilityDate} ensures that the player cannot directly select the latest level of a component, but is bound to the chronological development of the components.\\
+The \textit{timeBasedComponentPrice} is the calculated price of a component that is based on the \textit{initialComponentPrice} and the \textit{componentLevel} and depends on a component's \textit{availabilityDate}, that has been determined on the basis of literature and Internet research. The \textit{availabilityDate} is required to activate a \textit{componentLevel}. This means that a particular level of a component is activated when it reaches the year in which it is released, as it is locked before exceeding its \textit{availabilityDate}. In summary, the use of the \textit{availabilityDate} ensures that the player cannot directly select the latest level of a component, but is bound to the chronological development of the components.
+
 In addition, a component's \textit{ecoIndex} and \textit{baseQuality} are calculated by selecting a random integer value within the defined value range, which for a "good" component ranges from 80\% to 100\%.
 \begin{equation}
     ecoIndex_{c}(good \; component) = randomized(80-100)
@@ -46,22 +49,25 @@ In addition, a component's \textit{ecoIndex} and \textit{baseQuality} are calcul
 \begin{equation}
     baseQuality_{c}(good \; component) = randomized(80-100)
 \end{equation}
+
 Furthermore, each component has a \textit{baseUtility}, which is defined manually. This is the case because the changes of the \textit{baseUtility} differ greatly between the different versions of a component. For example, for cameras, the increase in \textit{baseUtility} from the first level to the second level, from "1.2 MP" to "2 MP", is much lower than the increase from the second to the third level, from "2 MP" to "5 MP". 
 
 The \textit{ecoIndex}, \textit{baseQuality} and \textit{baseUtility} represent the variables needed for the calculation of the \textit{totalProcurementQuality} (\gls{tProcureQ}) per product, which is shown in equation \ref{totalProcurementQuality}. The \textit{totalProcurementQuality} then influences the \textit{totalProductQuality} per product.
 \begin{equation}
 \label{totalProcurementQuality}
-    tProcureQ_{p}= \sum_{c \in C} 0.4 \times ecoIndex_{c} + 0.6 \times baseQuality_{c} \times baseUtility_{c}
+    tProcureQ_{p}= \sum_{c \in C} (0.4 \cdot ecoIndex_{c} + 0.6 \cdot baseQuality_{c}) \cdot baseUtility_{c}
 \end{equation}
 
 All components including their \textit{componentLevel}, the name of the \textit{componentLevel}, their \textit{availabilityDate} and their \textit{baseUtility} can be found in the appendix \ref{fig:staticComponentAttributes}.\\
-Figure \ref{img:totalComponentCosts} should help to understand the complex calculation of a component's \textit{baseCost}, as well as the relation and the influences between the different attributes of a component and a component’s initial price (\textit{initialComponentPrice}).\\
+Figure \ref{img:totalComponentCosts} should help to understand the complex calculation of a component's \textit{baseCost}, as well as the relation and the influences between the different attributes of a component and a component’s initial price (\textit{initialComponentPrice}).
+
 \begin{figure} [!htbp]
 	\centering
 	\includegraphics[width=11.5cm]{images/totalComponentCosts.pdf}
 	\caption{Calculation of \textit{totalComponentCosts}}
 	\label{img:totalComponentCosts}
 \end{figure}
+
 Starting from the bottom of figure \ref{img:totalComponentCosts}, the \textit{initialComponentPrice} is available for each component and depends on the \textit{componentLevel}.
 The \textit{timeBasedComponentPrice} depends on the \textit{time}, on the \textit{availabilityDate} of a component, and on the \textit{initialComponentPrice}, which in turn depends on the \textit{componentLevel}.
 The \textit{timeBasedComponentPrice} is dependent on the \textit{time} because we assume that a supplier produces a component in a certain level for a certain amount of time. In the first year, this is then state-of-the-art technology. However, as state-of-the-art technology rapidly become outdated and additionally new \textit{componentLevels} are released, the \textit{timeBasedComponentPrice} decreases starting from the second year on according to the polynomic function \ref{Function timeBoundComponentPrice} of fifth degree, which was interpolated from component values loosely based on historical component prices found on multiple Internet sources such as \href{https://camelcamelcamel.com}{camelcamelcamel.com}.
@@ -96,6 +102,7 @@ As it can be seen in picture \ref{img:timeBasedComponentPriceFunction} the \text
 Afterwards, based on the \textit{timeBasedComponentPrice} and the \textit{componentCategory} (which can either be good, medium or bad) a component's \textit{baseCost} is calculated. Moreover, also a component's \textit{ecoIndex} and \textit{baseQuality} depend on the \textit{componentCategory}.\\
 The \textit{componentCosts} per product can then be calculated by adding up the \textit{baseCost} of the selected components per product. All \textit{componentCosts} together then determine the \textit{totalComponentCosts} of all produced products.\\
 
-In the following, further ideas for the procurement simulation are explained which have not yet been implemented or tested in our prototype, but which are also part of our concept.\\
+In the following, further ideas for the procurement simulation are explained which have not yet been implemented or tested in our prototype, but which are also part of our concept.
+
 A volume discount would allow the player to get a 10 percent discount, for example, if he buys more than 300 units of a component. We postponed this idea because our prototype does not include units in the procurement simulation yet. Currently, the player only needs to select a component and it is assumed that the desired quantity is delivered for just-in-time production. 
 The aim, however, is to leave the purchase decision to the user, who would have to calculate the trade-off between the benefits of lower prices per component due to volume discounts and higher storage costs for storing all non-producible components.

@@ -1,9 +1,9 @@
 \section{HR Simulation}
 \label{sec:HRsim}
-The HR simulation handles all parts of the Human Resources Process. Two employee types have to be hired: Enigneers and Salespeople. The role of HR, Finance and Marketing is performed by the player itself, thus it is not required to hire employees in these departments for the simulation. 
+The HR simulation handles all parts of the Human Resources process. Two employee types have to be hired: enigneers and salespeople. The role of HR, finance and marketing is performed by the player itself, thus it is not required to hire employees in these departments for the simulation. 
 
 \subsection{Hiring / Firing}
-The HR process starts with hiring human resources. Therefore, available engineers and salespeople need to be chosen from the market. Each employee has a requested salary. Moreover, hiring and also firing of employees is associated with cost of 5000 CapCoins. \cite{recruiterbox}
+The HR process starts with hiring human resources. Therefore, available engineers and salespeople need to be chosen from the market. Each employee has a requested salary. Moreover, hiring and also firing of employees is associated with cost of 5,000 CapCoins. \cite{recruiterbox}
 
 \subsection{Salary}
 Salaries are an important factor in the HR process. In order to make the simulation as realistic as possible, we use the following salaries which are derived from a salary-list of a real world IT company. The salaries of available employees are randomized value out of the corresponding salary-range entry in table \ref{tab:Salaries}
@@ -12,7 +12,7 @@ Salaries are an important factor in the HR process. In order to make the simulat
     \centering
 \begin{tabular}{c|c}
     \hline
-     \textbf{Skilllevel} & \textbf{Salary-range in thousands CC} \\
+     \textbf{Skilllevel} & \textbf{Salary-range in thousands cc} \\
      \hline \hline
      0-20 & 38-45  \\
      21-40 & 45-55 \\
@@ -29,6 +29,7 @@ Salaries are an important factor in the HR process. In order to make the simulat
 \subsection{Key Performance Indicators}
 \label{sub:KPI}
 \subsubsection{Job Satisfaction}
+\label{subsub:jss}
 The job satisfaction is an essential part of a Key Performance Indicator framework in order to measure the management quality of the player. Many different parts in the cooperation depend on the job satisfaction of employees, thus, in order to increase the performance, managers need to make sure that the satisfaction of their employees is constantly high. \cite{KOYS}
 
 The job satisfaction is such an important factor due to the fact that the employer branding is influenced by it. This is critical as the employer branding has a huge impact on how the company is perceived on the markets by potential employees but also by customers and suppliers. Moreover, the employer branding is also influenced by the general company image and can be influenced through marketing and PR activities. 
@@ -43,7 +44,7 @@ The table \ref{tab:benefitsJSS} shows the possible influencing factors which can
     \centering
 \begin{tabular}{l|c|c}
     \hline
-     \textbf{Benefit} & \textbf{Points} & \textbf{Monetary impact} \\
+     \textbf{Benefit} & \textbf{Points} & \textbf{Monetary impact in cc} \\
      \hline \hline
      \multicolumn{1}{c|}{\underline{\textbf{Salary}}} & & \\
      Salary below average & 0 &  \\
@@ -51,14 +52,14 @@ The table \ref{tab:benefitsJSS} shows the possible influencing factors which can
      Salary above average & 4 &   \\
      \hline
      \multicolumn{1}{c|}{\underline{\textbf{Worktime}}} & & \\
-     6 hours & 5 & -1000\$  \\
-     8 hours & 3 & 0\$  \\
-     10 hours & 0 & 0\$  \\
+     6 hours & 5 & -1000  \\
+     8 hours & 3 & 0  \\
+     10 hours & 0 & 0  \\
      \hline
      \multicolumn{1}{c|}{\underline{\textbf{Company Car}}} & & \\
-     Not offered & 0 & 0\$  \\
-     Medium Size & 2 & -300\$  \\
-     Full Size & 4 & -600\$  \\
+     Not offered & 0 & 0  \\
+     Medium Size & 2 & -300  \\
+     Full Size & 4 & -600  \\
      \hline
      \multicolumn{1}{c|}{\underline{\textbf{Home Office (HO)}}} & & \\
      Fixed Model & 0 &   \\
@@ -68,16 +69,16 @@ The table \ref{tab:benefitsJSS} shows the possible influencing factors which can
      Trust-based (TB) + always HO allowed & 4 &   \\
      \hline
      \multicolumn{1}{c|}{\underline{\textbf{IT Equipment}}} & & \\
-     High End & 2 & -50\$  \\
-     Market Average & 0 & 0\$  \\
+     High End & 2 & -50  \\
+     Market Average & 0 & 0  \\
      \hline
      \multicolumn{1}{c|}{\underline{\textbf{Food / Coffee}}} & & \\
-     Offered for free & 4 & -100\$  \\
-     Employee payment & 0 & 0\$  \\
+     Offered for free & 4 & -100  \\
+     Employee payment & 0 & 0  \\
      \hline
      \multicolumn{1}{c|}{\underline{\textbf{Gym / Sports}}} & & \\
-     Offered for free & 4 & -100\$  \\
-     Not offered & 0 & 0\$  \\
+     Offered for free & 4 & -100  \\
+     Not offered & 0 & 0  \\
      \hline
 
 \end{tabular}
@@ -105,7 +106,7 @@ Moreover, the job satisfaction also depends on the level of the employee. Each e
     samples=28, 
     color=red,
 ]
-{x^(1/3)* 33};
+{x^(1/3) * 33};
 \addlegendentry{$JSS=\sqrt[3]{OS}*33$}
 \end{axis}
 \end{tikzpicture}
@@ -137,7 +138,7 @@ Training can be assigned to a certain number of employees. The cost per training
     \hline
      & \textbf{Courses} & \textbf{Workshops} \\
      \hline \hline
-     Price & 3000 CC & 5500 CC \\
+     Price & 3000 cc & 5500 cc \\
      Salary & +1\% & +2\%  \\
      Skilllevel & +1 & +2  \\
      \hline
@@ -151,9 +152,9 @@ Training can be assigned to a certain number of employees. The cost per training
 
 The single KPIs are calculated as follows: 
 \begin{itemize}
-\item Quality of Work = $JSS * 0.5 + SkillLevel * 0.5$
+\item Quality of Work = $JSS \cdot 0.5 + SkillLevel \cdot 0.5$
 \item Skill Level = Initial Skill Level (based on employee category + influence training
-\item Job Satisfaction Score (JSS) = Calculation based on JSS section above
-\item Company Image Score (CIS) = Calculation based on CIS section above
-\item Employer Branding = $JSS*0.6 + CIS*0.4$ and applying the punishment function. 
+\item Job Satisfaction Score (JSS) = Calculation based on JSS section \ref{subsub:jss}
+\item Company Image Score (CIS) = Calculation based on CIS section \ref{company_image}
+\item Employer Branding = $JSS \cdot 0.6 + CIS \cdot 0.4$ and applying the punishment function. 
 \end{itemize}
