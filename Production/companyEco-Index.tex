@@ -1,24 +1,26 @@
 \section{Company Eco-Index}
 \label{sec:compEco-idex}
 In this simulation, we measure all events related to the environment, with the company's Eco-Index. This metric allows to view the current environmental status of the company. There is a $5$ points scale in which the company is evaluated. The scale is explained in the Table \ref{table:eco-index-Company} below. \\
+% add explanation for 0-100 range
+
 \begin{table}[ht]
 \centering
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline
- Index & Color & Quality of Index \\
+ Index & Color & Quality of Index & Range \\
 \hline
- 5 & \cellcolor[HTML]{228b22}Green & Good \\ \hline
- 4 & \cellcolor[HTML]{ffff00}Yellow & Moderate \\  \hline
- 3 & \cellcolor[HTML]{ffd700}Orange & Unhealthy\\ \hline
- 2 & \cellcolor[HTML]{ff0000}Red & Very Unhealthy \\ \hline
- 1 & \cellcolor[HTML]{a52a2a}Maroon & Hazardous \\
+ 5 & \cellcolor[HTML]{228b22}Green & Good & 80-100\\ \hline
+ 4 & \cellcolor[HTML]{ffff00}Yellow & Moderate & 60-80\\  \hline
+ 3 & \cellcolor[HTML]{ffd700}Orange & Unhealthy & 40-60\\ \hline
+ 2 & \cellcolor[HTML]{ff0000}Red & Very Unhealthy & 20-40 \\ \hline
+ 1 & \cellcolor[HTML]{a52a2a}Maroon & Hazardous & 0-20\\
 \hline
 \end{tabular}
 \caption{Company Eco-Index}
 \label{table:eco-index-Company}
 \end{table}
 
-The Quality of index presented in the table above, has several repercussions on different factors that influence the company. Namely these factors are tax, employee satisfaction, company image and external events. Taxes are imposed when the index first starts deteriorating and reaches level $4$. For each lower level, the tax is increased as to further penalize the company for its environmental neglect. Employee Satisfaction is perceived as good in the case of level $5$ and $4$, and it gets low on the consecutive levels. Company Image reacts in the same manner, to the decrease in Eco-Index.\\ 
+The quality of index presented in the table above, has several repercussions on different factors that influence the company. Namely these factors are \textit{tax}, \textit{employeeSatisfaction}, \textit{companyImage} and external events. Taxes are imposed when the index first starts deteriorating and reaches level $4$. For each lower level, the tax is increased as to further penalize the company for its environmental neglect. The impact on \textit{employeeSatisfaction} is perceived as good in the case of level $5$ and $4$, and it gets low on the consecutive levels. The \textit{companyImage} index reacts in the same manner, to the decrease in \textit{ecoIndex}.\\ 
 Events start at level $3$ where new eco-laws are imposed, which means the government is putting the company in alert, regarding their negative environmental impact. This alert is represented by the setting of additional fines, to further penalize the company in monetary terms. In level $2$, these eco-laws become harsher, which means that very large taxes and fines are imposed. On level $1$, there is an important event, as the company has become hazardous for the environment, the government shuts down the company and that means "Game Over" for our player. \\
  These implications can be found in a more visual form in Table \ref{table:eco-index-CompanyE}.
 
@@ -40,40 +42,46 @@ Events start at level $3$ where new eco-laws are imposed, which means the govern
 \end{table}
 
 According to the actions taken by management, the company in our simulation can regulate or deteriorate its position in the scale, by acting in the ways mentioned below. \\
-Eco-Index lowers $1$ point down the scale if:
+The \textit{ecoIndex} lowers $1$ point down the scale if:
+
 \begin{itemize}
 	\item Old machinery is operating in the production department. After being used for a time-span of more than $5$ years machinery gets less effective and it pollutes more. If not maintained or upgraded the low machinery level will cause the Eco-Index of the company to deteriorate.
-\item Logistic vehicles with low regard for the environment are used. If these logistic vehicles have many delivery routes, they pollute the environment more. This is measured by the average logistic eco-index. If it is lower than level $3$, the company's eco-index will drop by one level.
-\item Each time-span of $3$ years, if the company does not meet with pollution regulatory laws, the company's index lowers automatically and gives a notification to the player.
+	
+%Trucks and Logistic Partner already have an eco index, can use them for the calculation, makes more sense (in green in he graph) 
+\item Logistic vehicles with low regard for the environment are used. If these logistic vehicles have many delivery routes, they pollute the environment more. This is measured by the average logistic eco-index. If it is lower than level $3$, the company's \textit{ecoIndex} will drop by one level.
+\item Each time-span of $3$ years, if the company does not meet with pollution regulatory laws, the company's \textit{ecoIndex} lowers automatically and gives a notification to the player.
 \end{itemize}
 
-Eco-Index lowers $2$ points down the scale if: 
+The \textit{ecoIndex} lowers $2$ points down the scale if: 
 \begin{itemize}
-	\item There is an incident inside the company that results in an environmental disaster. There are always unpredictable incidents that may occur while operating a production facility. This is handled by making random events that will trigger this Eco-Index decrease.These incidents also include fires that may burn a part of your company, the breach and spread of a dangerous bio-chemical element, etc.
+	\item There is an incident inside the company that results in an environmental disaster. There are always unpredictable incidents that may occur while operating a production facility. This is handled by making random events that will trigger this \textit{ecoIndex} decrease.These incidents also include fires that may burn a part of your company, the breach and spread of a dangerous bio-chemical element, etc.
 \end{itemize}
 
-A company can also improve its Eco-Index by $1$ point, by choosing one of these options which are also part of the marketing simulation: 
+A company can also improve its \textit{ecoIndex} by $1$ point, by choosing one of these options which are also part of the marketing simulation: 
+%not  included in the marketing campaigns at the moment,idea in overall graph in green (take green campaigns already defined)  
+% ecoCampains in the Marketing simulation
+%adapt and refer, take values and put in calc for company eco index
 \begin{itemize}
-	\item Investing in public parks, or donating trees 
+\item Investing in public parks, or donating trees
 \item Making a campaign to clean a public space
 \item Investing and collaborating with ecological campaigns
 \end{itemize}
 
-An important function that drives the Eco-Index is defining the Eco-cost. This cost measures the amount of CapCoins that the company is due to pay to the government if it has a low index. \\ 
+An important function that drives the \textit{ecoIndex} is defining the \textit{ecoCost}. This cost measures the amount of CapCoins that the company is due to pay to the government if it has a low index. \\ 
 \begin{equation}
-Eco–Tax= Eco–Flat tax+ Eco–additionalTax
+eco–Tax= eco–Flat tax+ additionalEcoTax
 \label{eq:eco-tax}
 \end{equation}
 \begin{equation}
-Eco–cost= Eco–Tax - (PT + component EI)\times Eco–Refund 
+ecoCost= ecoTax - (pT + component \; eI)\times ecoRefund 
 \label{eq:eco-cost}
 \end{equation}
 \begin{center}
 with\\
-	PT=Production Technology\\
-	component EI= component Eco-Index\\
+	pT=Production Technology\\
+	component eI= component ecoIndex\\
 \end{center}
 
-In Equation \ref{eq:eco-cost}, component EI refers to the component Eco-Index, as the components are purchased from the supplier, they have their own Eco-Index.\\
-The Eco-Tax in equation \ref{eq:eco-tax} is composed of the Eco-Flat Tax and the additional Eco-Tax set by the government, if the index is lower than $4$, as shown in Table \ref{table:eco-index-CompanyE}.
-The Eco-Flat Tax is a fixed tax amounting to $1000cc$. The Eco-cost can also be $0$ if the company has a quarterly Eco-Index of $5$. The Eco-Refund is a government refund of $100cc$, that makes it possible to pay no tax at all, in the case that the Eco-Index is at its highest. 
+In Equation \ref{eq:eco-cost}, component eI refers to the component  \textit{ecoIndex}, as the components are purchased from the supplier, they have their own \textit{ecoIndex}.\\
+The \textit{ecoTax} in equation \ref{eq:eco-tax} is composed of the \textit{ecoFlatTax} and the \textit{additionalEcoTax} set by the government, if the index is lower than $4$, as shown in Table \ref{table:eco-index-CompanyE}.
+The \textit{ecoFlatTax} is a fixed tax amounting to $1000cc$. The \textit{ecoCost} can also be $0$ if the company has a quarterly  \textit{ecoIndex} of $5$. The  \textit{ecoRefund} is a government refund of $100cc$, that makes it possible to pay no tax at all, in the case that the \textit{ecoIndex} is at its highest. 

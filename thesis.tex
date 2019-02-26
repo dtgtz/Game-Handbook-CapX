@@ -145,6 +145,14 @@ description={capacityInternalLogisticFleet}%
 name={iLI},%
 description={internalLogisicIndex}%
 }
+\newglossaryentry{fTC}{%
+name={fTC},%
+description={fixTruckCost}%
+}
+\newglossaryentry{tTC}{%
+name={tTC},%
+description={totalTruckCost}%
+}
 \newglossaryentry{fCD}{%
 name={fCD},%
 description={fixCostsDelivery}%
@@ -173,9 +181,17 @@ description={ecoIndexPartner}%
 name={qLP},%
 description={qualityIndexLogisticPartner}%
 }
-\newglossaryentry{tCCLP}{%
-name={tCCLP},%
-description={totalContractualCostLogisticPartner}%
+\newglossaryentry{cCLP}{%
+name={cCLP},%
+description={contractualCostLogisticPartner}%
+}
+\newglossaryentry{tLC}{%
+name={tLC},%
+description={totalLogisticCost}%
+}
+\newglossaryentry{cL}{%
+name={cL},%
+description={costLogistic}%
 }
 \newglossaryentry{vCDE}{%
 name={vCDE},%
@@ -232,6 +248,10 @@ name={cSP},%
 description={costSupportPartner}%
 }
 
+\newglossaryentry{sTQ}{%
+name={sTQ},%
+description={supportTypeQuality}%
+}
 
 %Glossary Warehouse
 \newglossaryentry{bCW}{%
@@ -270,13 +290,21 @@ description={numberWarehouses}%
 name={nRWH},%
 description={numberRentedWarehouses}%
 }
-\newglossaryentry{nSP}{%
-name={nSP},%
-description={numberStoredProducts}%
+\newglossaryentry{sU}{%
+name={sU},%
+description={storedUnits}%
 }
 \newglossaryentry{sC}{%
 name={sC},%
 description={storageCosts}%
+}
+\newglossaryentry{fSWH}{%
+name={fSWH},%
+description={freeStorage}%
+}
+\newglossaryentry{tWHC}{%
+name={tWHC},%
+description={totalWarehouseCost}%
 }
 
 %Glossary Demand 
@@ -321,6 +349,21 @@ name={tP},%
 description={totalPopulation}%
 }
 
+%Glossary Procurement 
+\newglossaryentry{tBCP}{%
+name={tBCP},%
+description={timeBasedComponentPrice}%
+}
+\newglossaryentry{iCP}{%
+name={iCP},%
+description={initialComponentPrice}%
+}
+
+%Glossary CustomerSatisfaction 
+\newglossaryentry{cS}{%
+name={cS},%
+description={customerSatisfaction}%
+}
 
 
 \begin{document}
@@ -372,25 +415,23 @@ Steffen Waldmann \\
 \chapter{From a small startup to a global enterprise}
 \label{cha:intro}
 \section{What to expect from Capitalism X (CapX)}
-Nike\\
-
-Have you ever wanted to test out your economic skills and entrepreneurial spirit? Did you ever wish to take action and do things your way? Did you ever think that with the steering wheel in your hand, you'd give a company a whole new direction and possibility to rise? 
-
-CapitalismX now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades. You are going to start with a small IT company and, with your sophisticated input, you can build up an enterprise.
-
-The goal of this interactive business simulation game is simple: Maximize your company's profit! As a CEO you will have to take care of multiple issues, that occur in daily business, such as defining your product portfolio, controlling your financial status, managing employees and so on. However, also unforeseen events might occur suddenly! In these cases, you can prove your decision-making abilities and guide your company through delicate situations. 
-
-Sth like: you can expect a game, which shows you the economical and xxxx processes and activities, that define the daily work in a start up until it becomes a big company. Of course, all processes and activities are displayed in a simplified manner to reduce complexity. However, you will still get a rough overview xxxxx.
-
+%Nike
+Have you ever wanted to test out your economic skills and entrepreneurial spirit? Did you ever wish to take action and do things your way? Did you ever think that with the steering wheel in your hand, you'd give a company a whole new direction and possibility to rise? \\
+CapitalismX now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades. You are going to start with a small IT company and, with your sophisticated input, you can build up an enterprise.\\
+The goal of this interactive business simulation game is simple: Maximize your company's profit! As a CEO you will have to take care of multiple issues, that occur in daily business, such as defining your product portfolio, controlling your financial status, managing employees and so on. However, also unforeseen events might occur suddenly! In these cases, you can prove your decision-making abilities and guide your company through delicate situations. \\
+Sth like: you can expect a game, which shows you the economical and xxxx processes and activities, that define the daily work in a start up until it becomes a big company. Of course, all processes and activities are displayed in a simplified manner to reduce complexity. However, you will still get a rough overview xxxxx. \\
 \emph{Very Important:} Besides being a game-play handbook, this document also addresses the game mechanisms working in the background
  
 \section{Player's role}
-Maike\\
-You will take on the role of CEO for either a start-up or a midsize company which is about to fail. During your career, you will encounter several obstacles and lead the business. So, you will slip into various roles, such as head of human resources, production or logistics, in order to take the necessary measures to run a successful business. Daily tasks include hiring, firing, motivating and training employees, innovating and manufacturing products, deciding on the product portfolio, dealing with government issues and taking financial figures into account. In summary, you will decide on all the features provided in this game. Your decisions are then integrated into finance, human resources, procurement, production, warehousing, logistics and marketing and will finally affect the performance of your company.
+%Maike
+You will take on the role of CEO for either a start-up or a midsize company which is about to fail. During your career, you will encounter several obstacles and lead the business. So, you will slip into various roles, such as head of human resources, production or logistics, in order to take the necessary measures to run a successful business. Daily tasks include hiring, firing, motivating and training employees, innovating and manufacturing products, deciding on the product portfolio, dealing with government issues and taking financial figures into account. 
+
+In summary, you will decide on all the features provided in this game. Your decisions are then integrated into finance, human resources, procurement, production, warehousing, logistics and marketing and will finally affect the performance of your company.
 
 \section{Setting \& Storyline}
 \label{SettingStory}
 The CapitalismX game is created relying on a progressive game-play modality. Meaning that the game will start as a one-man business and then evolve step by step, by employing, producing, expanding, buying and selling  until the end goal is achieved, which is to transform the initial company into a large corporate. 
+
 \subsubsection{Setting}
 The setting of our game is in a fictional country, which we have designed after having drawn some simple parallels with real countries or cities. These parallels mean that our country has the most important features, that allow an economy to grow. Hence, we divided our map elements into functional and non-functional elements. Where functional buildings are the ones you can interact with, for instance, taking a loan in a bank, advertising in a media building, hiring employees in a job center, etc.  To give another illustration, our fictional country operates with the outside world through the simulation of a harbor in the early stages of the game and then it will be possible to unlock an airport. Whereas non-functional buildings are objects with a decorative purpose to make the map look and feel  more realistic to the user’s perception. The complete list of functional and non-functional buildings can be found in Table \ref{table:map-el}. 
 
@@ -412,15 +453,21 @@ The setting of our game is in a fictional country, which we have designed after 
 \end{table}
 
 
-Regarding the timeframe our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence economy and each year in the real world would be represented by one hour of gameplay. Which results in a change of parameters in the game every $5$ minutes, in order to represent monthly real data. This means that the total number of hours you can play CapitalismX is $27$ hours. (is this correct??)
-During the entire timespan of the game, there will be a democratic government that operates and interacts with the game environment. The government can also intervene to impose laws, taxes and additional measures, if the company is not compliant to the current regulations. \\
+Regarding the time-frame our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence economy and each year in the real world would be represented by one hour of game-play. Which results in a change of parameters in the game every $5$ minutes, in order to represent monthly real data. This means that the total number of hours you can play CapitalismX is $27$ hours. (is this correct??) 
+
+During the entire time-span of the game, there will be a democratic government that operates and interacts with the game environment. The government can also intervene to impose laws, taxes and additional measures, if the company is not compliant to the current regulations. 
+
 Furthermore an additional unique element in this game simulation is the currency. CapitalismX has its own currency, which is the CapCoin(CC), and every function within the game is adapted to operate with this currency.
 \subsubsection{Storyline}
- The storyline that the player will be operating in, would be that of managing an IT business, which the player has founded as a start-up. The player will be able to choose which employees to hire, which products to manufacture,  how to set the price on these products, etc. These options and many more comprise scenarios and decisions the player will have to face in order to have a successful company. Having said this, it is evident that the player’s role will be that of the CEO of the company. By assuming this role the player will be able to control all the major departments of a company such as, HR, Finance, Manufacturing, Marketing, Procurement, etc. \\
-In the beginning of the simulation all these departments will need immediate changes and additions, in order to start operating according to their functionality. The player should be aware of the importance of developing all departments, whilst keeping an eye on the budget. A player cannot exceed the budget under any circumstance, as this will lead to a fatal “Game Over”. The only possibility for a player to spend more CapCoins than the budget is to take a loan in a bank. \\
-The most basic rule of this game is the cause and consequence effect. Since even in real life everything we do is related to a consequence, the same principle applies to businesses and business simulations. We have based our simulations on this effect and have covered most of the causes and consequences of the actions of a CEO, inside the company. \\
-An important element that is included in the gameplay is the make or buy decision. The player has two options, to either manufacture a product by purchasing all the required components or to buy it from another source and sell it as a retailer. The complete list of products that can be manufactured in-house and a more in detail explanation regarding products can be found in section \ref{sub:portfolio} Choose the portfolio. \\
-Moreover the player will be faced with external events. These events will take place during the timespan of the gameplay, and they will arise as a consequence to the company’s operations or they can be independent. Independent operations are those operation that do not rely on any company indicator and will happen nonetheless. These events will be further explained in section \ref{sec:ectEvent}.	
+ The storyline that you will be operating in, would be that of managing an IT business, which you have founded as a start-up. You will be able to choose which employees to hire, which products to manufacture,  how to set the price on these products, etc. These options and many more comprise scenarios and decisions you will have to face in order to have a successful company. Having said this, it is evident that your role will be that of the CEO of the company. By assuming this role you will be able to control all the major departments of the company such as, HR, Finance, Manufacturing, Marketing, Procurement, etc. 
+ 
+In the beginning of the simulation all these departments will need immediate changes and additions, in order to start operating according to their functionality. You should be aware of the importance of developing all departments, whilst keeping an eye on the budget. A player cannot exceed the budget under any circumstance, as this will lead to a fatal “Game Over”. The only possibility for you to spend more CapCoins than the budget is to take a loan in a bank. 
+
+The most basic rule of this game is the cause and consequence effect. Since even in real life everything we do is related to a consequence, the same principle applies to businesses and business simulations. We have based our simulations on this effect and have covered most of the causes and consequences of the actions of a CEO, inside the company. 
+
+An important element that is included in the game-play is the make or buy decision. You have two options, to either manufacture a product by purchasing all the required components or to buy it from another source and sell it as a retailer. The complete list of products that can be manufactured in-house and a more in detail explanation regarding products can be found in section \ref{sub:portfolio} Choose the portfolio. 
+
+Moreover you will be faced with external events. These events will take place during the time-span of the game-play, and they will arise as a consequence to the company’s operations or they can be independent. Independent operations are those operation that do not rely on any company indicator and will happen nonetheless. These events will be further explained in section \ref{sec:ectEvent}.	
 
 \chapter{How to play CapX}
 
@@ -481,8 +528,7 @@ Apart from that, at the bottom of the screen you can find a newsticker-banner, t
 
 In CaptialismX some unexpected incidents may happen to your company or to the environment, for example it could happen that an earthquake destroys part of your production facility or that a sudden hacker attack is going to steal sensitive data from you. In these cases, urgent intervention from you is needed! Therefore, a pop-up window will open, where you have instant decisions to be taken and actions to start. It is absolutely not recommended to ignore such pop-up windows, because omitted action is highly probable to cause your company huge damage.
 
-
- \input{finance/finance_manual.tex}
+\input{finance/finance_manual.tex}
  
 %\include{finance/investments.tex}
 
@@ -526,13 +572,12 @@ how to play your game successfully
 
 
 \section{Challenges \& Opportunities}
-Planning plays an essential part in business, but not everything can be foreseen. Companies and their executives must deal with uncertainty. Let's imagine that you just packed your bags for holiday and it gets lost at the airport. Did you consider this scenario before it happened? Running a business is similar: You can cover many scenarios and possibilities, but not every possible aspect. Therefore the game includes challenges and opportunities that are out of reach. Some of them are the result of bad management, some are rewarding. Some are influenced by your actions as a player, others come around occasionally. \\
+Planning plays an essential part in business, but not everything can be foreseen. Companies and their executives must deal with uncertainty. Let's imagine that you just packed your bags for holiday and it gets lost at the airport. Did you consider this scenario before it happened? Running a business is similar: You can cover many scenarios and possibilities, but not every possible aspect. Therefore the game includes challenges and opportunities that are out of reach. Some of them are the result of bad management, some are rewarding. Some are influenced by your actions as a player, others come around occasionally. 
+
 Their effects become visible via various indicators, like financial figures, warehouse or customer satisfaction. An immediate response is necessary to minimize negative consequences. Or to grab the chance when it is offered. And of course, a 'just straightforward' course of the game would be boring after some playtime. 
 
 \chapter{Game Mechanics and Prototype}
 \label{cha:alg}
-Game Mechanics were tested via prototype
-Technical description of the game, the backend
 
 %Finance
 \input{finance/finance_simulation.tex}
@@ -591,29 +636,7 @@ Technical description of the game, the backend
 
 \section{External events}
 \label{sec:ectEvent}
-Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section describes external events which influence the course of the game. The term 'external' events is used as they are out of the player's visible and obvious control. Actions taken may have an influence on an event's probability to happen, but this is invisible to the player. From a location point of view events can take place inside the company, for example strikes, or outside like increasing taxes. A punishing character of events is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events. A full overview of them and their real-world background are listed in table xy at the end of this section. \\ 
-
-The events are divided into 5 categories acting as counterparts to the game features:
-\begin{itemize}
-\item Production, Company and Market
-\item Money and Tax
-\item Employees
-\item Natural Disasters
-\item Government and Politics
-\end{itemize}
-
-Events are mostly cross-functional. This means that the trigger of an event belongs to one simulation in the game while the result affects another simulation. The parameters which effect the properties of an event are named 'Influencing factors' and are values of the game simulation. Each event is assigned an attribute of the following 4 characteristics:
-
-\begin{itemize}
-\item Random or Conditional: Random events have a probability which is not changed throughout the game. Conditional events have some preconditions that must be met to get the probability activated (rising above 0).
-\item Rising probability or certain occurrence: Probabilities may rise exponentially or linear when an influencing factor changes its value. Alternatively the occurrence is certain if a specific threshold is hit.
-\item Starting or final thresholds applicable: To get a probability higher than 0, some threshold value of an influencing factor must be met. A threshold is not mandatory and by nature, not applicable to random events.
-\item Impact on a game mechanic: Only notification events do not change a variable in one of the game simulations. An event normally changes the value of a game mechanic when triggered.
-\end{itemize}
-
-The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which includes one-time events. Their nature and likeliness to happen are to be transferred to the game environment. However, there are aspects which are contradictory to this intend.
-Determining probabilities where applicable is based on multiple considerations. Empirical evidence for the probability of events might be rare or the probability is so low that they would only happen happen after a very long game duration. Events having such a high probability that they lead to a Game-Over in an early stage must not happen in an early state as they would frustrate the player. In the end gaming should be fun too, not only reflecting the real-world. Copying the latter is also limited as a simulation can never cover every 'life' aspect.  Following these considerations, probabilities from scientific resources were used when available and realistic for in-game application. If this was not the case, the probability was sourced from other trustworthy sources like reliable newspapers or estimated based on the indicators and scales of the existing game parts. Therefore a probability can distort from its real-world example. If suitable, an event is given a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. Some events have only a notification as a result without manipulating the game mechanics. Transferring real-world events directly to an artificial environment was almost never possible. A full overview of events, influencing factors, thresholds, probabilities and preconditions, impacted factors and remarks is listed in the appendix table 1. \\
-From an UI point of view, the events displayed as informing Pop-Ups or they are invisible to the player. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet. However, its worth listing them in this section. 
+Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section describes external events which influence the course of the game. The term 'external' events is used as they are out of the player's visible and obvious control. Technically, they are excluded from the typical cycle of the game mechanics, but manipulate them from the 'outside'. Actions taken may have an influence on an event's probability to happen, but this is invisible to the player. From a location point of view events can take place inside the company, for example strikes, or outside like increasing taxes. A punishing character of events is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events. A full overview of them and their real-world background are listed in table \ref{table:Examples_events} below: \\ 
 
 \begin{longtable}{|l|l|l|}
 \hline
@@ -637,8 +660,32 @@ From an UI point of view, the events displayed as informing Pop-Ups or they are 
 \textbf{17} & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & \begin{tabular}[c]{@{}l@{}}Exact indicators are future work as \\ infrastructure elements are not part of the game \\ yet. Energy companies are often targets of riots.\end{tabular} \\ \hline
 \textbf{18} & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and \\ other countries\end{tabular} & \begin{tabular}[c]{@{}l@{}}Tensions between the US and Iran impact \\ companies on their business. Part of future work \\ as the game currently focuses at one country.\end{tabular} \\ \hline
 \caption{Real-world examples for events}
-    \label{Examples_events}
+    \label{table:Examples_events}
 \end{longtable}
+\\
+The events are divided into 5 categories acting as counterparts to the game features:
+\begin{itemize}
+\item Production, Company and Market
+\item Money and Tax
+\item Employees
+\item Natural Disasters
+\item Government and Politics
+\end{itemize}
+
+Events are mostly cross-functional. This means that the trigger of an event belongs to one simulation in the game while the result affects another simulation. The parameters which effect the properties of an event are named 'Influencing factors' and are values of the game simulation. Each event is assigned an attribute of the following 4 characteristics:
+
+\begin{itemize}
+\item Random or Conditional: Random events have a probability which is not changed throughout the game. Conditional events have some preconditions that must be met to get the probability activated (rising above 0).
+\item Rising probability or certain occurrence: Probabilities may rise exponentially or linear when an influencing factor changes its value. Alternatively the occurrence is certain if a specific threshold is hit.
+\item Starting or final thresholds applicable: To get a probability higher than 0, some threshold value of an influencing factor must be met. A threshold is not mandatory and by nature, not applicable to random events.
+\item Impact on a game mechanic: Only notification events do not change a variable in one of the game simulations. An event normally changes the value of a game mechanic when triggered.
+\end{itemize}
+
+The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which includes one-time events. Their nature and likeliness to happen are to be transferred to the game environment. However, there are aspects which are contradictory to this intend.
+Determining probabilities where applicable is based on multiple considerations. Empirical evidence for the probability of events might be rare or the probability is so low that they would only happen happen after a very long game duration. Events having such a high probability that they lead to a Game-Over in an early stage must not happen in an early state as they would frustrate the player. In the end gaming should be fun too, not only reflecting the real-world. Copying the latter is also limited as a simulation can never cover every 'life' aspect.  Following these considerations, probabilities from scientific resources were used when available and realistic for in-game application. If this was not the case, the probability was sourced from other trustworthy sources like reliable newspapers or estimated based on the indicators and scales of the existing game parts. Therefore a probability can distort from its real-world example. If suitable, an event is given a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. Some events have only a notification as a result without manipulating the game mechanics. Transferring real-world events directly to an artificial environment was almost never possible. A full overview of events, influencing factors, thresholds, probabilities and preconditions, impacted factors and remarks is listed in the Appendix table 1. \\
+From an UI point of view, the events displayed as informing Pop-Ups or they are invisible to the player. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet. However, its worth listing them in this section. 
+
+
 
 
 \pagebreak
@@ -664,47 +711,18 @@ Multiple countries that will enable online multi-players
 3rd phase of the game corporate utopia
 \bibliographystyle{plain}
 \bibliography{thesis-ref}
-
-
+\pagebreak
 \appendix
-
-\begin{landscape}
-\begin{table}[]
-%{
-\fontsize{7}{8} \selectfont
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
-\hline
- & \textbf{External Event} & \textbf{\begin{tabular}[c]{@{}l@{}}Random / \\ Conditional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Influencing \\ factor\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Starting \\ Threshold\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Probability or\\ Preconditions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Final \\ Threshold\end{tabular}} & \textbf{Impacted factor} & \textbf{Remarks} \\ \hline
-\textbf{} & \textbf{Production and Market:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-1 & \begin{tabular}[c]{@{}l@{}}Production Problems \\ Popup\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product\\ Quality\end{tabular} & 0,3 & (-1*Product Quality+2) & 0 & n/a & Decreasing Function \\ \hline
-2 & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Product \\ Quality\end{tabular} &  &  &  & Customer Satisfaction & \begin{tabular}[c]{@{}l@{}}Boosts Customer \\ Satisfaction for 20 cycles\end{tabular} \\ \hline
-3 & \begin{tabular}[c]{@{}l@{}}Company Acquisition \\ possibility offered\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Constant \\ Increasing \\ Revenue\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Revenue increases\\ 25\% per year \\ over 5 years\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Indicators of \\ Acquisition integrated\end{tabular} & \begin{tabular}[c]{@{}l@{}}Acquisition costs 3000, \\  mini-game possible\end{tabular} \\ \hline
-4 & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & Random & n/a &  & 0,05 &  & Revenue & \begin{tabular}[c]{@{}l@{}}Only possible if revenue \\ above xx CapCoins\end{tabular} \\ \hline
-5 & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Customer \\ Satisfaction\end{tabular} & n/a & \begin{tabular}[c]{@{}l@{}}Customer satisfaction \\ below threshold of XY\end{tabular} & n/a & Demand &  \\ \hline
-6 & \begin{tabular}[c]{@{}l@{}}Computer virus attacks\end{tabular} & Random & n/a & n/a & 0,1 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity and\\ Reputation\end{tabular} & After Year 2000 \\ \hline
-\textbf{} & \textbf{Finance and Taxes:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & {\color[HTML]{FE0000} } \\ \hline
-7 & \begin{tabular}[c]{@{}l@{}}Tax Changes lead to \\ higher or less rates\end{tabular} & Random & n/a & n/a & -2 to 5 percent &  &  & In-/Decrease over time \\ \hline
-8 & Stricter Eco Laws & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 4 & 2 - Eco Index \textasciicircum0.5 & 1 & \begin{tabular}[c]{@{}l@{}}Financial of 100 per Index level \\ Game Over at 1\end{tabular} & Shutdown by Government \\ \hline
-9 & Inflation changes & Random & n/a & n/a & \begin{tabular}[c]{@{}l@{}}0 - 2 \% \\ (random)\end{tabular} & n/a &  & Example Germany \\ \hline
-10 & \begin{tabular}[c]{@{}l@{}}Stealing inside of\\ the company\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Job \\ Satisfaction\end{tabular} & 50\% & \begin{tabular}[c]{@{}l@{}}-4 * Job\\ Satisfaction + 2\end{tabular} & 25\% & Revenue & \begin{tabular}[c]{@{}l@{}}Profit -xy CapCoins even \\ if sales high and cost \\ low (Inconsistent)\end{tabular} \\ \hline
-\textbf{} & \textbf{Employees:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-11 & Strikes and union fighting & Conditional & Salary &  & Scaling to be defined &  & \begin{tabular}[c]{@{}l@{}}Production \\ Performance\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ Job satisfaction above xy\end{tabular} \\ \hline
-\textbf{} & \textbf{Natural Disasters:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-12 & \begin{tabular}[c]{@{}l@{}}Flu goes around \\ causing Ill employees\end{tabular} & Random & n/a & n/a & 0,2 & n/a & \begin{tabular}[c]{@{}l@{}}Productivity \\ Decrease by 10\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Active for\\ 100 Game Cycles\end{tabular} \\ \hline
-13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornadoes, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Eco \\ Index\end{tabular} & 4 & 2 - Eco Index \textasciicircum 0.5 & 1 &  Inventory & Future Work \\ \hline
-14 & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ warehouse\end{tabular} & Conditional & Inventory & \begin{tabular}[c]{@{}l@{}}Warehouses \\ at 80\%\end{tabular} & Game Cycles *0,001 & \begin{tabular}[c]{@{}l@{}}n/a \end{tabular} & Inventory & \begin{tabular}[c]{@{}l@{}}Only if warehouse\\ at or over 80\% full\end{tabular} \\ \hline
-\textbf{} & \textbf{Government and Politics:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-15 & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Supplier \\ quality\end{tabular} &  &  &  &  Future work &  \\ \hline
-16 & Change of power & Random & n/a & n/a & 0,2 &  & Tax rate + 5\% & Most once per game \\ \hline
-17 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & Conditional & Company Image & & & &  Future Work &  \\ \hline
-18 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and other countries\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} & n/a & n/a & n/a & n/a & Future Work \\ \hline
-\end{tabular}
-    \caption{External events}
-    \label{events_list}
-\end{table}
-\end{landscape}
+\input{Appendix.tex}
 \chapter{Appendix}
 \label{cha:appendix-a}
+\begin{figure}
+    \centering
+    \includegraphics[trim=0cm 5cm 0cm 0cm, scale = 0.75]{images/staticComponentAttributes.pdf}
+    \caption{Static component attributes (regression against \textit{componentLevel})}
+    \label{fig:staticComponentAttributes}
+\end{figure}
+
 
 \newpage
 
