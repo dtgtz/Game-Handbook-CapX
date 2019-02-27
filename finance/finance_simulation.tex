@@ -2,14 +2,14 @@
 \label{sec:finance_simulation}
 %nike, salih
 
-The finance simulation is connected to almost all other simulations, as costs and profits are ruling an enterprise's daily work. The complete finance graph can be found in appendix [PUT IN APPENDIX PLUS REFERENCE], however, it is part of the overall graph. Just for reasons of clarification and concise structure we developed a separate graph, whereas at least the start node and the leave nodes are exactly the same as in the overall graph. Contrary to the overall graph, we inserted aggregated nodes, that simply sum up the nodes in the overall graphs, so that a clearer overview about how the single financial performance indicators are calculated is possible. Especially for the calculation of the \gls{EBIT} this graph is important, because it displays all the expenses and all the revenues from different sources neat and clean. These aggregated total nodes are:
+The finance simulation is connected to almost all other simulations, as costs and profits are ruling an enterprise's daily work. The complete finance graph can be found in appendix [PUT IN APPENDIX PLUS REFERENCE], however, it is part of the overall graph. Just for reasons of clarification and concise structure we developed a separate graph, whereas at least the start node and the leave nodes are exactly the same as in the overall graph. Contrary to the overall graph, we inserted aggregated nodes, that simply sum up the nodes in the overall graphs, for a clearer overview about how the single financial performance indicators are calculated. Especially for the calculation of the \gls{EBIT} this graph is important, because it displays all the expenses and all the revenues from different sources neat and clean. These aggregated total nodes are:
 \begin{itemize}
-    \item \textit{totalMarketingCosts}
+    \item \textit{totalMarketingCosts (tMC)}
     \item \textit{totalLogisticCosts (tLC)}
-    \item \textit{totalHRCosts}
-    \item \textit{totalSupportCosts}
-    \item \textit{totalWarehousingCosts}
-    \item \textit{totalProductCosts}
+    \item \textit{totalHRCosts (tHRC)}
+    \item \textit{totalSupportCosts (tSC)}
+    \item \textit{totalWarehouseCosts (tWH)}
+    \item \textit{totalProductCosts (tPC)}
     \item \textit{totalRevenues}
     \item \textit{totalAssetsSold}
 \end{itemize}
@@ -23,7 +23,9 @@ The finance simulation is connected to almost all other simulations, as costs an
  %   \label{fig:financeGraphPart}
 %\end{figure}
 
-The main financial key figure is the company net worth (\textit{netWorth}). A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:balanceSheet} shows an exemplary balance sheet in CapitalismX which is updated monthly for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses. However, in CapitalismX the company net worth as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. The company \textit{netWorth} is calculated in equation \ref{func:netWorth}. Currently, the player gets 1,000,000 CapCoins equity capital as starting capital. In later implementation, this value needs to be adjusted according to tests.
+The main financial key figure is the company net worth (\textit{netWorth}). A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:balanceSheet} shows an exemplary balance sheet in CapitalismX which is updated daily for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses. 
+
+However, in CapitalismX the company net worth as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. The company \textit{netWorth} is calculated in equation \ref{func:netWorth}. Currently, the player gets 1,000,000 CapCoins equity capital as starting capital. In later implementation, this value needs to be adjusted according to tests with all financial costs and profits.
 
 \begin{table}[ht]
 \begin{tabular}{|p{5.8cm}|p{5.8cm}|}
@@ -81,11 +83,9 @@ The next important key figure is the \gls{NOPAT}. The \textit{NOPAT} can be calc
 \subsection{Income tax}
 \label{sec:incomeTax}
 
-In CapitalismX the \textit{incomeTax} is levied on a daily basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IAS 12 \textit{Income Taxes} paragraph from the IFRS\footnote{https://www.ifrs.org/-/media/feature/meetings/2018/october/iasb/ap12c-ias12.pdf}, which is per default a \textit{taxRate} of 20\%. 
+In CapitalismX the \textit{incomeTax} is levied on a daily basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IAS 12 \textit{Income Taxes} paragraph from the IFRS\footnote{https://www.ifrs.org/-/media/feature/meetings/2018/october/iasb/ap12c-ias12.pdf}. To determine realistic tax rates, corporations selling similar products to the ones in CapitalismX were compared, using the IFRS statements from yahoo finance, resulting is a \textit{taxRate} of 20\% for CapitalismX. The compared corporations with their tax rate can be seen in table \ref{Example_Tax}.
 
-%To determine realistic tax rates, corporates selling similar products to the ones in the game were compared. Their average is the standard tax rate of CapitalismX. (REFERENCES) \\
-
-\begin{table}[]
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
@@ -117,7 +117,6 @@ In order to calculate the EBIT, it is necessary to first consolidate all the rev
     \end{equation}
     \item Assets Sold (\textit{assetsSold}). %rewrite all this item and all subitems.
         \subitem \textit{buildingsSold}. The player has the possibility to build a warehouse to store his products. However, it may happen that the warehouse is no longer needed. The calculation of the residual value corresponds to the sale of a vehicle \ref{calc:residualvalue}. Also in this case the building is depreciated on a straight-line basis \ref{calc:depreciation}. The cost calculation of the warehouse and the useful life are described in \ref{warehouse_simulation}.
-        \subitem \textit{machinerySold}. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}.
         \subitem \textit{vehiclesSold}. Similar to the resale of machines, it is also possible to sell the vehicles at their residual value if they are no longer used or the delivery is carried out by a logistics partner. The cost of the vehicles and their useful life are described in Chapter \ref{logistic_simulation}. The calculation is based on a simple linear depreciation \ref{calc:depreciation}. The calculation of the residual value is in formula \ref{calc:residualvalue}.
      \begin{equation}
      \label{calc:depreciation}
@@ -126,7 +125,8 @@ In order to calculate the EBIT, it is necessary to first consolidate all the rev
      \begin{equation}
      \label{calc:residualvalue}
      residual \ value = {{cost \ of \ the \ asset} - {annual \ depreciation \cdot t }}    
-     \end{equation}  
+     \end{equation}
+     \subitem \textit{machinerySold}. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}.
     \item Investments, which are either positive or negative incomes from the investment area in the financial dashboard. Investing in real estate funds, stocks or venture capital can provide the player with additional revenue. However, if he risks too much, he can suffer high losses and thus put his own company at risk. Chapter \ref{sec:investments_simulation} describes the process in detail.
 \end{itemize}
 
@@ -217,8 +217,8 @@ Once the loan amount and term values have been determined, an interest rate (i) 
 \begin{equation}
 \label{func:interestrate}
 \begin{aligned}
-principal \ balance \ per \ year (S\textsubscript{t})= S- (a*t)\\
-Interest \ rate \ per \ year (i\textsubscript{t}) = S\textsubscript{t} * i
+principal \ balance \ per \ year (S\textsubscript{t})= S- (a \cdot t)\\
+Interest \ rate \ per \ year (i\textsubscript{t}) = S\textsubscript{t} \cdot i
 \end{aligned}    
 \end{equation}
 
@@ -234,18 +234,18 @@ Rate (r)= a+ i\textsubscript{t}
 % @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder?
 
 However, the raising of capital from the bank is restricted.
-The requested loan must not be larger than 30 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan is in fact larger than 30\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 30\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.\\
+The requested loan must not be larger than 70 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan is in fact larger than 70\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 70\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.\\
 For a better understanding, the following algorithm can be helpful:
 \begin{equation}
-\begin{aligned}
-If (loanAmount \cdot 30\% ) \geq  \text{netWorth} \xrightarrow{} \text{accepted} \ \text{(offer three credit forms)} \\
-If (loanAmount \cdot 30\%) < \text{netWorth} \xrightarrow{} \text{reject AND offer} \ (netWorth / 30\%)
-\end{aligned}    
+    \begin{aligned}
+         \texttt{If loanRequest} \leq \texttt{netWorth} \cdot 70\% \\ \xrightarrow{} \text{accept AND offer three credit forms} \\
+         \texttt{If loanRequest} > \texttt{netWorth} \cdot 70\% \\ \xrightarrow{} \text{reject AND offer} \ (\texttt{netWorth} \cdot 70\%)
+    \end{aligned}    
 \end{equation}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=12cm]{images/banking_activity_diagram.jpg}
+	\includegraphics[width=12cm]{images/activity_diagram.JPG}
 	\caption{Activity Diagram Banking Simulation}
 	\label{jpg:banking}
 \end{figure}
