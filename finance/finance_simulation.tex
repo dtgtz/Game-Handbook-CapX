@@ -107,13 +107,14 @@ Realistically the income tax is levied annually, but in order to provide the pla
     incomeTax = EBIT \cdot taxRate
 \end{equation}
 
-As described in chapter \ref{logistic_simulation} the produced products per day are collected in the warehouse and sent out to the market at the end of the day. Hence, the amount of the \textit{incomeTax} varies depending on the quantity of products sold. The income \textit{taxRate} can be decreased down to a minimum of 10\% by hiring powerful lobbyists. This process is described in chapter \ref{lobbyist_simulation}.
+As described in chapter \ref{logistic_simulation} the produced products per day are collected in the warehouse and sent out to the market at the end of the day. Hence, the amount of the \textit{incomeTax} varies depending on the quantity of products sold. Lobbyists, who can be hired, have a political influence on the \textit{taxRate}. This process is described in chapter \ref{lobbyist_simulation}.
 
 \subsubsection{EBIT}
 
-The next level under the company's \textit{NOPAT} is the \textit{EBIT}, which are the earnings before interest and tax, a commonly used key financial indicator in company's financial statements. \cite{lee_e_2006} Again, the calculation of the \textit{EBIT} is simplified for the business simulation game at hand. To sum it up, all revenues are added to the \textit{EBIT} whereas the total expenses are subtracted. The \textit{EBIT} is displayed in the cashflow section of the finance view and updated on a daily basis.
-
-\subsubsubsection{Revenues}
+The next level under the company's \textit{NOPAT} is the \textit{EBIT}, which are the earnings before interest and tax, a commonly used key financial indicator in company's financial statements. \cite{lee_e_2006} Again, the calculation of the \textit{EBIT} is simplified for the business simulation game at hand. To sum it up, all revenues are added to the \textit{EBIT} whereas the total expenses are subtracted. The \textit{EBIT} is displayed in the cashflow section of the finance view and updated on a daily basis. This means, also the total revenues and total expenses are calculated on a daily basis.\\
+\\
+\textbf{Revenues}\\
+\\
 In order to calculate the EBIT, it is necessary to first consolidate all the revenues. The total revenue is calculated by adding all incoming cash flows, which are:
 \begin{itemize}
     \item Goods sold, displayed by the \textit{totalSalesRevenues}, which can be derived by multiplying a product’s sales price \textit{(sP)} with the amount of units sold, which are the sales figures (\gls{sFig}). 
@@ -157,9 +158,10 @@ To put it into a nutshell, the total revenues can be calculated according to the
     & + assetsSold \\
     & + totalInvestmentEarnings \\
 \end{aligned}
-\end{equation}
-
-\subsubsubsection{Expenses}
+\end{equation}\\
+\\
+\textbf{Expenses}\\
+\\
 The other part needed to calculate the EBIT are the total expenses. All costs and expenditures that occur across all other simulations are accounted as expenses. The total expenses consist of:
 \begin{itemize}
     \item \textit{totalHRCosts} (\textit{tHRC}), which is the sum of all salaries and the aggregated sum of all trainings and courses for employees. 
@@ -235,7 +237,7 @@ long-term       & 1-3\%             & 10-15 years     \\
 \end{table}
 
 The bank's credit offers are randomized in the defined intervals to make the game more interesting for the player. Hence, both variables, the duration as well as the interest rates, are randomized on a daily basis. The three types of credit are provided as amortization loans. Thus, the player has a fixed interest rate and a fixed monthly amortization. This reduces the repayment amount over time \footnote{\footnote{https://www.investopedia.com/terms/a/amortized\_loan.asp}}.
-After the player has entered the desired loan amount (defined by the variable S), the bank checks the creditworthiness. Based on this, the three loan offers are calculated in the backend. To determine the term (t), a random number is generated for each credit type . Thus, the annual repayment (a) can be determined as follows \ref{func:repayment}:
+After the player has entered the desired loan amount (defined by the variable \gls{S}), the bank checks the creditworthiness. Based on this, the three loan offers are calculated in the backend. To determine the term (\gls{t}), a random number is generated for each credit type . Thus, the annual repayment (\gls{a}) can be determined as follows \ref{func:repayment}:
 
 \begin{equation}
 \label{func:repayment}
@@ -244,7 +246,7 @@ repayment (a)= {\dfrac{S}{t}}
 \end{aligned}    
 \end{equation}
 
-Once the loan amount and term values have been determined, an interest rate (i) per credit type is generated again randomly using the above intervals. To calculate an annual interest rate, the remaining principal balance per year (S\textsubscript{t}) must first be calculated for each year. The remaining \textsubscript{t}  is the starting value at the beginning of the following year to calculate the interest rate per year (i\textsubscript{t}). This results in the following formulas \ref{func:interestrate}:
+Once the loan amount and term values have been determined, an interest rate (\gls{i}) per credit type is generated again randomly using the above intervals. To calculate an annual interest rate, the remaining principal balance per year (\textit{S\textsubscript{t}}) must first be calculated for each year. The remaining \textsubscript{t}  is the starting value at the beginning of the following year to calculate the interest rate per year (\textit{i\textsubscript{t}}). This results in the following formulas \ref{func:interestrate}:
 \begin{equation}
 \label{func:interestrate}
 \begin{aligned}
@@ -258,11 +260,11 @@ Thus, an annual rate is calculated in function \ref{func: rate}, which has to be
 \begin{equation}
 \label{func: rate}
 \begin{aligned}
-Rate (r)= a+ i\textsubscript{t}
+loanRate = a+ i\textsubscript{t}
 \end{aligned}    
 \end{equation}
 
-% @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder?
+% @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder? - AUF JEDEN FALL :o
 
 However, the raising of capital from the bank is restricted.
 The requested loan must not be larger than 70 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan is in fact larger than 70\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 70\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.\\

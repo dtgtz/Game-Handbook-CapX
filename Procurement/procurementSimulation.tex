@@ -1,6 +1,8 @@
 \section{Procurement Simulation}
 \label{procuresim}
-The procurement simulation represents the marketplace for suppliers, so  the place where the player can buy the components needed for producing the products. In order to be able to produce a product, the player needs all the required components of a certain product. For example, he would need exactly one component (\gls{c}) out of the following \textit{componentCategories}, to produce a smartphone: Power supply , display and case, CPU, camera, connectivity. Moreover, each \textit{componentCategory} has different levels, such as the "camera", which has the levels "1.2 MP", "2 MP", "5 MP", "8 MP" and "12 MP".  As soon as the player chooses to produce a new smartphone, the first level of a component is selected. For the component "camera" this would be the level "1.2 MP". However, the camera component would not be unlocked until the first level of the camera component is activated. For the camera component this would be the year 2004. This behavior will be explained in more detail later in this chapter.
+The procurement simulation represents the marketplace for suppliers, so  the place where the player can buy the components needed for producing the products. In the UI the procurement view is also referred to as harbour. At the marketplace the player can also buy the retail products, whereas the buying process works the same way as for the products that need to be manufactured. However, the retail products are not part of the current prototype implementation.
+
+In order to be able to produce a product, the player needs all the required components of a certain product. For example, he would need exactly one component (\gls{c}) out of the following \textit{componentCategories}, to produce a smartphone: Power supply , display and case, CPU, camera, connectivity. Moreover, each \textit{componentCategory} has different levels, such as the "camera", which has the levels "1.2 MP", "2 MP", "5 MP", "8 MP" and "12 MP".  As soon as the player chooses to produce a new smartphone, the first level of a component is selected. For the component "camera" this would be the level "1.2 MP". However, the camera component would not be unlocked until the first level of the camera component is activated. For the camera component this would be the year 2004. This behavior will be explained in more detail later in this chapter.
 
 Moreover, it is possible to manufacture more than one product in a product category in order to test the market. For example, the player could produce two smartphones, one made of cheap components and with a low \textit{salesPrice}, and one made of expensive components with a higher \textit{salesPrice}. Additionally, the player can specify the name of a product to distinguish it from the others and he can add and remove products from his product portfolio.
 
@@ -57,7 +59,10 @@ Furthermore, each component has a \textit{baseUtility}, which is defined manuall
 The \textit{supplierEcoIndex}, \textit{supplierQuality} and \textit{baseUtility} represent the variables needed for the calculation of the \textit{totalProcurementQuality} (\gls{tProcureQ}) per product, which is shown in equation \ref{totalProcurementQuality}. The \textit{totalProcurementQuality} then influences the \textit{totalProductQuality} of a product.
 \begin{equation}
 \label{totalProcurementQuality}
-    tProcureQ_{p}= \sum_{c \in C_p} (0.4 \cdot supplierEcoIndex_{c} + 0.6 \cdot supplierQuality_{c}) \cdot baseUtility_{c}
+\begin{aligned}
+    tProcureQ_{p}= \sum_{c \in C_p} (0.4 \cdot supplierEcoIndex_{c} + 0.6 \cdot supplierQuality_{c})\\
+    \cdot ~baseUtility_{c}
+    \end{aligned}
 \end{equation}
 
 All components (\textit{componentCategories}) per product (\textit{productCategory}) including their static attributes, which are \textit{componentLevel}, \textit{componentName}, \textit{availabilityDate} and \textit{baseUtility}, can be found in appendix \ref{fig:staticComponentAttributes}.\\
@@ -94,11 +99,11 @@ In order to understand the formula \ref{Function timeBoundComponentPrice}, the d
 
 \begin{figure} [H]
     \centering
-	\includegraphics[width=9.5cm]{images/timeBasedComponentPriceFunction.pdf}
+	\includegraphics[width=9.5cm]{images/timeBasedComponentFunction.png}
 	\caption{Function of \textit{timeBasedComponentPrice}}
 	\label{img:timeBasedComponentPriceFunction}
 \end{figure}
-As it can be seen in picture \ref{img:timeBasedComponentPriceFunction} the \textit{timeBasedComponentPrice} decreases until the 5th year, stays stable for a while on this reduced level, and then starts increasing again. The increase is due to the assumption that a supplier will discontinue the production of a component with a certain \textit{componentLevel} after some time because a newer level is released or available on the market. Since the supplier’s stock could be empty at this point, the component becomes a rarity. Therefore the component becomes more expensive compared to its \textit{initialComponentPrice}.\\
+As it can be seen in picture \ref{img:timeBasedComponentPriceFunction} the \textit{timeBasedComponentPrice} decreases until the 5th year, stays stable for a short while on this reduced level, and then starts increasing again. The increase is due to the assumption that a supplier will discontinue the production of a component with a certain \textit{componentLevel} after some time because a newer level is released or available on the market. Since the supplier’s stock could be empty at this point, the component becomes a rarity. Therefore the component becomes more expensive compared to its \textit{initialComponentPrice}.\\
 Afterwards, based on the \textit{timeBasedComponentPrice} and the \textit{supplierCategory} (which can either be premium, regular or cheap) a component's \textit{baseCost} is calculated. Moreover, also a component's \textit{supplierEcoIndex} and \textit{supplierQuality} depend on the \textit{supplierCategory}.\\
 The \textit{componentCosts} per product can then be calculated by adding up the \textit{baseCost} of the selected components per product. All \textit{componentCosts} together then determine the \textit{totalComponentCosts} of all produced products.\\
 

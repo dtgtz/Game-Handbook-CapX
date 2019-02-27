@@ -6,7 +6,7 @@ The storage of finished products and the individual components in CapitalismX is
     \item A unique construction price of the so called \textit{buildingCost} (\gls{bCW}) of 250,000 CapCoins  \footnote{https://kostencheck.de/hallenbau-kosten} or monthly \textit{rentalCost} (\gls{rCW}) of 10,000 CapCoins \footnote{https://de.statista.com/statistik/daten/studie/303225/umfrage/mietpreis-fuer-lagerflaechen-in-muenchen/}.
     \item A \textit{capacity} (\gls{cW}) of 5,000 units. A product corresponds to a unit, regardless of the type of product. Components are counted as half units in order to better account for their proportions. 
     \item \textit{variableStorageCost} (\gls{vSC}) per unit of 5 CapCoins
-    \item Monthly \textit{maintenanceCost} (\gls{fCW}) of 1,000 CapCoins
+    \item Monthly \textit{fixCostWarehouse} (\gls{fCW}) of 1,000 CapCoins
     \item and, if the warehouse was built, a resale value. A warehouse has a \textit{depreciationRateWarehouse} of 14 years on a straight-line basis \footnote{https://www.betriebsausgabe.de/afa-tabelle/}.
 \end{itemize}
 
@@ -17,7 +17,7 @@ After the products are finished, they are taken to a warehouse of the company, n
 
 At the same time, the quantity of stored products at the end of the day is also the maximum number of products that can be offered on the market. 
 
-The monthly \textit{costsWarehouse} (\gls{cWH}) are calculated on the basis of the \textit{numberWarehouses} (\gls{nWH}), the \textit{maintenanceCost} and the \textit{rentalCost} for \textit{numberRentedWarehouses} (\gls{nRWH}). The following formula describes the exact calculation of the costs:
+The monthly \textit{costsWarehouse} (\gls{cWH}) are calculated on the basis of the \textit{numberWarehouses} (\gls{nWH}), the \textit{fixCostWarehouse} and the \textit{rentalCost} for \textit{numberRentedWarehouses} (\gls{nRWH}). The following formula describes the exact calculation of the costs:
 \begin{equation}
 \label{func:cWH} % costWarehouses
      cWH = nWH \cdot fCW + nRWH \cdot rCW
