@@ -5,7 +5,7 @@ Market research is the collection and analysis of data with the aim of better un
 
 If a company or an institution wishes to collect data directly from the customer, there are basically two different procedures. The first is to observe customer behaviour and the second is to ask customers directly. This type of data collection leads to so-called primary data \cite[Chapter~4.4]{mooi_getting_2018}.\\
 
-As part of Capitalism X, we only consider direct customer surveys via various media. Basically there are four different \textit{dataCollectionMethods} to conduct a survey, these are personal interviews (\gls{PInt}), telephone interviews (\gls{TInt}), mail surveys (\gls{MSur}) and online surveys (\gls{OSur}). Table \ref{MR_survey_types_characteristics} shows some important features of surveys and how each survey type performs in them \cite[Chapter~4.4.2.2]{mooi_getting_2018}.\\
+As part of CapitalismX, we only consider direct customer surveys via various media. Basically there are four different \textit{dataCollectionMethods} to conduct a survey, these are personal interviews (\gls{PInt}), telephone interviews (\gls{TInt}), mail surveys (\gls{MSur}) and online surveys (\gls{OSur}). Table \ref{MR_survey_types_characteristics} shows some important features of surveys and how each survey type performs in them \cite[Chapter~4.4.2.2]{mooi_getting_2018}.\\
 
 \begin{table}[ht]
 \centering
@@ -27,9 +27,11 @@ quality of the data             & ++    & +     & -    & --  \\
 \label{MR_survey_types_characteristics}
 \end{table}
 
-The characteristics of the various \textit{dataCollectionMethods} naturally also affect the results of market research \cite[Chapter~4.4.2.1]{mooi_getting_2018}. For example the \textit{time} for an online survey to produce usable results is longer than for a personal interview. Overall, the \textit{quality} of the data is best through personal surveys, followed by telephone surveys, mail surveys and worst online surveys. Looking at the \textit{price} of a survey, it's the other way around, web surveys are the cheapest and personal interviews the most expensive. \\
-In principle, the player can decide whether the market research should be carried out by the company itself or by an external market research institute. If he decides to conduct the surveys internally, he can choose between the various methods of primary data collection and thus influence the \textit{quality} of the results himself. \\
-The \textit{quality} at this point expresses the extent to which the result data can deviate from the exactly calculated results. If the data collection is carried out by an institute, the data are determined by telephone interviews by default. The percentage influence on the \textit{price} of a market statistic by the choice of the \textit{dataCollectionMethods}, the \textit{time} between the commission of the survey and the results as well as the impact on the \textit{quality} of the study can be seen in Table \ref{MR_survey_types_influence}. \\
+The characteristics of the various \textit{dataCollectionMethods} naturally also affect the results of market research \cite[Chapter~4.4.2.1]{mooi_getting_2018}. For example the \textit{time} for an online survey to produce usable results is longer than for a personal interview. Overall, the \textit{quality} of the data is best through personal surveys, followed by telephone surveys, mail surveys and worst online surveys. Looking at the \textit{price} of a survey, it's the other way around, web surveys are the cheapest and personal interviews the most expensive. 
+
+In principle, the player can decide whether the market research should be carried out by the company itself or by an external market research institute. If he decides to conduct the surveys internally, he can choose between the various methods of primary data collection and thus influence the \textit{quality} of the results himself. 
+
+The \textit{quality} at this point expresses the extent to which the result data can deviate from the exactly calculated results. If the data collection is carried out by an institute, the data is determined by telephone interviews by default. The percentage influence on the \textit{price} of a market statistic by the choice of the \textit{dataCollectionMethods}, the \textit{time} between the commission of the survey and the results as well as the impact on the \textit{quality} of the study can be seen in Table \ref{MR_survey_types_influence}. 
 
 \begin{table}[ht]
 \centering
@@ -64,15 +66,17 @@ market statistic research    & 1.000                & 1.150     \\
 \end{table}
 
 \subsubsection{Price Sensitive Research}
-This report includes a price sensitivity analysis for a previously selected product in the company's product portfolio. The analysis shows how \textit{margin}, \textit{salesFigure}, \textit{productCosts} and \textit{marketShare} change when the \textit{salesPrice} changes. All other factors are kept constant for the calculations. The result is divided into nine price steps, from -20\% to +20\% in 5\% steps. These relate to the current sales price of the product in question. The hypothetical values are calculated as follows:
+This report includes a price sensitivity analysis for a previously selected product in the company's product portfolio. The analysis shows how \textit{margin}, \textit{salesFigures} (\gls{sFig}), \textit{productCosts} and \textit{marketShare} change when the \textit{salesPrice} (\gls{sP}) changes. All other factors are kept constant for the calculations. The result is divided into nine price steps, from -20\% to +20\% in 5\% steps. These relate to the current sales price of the product in question. The hypothetical values are calculated as follows:
 \begin{equation}
     \begin{aligned}
-        for +5\% to +20\%: x = ((100 * new value) / ref value) – 100 \\
-        for -5\% to -20\%: x = ((1 - (new value / ref value)) / 100
+       for +5\% ~to~ +20\%: x = (\frac{100 \cdot new value}{ref value}) \text{-} 100\\
+       % for +5\% to +20\%: x = ((100 \cdot new value) / ref value) – 100 \\
+       for -5\% ~to ~-20\%: x = \frac{1-(\frac{new value}{ref value})}{100}
+       % for -5\% to -20\%: x = ((1 - (new value / ref value)) / 100
     \end{aligned}
 \end{equation}
 
-Table \ref{MR_price_sensitive} shows the structure of a price sensitive report. \\
+Table \ref{MR_price_sensitive} shows the structure of a price sensitive report. 
 
 \begin{table}[ht]
 \centering
@@ -114,7 +118,7 @@ total       & average     & average    & average   & average   \\
 \end{table}
 
 \subsubsection{Market Statistic Research}
-This analysis provides various market information on product level. This means that the key figures for the products are provided individually and also the average for the entire company. The report contains the current \textit{salesPrice}, \textit{marketShare}, \textit{salesFigur} and \textit{totalProductQuality}. Table \ref{MR_market_statistic} is an example for the structure of the report. \\
+This analysis provides various market information on product level. This means that the key figures for the products are provided individually and also the average for the entire company. The report contains the current \textit{salesPrice}, \textit{marketShare}, \textit{salesFigures} and \textit{totalProductQuality}. Table \ref{MR_market_statistic} is an example for the structure of the report. \\
 
 \begin{table}[ht]
 \centering
