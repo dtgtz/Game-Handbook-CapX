@@ -1,35 +1,35 @@
-%\begin{landscape}
+\begin{landscape}
 \begin{table}[b]
 %{
-\fontsize{8}{9} \selectfont
+\fontsize{7.5}{9} \selectfont
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
 \hline
  & \textbf{External Event} & \textbf{\begin{tabular}[c]{@{}l@{}}Random / \\ Conditional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Influencing \\ factor\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Starting \\ Threshold\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Probability or\\ Preconditions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Final \\ Threshold\end{tabular}} & \textbf{Impacted factor} & \textbf{Remarks} \\ \hline
 \textbf{} & \textbf{Production \& Market:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
 1 & \begin{tabular}[c]{@{}l@{}}Production Problems \\ Popup\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}production\\Technology\end{tabular} & 2 & \begin{tabular}[c]{@{}l@{}}production \\ Technology below 2 \end{tabular}& 1 & None, but Pop-Up \\ \hline
-2 & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}baseQuality\end{tabular} &  &  &  100 & cS & \begin{tabular}[c]{@{}l@{}}+30\% customer \\ satisfaction for 2 month\end{tabular} \\ \hline
+2 & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}baseQuality\end{tabular} & 80\% &  &  100\% & cS & \begin{tabular}[c]{@{}l@{}}+30\% customer \\ satisfaction for 2 month\end{tabular} \\ \hline
 3 & \begin{tabular}[c]{@{}l@{}}Company Acquisition \\ possibility offered\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Increasing \\ NOPAT\end{tabular} &  -  & \begin{tabular}[c]{@{}l@{}}NOPAT +30\% per \\ year over 5 years\end{tabular} &  -  & \begin{tabular}[c]{@{}l@{}}Financials integrated \\ into company\end{tabular} & \begin{tabular}[c]{@{}l@{}}Acquisition costs \\ 70\% of current NOPAT, \end{tabular} \\ \hline
 4 & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & Random &  -  &  -  & 0,02 &  -  & NOPAT - 10\% & \begin{tabular}[c]{@{}l@{}}Only possible if Net Worth \\ above 1mio CapCoins\end{tabular} \\ \hline
-5 & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}cS\end{tabular} &  -  & \begin{tabular}[c]{@{}l@{}}cS below 20\% \end{tabular} &  -  & totalDemand -20\% &  \\ \hline
-6 & \begin{tabular}[c]{@{}l@{}}Computer virus attacks\end{tabular} & Random &  -  &  -  & 0,05 &  -  & \begin{tabular}[c]{@{}l@{}} pA - 50\% for \\ 6 months \end{tabular} & Only after Year 2000 \\ \hline
+5 & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}cS\end{tabular} &  20\%  & \begin{tabular}[c]{@{}l@{}}cS below 20\% \end{tabular} &  0\%  & tD -20\% &  \\ \hline
+6 & \begin{tabular}[c]{@{}l@{}}Computer virus attacks\end{tabular} & Random &  -  &  -  & 0,05 &  -  & \begin{tabular}[c]{@{}l@{}} pA - 50\% for \\ 3 months \end{tabular} & Only after Year 2000 \\ \hline
 \textbf{} & \textbf{Finance \& Taxes:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & {\color[HTML]{FE0000} } \\ \hline
-7 & \begin{tabular}[c]{@{}l@{}}Tax Changes lead to \\ higher or less rates\end{tabular} & Random &  -  &  -  & -2 to 5 \% &  -  & taxRate & Changed for 1 year \\\hline
+7 & \begin{tabular}[c]{@{}l@{}}Tax Changes lead to \\ higher or less rates\end{tabular} & Random &  -  &  -  & 0.05 \% &  -  & taxRate +/ 2\% & Changed for 1 year \\\hline
 8 & Stricter Eco Laws & Conditional & \begin{tabular}[c]{@{}l@{}}ecoIndex\end{tabular} & 40\% & $ecoIndex^{0.31}-1$ & \begin{tabular}[c]{@{}l@{}}10\%  \\ \end{tabular} & \begin{tabular}[c]{@{}l@{}} 10\% NOPAT fine \\ Game Over at 0.1 \end{tabular} & Shutdown by Government \\ \hline
-9 & Inflation changes & Random &  -  &  -  & \begin{tabular}[c]{@{}l@{}}0 - 2 \% \\  \end{tabular} &  -  &  & Example Germany \\ \hline
-10 & \begin{tabular}[c]{@{}l@{}}Stealing inside of\\ the company\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}} tJS\end{tabular} & 50 & \begin{tabular}[c]{@{}l@{}}-4 \cdot tJS\end{tabular} & 25 & NOPAT & \begin{tabular}[c]{@{}l@{}}NOPAT -5k CapCoins \\ per employee \end{tabular} \\ \hline
+9 & Inflation changes & Random &  -  &  -  & \begin{tabular}[c]{@{}l@{}}0 - 2 \% \\  \end{tabular} &  -  & NOPAT & NOPAT +/- 2\% \\ \hline
+10 & \begin{tabular}[c]{@{}l@{}}Stealing inside of\\ the company\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}} tJS\end{tabular} & 50\% & \begin{tabular}[c]{@{}l@{}}$-4 \cdot tJS$!\end{tabular} & 20\% & NOPAT & \begin{tabular}[c]{@{}l@{}}NOPAT -5k CapCoins \\ per employee \end{tabular} \\ \hline
 \textbf{} & \textbf{Employees:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-11 & Strikes & Conditional & tJS & 30 & !Formula & 0 & \begin{tabular}[c]{@{}l@{}}tPQ - 20\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ tJS above 50\end{tabular} \\ \hline
+11 & Strikes & Conditional & tJS & 10\% & tJS & 0\% & \begin{tabular}[c]{@{}l@{}} tD - 100\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ tJS above 10\end{tabular} \\ \hline
 \textbf{} & \textbf{Natural Disasters:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-12 & \begin{tabular}[c]{@{}l@{}}Flu goes around \\ causing Ill employees\end{tabular} & Random &  -  &  -  & 0,2 &  -  & \begin{tabular}[c]{@{}l@{}}Productivity \\ Decrease by 10\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Active for\\ 1 Month\end{tabular} \\ \hline
-13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornadoes, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}ecoIndex\end{tabular} & 40\% & 2 - ecoIndex \textasciicircum 0.5 & 10\% &  sU & Future Work \\ \hline
-14 & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ warehouse\end{tabular} & Conditional & fSWH & \begin{tabular}[c]{@{}l@{}} 10\%\end{tabular} & Days \cdot 0.001 & \begin{tabular}[c]{@{}l@{}}see \\ Remarks \end{tabular} & sU - 30\% & \begin{tabular}[c]{@{}l@{}}Emptying warehouse \\ cancels probability\end{tabular} \\ \hline
+12 & \begin{tabular}[c]{@{}l@{}}Flu goes around \\ causing Ill employees\end{tabular} & Random &  -  &  -  & 0,2 &  -  & \begin{tabular}[c]{@{}l@{}}tEQoW - 10\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Duration:\\ 1 Month\end{tabular} \\ \hline
+13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornadoes, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}ecoIndex\end{tabular} & 40\% & $ecoIndex^{0.31}-1$ & 10\% &  cW - 2000 \\ \hline
+14 & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ warehouse\end{tabular} & Conditional & fSWH & \begin{tabular}[c]{@{}l@{}} 10\%\end{tabular} & $days \cdot 0.01$ & \begin{tabular}[c]{@{}l@{}} 10\%  \end{tabular} & sU - 30\% & \begin{tabular}[c]{@{}l@{}}Emptying warehouse \\ cancels event probability\end{tabular} \\ \hline
 \textbf{} & \textbf{Government \& Politics:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
 15 & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}qSP\end{tabular} &   -  &  -  &  -  & Future work &  \\ \hline
-16 & Change of power & Random &  -  &  -  & 0.2 &  -  & taxRate + 5\% & Most once per game \\ \hline
+16 & Change of power & Random &  -  &  -  &  -  &  -  & taxRate + 5\% & Most once per game \\ \hline
 17 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & Conditional & cI &  -  &  -  &  -  & Future Work & \\ \hline
-18 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and others\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} &  -  &  -  &  -  &  -  & Future Work \\ \hline
+18 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and others\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of Power\end{tabular} &  -  &  -  &  -  & Future Work &  \\ \hline
 \end{tabular}
     \caption{External events overview}
     \label{events_list}
 \end{table}
-%\end{landscape}
+\end{landscape}

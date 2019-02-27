@@ -1,14 +1,14 @@
 \subsection{Logistic} \label{logistic_simulation}
 
 %Janine
-The delivery of the products always takes place at the end of the day directly from the warehouse and follows the firs in first out principle. Basically there are three ways to manage the logistic of the company: 
+The delivery of the products always takes place at the end of the day directly from the warehouse and follows the first in first out principle. Basically there are three ways to manage the logistic of the company: 
 \begin{itemize}
     \item The company has its own logistics fleet
     \item The company has outsourced the logistics to an external partner
     \item The company simply sends products by mail
 \end{itemize}
 
-The player can combine these variants in the way he considers best for his company. Basically, there are four logical approaches:
+The player can combine these variants in the way he considers best for his company. However, there are four logical approaches:
 \begin{enumerate}
     \item The player decides to send all his products by post.
     \item The player decides to completely outsource the logistics and signs a contract with an external logistics partner.
@@ -20,9 +20,9 @@ In the following sections, the functionality of the individual variants and the 
 
 
 \subsubsection{Internal logistic fleet}
-The internal logistics fleet consists only of purchased trucks.The quality of the company's own logistics is calculated based on the characteristics of the single trucks.Every truck has certain characteristics, these consist of:
+The internal logistics fleet consists only of purchased trucks. The quality of the company's own logistics is calculated based on the characteristics of the single trucks. Every truck has certain characteristics, these consist of:
 \begin{itemize}
-    \item A \textit{capacity} of products that can be transported, this is the same for all trucks and amounts to 1000 packages. For reasons of simplification, we do not distinguish the size of individual products.  Each product is equivalent to one package. 
+    \item A \textit{capacity} of products that can be transported, this is the same for all trucks and amounts to 1,000 packages. For reasons of simplification, we do not distinguish the size of individual products.  Each product is equivalent to one package. 
     \item An \textit{ecoIndex} (\gls{eIT}) that expresses how environmentally friendly the vehicle is.
     \item A \textit{qualityIndex} (\gls{qIT}) that expresses the quality of the transport.
     \item A \textit{purchasePrice} that depends on the quality and environmental friendliness of the truck. The base price for a truck is 100,000 CapCoins 
@@ -31,8 +31,8 @@ The internal logistics fleet consists only of purchased trucks.The quality of th
     \item And a \textit{depreciationRate} that is linear and amounts to 9 years for each truck \footnote{https://www.betriebsausgabe.de/afa-tabelle/}.
 \end{itemize}
 
-As already described, \textit{qualityIndex} and \textit{ecoIndex} influence the initial \textit{purchasePrice} of a truck, which is 10,000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table \ref{Truck_characteristics} shows how they are composed in detail.\\
-\\
+As already described, \textit{qualityIndex} and \textit{ecoIndex} influence the initial \textit{purchasePrice} of a truck, which is 10,000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table \ref{Truck_characteristics} shows how they are composed in detail.
+
 The \textit{qualityIndex} and the \textit{ecoIndex}, are set randomly in the given ranges.The \textit{purchasePrice} for the respective truck and the \textit{fixCostsDelivery} (\gls{fCD}) are calculated by multiplying the base price with the factors. These factors are also randomly assigned in a certain value range. Cause of the fact that the intervals of the individual models overlap, it can happen that a more favourable model has better properties than a more expensive one.
 
 \begin{table}[ht]
@@ -69,7 +69,7 @@ The overall quality internal logistics, the so-called \textit{internalLogisticIn
 \end{equation}
 
 Of course, the delivery of the products entails costs for the company. These consist of the \textit{fixCostDelivery} and the \textit{variableCostsDelivery} per delivered package (\gls{vCD}). 
-A delivery by truck in principle costs 2,000 CapCoins. Like the purchase price, the fixed delivery costs also vary on the basis of \textit{qualityIndex} and \textit{ecoIndex}. The \textit{variableCostsDelivery} per product are the same for each truck and amount to 2 CapCoins.\\
+A delivery by truck in principle costs 2,000 CapCoins. Like the purchase price, the fixed delivery costs also vary on the basis of \textit{qualityIndex} and \textit{ecoIndex}. The \textit{variableCostsDelivery} per product are the same for each truck and amount to 2 CapCoins.
 
 The cost of a delivery thus depends on the total number of \textit{deliverdProduct} (\gls{dP}). 
 The case that the number of \textit{deliverdProduct} exceeds the \textit{capacityFleet} must be considered separately. The additional \textit{costsExternalDelivery} (\gls{cED}) can either be caused by a contractual external logistics partner or by sending the packages by post. How the costs are composed in detail is described in the following sections. \\
@@ -85,7 +85,7 @@ tDC =
 \end{cases}
 \end{aligned}
 \end{equation}
-\\
+
 As already mentioned, the annual \textit{maintenanceCosts}  per truck amount to 10\% of the purchase value. This is not an increase in the value of the truck, it is simply repairs and registration costs. The sum of these cost for all the trucks in the logistic fleet are called \textit{totalTruckCost} (\gls{tTC}). The monthly costs for the entire logistics fleet are calculated as follows. 
 \begin{equation}
     tTC = \sum fTC

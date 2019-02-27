@@ -58,7 +58,8 @@ Finally, the \textit{customerSatisfaction} is calculated as shown in equation \r
 % tanh((0,5*oA + 0,2*tSQ + 0,1*lI + 0,15*cI + 0,05*eB)/1)
 % tanh((0,5*3500 + 0,2*100 + 0,1*100 + 0,15*100 + 0,05*100)/1)
 % tanh((0,5x + 0,2*100 + 0,1*100 + 0,15*100+ 0,05*100)/1) from 0 to 2
-% value = 1
+% value muss 100 sein, damit x bei 50 die cS von 1 erreicht. (0,5 * 100 = 50)
+% ==> tanh((0,5*x + 0,2*100 + 0,1*100 + 0,15*100+ 5)/100) from 0 to 55
 % productAppeal: e.g. 300/400
 % priceAppeal: e.g. 250/150
 % Then, the overallAppeal would be: 0,45
