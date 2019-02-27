@@ -20,13 +20,13 @@ At the same time, the quantity of stored products at the end of the day is also 
 The monthly \textit{costsWarehouse} (\gls{cWH}) are calculated on the basis of the \textit{numberWarehouses} (\gls{nWH}), the \textit{maintenanceCost} and the \textit{rentalCost} for \textit{numberRentedWarehouses} (\gls{nRWH}). The following formula describes the exact calculation of the costs:
 \begin{equation}
 \label{func:cWH} % costWarehouses
-     cWH = nWH * fCW + nRWH * rCW
+     cWH = nWH \cdot fCW + nRWH \cdot rCW
 \end{equation}
 
 Always at the end of the day the sold products are taken out of stock, they do not cause any storage costs. Only \textit{storedUnits} that are not sold and remain in stock overnight incur \textit{variableStorageCost}. This means that the calculation of the \textit{storageCosts} (\gls{sC}) must take place after the sold products have been removed from the warehouse. The daily \textit{storageCosts} are calculated as follows:
 \begin{equation}
 \label{func:SC} % storageCost
-    sC = sU * vSC
+    sC = sU \cdot vSC
 \end{equation}
 
 The overall costs incurred in the warehouse department, the so-called \textit{totalWarehouseCost} (\gls{tWC}), are made up of the monthly \textit{costsWarehouse} and the daily \textit{storageCosts}. 

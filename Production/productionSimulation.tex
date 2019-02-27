@@ -27,7 +27,7 @@ The procurement indexes, namely a component's \textit{ecoIndex} $(eI_{c})$ and \
 \begin{equation}
 tProcureQ=(eIc + bQc)\cdot \frac{5}{6}
 \end{equation}
-% remove logistic index, adapt formula
+
 In order to converge all the above mentioned elements and to measure the \textit{totalProductQuality} per product, we have compiled the following equation.
 \begin{equation}
 totalProductQuality = (pT+tEQOW+tProcureQ+R\&D) \cdot 0.04_{N\footnotemark}
@@ -65,13 +65,13 @@ There are also possibilities to improve the \textit{productionTechnology} level 
 Purchasing new machinery immediately sets the machine's technology level to $5$, the maximum level, because the machinery is new and it complies with the measures of eco-laws and safety regulations.
 \item Maintaining \& repairing $(+1)$ \\
 Maintaining a machine is a regular process in all production companies. In CapitalismX, maintenance is optional for each machine, and the player can select which machine to maintain for a certain price. The price for maintenance is fixed for every machine and it improves the \textit{productionTechnology} scale by one level. \\
-Repairs are also very frequent processes in production companies. Machines do not always function properly, and after using them at full capacity for a period of time they need intervening actions in order to restore them into their optimal state. In this simulation, repairs also increase the \textit{productionTechnology} scale by one level, as repairing is necessary, but it does not offer additional features to the machine. Both these processes have a cost of $200cc$ per machine.
+Repairs are also very frequent processes in production companies. Machines do not always function properly, and after using them at full capacity for a period of time they need intervening actions in order to restore them into their optimal state. In this simulation, repairs also increase the \textit{productionTechnology} scale by one level, as repairing is necessary, but it does not offer additional features to the machine. Both these processes have a cost of $2,000cc$ per machine.
 
 \item Upgrading ($+2$) \\
 Upgrading a machine is a process that implements new, better features into the current machine.
-The cost of upgrading a machine is $500cc$, because alongside with increasing the \textit{productionTechnology} scale by two levels, upgrading also allows increasing the individual \textit{machineCapacity} by $20\%$. 
+The cost of upgrading a machine is $5,000cc$, because alongside with increasing the \textit{productionTechnology} scale by two levels, upgrading also allows increasing the individual \textit{machineCapacity} by $20\%$. 
 \end{itemize}
-When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a \textit{productionTechnology} level equal to $5$. The \textit{buyMachinePrice} is calculated as the sum of the \textit{machinePrice} equal to $1000cc$, with the \textit{machineCapacity (mC)} times $120\%$.  The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
+When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a \textit{productionTechnology} level equal to $5$. The \textit{buyMachinePrice} is calculated as the sum of the \textit{machinePrice} equal to $100,000cc$, with the \textit{machineCapacity (mC)} times $120\%$.  The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
 \begin{equation}
 buyMachinePrice=(machinePrice+mC)\cdot 120\%
 \label{eq:buyMachine}
@@ -86,7 +86,7 @@ sellMachinePrice=(pT \cdot levelPrice_{PerPTLevel})+mC
 	pT = \textit{productionTechnology} \\
 	mC = \textit{machineCapacity}
 \end{center}
-In this formula, the selling price is calculated by multiplying the current \textit{productionTechnology} with a bench-marked value of $200cc$ per \textit{productionTechnology} level and adding the \textit{machineCapacity} value. It is formulated as such because when the player purchases a machine its cost varies in terms of capacity. Whilst, when selling a machine not only the capacity changes between machines but also the \textit{productionTechnology} level. And it is precisely our \textit{productionTechnology} level that accounts for the loss of value effect of the machinery, otherwise known as depreciation. 
+In this formula, the selling price is calculated by multiplying the current \textit{productionTechnology} with a bench-marked value of $20,000cc$ per \textit{productionTechnology} level and adding the \textit{machineCapacity} value. It is formulated as such because when the player purchases a machine its cost varies in terms of capacity. Whilst, when selling a machine not only the capacity changes between machines but also the \textit{productionTechnology} level. And it is precisely our \textit{productionTechnology} level that accounts for the loss of value effect of the machinery, otherwise known as depreciation. 
 \begin{equation}
 machineryDepreciation= machinePrice - (pT \cdot levelPrice_{PerPTLevel})
     \label{eq:machineDepreciation}
@@ -109,11 +109,11 @@ These investments options are also measured in our standard $5$ points Likert-Sc
 \hline
  Level & Description & CapCoins$_{(cc)}$\\
 \hline \hline
- 1 & No Investment & $100cc$ \\
- 2 & Bad & $ 500cc$\\
- 3 & Normal & $1000cc$ \\
- 4 & Good & $1500cc$ \\
- 5 & Very good & $2000cc$\\
+ 1 & No Investment & $1,000cc$ \\
+ 2 & Bad & $ 5,000cc$\\
+ 3 & Normal & $10,000cc$ \\
+ 4 & Good & $15,000cc$ \\
+ 5 & Very good & $20,000cc$\\
 \hline
 \end{tabular}
 \caption{Levels of Production Investments}
@@ -158,8 +158,11 @@ All the simulation explained in this section will not be visible to the player, 
 \subsection{Production Costs}
 \label{prodCosts_simulation}
 
-To determine the \textit{totalProductCost}, several components have to be taken into account, as demonstrated in Figure \ref{fig:productionCosts}. The first is \gls{tCC}
+To determine the \textit{totalProductCost} (\gls{tPC}), several components have to be taken into account, as demonstrated in Figure \ref{fig:productionCosts}. The first is \gls{tCC}
 which is the total of all component's costs, since we need several components in order to have one end product. The overall employee salary would be included in the equation, since all employees, no matter in which department they work in, give an input and add value to the product. But we have decided to separate costs according to departments, that is why the employee salaries will be included in the HR costs. Another cost that we have included in our simulation are the \textit{Eco-Costs}. You can find the details regarding the \textit{Eco-Costs} calculation in section \ref{sec:compEco-idex}. Furthermore we incorporated \textit{purchasedAssetsCosts}. 
+\begin{equation}
+       VC = \sum_{n=1}^{n=5}tCC_{perProduct} + ecoCosts_{perProduct}
+   \end{equation}
 
 Since machinery is purchased we have to account this expense to \textit{purchasedAssetsCosts}, which is part of the \textit{Fixed Costs}. \textit{Fixed Costs (FC)} like \textit{machineryDepreciation} costs or rent are also included because they are inevitable expenses that are present in every production company. 
 \begin{equation}
@@ -170,14 +173,14 @@ Since machinery is purchased we have to account this expense to \textit{purchase
 
 \begin{figure}[ht]
 	\centering
-		\includegraphics[scale=0.55]{images/ProductCost.pdf}
+		\includegraphics[scale=0.65]{images/ProductionCosts.pdf}
 	\caption{Composition of \textit{totalProductCost}}
 	\label{fig:productionCosts}
 \end{figure}
-All the above mentioned costs, add up to two major categories, \textit{variableCosts} and \textit{fixedCosts}. Together they compose the \textit{totalProductCost}.\\
- In function \ref{eq: PC/u}, we sum up $5$ component prices, as each product can only have $5$ components per unit. In order to complete the \textit{totalProductCost}, the \textit{Eco-Costs} and \textit{Fixed Costs} were added and divided by the number of units in order to get a standardized dependent variable.
+All the above mentioned costs, add up to two major categories, \textit{variableCosts} and \textit{fixedCosts}. Together they compose the \textit{totalProductCost}. As demonstrated in equation \ref{eq: PC/u} the fixed costs are divided by the number of units that the player is going to produce, since the index that we are defining the \textit{totalProductCost} is calculated for each product.
+ 
 \begin{equation}
-	totalProductCost_{per Product}= \sum_{n=1}^{n=5}tCC + (\frac{Eco–Costs}{nr. Products}) + (\frac{FC}{nr. Products}) 
+	totalProductCost_{per Product}= VC + \frac{FC}{nr.Products} 
 	\label{eq: PC/u}
 \end{equation}
 By observing the above equation, we have described how the costs are simulated in the production process. 
@@ -198,7 +201,8 @@ Part of the production simulation is the product view. Here the player can get a
 \caption{Pricing View for the Player}
 \label{table:pricingView}
 \end{table}
-The first column, "Product" displays the name of a product, that the player when he or she choose the product portfolio. The number of rows depends on the number of products the player added to the product portfolio.\\
+The first column, "Product" displays the name of a product, that the player when he or she choose the product portfolio. The number of rows depends on the number of products the player added to the product portfolio.
+
 The "Qty to Produce" field is an input field where the player can type in an integer value. The quantity depends on two different factors: the total \textit{machineCapacity} and the total \textit{warehouseCapacity}. If the amount entered by the player is larger than the accumulated sum of the \textit{machineCapacity}, then the player gets an error message: "Your machinery capacity is not sufficient. Either produce a smaller amount or buy new machinery". This is calculated as follows in function \ref{calc:machineryCapacity1} and \ref{calc:machineryCapacity2}.
 \begin{equation}
 \label{calc:machineryCapacity1}
@@ -209,20 +213,24 @@ whereas
 \label{calc:machineryCapacity2}
     Total~machineCapacity = \sum machineCapacity
 \end{equation}
+
 Also, the amount entered must not exceed the total \textit{warehouseCapacity}. The total \textit{warehouseCapacity} is determined as seen in chapter \ref{warehouse_simulation}. To calculate the maximum amount of products that can be produced, the number of stored products needs to be subtracted from the total \textit{warehouseCapacity}, as shown in function \ref{maxValueToProduce}:
 \begin{equation}
 \label{maxValueToProduce}
-    Maximum~value~of~"Qty~to~Produce" = (nWH * cWH) - nSP
+    Maximum~value~of~"Qty~to~Produce" = (nWH \cdot cWH) - nSP
 \end{equation}
-The next two fields are no input fields but serve the user in order to determine the quantity of products to produce and to define a market price to sell the product. First, the information field "Amount in Stock" displays the player the amount of each product in the warehouse(s), so $nSP_{per Product}$. The column "Total Product Costs" shows the player the total cost he or she expended for the producing the product and buying its components, which corresponds to the \\
-$totalProductCost_{perUnit}$. The calculation can be found in chapter \ref{prodCosts_simulation}, function \ref{eq:PQ}.\\
+
+The next two fields are no input fields but serve the user in order to determine the quantity of products to produce and to define a market price to sell the product. First, the information field "Amount in Stock" displays the player the amount of each product in the warehouse(s), so $nSP_{per Product}$. The column "Total Product Costs" shows the player the total cost he or she expended for the producing the product and buying its components, which corresponds to the 
+$totalProductCost_{perUnit}$. The calculation can be found in chapter \ref{prodCosts_simulation}, function \ref{eq:PQ}.
+
 Moreover, the "Sales Price (per Product)", so the $productSale_{salesPrice}$ field is an input field where the player can type in a price in currency CapCoins for each product. The price is restricted to a float value with two decimals and a maximum of 99,999.99.
 Last but not least, the field "Profit Margin" shows the profit margin for the respective product, which can be calculated as follows in function \ref{profitMargin}:
 \begin{equation}
 \label{profitMargin}
-    %Profit~Margin = \frac{productSale_{salesPrice} - totalProductCost}{productSale_{salesPrice}} * 100
+    Profit~Margin = \frac{salesPrice{pS} - tPC}{salesPrice{pS}} \cdot 100
 \end{equation}
-This value gives the player possible insights about his or her pricing strategy, as a high profit margin should only be used when using the components with the best \textit{baseQuality} and \textit{ecoIndex} and when also the own company's eco-index and \textit{customerSatisfaction} is very high.\\
+This value gives the player possible insights about his or her pricing strategy, as a high profit margin should only be used when using the components with the best \textit{baseQuality} and \textit{ecoIndex} and when also the own company's eco-index and \textit{customerSatisfaction} is very high.
+
 As further clarified in chapter \ref{warehouse_simulation}, the products produced per day are first collected in the warehouse and sent out to the market in the next day. For the player, no further intervention is needed. Once determined how many products to produce, the selling process starts automatically.
 
 \subsection{Performance metrics}
@@ -233,19 +241,19 @@ Equation \ref{eq: PES} shows the calculation of \textit{totalEngineerQualityOfWo
 
 This calculation is a weighted average of the level of \textit{processAutomation} and \textit{employeeSkills}, which are defined in chapter \ref{sec:HRsim}. As you can notice more weight has been given to \textit{employeeSkills} as it is a more relevant factor in determining our dependent variable. \textit{processAutomation} on the other hand is a bit more complex as it needs to have some prerequisites fulfilled regarding \textit{employeeSkills}. In order to increase pA according to the money invested, the player must have trained the employees in the production area, which means that the new technologies that will be implemented in production, will meet with employees that are trained to handle them. The possible trainings can be seen in section \ref{sub:KPI}. It is required to have at least $1$ production engineer trained, for each level of pA. For instance, in order to invest and have pA set in level $4$, at least $4$ production employees need to be trained in the production area.
 \begin{equation}
-totalEngineerQualityOfWork = 0.4\times pA + 0.6\times eS
+totalEngineerQualityOfWork = 0.4\cdot pA + 0.6\cdot eS
 \label{eq: PES}
 \end{equation}
 
 \textit{manufactureEfficiency} is measured by dividing the number of goods produced, on a daily basis, by the current number of machines times their average capacity to produce. This measure is important as it shows the player the rate in which the machinery is being utilized. This index has a range of $[0-1]$,which means if mE is close to $1$ the usage of the machinery is optimal, but if this index is low, the player should realize he should either produce more or sell some of the machinery in order to keep efficiency high and not waste resources.
 \begin{equation}
-mE= \frac{nr. units Produced(daily)}{nr. Machines\times avg. Capacity}  
+mE= \frac{nr. units Produced(daily)}{nr. Machines\cdot avg. Capacity}  
 \label{eq: ME}
 \end{equation}
 
 \textit{productionProcessProductivity} (pPP) is an indicator of the efficiency of our production  process. It is based on \textit{productionTechnology} and \textit{totalEngineerQualityOfWork} as indicators of the quality of the process and \textit{manufactureEfficiency} as an indicator of the efficiency of the manufacturing process.
 \begin{equation}
-pPP= [(pT + tEQOW) \times mE]/10_{N\footnotemark}
+pPP= [(pT + tEQOW) \cdot mE]/10_{N\footnotemark}
 \label{eq:PPP}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}

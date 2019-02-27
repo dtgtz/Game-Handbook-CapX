@@ -55,7 +55,7 @@ The \textit{qualityIndex} and the \textit{ecoIndex}, are set randomly in the giv
 The total capacity thus results from the \textit{numberTrucks} (\gls{nT}) in the company's own logistics fleet and is called \textit{capacityFleet} (\gls{cF}). 
 \begin{equation}
 \label{func:capacityFleet}
-    cF = 1000 \times nT
+    cF = 1000 \cdot nT
 \end{equation}
 
 The overall quality internal logistics, the so-called \textit{internalLogisticIndex} (\gls{iLI}), is calculated on the basis of the \textit{qualityIndex} and the \textit{ecoIndex} of the individual trucks.
@@ -64,7 +64,7 @@ The overall quality internal logistics, the so-called \textit{internalLogisticIn
 \begin{aligned}
     Eco Index Fleet (\gls{eF}) = Sum (eIT) / NT \\
     Quality Index Fleet (\gls{qF}) = Sum (qIT) / NT \\
-    Internal Logistic Index (\gls{iLI}) = eF \times 0,2 + qF \times 0,8 \\
+    Internal Logistic Index (\gls{iLI}) = eF \cdot 0,2 + qF \cdot 0,8 \\
 \end{aligned}
 \end{equation}
 
@@ -79,9 +79,9 @@ The following fomular explaines how the total totalDeliveryCost (\gls{tDC}) are 
 \begin{aligned}
 tDC = 
 \begin{cases}
-    (( dP / 1000) \times fCD) + ( dP \times vCD) & \text{if} dP = cF\\
-    (\lceil (dP / 1000) \rceil \times fCD ) + ( dP \times vCD) & \text{if} dP < cF\\
-    ( nT \times fCD ) + ( nT \times1000 \times vCD ) + cED & \text{otherwise}\\
+    (( dP / 1000) \cdot fCD) + ( dP \cdot vCD) & \text{if} dP = cF\\
+    (\lceil (dP / 1000) \rceil \cdot fCD ) + ( dP \cdot vCD) & \text{if} dP < cF\\
+    ( nT \cdot fCD ) + ( nT \cdot1000 \cdot vCD ) + cED & \text{otherwise}\\
 \end{cases}
 \end{aligned}
 \end{equation}
@@ -133,8 +133,8 @@ The total influence of an external partner company is measured by the \textit{ex
 \begin{aligned}
 eLI = 
     \begin{cases}
-     (rLP\times0,5 + 0,5\times(qLP\times0,8 + eIP\times0,2)) & \text{if} rLP \leq 40\\
-     (rLP\times0,4 + 0,6\times(qLP\times0,8 + eIP\times0,2)) & \text{otherwise} \\
+     (rLP\cdot0,5 + 0,5\cdot(qLP\cdot0,8 + eIP\cdot0,2)) & \text{if} rLP \leq 40\\
+     (rLP\cdot0,4 + 0,6\cdot(qLP\cdot0,8 + eIP\cdot0,2)) & \text{otherwise} \\
     \end{cases}
 \end{aligned}
 \end{equation}
@@ -142,19 +142,19 @@ eLI =
 If the player decides to delivered all products by an external logistics partner, the \textit{costsExternalDelivery} of the company are calculated as follows:
 \begin{equation}
 \label{func:costExternalDelivery_all}
-   cED = dP \times vCDE
+   cED = dP \cdot vCDE
 \end{equation}
 
 If the company has its own logistics fleet, the products are initially delivered via it. However, if the company's own capacities are not sufficient, the remaining products are taken over by the external partner. In this case, the \textit{costsExternalDelivery} are calculated as follows: 
 \begin{equation}
 \label{func:costExternalDelivery_partly}
-    cED = ( dP – cF ) \times vCDE
+    cED = ( dP – cF ) \cdot vCDE
 \end{equation}
 
 If the company has not engaged an external partner and exceeds the \textit{capacityFleet}, the remaining products will be sent by post. For each package there will be a \textit{shippingFee} (\gls{sF}) of 15 CapCoins. Also in this case delivery quality and environmental friendliness are included. The \textit{qualityIndex} is basically 60 and the \textit{ecoIndex} 40. The \textit{costsExternalDelivery} are calculated as follows:  
 \begin{equation}
 \label{func:costExternalDelivery_post}
-    cED = ( dP – cF ) \times sF
+    cED = ( dP – cF ) \cdot sF
 \end{equation}
 
 Together with the \textit{totalTruckCost} the \textit{contractualCost} make up the monthly fixed costs of the logistics department. These are called \textit{costLogistic} (\gls{cL}). 
@@ -165,9 +165,9 @@ The overall quality of the company's logistics as perceived by its customers is 
 \begin{aligned}
 lI = 
 \begin{cases}
-     ((( dP $-$ cF) \times eLI ) + ( cF \times iLI )) & \text{if} dP > cF \\
-     cF \times iLI & \text{if} dP = cF\\
-     dP \times iLI & \text{otherwise} \\
+     ((( dP $-$ cF) \cdot eLI ) + ( cF \cdot iLI )) & \text{if} dP > cF \\
+     cF \cdot iLI & \text{if} dP = cF\\
+     dP \cdot iLI & \text{otherwise} \\
 \end{cases}
 \end{aligned}
 \end{equation}

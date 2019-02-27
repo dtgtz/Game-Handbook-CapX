@@ -1,8 +1,7 @@
 \section{Customer Simulation} \label{sec:customsim}
-%Maike
 
 \subsection{Customer Satisfaction}
-
+%Maike
 In this game, the customer simulation is a weighted combination of the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} (\gls{cS}).
 This means that the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} are the three key indicators for customers' buying decisions. Thus, these three variables determine the extent to which customers are interested in buying a product or not.\\
 How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of \textit{customerSatisfaction}, which will be discussed in more detail in this chapter.\\
@@ -21,7 +20,7 @@ The \textit{overallAppeal} (oA) will be explained in the following, as it was no
 
 The \textit{overallAppeal} is calculated as follows:
 \begin{equation}
-overallAppeal = \dfrac{productAppeal}{priceAppeal} \times 100
+overallAppeal = \dfrac{productAppeal}{priceAppeal} \cdot 100
 \end{equation}
 Therefore, the \textit{productAppeal} and \textit{priceAppeal} must be defined.
 The \textit{productAppeal} is the \textit{totalProductQuality} (tPQ) devided by the \textit{proxyQuality}.
@@ -34,8 +33,8 @@ In turn, the \textit{marketProductUtility} depends on the \textit{time} (t) and 
 \begin{aligned}
     & marketProductUtility(t, productCategory) \\
     & = \sum_{c \in C} baseUtility_{c} \\
-    %& (of the most recent level of allComponents in the productCategory) \times 0.7 &&
-    & \argmax\limits_{comp\in \{productCategory.allComponents: availabilityDate \leq t\}}(comp.baseUtility) \times 0.7
+    %& (of the most recent level of allComponents in the productCategory) \cdot 0.7 &&
+    & \argmax\limits_{comp\in \{productCategory.allComponents: availabilityDate \leq t\}}(comp.baseUtility) \cdot 0.7
 \end{aligned}    
 \end{equation}
 The \textit{priceAppeal} is calculated by the \textit{salesPrice} (set by the player) divided by the \textit{proxyPrice}.
@@ -53,7 +52,7 @@ Finally, the \textit{customerSatisfaction} is calculated as shown in equation \r
 \begin{aligned}
 \label{cSCalc}
     & cS(oA, tSQ, lI, cI, eB) \\
-    & = tanh(\dfrac{(0,5 \times oA + 0,2 \times tSQ + 0,1 \times lI + 0,15 \times cI + 0,05 \times eB)}{value}) %value must be defined!
+    & = tanh(\dfrac{(0,5 \cdot oA + 0,2 \cdot tSQ + 0,1 \cdot lI + 0,15 \cdot cI + 0,05 \cdot eB)}{value}) %value must be defined!
 \end{aligned}    
 \end{equation}
 % tanh((0,5*oA + 0,2*tSQ + 0,1*lI + 0,15*cI + 0,05*eB)/1)
