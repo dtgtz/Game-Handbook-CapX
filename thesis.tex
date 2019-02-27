@@ -150,6 +150,10 @@ description={totalComponentCost}%
 name={tPC},%
 description={totalProductCost}%
 }
+\newglossaryentry{sFig}{%
+name={sFig},%
+description={salesFigures}%
+}
 
 %Glossary Marketing
 \newglossaryentry{eB}{%
@@ -738,27 +742,32 @@ The decision which event should get which characteristic was based on multiple a
 Determining probabilities where applicable is based on multiple considerations. Empirical evidence for the probability of events might be rare or the probability is so low that they would only happen after a very long game duration. Events having such a high probability that they lead to a Game-Over in an early stage must not happen in an early state as they would frustrate the player. In the end gaming should be fun too, not only reflecting the real-world. Copying the latter is also limited as a simulation can never cover every 'life' aspect.  Following these considerations, probabilities from scientific resources were used when available and realistic for in-game application. If this was not the case, the probability was sourced from other trustworthy sources like reliable newspapers or estimated based on the indicators and scales of the existing game parts. Therefore a probability can distort from its real-world example. If suitable, an event is given a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. Some events have only a notification as a result without manipulating the game mechanics. Transferring real-world events directly to an artificial environment was almost never possible. A full overview of events, influencing factors, thresholds, probabilities and preconditions, impacted factors and remarks is listed in the Appendix table \ref{events_list}. \\
 From an UI point of view, the events displayed as informing Pop-Ups or they are invisible to the player. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet. However, its worth listing them in this section. 
 
-\pagebreak
-
 
 \input{Prototype/implementation.tex}
 
 \chapter{Conclusion}
 
 \section{Summary}
+Developed xy KPI, tested in prototype, alignment of simulations
 
 \section{Future Work}
 \label{sec:future}
 There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended: 
 
-
-Idea List\\
-
-Mobile device integration
-Future timeline
-AR, VR support
-Multiple countries that will enable online multi-players
-3rd phase of the game corporate utopia
+\begin{table}[]
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Idea}                      & \textbf{Description}                                                                                                                                               \\ \hline
+\textbf{Futuristic products}       & \begin{tabular}[c]{@{}l@{}}Add new products in a future stage of the company \\ which are not developed in the real-world yet\end{tabular}                         \\ \hline
+\textbf{Multiple countries}        & Cross-country business is far more complicated due to customs                                                                                                      \\ \hline
+\textbf{Online mode}               & Enable multiplayer online mode across country borders                                                                                                              \\ \hline
+\textbf{Mobile device integration} & Complement the game with mobile devices                                                                                                                            \\ \hline
+\textbf{Minigames}                 & \begin{tabular}[c]{@{}l@{}}Integrate minigames for e.g. cleaning the warehouse after a flood,\\ conducting interviews in marketing or driving a truck\end{tabular} \\ \hline
+\textbf{AR / VR support}           & Can support minigames in their experience                                                                                                                          \\ \hline
+\end{tabular}
+\caption{Future work ideas}
+    \label{future_work}
+\end{table}
 \bibliographystyle{plain}
 \bibliography{thesis-ref}
 \pagebreak

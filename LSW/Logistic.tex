@@ -93,15 +93,15 @@ As already mentioned, the annual \textit{maintenanceCosts}  per truck amount to 
 
 
 \subsubsection{External logistic Partner}
-In addition to his own logistics fleet, the player has the option of forming a contract with an external logistics partner. It is possible to outsource the complete product delivery to this partner or only products that exceed the delivery capacity of the own fleet. Basically, only one partner can be contracted at a time, but he can be fired at any time and replaced by another partner available on the market. \\
-\\
-The external logistics partners also have certain characteristics that influence the quality of the delivery. This are the attributes of an external logistic partner:  
+In addition to his own logistics fleet, the player has the option of forming a contract with an external logistics partner. It is possible to outsource the complete product delivery to this partner or only products that exceed the delivery capacity of the own fleet. Basically, only one partner can be contracted at a time, but he can be fired at any time and replaced by another partner available on the market. 
+
+The external logistics partners also have certain characteristics that influence the quality of the delivery. These are the attributes of an external logistic partner:  
 
 \begin{itemize}
     \item An \textit{ecoIndex} (\gls{eIP}) that expresses how environmentally friendly the external partner is working (0-100)
     \item A \textit{qualityIndex} (\gls{qLP}), which expresses how good the quality of the partner's delivery is (0 -100)
     \item A \textit{reliabilityIndex} (\gls{rLP}), which expresses how reliable the partner is
-    \item monthly fixed \textit{contractualCost} (\gls{cCLP}) for the provision of the service, which are based on the quality, environmental friendliness and reliability of the external logistics partner. The basic price is 1000 CapCoins 
+    \item monthly fixed \textit{contractualCost} (\gls{cCLP}) for the provision of the service, which are based on the quality, environmental friendliness and reliability of the external logistics partner. The basic price is 1,000 CapCoins 
     \item And contractually agreed \textit{variableDeliveryCost} (\gls{vCDE}) per delivered product.These are generally 5 CapCoins, but this price also depends on the characteristics of the service provider.
 \end{itemize}
 
@@ -133,19 +133,19 @@ The total influence of an external partner company is measured by the \textit{ex
 \begin{aligned}
 eLI = 
     \begin{cases}
-     (rLP\cdot0,5 + 0,5\cdot(qLP\cdot0,8 + eIP\cdot0,2)) & \text{if} rLP \leq 40\\
+     (rLP\cdot0,5 + 0,5\cdot(qLP\cdot0,8 + eIP\cdot0,2)) & \text{if} ~rLP \leq 40\\
      (rLP\cdot0,4 + 0,6\cdot(qLP\cdot0,8 + eIP\cdot0,2)) & \text{otherwise} \\
     \end{cases}
 \end{aligned}
 \end{equation}
 
-If the player decides to delivered all products by an external logistics partner, the \textit{costsExternalDelivery} of the company are calculated as follows:
+If the player decides to deliver all products by an external logistics partner, the \textit{costsExternalDelivery} of the company are calculated as follows:
 \begin{equation}
 \label{func:costExternalDelivery_all}
    cED = dP \cdot vCDE
 \end{equation}
 
-If the company has its own logistics fleet, the products are initially delivered via it. However, if the company's own capacities are not sufficient, the remaining products are taken over by the external partner. In this case, the \textit{costsExternalDelivery} are calculated as follows: 
+If the company has its own logistics fleet, the products are initially delivered via the internal fleet. However, if the company's own capacities are not sufficient, the remaining products are taken over by the external partner. In this case, the \textit{costsExternalDelivery} are calculated as follows: 
 \begin{equation}
 \label{func:costExternalDelivery_partly}
     cED = ( dP – cF ) \cdot vCDE
@@ -165,8 +165,8 @@ The overall quality of the company's logistics as perceived by its customers is 
 \begin{aligned}
 lI = 
 \begin{cases}
-     ((( dP $-$ cF) \cdot eLI ) + ( cF \cdot iLI )) & \text{if} dP > cF \\
-     cF \cdot iLI & \text{if} dP = cF\\
+     ((( dP $-$ cF) \cdot eLI ) + ( cF \cdot iLI )) & \text{if} ~dP > cF \\
+     cF \cdot iLI & \text{if} ~dP = cF\\
      dP \cdot iLI & \text{otherwise} \\
 \end{cases}
 \end{aligned}
