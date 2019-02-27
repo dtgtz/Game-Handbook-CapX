@@ -1,8 +1,7 @@
 \subsection{Demand Calculation} \label{demandCalc}
 %Janine
 
-In Capitalism X, we assume that the demand for a product is based on customer satisfaction and the \textit{salesPrice}, the \textit{proxyPrice}, the \textit{totalProductQuality} and the \textit{proxyQuality}.
-
+In Capitalism X, we assume that the demand for a product is based on customer satisfaction and the \textit{salesPrice}, the \textit{proxyPrice}, the \textit{totalProductQuality} and the \textit{proxyQuality}. 
 The customer satisfaction influences the interest of the population in the respective products by shifting the price at which 100\% are interested.
  
 The more satisfied customers are with the company, the more they are willing to pay for the same products. However, if customer satisfaction falls below 0.4, the \textit{overallAppeal} is influenced negatively. The following formula shows how the \textit{customerSatisfaction} affects the \textit{overallAppeal}.
@@ -22,12 +21,13 @@ The more satisfied customers are with the company, the more they are willing to 
 \end{equation}
 
 In order to make the demand of CapitalismX clients more similar to that of a real market, the demand curve is an S-shaped curve. This curve shows a larger slope at the beginning and end of the value range we use than in the middle.
-
+\newline
 The \textit{demandPercentage} (\gls{dPC}) is calculated by using the \textit{overallAppeal} as input for the following function. 
 \begin{equation}
 \label{func:demandPercentage}
 \begin{aligned}
-dPC(oA_{demand}) = 167.905104 \cdot e^{−2.990914872 \cdot 10^{ -1 } \cdot oA_{demand}^{ 2 } } \\
+% 168*e^(-4.5*(10^-1)*(x^2))
+dPC(oA_{demand}) = 168 \cdot e^{−4.5 \cdot 10^{ -1 } \cdot oA_{demand}^{ 2 } } \\
 dPC = 
     \begin{cases}
         100\% & \text{if} \; dPC \geq 100\\
@@ -36,18 +36,30 @@ dPC =
 \end{aligned}
 \end{equation}
 
+Figure FIGURE shows the course of the \textit{demandFunction}. The x-axis corresponds to the \textit{overallAppeal} of a product and the y-axis to the percentage interest of the population, the \textit{demandPercentage}. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm]{images/demand_function.JPG}
+	\caption{Demand function}
+	\label{jpg:demand_function}
+\end{figure}
+
 The \textit{totalDemand} (\gls{tD}) for a product is finally calculated by combining the demand in percent with the \textit{totalPopulation} (\gls{tP}). This approach enables the total demand to be higher than the actual quantity of products offered.
 \begin{equation}
 \label{func:totalDemand}
-tD= dPC \cdot tP    
+tD = dPC \cdot tP    
 \end{equation}
 
 The quantity actually sold by the company, so-called \textit{salesFigures} per product (\gls{sFP}), depends on whether the actual demand exceeds the \textit{numberOfferedProducts} (\gls{nOP}) or not.
 \begin{equation}
 \label{func:salesFigure}
 \begin{aligned}
-& if \; ( tD > nOP ) \; { sFP = nOP } \\
-& else \; { sFP = tD }    
+sFP = 
+\begin{cases}
+     nOP & \text{if} \; tD > nOP\\
+     tD & \text{otherwise} \\
+\end{cases}
 \end{aligned}
 \end{equation}
 

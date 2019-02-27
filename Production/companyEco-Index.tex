@@ -1,7 +1,7 @@
 \section{Company Eco-Index}
 \label{sec:compEco-idex}
-In this simulation, we measure all events related to the environment, with the company's Eco-Index. This metric allows to view the current environmental status of the company. There is a $5$ points scale in which the company is evaluated. The scale is explained in the Table \ref{table:eco-index-Company} below. \\
-% add explanation for 0-100 range
+In this simulation, we measure all events related to the environment, with the company's \textit{ecoIndex}. This metric allows to view the current environmental status of the company. There is a $5$ points scale in which the company is evaluated, which we are going to refer to in this chapter due to simplicity. The scale is explained in the Table \ref{table:eco-index-Company} below and it references the standard $0-100$ points range. \\
+
 
 \begin{table}[ht]
 \centering
@@ -48,7 +48,7 @@ The \textit{ecoIndex} lowers $1$ point down the scale if:
 \begin{itemize}
 	\item Old machinery is operating in the production department. After being used for a time-span of more than $5$ years machinery gets less effective and it pollutes more. If not maintained or upgraded the low machinery level will cause the Eco-Index of the company to deteriorate.
 
-\item Logistic vehicles with low regard for the environment are used. If these logistic vehicles have many delivery routes, they pollute the environment more. This is measured by the average logistic eco-index. If it is lower than level $3$, the company's \textit{ecoIndex} will drop by one level.
+\item Logistic vehicles with low regard for the environment are used. This is measured by the average logistic eco-index. If it is lower than level $3$, the company's \textit{ecoIndex} will drop by one level.
 \item Each time-span of $3$ years, if the company does not meet with pollution regulatory laws, the company's \textit{ecoIndex} lowers automatically and gives a notification to the player.
 \end{itemize}
 
@@ -57,18 +57,14 @@ The \textit{ecoIndex} lowers $2$ points down the scale if:
 	\item There is an incident inside the company that results in an environmental disaster. There are always unpredictable incidents that may occur while operating a production facility. This is handled by making random events that will trigger this \textit{ecoIndex} decrease.These incidents also include fires that may burn a part of your company, the breach and spread of a dangerous bio-chemical element, etc.
 \end{itemize}
 
-A company can also improve its \textit{ecoIndex} by $1$ point, by choosing one of these options which are also part of the marketing simulation: 
-%not  included in the marketing campaigns at the moment,idea in overall graph in green (take green campaigns already defined)  
-% ecoCampains in the Marketing simulation
-%adapt and refer, take values and put in calc for company eco index
-% 11.5 total points can make it 100, make scale range for them
-% if >9 points increase ecoIndex one level
-% together with total list of campaigns they include company image
+A company can also improve its \textit{ecoIndex}, by choosing one of these options which are also part of the marketing simulation in chapter \ref{calculation_CI} : 
+
 \begin{itemize}
-\item Investing in public parks, or donating trees
-\item Making a campaign to clean a public space
-\item Investing and collaborating with ecological campaigns
+\item Promote environmental friendly supplier
+\item Promote environmental friendly production
+\item Green marketing campaign
 \end{itemize}
+Referring to table \ref{calculation_CI} in the Marketing simulation, where these ecological campaigns are defined, the total points a player can gather from conducting these three campaigns is 11.5. They will affect the \textit{ecoIndex}, only if these campaigns amount to a total number of points which is $9$ or larger. If the total number of poinsts is between $9$ and $10$ the \textit{ecoIndex} of the company will increase by one level, and if the number of points provided by these campaigns is larger than $10$ the \textit{ecoIndex} increases by two levels. It is worth mentioning that these ecological campaigns, together with all the other campaigns, provided in table \ref{calculation_CI} impact the \textit{companyImage}.
 
 An important function that drives the \textit{ecoIndex} is defining the \textit{ecoCost}. This cost measures the amount of CapCoins that the company is due to pay to the government if it has a low index. \\ 
 \begin{equation}
@@ -82,9 +78,9 @@ ecoCost= ecoTax - (pT + component \; eI)\times ecoRefund
 \begin{center}
 with\\
 	pT=Production Technology\\
-	component eI= component ecoIndex\\
+	component \gls{eI}= component ecoIndex\\
 \end{center}
 
 In Equation \ref{eq:eco-cost}, component eI refers to the component  \textit{ecoIndex}, as the components are purchased from the supplier, they have their own \textit{ecoIndex}.\\
 The \textit{ecoTax} in equation \ref{eq:eco-tax} is composed of the \textit{ecoFlatTax} and the \textit{additionalEcoTax} set by the government, if the index is lower than $4$, as shown in Table \ref{table:eco-index-CompanyE}.
-The \textit{ecoFlatTax} is a fixed tax amounting to $10,000cc$. The \textit{ecoCost} can also be $0$ if the company has a quarterly  \textit{ecoIndex} of $5$. The  \textit{ecoRefund} is a government refund of $1,000cc$, that makes it possible to pay no tax at all, in the case that the \textit{ecoIndex} is at its highest. 
+The \textit{ecoFlatTax} is a fixed tax amounting to $10,000cc$. The \textit{ecoCost} can also be $0$ if the company has a quarterly  \textit{ecoIndex} of $5$. The  \textit{ecoRefund} is a government refund of $1,000cc$, that makes it possible to pay no \textit{ecoTax} at all, in the case that the \textit{ecoIndex} is at its highest. 

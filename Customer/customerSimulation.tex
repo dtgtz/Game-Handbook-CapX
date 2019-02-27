@@ -1,7 +1,8 @@
-\section{Customer Simulation} \label{sec:customsim}
+\section{Customer Simulation} 
+\label{sec:customsim}
 
 \subsection{Customer Satisfaction}
-%Maike
+\label{customerSatisfaction}
 In this game, the customer simulation is a weighted combination of the \textit{salesPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} (\gls{cS}).
 This means that the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} are the three key indicators for customers' buying decisions. Thus, these three variables determine the extent to which customers are interested in buying a product or not.
 
@@ -20,18 +21,27 @@ In this game, \textit{customerSatisfaction} is composed of various variables fro
 Each of these variables has a weighted influence on the calculation of the customer satisfaction, which depends on its importance.
 The \textit{overallAppeal} (oA) will be explained in the following, as it was not used earlier in the game mechanics like all the other variables used for the calculation of the \textit{customerSatisfaction}.
 
-The \textit{overallAppeal} is calculated as shown in equation \ref{oA}. Thereby, the result of the \textit{productAppeal} divided by the \textit{priceAppeal} must be multiplied by 100 to ensure that the \textit{overallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables that influence the \textit{customerSatisfaction}. So, the value range for each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
+The \textit{overallAppeal} is calculated as shown in equation \ref{oA}. Thereby, the result of the \textit{productAppeal} divided by the \textit{priceAppeal} must be multiplied by 100 to ensure that the \textit{overallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables (tSQ, lI, cI, eB). Additionally, the upper value range of the \textit{overallAppeal} is kept by $100$. This ensures that the value range for each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
 \begin{equation}
 \label{oA}
-overallAppeal = \dfrac{productAppeal}{priceAppeal} \cdot 100
+\begin{aligned}
+overallAppeal = \dfrac{productAppeal}{priceAppeal} \cdot 100 \\
+ oA = 
+\begin{cases}
+    oA = 100 & \text{if } oA \geq 100 \\
+    oA = oA & \text{otherwise}
+\end{cases}
+\end{aligned}
 \end{equation}
-Therefore, the \textit{productAppeal} and \textit{priceAppeal} must be defined.
+
+In order to understand equation \ref{oA}, the \textit{productAppeal} and \textit{priceAppeal} must be defined.
 The \textit{productAppeal} is the \textit{totalProductQuality} (tPQ) devided by the \textit{proxyQuality}.
 \begin{equation}
     productAppeal = \dfrac{tPQ}{proxyQuality}
 \end{equation}
 The \textit{proxyQuality} represents the maximum of the \textit{marketProductUtility} or the \textit{totalProductQuality} (of the player's own products) regarding the same \textit{productCategory}.
 In turn, the \textit{marketProductUtility} depends on the \textit{time} (t) and on the \textit{productCategory}. The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with $0.7$, which results in equation \ref{marketProdUtility}.
+%Steffen will make the eqaution nicer
 \begin{equation}
 \label{marketProdUtility}
 \begin{aligned}
@@ -46,6 +56,7 @@ Moreover, the \textit{priceAppeal} is calculated by the \textit{salesPrice} (set
     priceAppeal = \dfrac{salesPrice}{proxyPrice}
 \end{equation}
 The \textit{proxyPrice} in turn represents the sum of the \textit{baseCost} of all components of a product with the same \textit{componentLevel}.
+%Steffen will make the eqaution nicer
 \begin{equation}
     proxyPrice = \sum_{c \in C} baseCost_{c} with the same componentLevel
 \end{equation}
@@ -71,6 +82,8 @@ Finally, the \textit{customerSatisfaction} is calculated as shown in equation \r
 
 Furthermore, there is only one \textit{customerSatisfaction} calculated. That means, that the \textit{customerSatisfaction} is not calculated for every single product, but has the same influence for each product in the demand calculation, which is explained in more detail in the following chapter \ref{demandCalc}.
 
+
+
 \begin{comment}
 Moreover, there are three main levels of customer requirements regarding products: Must haves, satisfiers and delighters. \cite{krienke_messung_2009}
 Must haves are the bare minimum requirements expected of customers. The customers do not show exceptional appreciation for the must haves, but if they are not met, the customer will show dissatisfaction. Satisfiers are the requirements that the customer expressly wishes. If you offer better or more of these satisfiers, then the customers will appreciate it more and be more satisfied. Delighters are the extras or the add-ons. The lack of these characteristics will not make the customer dissatisfied but adding these would greatly increase the customer's satisfaction. In our game, these three levels of customer requirements are included by the following calculation of the customer satisfaction, which depends on a product's \textit{totalProductQuality}. This means, if the user chooses newer, better components for producing a product, then the product's \textit{totalProductQuality} will increase, which again influences the calculation of the customer satisfaction.
@@ -85,5 +98,3 @@ Must haves are the bare minimum requirements expected of customers. The customer
 Each line of the calculation \ref{cS_Calc} refers to one of the three main levels of customer requirements. So, the first line of the calculation refers to a product's must haves, the second line refers to satisfiers and the third line refers to the delighters level of the customer requirements.
 Although the calculation \ref{cS_Calc} looks quite static, this is not the case as the variables, on which the calculation is based, are not static but change continuously.
 \end{comment}
-    
-%Most common types of customer needs regarding products and the main levels of customer requirements: Functionality, price, design, reliability/availability/durability, performance, safety and sustainability\\

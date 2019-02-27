@@ -3,38 +3,55 @@
  \begin{quotation}
 "Production is a process of combining various material inputs and immaterial inputs (plans, know-how) in order to make an output for consumption. It is the act of creating an output, a good or service which has value and contributes to the utility of individuals."\cite{noauthor_production_2019}
  \end{quotation}
-The definition above provides us with the basis of the production process. In it we can already start to differentiate separate sectors, such as the Procurement Department for getting the material inputs and the HR department for providing the know-how, the human factor in production. 
+The definition above provides us with the basis of the production process. In it we can already start to differentiate separate sectors, such as the Procurement Department for getting the material inputs and the HR department for providing the know-how, the human factor in production. \\
+In this simulation we are going to focus on three very important indicators, namely \textit{totalProductQuality}, \textit{productCost} and \textit{productionProcessProductivity}. In order to derive these indicators we will need to analyze the factors that influence them and give them proper values. 
 
-In this simulation we are going to focus on three very important indicators, namely \textit{totalProductQuality}, 
-\textit{productCost} % instead put product Price
-% product cost is the defined variable, this is not the price of our product, but what it costs the company to produce it
-and \textit{productionProcessProductivity}. In order to derive these indicators we will need to analyze the factors that influence them and give them proper values. 
-
-Firstly, \textit{totalProductQuality} is considered a very important element in the production simulation, nevertheless it is a very volatile concept and thus challenging to define and implement in this simulation. Often defined as conformance to requirements \cite{crosby_quality_1979}, quality is an elusive factor of production, which we have tried to frame in order to serve the scope of this project.
+Firstly, \textit{totalProductQuality} (\gls{tPQ}) is considered a very important element in the production simulation, nevertheless it is a very volatile concept and thus challenging to define and implement in this simulation. Often defined as conformance to requirements \cite{crosby_quality_1979}, quality is an elusive factor of production, which we have tried to frame in order to serve the scope of this project.
 
  Several factors that affect the \textit{totalProductQuality} in our CapitalismX simulation are listed below:
 \begin{itemize}
 \item productionTechnology (\gls{pT})
-\item totalEngineerQualityOfWork (\gls{tEQoW}) 
+\item totalEngineerProductivity (\gls{tEP}) 
 \item totalProcurementQuality (\gls{tProcureQ})
 \item R\&D
 \end{itemize}
-The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerQualityOfWork} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, logistics and warehousing in their respective simulations, etc. These elements all correlate in order to give an estimation of the \textit{totalProductQuality} per product.
-All the elements have a $5$ point Likert-Scale, except from the procurement indices. 
-
-The procurement indexes, namely a component's \textit{ecoIndex} $(eI_{c})$ and \textit{baseQuality} $(bQ_{c})$ have a scale of measurement of $3$ points. They vary from good, medium to bad. In order to handle this divergence in scale, we have adjusted the indices by multiplying their sum with $\frac{5}{6}$. These indices will be attributed to the \textit{totalProcurementQuality}.
-% add base utility
+The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerProductivity} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, etc. \\
+These elements all correlate in order to give an estimation of the \textit{totalProductQuality} per product. In order to estimate this correlation we compiled the following formulas.
+ \begin{equation}
+pT=0.7+0.1 \cdot pT
+ \label{eq:pT}
+ \end{equation}
+By using formula \ref{eq:pT} the impact that \textit{productionTechnology} has on the \textit{totalProductQuality} can vary from $0.8$ to $1.2$. Meaning that if the \textit{pT} is lower than level $3$ which is the normal, good conditions state, this newly calculated \textit{pT} will have a negative effect on the \textit{totalProductQuality}, and if it is higher than $3$ the effect will be positive.
 \begin{equation}
-tProcureQ=(eIc + bQc)\cdot \frac{5}{6}
+R\&D= 0.95 + 0.05 \cdot R\&D
+\label{eq:R\&D}
 \end{equation}
-
-In order to converge all the above mentioned elements and to measure the \textit{totalProductQuality} per product, we have compiled the following equation.
+A similar scaling has also been carried out for R\&D, in which the level of impact is between $1$ and $1.2$. Meaning that even if the player has the lowest level of \textit{productionInvestments}, he or she does not lower the \textit{totalProductQuality} as the impact of R\&D does not impact it. If R\&D is in the highest levels than it will influence the \textit{totalProductQuality} by $1.2$ times.
+\begin{center}
 \begin{equation}
-totalProductQuality = (pT+tEQOW+tProcureQ+R\&D) \cdot 0.04_{N\footnotemark}
+tEQoW=\sum_{e \in E}{(skillLevel_e \cdot JSS_e)}
+\label{eq:tEQoW}
+\end{equation}
+where \\
+JSS=\textit{jobSatisfactionScore}\\
+E= Engineers
+\end{center}
+Formula \ref{eq:tEQoW} allows us to measure the \textit{totalEngineerQualityofWork} by deriving the overall sum of the product of the skill level of an engineer with his or her job satisfaction, for all engineers. These indexes are derived from the HR simulation in chapter \ref{sub:KPI}.
+\begin{equation}
+tEP=tEQoW \cdot pA
+\label{eq:tEP}
+\end{equation}
+Equation \ref{eq:tEP} mentioned above, shows the calculation of the \textit{totalEngineerProductivity}. This variable is given the value of the product of \textit{totalEngineerQualityofWork} and \textit{processAutomation}. It is done so, because \textit{processAutomation} is developing the futuristic  aspect of production and the higher the \textit{processAutomation} is the higher the \textit{totalEngineerProductivity}. \\
+
+In order to converge all the above mentioned elements and to measure the \textit{totalProductQuality} per product, we have compiled the following equation. 
+%add description of the formula below, 
+% why multiply our factors
+%what will the output look like, etc..
+\begin{equation}
+tPQ = pT \cdot |\sqrt{tEP}| \cdot tProcureQ \cdot R\&D 
 \label{eq:PQ}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
- 
 After giving you an understanding of our concept of the \textit{totalProductQuality}, in the following sections we will explain the elements that  are included in this formula, and also further concepts that apply to the production process.
 
 \subsection{Production Technology Level}
@@ -71,7 +88,7 @@ Repairs are also very frequent processes in production companies. Machines do no
 Upgrading a machine is a process that implements new, better features into the current machine.
 The cost of upgrading a machine is $5,000cc$, because alongside with increasing the \textit{productionTechnology} scale by two levels, upgrading also allows increasing the individual \textit{machineCapacity} by $20\%$. 
 \end{itemize}
-When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a \textit{productionTechnology} level equal to $5$. The \textit{buyMachinePrice} is calculated as the sum of the \textit{machinePrice} equal to $100,000cc$, with the \textit{machineCapacity (mC)} times $120\%$.  The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
+When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a \textit{productionTechnology} level equal to $5$. The \textit{buyMachinePrice} is calculated as the sum of the \textit{machinePrice} equal to $100,000cc$, with the \textit{machineCapacity (\gls{mC})} times $120\%$.  The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
 \begin{equation}
 buyMachinePrice=(machinePrice+mC)\cdot 120\%
 \label{eq:buyMachine}
@@ -99,7 +116,7 @@ The player can decide how to improve \textit{productionProcessProductivity} base
 The available \textit{productionInvestment} possibilities are:
 \begin{itemize}
 \item Research and Development (R\&D)
-\item systemSecurity (sS)
+\item systemSecurity (\gls{sS})
 \item processAutomation (pA)
 \end{itemize}
 These investments options are also measured in our standard $5$ points Likert-Scale. The difference in these options lies in the fact that they start at level $1$, considering that in the beginnings the company has no \textit{productionInvestments} operating. The increase or decrease of these indexes is dependent on the amount of CapCoins that is invested in them.
@@ -239,21 +256,21 @@ As further clarified in chapter \ref{warehouse_simulation}, the products produce
 In this section we are going to present some important metrics that help us understand how, not only quality but also the \textit{productionProcessProductivity} is measured in our game. In order to measure production productivity there are several other metrics that need to be defined. \\
 Equation \ref{eq: PES} shows the calculation of \textit{totalEngineerQualityOfWork}.
 
-This calculation is a weighted average of the level of \textit{processAutomation} and \textit{employeeSkills}, which are defined in chapter \ref{sec:HRsim}. As you can notice more weight has been given to \textit{employeeSkills} as it is a more relevant factor in determining our dependent variable. \textit{processAutomation} on the other hand is a bit more complex as it needs to have some prerequisites fulfilled regarding \textit{employeeSkills}. In order to increase pA according to the money invested, the player must have trained the employees in the production area, which means that the new technologies that will be implemented in production, will meet with employees that are trained to handle them. The possible trainings can be seen in section \ref{sub:KPI}. It is required to have at least $1$ production engineer trained, for each level of pA. For instance, in order to invest and have pA set in level $4$, at least $4$ production employees need to be trained in the production area.
+This calculation is a weighted average of the level of \textit{processAutomation} and \textit{employeeSkills}, which are defined in chapter \ref{sec:HRsim}. As you can notice more weight has been given to \textit{employeeSkills} as it is a more relevant factor in determining our dependent variable. \textit{processAutomation} on the other hand is a bit more complex as it needs to have some prerequisites fulfilled regarding \textit{employeeSkills}. In order to increase \textit{pA} according to the money invested, the player must have trained the employees in the production area, which means that the new technologies that will be implemented in production, will meet with employees that are trained to handle them. The possible trainings can be seen in section \ref{sub:KPI}. It is required to have at least $1$ production engineer trained, for each level of \textit{pA}. For instance, in order to invest and have \textit{pA} set in level $4$, at least $4$ production employees need to be trained in the production area.
 \begin{equation}
 totalEngineerQualityOfWork = 0.4\cdot pA + 0.6\cdot eS
 \label{eq: PES}
 \end{equation}
 
-\textit{manufactureEfficiency} is measured by dividing the number of goods produced, on a daily basis, by the current number of machines times their average capacity to produce. This measure is important as it shows the player the rate in which the machinery is being utilized. This index has a range of $[0-1]$,which means if mE is close to $1$ the usage of the machinery is optimal, but if this index is low, the player should realize he should either produce more or sell some of the machinery in order to keep efficiency high and not waste resources.
+\textit{manufactureEfficiency} is measured by dividing the number of goods produced, on a daily basis, by the current number of machines times their average capacity to produce. This measure is important as it shows the player the rate in which the machinery is being utilized. This index has a range of $[0-1]$,which means if \textit{mE} is close to $1$ the usage of the machinery is optimal, but if this index is low, the player should realize he should either produce more or sell some of the machinery in order to keep efficiency high and not waste resources.
 \begin{equation}
 mE= \frac{nr. units Produced(daily)}{nr. Machines\cdot avg. Capacity}  
 \label{eq: ME}
 \end{equation}
 
-\textit{productionProcessProductivity} (pPP) is an indicator of the efficiency of our production  process. It is based on \textit{productionTechnology} and \textit{totalEngineerQualityOfWork} as indicators of the quality of the process and \textit{manufactureEfficiency} as an indicator of the efficiency of the manufacturing process.
+\textit{productionProcessProductivity} (\textit{pPP}) is an indicator of the efficiency of our production  process. It is based on \textit{productionTechnology} and \textit{totalEngineerQualityOfWork} as indicators of the quality of the process and \textit{manufactureEfficiency} as an indicator of the efficiency of the manufacturing process.
 \begin{equation}
-pPP= [(pT + tEQOW) \cdot mE]/10_{N\footnotemark}
+pPP= \frac{(pT + \sqrt{tEQOW}) \cdot mE}{10_{N\footnotemark}}
 \label{eq:PPP}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
