@@ -35,19 +35,16 @@ Figure \ref{demand_function} shows the course of the \textit{demandFunction}. Th
     axis lines=center,
     axis on top=true,
     domain=-2.5:4,
-    ylabel=$oA$,
-    xlabel=$dPC$,
+    ylabel=$dPC$,
+    xlabel=$oA$,
     ]
 
     \addplot [mark=none,draw=red,ultra thick] {tanh(\x/2)};
-    \node [right, red] at (axis cs: 1,0.3) {$y = \tanh x/2$};
-
-    % Add the asymptotes
-    \draw [blue, dotted, thick] (axis cs:-2.5,-1)-- (axis cs:0,-1);
+    \node [right, black] at (axis cs: 1,0.3) {$y = \tanh x/2$};
     \draw [blue, dotted, thick] (axis cs:+4,+1)-- (axis cs:0,+1);
 \end{axis}
 \end{tikzpicture}
-	\caption{Demand function}
+	\caption{demandPercentage function}
 	\label{demand_function}
 \end{figure}
 
@@ -59,35 +56,38 @@ dA = dPC \cdot gP
 
 After calculating the $demandAmount$ for the entire product lifecycle we have to calculate the demand for a single day.
 
-For product $p$:
+Since we don't sell the total demand at once but distributed over a longer period of time after the product has launched we need to specify a function which calculates the $demandAmount$ for a single day. For a product $p$ we can calculate the $daysSinceLaunch$ (\gls{dSL}) as follows:
 \begin{equation}
-	daysSinceLaunch = t_d -launchDay_{p}
+	daysSinceLaunch_p = t_d -launchDay_{p}
 \end{equation}
-
-Product demand in each period using the $daysSinceLaunch$ (\gls{dSL}):
+As the following calculations are performed per product we will implicitly assume but omit the $p$ index.
+We can calculate the periodicDemandAmount \gls{pDA} for each day using the \gls{dSL}):
 \begin{equation}
 \begin{aligned}
-periodicDemandAmount(\gls{pDA}) = demandAmount\\ 
-\cdot 0.002\cdot (\frac{-tanh(0.01 \cdot dSL-3)}{2} + 0.5)
+pDA(dA, \gls{dSL}) = dA \cdot 0.002\cdot (\frac{-tanh(0.01 \cdot dSL-3)}{2} + 0.5)
 \end{aligned}
 \end{equation}
 
-%figure: 0.002 *(−tanh(0.01* x−3)2+ 0.5)
+%figure: 0.002 *(−tanh(0.01* x−3)/2+ 0.5)
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    xmin= 0, xmax=400,
-    ymin= 0, ymax=0.006,
+    xmin= 0, xmax=800,
+    ymin= 0, ymax=0.003,
     axis lines=center,
     axis on top=true,
-    domain=-2.5:400,
+    domain=-2.5:800,
     ylabel=$pDA$,
     xlabel=$dSL$,
     ]
-
-    \addplot [mark=none,draw=red,ultra thick] {0.002*(-tanh(0.01 * \x - 3) * 2+0.5)};
-    \node [right, red] at (axis cs: 1,0.001) {$y = 0.002\cdot(-\tanh (0.01\cdot x - 3)\cdot 2 + 0.5)$};
+    % This somehow causes a timeout
+    %\addplot [mark=none,draw=red,ultra thick] {0.002*(-\tanh(0.01 * \x - 3)/2+0.5)};
+    \addplot [mark=none,draw=red,ultra thick] {
+    	0.002*(-tanh(0.01 * \x - 3)/2 + 0.5)
+    };
+    \draw [blue, dotted, thick] (axis cs:+800,+0.002)-- (axis cs:0,+0.002);
+    \node [right, black] at (axis cs: 300,0.0015) {$y = 0.002 \cdot (\frac{-tanh(0.01 \cdot dSL-3)}{2}) + 0.5)$};
     
 \end{axis}
 \end{tikzpicture}
@@ -117,8 +117,10 @@ For the calculation of the \textit{marketShare} (\gls{mS}) it is assumed that th
 \begin{equation}
 \label{func:marketShare}
 \begin{aligned}
+% I'd rather use:
+%MS = \frac{sFP}{population} \\
 mS = \frac{sFP}{dA} \\
-tMS = \frac{\sum(sFP)}{\sum(dA)}  
+tMS = \frac{\sum_{p \in P}(sFP)}{\sum(dA)}  
 \end{aligned}
 \end{equation}
 

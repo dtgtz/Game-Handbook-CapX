@@ -3,31 +3,22 @@
 
 \subsection{Customer Satisfaction}
 \label{customerSatisfaction}
-%In this game, the customer simulation is a weighted combination of the \textit{salesPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} (\gls{cS}).
-%This means that the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} are the three key indicators for customers' buying decisions. Thus, these three variables determine the extent to which customers are interested in buying a product or not.
-
-% add: totalSalesPeopleQualityofWork
-
-%How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of \textit{customerSatisfaction}, which will be discussed in more detail in this chapter.
+In this game, the customer simulation represents the customers' buying decision. How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of the \textit{customerSatisfaction} (\gls{cS}), which will be discussed in more detail in this chapter.
 
 As in reality, the \textit{customerSatisfaction} plays an important role in terms of the number of products sold and thus in terms of sales. \cite{deptolla_effects_2004} In CapitalismX, the \textit{salesFigures} refer to the number of products sold.
 Thus, the \textit{customerSatisfaction} is designed to directly influence potential customers' interest in a particular product. The higher the \textit{customerSatisfaction} in general, the more customers are willing to pay for exactly the same product. 
 In this game, \textit{customerSatisfaction} is composed of various variables from almost all parts of the game, which are listed below:
 \begin{enumerate}
-      \item Satisfaction with the overallAppeal (oA)
-      \item Satisfaction with the totalSupportQuality (tSQ)
-      \item Satisfaction with the logisticIndex (lI)
-      \item Satisfaction with the companyImage (cI)
-      \item Satisfaction with the employerBranding (eB)
+      \item $averageOverallAppeal_{cS} $ ($aOA_{cS}$)
+      \item \textit{totalSupportQuality (tSQ)}
+      \item \textit{logisticIndex (lI)}
+      \item \textit{companyImage (cI)}
+      \item \textit{employerBranding (eB)}
 \end{enumerate}
 Each of these variables has a weighted influence on the calculation of the customer satisfaction, which depends on its importance.
-The \textit{overallAppeal} (oA) will be explained in the following, as it was not used earlier in the game mechanics like all the other variables used for the calculation of the \textit{customerSatisfaction}.
+The $averageOverallAppeal_{cS} $ will be explained in the following, as it was not used earlier in the game mechanics like all the other variables used for the calculation of the \textit{customerSatisfaction}.
 
-The \textit{overallAppeal} is calculated as shown in equation \ref{oA}. Thereby, the result of the \textit{productAppeal} is mutliplied by the \textit{priceAppeal}. 
-% If you need normalization, don't do it here. This variable is also used in other parts where no normalization is assumed.
-%It must be multiplied by 100 to ensure that the \textit{overallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables (tSQ, lI, cI, eB). Additionally, the upper value range of the \textit{overallAppeal} is kept by $100$. This ensures that the value range for each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
-
-% oA wird in % interpretiert
+First, the \textit{overallAppeal} (\gls{oA}) is calculated as shown in equation \ref{oA}. Thereby, the result of the \textit{productAppeal} is mutliplied by the \textit{priceAppeal}. 
 
 \begin{equation}
 \label{oA}
@@ -37,58 +28,64 @@ overallAppeal = productAppeal \cdot priceAppeal
 \end{equation}
 
 In order to understand equation \ref{oA}, the \textit{productAppeal} and \textit{priceAppeal} must be defined.
-% 
+
 The \textit{productAppeal} is the \textit{totalProductQuality} (tPQ) devided by the \textit{proxyQuality}.
-\begin{equation}
-    productAppeal = \dfrac{tPQ}{proxyQuality}
-\end{equation}
-The \textit{proxyQuality} represents the maximum of the \textit{marketProductUtility} or the \textit{totalProductQuality} (of the player's own products) regarding the same \textit{productCategory}.
-In turn, the \textit{marketProductUtility} (\ref{marketProdUtility}) depends on the \textit{time} (t) and on the \textit{productCategory} (\gls{pC}). The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with a constant $a \in [0.7, 1.2]$. 
+The \textit{proxyQuality} represents the maximum of the \textit{marketProductUtility} or the \textit{highestProductQuality} (of the player's own products) regarding the same \textit{productCategory}.
+In turn, the \textit{marketProductUtility} (see equation \ref{variablesForProductAppeal}) depends on the \textit{time} ($t_y$) and on the \textit{productCategory} (\gls{pC}). The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with a constant $a \in [0.7, 1.2]$. 
 % Or a not constant? Changing difficulty
 This constant basically determines the production process productivity of the market. Thus, it can be interpreted as the skill of the competitors and therefore, to a large extent, determines the difficulty of the game.
 
 \begin{equation}
-\label{marketProdUtility}
+\label{variablesForProductAppeal}
 \begin{aligned}
-%& (of the most recent level of allComponents in the productCategory) \cdot 0.7 &&
-    & marketProductUtility(t, productCategory) \\
-    & = \sum_{cp \in C_{pC}} \argmax\limits_{\{c \in components_{cp}| availabilityDate_c \leq t\}}(baseUtility_c)
+    & marketProductUtility(t_y, productCategory) \\
+    & = \sum_{cp \in C_{pC}} \argmax\limits_{\{c \in components_{cp}| availabilityDate_c \leq t_y\}}(baseUtility_c)\\
+    \newline
+    & highestProductQuality(productCategory) \\
+    & = \sum_{p' \neq p \in P} \argmax\limits_{c \in components_p}(baseUtility_c) \\
+    \newline
+    & proxyQuality(productCategory) \\
+    & = \max(marketProductUtility, highestProductQuality)
 \end{aligned}    
 \end{equation}
-Moreover, the \textit{priceAppeal} for a product is the ratio of the \textit{proxyPrice} and the \textit{salesPrice} (set by the player).
+
 \begin{equation}
-    priceAppeal = \dfrac{proxyPrice}{salesPrice}
+    productAppeal = \dfrac{tPQ}{proxyQuality}
 \end{equation}
-The \textit{proxyPrice} in turn represents the sum of the \textit{baseCost} of all components of a product with the same \textit{componentLevel}.
+
+Moreover, the \textit{priceAppeal} for a product is the ratio of the \textit{proxyPrice} and the \textit{salesPrice} (set by the player). The \textit{proxyPrice} in turn represents the sum of the \textit{baseCost} of all components of a product with the same \textit{componentLevel}. So, for example, if $proxyPrice = 60$ and $salesPrice = 100$, the \textit{priceAppeal} would be $0.6$.
 %Steffen will make the equation nicer
 % Probably not needed. We can just choose a constant for each product type.
-
 \begin{equation}
     proxyPrice = \sum_{cp \in C_{cP}} baseCost_{c} with the same componentLevel
 \end{equation}
+\begin{equation}
+    priceAppeal = \dfrac{proxyPrice}{salesPrice}
+\end{equation}
+
+Furthermore, the \textit{averageOverallAppeal} of all products must be determined, as there is only one \textit{customerSatisfaction} calculated. That means, that the \textit{customerSatisfaction} is not calculated for every single product, but has the same influence for each product in the demand calculation, which is explained in more detail in the following chapter \ref{demandCalc}.
+\begin{equation}
+    aOA = \frac{\sum_{p \in P} oA}{|P|}
+\end{equation}
+
+Afterwards, the $aOA_{cS}$, which is needed for the calculation of the \textit{customerSatisfaction}, can be calculated using a sigmoid function, as shown in equation \ref{aOA_cS}. This ensures that the upper value range of the $aOA_{cS}$ is kept by $1$.
+Additionally, within the sigmoid function, \textit{aOA} is multiplicated by $0.7$. This way, the $aOA_{cS}$ would be about $60\%$ for a \textit{averageOverallAppeal} of $1$, about $89\%$ for a \textit{averageOverallAppeal} of $2$, and about $34\%$ for a \textit{averageOverallAppeal} of $0.5$.
+Then, the result of the sigmoid function must be multiplied by 100 to ensure that the \textit{averageOverallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables (tSQ, lI, cI, eB). So, the value range of each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
+
+\begin{equation}
+\label{aOA_cS}
+   aOA_{cS}(aOA) = tanh(aOA \cdot 0.7) \cdot 100
+\end{equation}
+
 Finally, the \textit{customerSatisfaction} is calculated as shown in equation \ref{cSCalc}. This calculation is based on a sigmoid function and has a threshold of $1$, as the \textit{customerSatisfaction} cannot become larger than 1, which equals 100\%.
-
-\begin{equation}
-    tOA = \sum_{p \in P} oA
-\end{equation}
-
-\begin{equation}
-   tOA_{cS}(tOA) = tanh(tOA * 0.7) \cdot 100
-\end{equation}
 
 \begin{equation}
 \begin{aligned}
 \label{cSCalc}
-    & cS(tOA_{cS}, tSQ, lI, cI, eB) \\
-    & = tanh(\dfrac{(0.5 \cdot tOA_{cS} + 0.2 \cdot tSQ + 0.1 \cdot lI + 0.15 \cdot cI + 0.05 \cdot eB)}{100}) %value must be defined!
+    & cS(aOA_{cS}, tSQ, lI, cI, eB) \\
+    & = tanh(\dfrac{(0.5 \cdot aOA_{cS} + 0.2 \cdot tSQ + 0.1 \cdot lI + 0.15 \cdot cI + 0.05 \cdot eB)}{100})
 \end{aligned}   
 \end{equation}
-% tanh((0,5*oA + 0,2*tSQ + 0,1*lI + 0,15*cI + 0,05*eB)/1)
-% tanh((0,5x + 0,2*100 + 0,1*100 + 0,15*100+ 0,05*100)/1) from 0 to 2
-% value muss 100 sein, damit x bei 50 die cS von 1 erreicht. (0,5 * 100 = 50)
-% ==> tanh((0,5*x + 0,2*100 + 0,1*100 + 0,15*100+ 5)/100) from 0 to 55
-
-Furthermore, there is only one \textit{customerSatisfaction} calculated. That means, that the \textit{customerSatisfaction} is not calculated for every single product, but has the same influence for each product in the demand calculation, which is explained in more detail in the following chapter \ref{demandCalc}.
 
 
 

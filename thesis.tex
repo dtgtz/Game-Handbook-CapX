@@ -72,9 +72,26 @@
 \def\MIPALL#1#2{\textit{MIPS}_{#1}\left(#2\right)} % the set of all mips
 
 \makeglossaries
+
+\newglossaryentry{t_d}{%
+    name={t_d},%
+    description={Elapsed game time in days}%
+}
+
+\newglossaryentry{t_y}{%
+    name={t_y},%
+    description={Elapsed game time in years}%
+}
+
 \newglossaryentry{cs}{%
 name={cs},%
 description={Customer Satisfaction}%
+}
+
+% HR Glossary
+\newglossaryentry{QoW}{%
+name={QoW},%
+description={Quality of Work}%
 }
 
 %Glossary Finance
@@ -491,8 +508,18 @@ description={daysSinceLaunch}%
 name={pDA},%
 description={periodicDemandAmount}%
 }
-
-
+\newglossaryentry{oA}{%
+name={oA},%
+description={overallAppeal}%
+}
+\newglossaryentry{aOA}{%
+name={aOA},%
+description={averageOverallAppeal}%
+}
+\newglossaryentry{aOA_{cS}}{%
+name={aOA_{cS}},%
+description={averageOverallAppeal_customerSatisfaction}%
+}
 
 
 \begin{document}
@@ -727,7 +754,7 @@ Their effects become visible via various indicators, like financial figures, cap
 \section{Linkages \& Interdependencies}
 \label{sec:link}
 A functioning business simulation requires that all mechanics play well together. A graphical representation contains all information in one place. This helps when implementing the prototype and writing the report. The so called 'fullGraph' is given below after the legend that describes its structure. 
-
+Also, it should be assumed we can use the game time in our calculations. With $t_d$ we denote the time of elapsed days, whereas $t_y$ is the number of years elapsed.
 
 Sth like: all departments in the CapitalismX company have their simulations - fullGraph connects all simulation
 NEW PICTURE!!!
@@ -817,19 +844,18 @@ From an UI point of view, the events displayed as informing Pop-Ups or they are 
 \input{Prototype/implementation.tex}
 
 \chapter{Conclusion}
+This project at hand is a concept of a business simulation game called "CapitalismX". The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested by the game prototype. 
 
-\section{Summary}
-Developed xy KPI, tested in prototype, alignment of simulations
+However, the concept as described in chapter 3 contains more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is mentioned in the respective simulations. All simulations are consolidated in the overall full Graph, which can be found in figure xy. 
+Throughout the development process, xy KPIs were designed, which fit into xy different game simulation. They are aligned with each other, sampling the real-world in most cases. 
 
-This project at hand is a concept of a business simulation game called "CapitalismX". The first two chapters constitute a user manual for a potential player of the game, explaining the what to expect of the game, what role the player has and how to play the game. The third chapter addresses the game mechanics which are even mostly tested by the game prototype. 
 
-However, the concept as described in chapter 3 contains more functionality than the prototype currently provides. If some functionality is not covered in the prototype, this is mentioned in the respective simulations. The core of all simulations is the [overall / full Graph], which can be found in figure \ref{fig:OverallGraph}. This graph combines all simulations and serves as a basis for the prototype. 
+Some trivial facts of the project like the course, personal opinion
+\ref{fig:OverallGraph}. This graph combines all simulations and serves as a basis for the prototype. 
 
 \section{Future Work}
 \label{sec:future}
-There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended:
-
-Ath like: original concept was introducing another phase of the game, which would take place from 2017-2030(?) with VR and mobile integration, xxx. 
+There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended. This may be the case in a follow-up project. Finally, the game concept might also be sold to a gaming company which is willing to fully program and publish the game. like: original concept was introducing another phase of the game, which would take place from 2017-2030(?) with VR and mobile integration, xxx. 
 
 \begin{table}[]
 \begin{tabular}{|l|l|}
@@ -841,6 +867,7 @@ Ath like: original concept was introducing another phase of the game, which woul
 \textbf{Mobile device integration} & Complement the game with mobile devices                                                                                                                            \\ \hline
 \textbf{Minigames}                 & \begin{tabular}[c]{@{}l@{}}Integrate minigames for e.g. cleaning the warehouse after a flood,\\ conducting interviews in marketing or driving a truck\end{tabular} \\ \hline
 \textbf{AR / VR support}           & Can support minigames in their experience                                                                                                                          \\ \hline
+\textbf{Events}           & More external events can included in the game based on the added features                                                                                                                        \\ \hline
 \end{tabular}
 \caption{Future work ideas}
     \label{future_work}
