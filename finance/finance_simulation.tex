@@ -74,15 +74,15 @@ The company's assets are defined as the sum of fleet (\textit{totalTruckValues})
 The cash can be calculated as follows in equation \ref{func:cash}, whereas the current cash amount, which is calculated on a daily basis, is added to the former amount of cash.
 \begin{equation}
     \label{func:cash}
-    cash \mathrel{+}= NOPAT - totalInvestmentEarnings %added to the old amount of cash; cash is added to net worth
+    cash \mathrel{+}= NOPAT  %added to the old amount of cash; cash is added to net worth
 \end{equation}
 
 \subsubsection{NOPAT}
 
-The next important key figure is the \gls{NOPAT}. The \textit{NOPAT} can be calculated by adding the \textit{totalInvestmentEarnings} and subtracting the \textit{incomeTax} and the \textit{interestsLoan} from the \textit{EBIT}. The \gls{EBIT} is the amount of money, that the player has obtained through his or her actions during the game. The calculation of the \textit{NOPAT} can be found in equation \ref{func:NOPAT}.
+The next important key figure is the \gls{NOPAT}. The \textit{NOPAT} can be calculated by subtracting the \textit{incomeTax} and the \textit{interestsLoan} from the \textit{EBIT}. The \gls{EBIT} is the amount of money, that the player has obtained through his or her actions during the game. The calculation of the \textit{NOPAT} can be found in equation \ref{func:NOPAT}.
 \begin{equation}
     \label{func:NOPAT}
-    NOPAT = EBIT - incomeTax - interestLoan + totalInvestmentEarnings
+    NOPAT = EBIT - incomeTax - interestLoan 
 \end{equation}
  
 \subsubsection{Income tax}
@@ -129,12 +129,12 @@ In order to calculate the EBIT, it is necessary to first consolidate all the rev
     \end{equation}
      \begin{equation}
      \label{calc:residualvalue}
-     residual \ value = {{cost \ of \ the \ asset} - {annual \ depreciation \cdot t }}    
+     resellPrice = {{purchasePrice} - {annual \ depreciation \cdot t }}    
      \end{equation}
      
-        \subitem \textit{buildingsSold}. The player has the possibility to build a warehouse to store his products. However, it may happen that the warehouse is no longer needed. The resell price corresponds to the residual value \ref{calc:residualvalue}. The cost calculation of the warehouse and the useful life are described in chapter \ref{warehouse_simulation}.
-        \subitem \textit{vehiclesSold}. Similar to the resale of buildings it is also possible to sell the vehicles at their residual value if they are no longer used or the delivery is carried out by a logistics partner. The cost of the vehicles and their useful life are described in Chapter \ref{logistic_simulation}. The resell price corresponds to the residual value from equation \ref{calc:residualvalue}.
-     \subitem \textit{machinerySold}. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}. The resell price corresponds to the formula \ref{eq:sellMachine}.
+        \subitem \textit{buildingsSold}. The player has the possibility to build a warehouse to store his products. However, it may happen that the warehouse is no longer needed. The residual value corresponds to the \textit{resellPrice} \ref{calc:residualvalue}. The cost calculation of the warehouse and the useful life are described in chapter \ref{warehouse_simulation}.
+        \subitem \textit{vehiclesSold}. Similar to the resale of buildings it is also possible to sell the vehicles at their residual value if they are no longer used or the delivery is carried out by a logistics partner. The cost of the vehicles and their useful life are described in Chapter \ref{logistic_simulation}. The \textit{resellPrice} corresponds to the residual value from equation \ref{calc:residualvalue}.
+     \subitem \textit{machinerySold}. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}. The \textit{resellPrice} corresponds to the formula \ref{eq:sellMachine}.
 
 The total revenue from the assetSold is calculated as follows:
 \begin{equation}
@@ -168,7 +168,7 @@ The other part needed to calculate the EBIT are the total expenses. All costs an
     \begin{equation}
         totalHRCosts~(\gls{tHRC}) = totalSalaries \ + \  totalTrainingCosts
     \end{equation}
-    whereas all trainings (\gls{TR}) have a price, which is is a property of the object \textit{trainings}.
+    whereas all trainings (\gls{TR}) have a price, which is a property of the object \textit{trainings}.
     \begin{equation}
         totalTrainingCosts = \sum_{tr \in TR} tr.cost
     \end{equation}

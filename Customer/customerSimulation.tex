@@ -3,13 +3,13 @@
 
 \subsection{Customer Satisfaction}
 \label{customerSatisfaction}
-In this game, the customer simulation represents the customers' buying decision. How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of the \textit{customerSatisfaction} (\gls{cS}), which will be discussed in more detail in this chapter.
+In this game, the customer simulation represents the customers' buying decision. How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of the \textit{customerSatisfaction} (\textit{\gls{cS}}), which will be discussed in more detail in this chapter.
 
 As in reality, the \textit{customerSatisfaction} plays an important role in terms of the number of products sold and thus in terms of sales. \cite{deptolla_effects_2004} In CapitalismX, the \textit{salesFigures} refer to the number of products sold.
 Thus, the \textit{customerSatisfaction} is designed to directly influence potential customers' interest in a particular product. The higher the \textit{customerSatisfaction} in general, the more customers are willing to pay for exactly the same product. 
 In this game, \textit{customerSatisfaction} is composed of various variables from almost all parts of the game, which are listed below:
 \begin{enumerate}
-      \item $averageOverallAppeal_{cS} $ ($aOA_{cS}$)
+      \item $averageOverallAppeal_{cS}$ ($aOA_{cS}$)
       \item \textit{totalSupportQuality (tSQ)}
       \item \textit{logisticIndex (lI)}
       \item \textit{companyImage (cI)}
@@ -18,7 +18,7 @@ In this game, \textit{customerSatisfaction} is composed of various variables fro
 Each of these variables has a weighted influence on the calculation of the customer satisfaction, which depends on its importance.
 The $averageOverallAppeal_{cS} $ will be explained in the following, as it was not used earlier in the game mechanics like all the other variables used for the calculation of the \textit{customerSatisfaction}.
 
-First, the \textit{overallAppeal} (\gls{oA}) is calculated as shown in equation \ref{oA}. Thereby, the result of the \textit{productAppeal} is mutliplied by the \textit{priceAppeal}. 
+First, the \textit{overallAppeal} (\textit{\gls{oA}}) is calculated as shown in equation \ref{oA}. Thereby, the result of the \textit{productAppeal} is mutliplied by the \textit{priceAppeal}. 
 
 \begin{equation}
 \label{oA}
@@ -29,21 +29,31 @@ overallAppeal = productAppeal \cdot priceAppeal
 
 In order to understand equation \ref{oA}, the \textit{productAppeal} and \textit{priceAppeal} must be defined.
 
-The \textit{productAppeal} is the \textit{totalProductQuality} (tPQ) devided by the \textit{proxyQuality}.
+The \textit{productAppeal} is the \textit{totalProductQuality} (\textit{\gls{tPQ}}) devided by the \textit{proxyQuality}.
 The \textit{proxyQuality} represents the maximum of the \textit{marketProductUtility} or the \textit{highestProductQuality} (of the player's own products) regarding the same \textit{productCategory}.
-In turn, the \textit{marketProductUtility} (see equation \ref{variablesForProductAppeal}) depends on the \textit{time} ($t_y$) and on the \textit{productCategory} (\gls{pC}). The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with a constant $a \in [0.7, 1.2]$. 
+In turn, the \textit{marketProductUtility} (see equation \ref{marketProductUtility}) depends on the \textit{time} ($t_y$) and on the \textit{productCategory} (\textit{\gls{pC}}). The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with a constant $a \in [0.7, 1.2]$. 
 % Or a not constant? Changing difficulty
 This constant basically determines the production process productivity of the market. Thus, it can be interpreted as the skill of the competitors and therefore, to a large extent, determines the difficulty of the game.
 
 \begin{equation}
-\label{variablesForProductAppeal}
+\label{marketProductUtility}
 \begin{aligned}
     & marketProductUtility(t_y, productCategory) \\
     & = \sum_{cp \in C_{pC}} \argmax\limits_{\{c \in components_{cp}| availabilityDate_c \leq t_y\}}(baseUtility_c)\\
-    \newline
+\end{aligned}    
+\end{equation}
+
+\begin{equation}
+\label{highestProductQuality}
+\begin{aligned}
     & highestProductQuality(productCategory) \\
     & = \sum_{p' \neq p \in P} \argmax\limits_{c \in components_p}(baseUtility_c) \\
-    \newline
+\end{aligned}    
+\end{equation}
+
+\begin{equation}
+\label{proxyQuality}
+\begin{aligned}
     & proxyQuality(productCategory) \\
     & = \max(marketProductUtility, highestProductQuality)
 \end{aligned}    
@@ -63,14 +73,14 @@ Moreover, the \textit{priceAppeal} for a product is the ratio of the \textit{pro
     priceAppeal = \dfrac{proxyPrice}{salesPrice}
 \end{equation}
 
-Furthermore, the \textit{averageOverallAppeal} of all products must be determined, as there is only one \textit{customerSatisfaction} calculated. That means, that the \textit{customerSatisfaction} is not calculated for every single product, but has the same influence for each product in the demand calculation, which is explained in more detail in the following chapter \ref{demandCalc}.
+Furthermore, the \textit{averageOverallAppeal} (\textit{\gls{aOA}}) of all products must be determined, as there is only one \textit{customerSatisfaction} calculated. That means, that the \textit{customerSatisfaction} is not calculated for every single product, but has the same influence for each product in the demand calculation, which is explained in more detail in the following chapter \ref{demandCalc}.
 \begin{equation}
-    aOA = \frac{\sum_{p \in P} oA}{|P|}
+    averageOverallAppeal = \frac{\sum_{p \in P} oA}{|P|}
 \end{equation}
 
 Afterwards, the $aOA_{cS}$, which is needed for the calculation of the \textit{customerSatisfaction}, can be calculated using a sigmoid function, as shown in equation \ref{aOA_cS}. This ensures that the upper value range of the $aOA_{cS}$ is kept by $1$.
-Additionally, within the sigmoid function, \textit{aOA} is multiplicated by $0.7$. This way, the $aOA_{cS}$ would be about $60\%$ for a \textit{averageOverallAppeal} of $1$, about $89\%$ for a \textit{averageOverallAppeal} of $2$, and about $34\%$ for a \textit{averageOverallAppeal} of $0.5$.
-Then, the result of the sigmoid function must be multiplied by 100 to ensure that the \textit{averageOverallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables (tSQ, lI, cI, eB). So, the value range of each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
+Additionally, within the sigmoid function, \textit{aOA} is multiplicated by $0.7$. This way, the $aOA_{cS}$ would be about $60\%$ for an \textit{averageOverallAppeal} of $1$, about $89\%$ for an \textit{averageOverallAppeal} of $2$, and about $34\%$ for an \textit{averageOverallAppeal} of $0.5$. An \textit{averageOverallAppeal} of $1$ means that the player's products have on average the same appeal as the competitor's products. So, a value of $2$ means that the player's products have on average an appeal, which is twice as good than the competitor's products. A value of $3$ means that the player's products have on average an appeal, that is half as good as the competitor's products. 
+Apart from that, the result of the sigmoid function must be multiplied by 100 to ensure that the \textit{averageOverallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables (tSQ, lI, cI, eB). This way, the value range of each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
 
 \begin{equation}
 \label{aOA_cS}

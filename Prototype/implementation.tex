@@ -14,6 +14,7 @@ This section doesn't cover the prototype implementation in its entirety, but wil
 One of the key challenges in the prototype implementation was the technical specification of all the complex relationships between variables and objects in the game mechanics graph. The complexity of this graph is mostly due to the heterogeneity of the data types, ranging from elementary integers to arrays of complex nested objects. 
  Hence, a conventional graph of real number vertices and real edge weights is not sufficient for our needs.
  
+All the KPIs calculated from aggregate functions
  
 The goal was to implement a general-purpose graph abstraction which can deal with elementary data types as well as objects and arrays.
 Therefore, each node consists of a dictionary of vertices each storing their key, value, an arbitrary weight function with an arbitrary number of parameters, and the keys of all incoming nodes (mapping to the parameters in the weight function). With this data structure, a separate adjacency list is superfluous, as each vertex already stores its incoming vertices and weight functions, and thus all edges in the graph are defined.
@@ -33,6 +34,8 @@ Second, we have internal vertices with at least one incoming vertex. As they do 
 \end{center}
  
  In addition, we also might want to use the simulation time and previous value of the node in the function. Thus, the weight function is also implicitly given the current time and optionally the previous vertex value as a parameter.
+ 
+ 
  %\newpage
  
  In the end, an example implementation of a normally distributed investment return simulation could be constructed like the following:\\

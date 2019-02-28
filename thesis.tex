@@ -109,8 +109,14 @@ description={totalSalesRevenue}%
 }
 \newglossaryentry{E}{%
 name={E},%
-description={set of hired Employees}%
+description={Set of hired Employees}%
 }
+
+\newglossaryentry{EN}{%
+name={EN},%
+description={Set of hired engineers}%
+}
+
 \newglossaryentry{TR}{%
 name={TR},%
 description={set of trainings in the last period}%
@@ -516,10 +522,6 @@ description={overallAppeal}%
 name={aOA},%
 description={averageOverallAppeal}%
 }
-\newglossaryentry{aOA_{cS}}{%
-name={aOA_{cS}},%
-description={averageOverallAppeal_customerSatisfaction}%
-}
 
 
 \begin{document}
@@ -611,7 +613,8 @@ The setting of our game is in a fictional country, which we have designed after 
 \end{table}
 
 
-Regarding the time-frame our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence economy and each year in the real world would be represented by one hour of game-play. Which results in a change of parameters in the game every $5$ minutes, in order to represent monthly real data. This means that the total number of hours you can play CapitalismX is $27$ hours. %(is this correct??) 
+Regarding the time-frame our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence economy and each year in the real world would be represented by $365$ seconds.
+This results in a change of parameters in the game every $6$ minutes, in order to represent yearly real data. This means that the total number of hours you can play CapitalismX is approximately $2.7$ hours. 
 
 During the entire time-span of the game, there will be a democratic government that operates and interacts with the game environment. The government can also intervene to impose laws, taxes and additional measures, if the company is not compliant to the current regulations. 
 
@@ -751,12 +754,12 @@ Their effects become visible via various indicators, like financial figures, cap
 %Finance_Investments
 \input{finance/investments.tex}
 
-\section{Linkages \& Interdependencies}
+\section{Overview of game mechanics} 
 \label{sec:link}
-A functioning business simulation requires that all mechanics play well together. A graphical representation contains all information in one place. This helps when implementing the prototype and writing the report. The so called 'fullGraph' is given below after the legend that describes its structure. 
-Also, it should be assumed we can use the game time in our calculations. With $t_d$ we denote the time of elapsed days, whereas $t_y$ is the number of years elapsed.
+Maybe rename to overview of mechanics
+A functioning business simulation requires that all mechanics play well together. A graphical representation contains all information in one place. This helps when implementing the prototype and writing the report. In addition, such an overview supports the alignment of the different in-game simulations. The so called 'fullGraph' is shown below in figure xy. 
+It is also assumed that we can use the game time in our calculations. With $t_d$ we denote the time of elapsed days, whereas $t_y$ is the number of years elapsed. Time starts at 1st January 1990. 
 
-Sth like: all departments in the CapitalismX company have their simulations - fullGraph connects all simulation
 NEW PICTURE!!!
 \begin{figure}[h]
     \centering
@@ -806,7 +809,7 @@ Companies have to deal with influencing factors which are neither planned nor fo
 \textbf{14} & \begin{tabular}[c]{@{}l@{}}Fire / Flooding in \\ the warehouse\end{tabular} & \begin{tabular}[c]{@{}l@{}}Over 1,210 fires happen in warehouses across \\ the US on average. In the game this only \\ happens if warehouses are full. (punishment)\end{tabular} \\ \hline
 \textbf{15} & \begin{tabular}[c]{@{}l@{}}Problems with \\ customs at the harbour\end{tabular} & \begin{tabular}[c]{@{}l@{}}The upcoming Brexit leads to chaos at \\ harbours due to customs. Event is to be further \\ defined when harbours are implemented\end{tabular} \\ \hline
 \textbf{16} & Change of power & \begin{tabular}[c]{@{}l@{}}New governments set new financial priorities \\ including changes to the taxation system. \\ Typical examples are the parties in the US\end{tabular} \\ \hline
-\textbf{17} & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & \begin{tabular}[c]{@{}l@{}}Exact indicators are future work as \\ infrastructure elements are not part of the game \\ yet. Energy companies are often targets of riots.\end{tabular} \\ \hline
+\textbf{17} & \begin{tabular}[c]{@{}l@{}}Eco activists \\ block roads\end{tabular} & \begin{tabular}[c]{@{}l@{}}Eco activists demonstrate against trucks\\  or companies that pollute the environment \\ yet. Energy companies are often targets of riots.\end{tabular} \\ \hline
 \textbf{18} & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and  others\end{tabular} & \begin{tabular}[c]{@{}l@{}}Tensions between the US and Iran impact \\ companies on their business. Part of future work \\ as the game currently focuses at one country.\end{tabular} \\ \hline
 \caption{Real-world examples for events}
     \label{table:Examples_events}
@@ -822,7 +825,6 @@ These events are divided into 5 categories:
 \caption{Event categories}
     \label{table:categories_events}
 \end{longtable}
-
 
 Events are mostly cross-functional. This means that the trigger of an event belongs to one simulation in the game while the result affects another simulation. The parameters which effect the properties of an event are named 'Influencing factors' and are values of the game simulation. Each event is assigned an attribute of the following 4 characteristics:
 
@@ -840,24 +842,25 @@ Following these considerations, probabilities from scientific resources were use
 
 From an UI point of view, the events displayed as informing Pop-Ups or they are invisible to the player. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet. However, its worth listing them in this section. 
 
-
 \input{Prototype/implementation.tex}
 
 \chapter{Conclusion}
 This project at hand is a concept of a business simulation game called "CapitalismX". The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested by the game prototype. 
 
-However, the concept as described in chapter 3 contains more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is mentioned in the respective simulations. All simulations are consolidated in the overall full Graph, which can be found in figure xy. 
-Throughout the development process, xy KPIs were designed, which fit into xy different game simulation. They are aligned with each other, sampling the real-world in most cases. 
-
+However, the concept as described in chapter 3 contains more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is mentioned in the respective simulations. All simulations are consolidated in the overall full Graph\ref{fig:OverallGraph}, which can be found in figure xy. 
+Throughout the development process, multiple KPIs were designed, which fit into the different game simulations. They are aligned with each other, sampling the real-world in most cases and where 
+applicable. In the end this resulted in a sound concept. 
 
 Some trivial facts of the project like the course, personal opinion
-\ref{fig:OverallGraph}. This graph combines all simulations and serves as a basis for the prototype. 
 
 \section{Future Work}
 \label{sec:future}
-There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended. This may be the case in a follow-up project. Finally, the game concept might also be sold to a gaming company which is willing to fully program and publish the game. like: original concept was introducing another phase of the game, which would take place from 2017-2030(?) with VR and mobile integration, xxx. 
+There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended. This may be the case in a follow-up project. Finally, the game concept might also be sold to a gaming company which is willing to fully program and publish the game. The original concept was introducing another phase of the game, which would take place from 2017-2030. In this following phase the company would evolve to a big player like Google or Facebook or Amazon, and the goal is to set an environment which allows to control every aspect of people’s lives. 
 
-\begin{table}[]
+We also came up with different modalities of game-play. Firstly, the player would start with a normal desktop game, in the second stage the multiplayer modality would be introduced and as the game progresses there would be the possibility to extend to virtual reality. 
+
+
+\begin{table}[H]
 \begin{tabular}{|l|l|}
 \hline
 \textbf{Idea}                      & \textbf{Description}                                                                                                                                               \\ \hline

@@ -18,7 +18,7 @@
 9 & Inflation changes & Random &  -  &  -  & \begin{tabular}[c]{@{}l@{}}0 to 2\% \\  \end{tabular} &  -  & NOPAT & NOPAT +/- 2\% \\ \hline
 10 & \begin{tabular}[c]{@{}l@{}}Stealing inside of\\ the company\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}} tJS\end{tabular} & 50\% & \begin{tabular}[c]{@{}l@{}}$\frac{0.2}{tJS}$\end{tabular} & 20\% & NOPAT & \begin{tabular}[c]{@{}l@{}}NOPAT -5000 cc \\ per employee \end{tabular} \\ \hline
 \textbf{} & \textbf{Employees:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
-11 & Strikes & Conditional & tJS & 10\% & $1-tJS^{0.7}$ & 0\% & \begin{tabular}[c]{@{}l@{}} tD - 100\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ tJS above 10\end{tabular} \\ \hline
+11 & Strikes & Conditional & tJS & 10\% & $1-tJS^{0.7}$ & 0\% & \begin{tabular}[c]{@{}l@{}}  pDA- 80\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Only ends when \\ tJS above 10\end{tabular} \\ \hline
 \textbf{} & \textbf{Natural disasters:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
 12 & \begin{tabular}[c]{@{}l@{}}Flu goes around \\ causing ill employees\end{tabular} & Random &  -  &  -  & 0.1 &  -  & \begin{tabular}[c]{@{}l@{}}tEQoW - 10\%\end{tabular} & \begin{tabular}[c]{@{}l@{}}Duration 1 month \\ Only during winter\end{tabular} \\ \hline
 13 & \begin{tabular}[c]{@{}l@{}}Hurricanes, tornadoes, \\ earthquakes\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}ecoIndex\end{tabular} & 40\% & $\frac{0.1}{ecoIndex}$ & 10\% &  cW - 2000 & Warehouse must be at 80\%\\ \hline
@@ -26,7 +26,7 @@
 \textbf{} & \textbf{Government \& Politics:} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} & \textbf{} &  \\ \hline
 15 & \begin{tabular}[c]{@{}l@{}}Problems with customs \\ at the harbour\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}qSP\end{tabular} &   -  &  -  &  -  & Future work &  \\ \hline
 16 & Change of power & Random &  -  &  -  &  -  &  -  & taxRate + 5\% & Most once per game \\ \hline
-17 & \begin{tabular}[c]{@{}l@{}}Blocked roads \\ because of riots\end{tabular} & Conditional & cI &  -  &  -  &  -  & Future Work & \\ \hline
+17 & \begin{tabular}[c]{@{}l@{}}Eco activists \\ block roads\end{tabular} & Conditional & tEIT &  30\%  &  -  &  0\%  & cF - 70\% & Active for 2 months\\ \hline
 18 & \begin{tabular}[c]{@{}l@{}}Tensions between our \\ country and others\end{tabular} & Conditional & \begin{tabular}[c]{@{}l@{}}Change \\ of power\end{tabular} &  -  &  -  &  -  & Future Work &  \\ \hline
 \end{tabular}
     \caption{External events overview}

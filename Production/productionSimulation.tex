@@ -28,28 +28,27 @@ R\&D= 0.95 + 0.05 \cdot R\&D
 \end{equation}
 A similar scaling has also been carried out for R\&D, in which the level of impact is between $1$ and $1.2$. Meaning that even if the player has the lowest level of \textit{productionInvestments}, he or she does not lower the \textit{totalProductQuality} as the impact of R\&D does not impact it. If R\&D is in the highest levels than it will influence the \textit{totalProductQuality} by $1.2$ times.
 \begin{center}
-% remove equation of tEQoW
+
 \begin{equation}
-%tEQoW=\sum_{e \in E}{(skillLevel_e \cdot JSS_e)}
+tEQoW=\sum_{e \in EN}{QoW}
 \label{eq:tEQoW}
 \end{equation}
 where \\
-JSS=\textit{jobSatisfactionScore}\\
-E= Engineers
+\gls{EN} = Set of hired engineers
 \end{center}
-Formula \ref{eq:tEQoW} allows us to measure the \textit{totalEngineerQualityofWork} by deriving the overall sum of the product of the skill level of an engineer with his or her job satisfaction, for all engineers. These indexes are derived from the HR simulation in chapter \ref{sub:KPI}.
+Formula \ref{eq:tEQoW} allows us to measure the \textit{totalEngineerQualityofWork} by deriving the sum of the \textit{qualityOfWork}, for all engineers. The calculations for \textit{qualityOfWork} can be found in the HR simulation, formula \ref{QoW}.
 \begin{equation}
 tEP=tEQoW \cdot pA
 \label{eq:tEP}
 \end{equation}
-Equation \ref{eq:tEP} mentioned above, shows the calculation of the \textit{totalEngineerProductivity}. This variable is given the value of the product of \textit{totalEngineerQualityofWork} and \textit{processAutomation}. It is done so, because \textit{processAutomation} is developing the futuristic  aspect of production and the higher the \textit{processAutomation} is the higher the \textit{totalEngineerProductivity}. \\
+Equation \ref{eq:tEP} mentioned above, shows the calculation of the \textit{totalEngineerProductivity}. This variable is given the value of the product of \textit{totalEngineerQualityofWork} and \textit{processAutomation}. It is done so, because \textit{processAutomation} is developing the futuristic  aspect of production and the higher the \textit{processAutomation} is the higher the \textit{totalEngineerProductivity}. 
 
 In order to converge all the above mentioned elements and to measure the \textit{totalProductQuality} per product, we have compiled the following equation. 
 %add description of the formula below, 
 % why multiply our factors
 %what will the output look like, etc..
 \begin{equation}
-tPQ = pT \cdot |\sqrt{tEP}| \cdot tProcureQ \cdot R\&D
+tPQ_{perProduct} = pT \cdot |\sqrt{tEP}| \cdot tProcureQ \cdot R\&D
 \label{eq:PQ}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
@@ -127,8 +126,8 @@ These investments options are also measured in our standard $5$ points Likert-Sc
 \hline
  Level & Description & CapCoins$_{(cc)}$\\
 \hline \hline
-% Change no investment to 0
- 1 & No Investment & $1,000cc$ \\
+
+ 1 & No Investment & $0cc$ \\
  2 & Bad & $ 5,000cc$\\
  3 & Normal & $10,000cc$ \\
  4 & Good & $15,000cc$ \\
@@ -170,7 +169,8 @@ In order to avoid the \textit{productionInvestment} to significantly lower the \
 There is a special event, we have implemented regarding \textit{systemSecurity}.
 If the \textit{systemSecurity} indicator falls below the $3^{rd}$ level threshold, incidents in the workplace and stealing inside the company will start to occur and they will negatively influence \textit{companyImage}. 
 
-\textit{processAutomation} is another \textit{productionInvestment} option and it represents the company's direction towards more automated, futuristic processes. Its range is the same as the other \textit{productionInvestment} and is set by the amount of money invested. We will expand this concept in section \ref{sub:PM}.
+\textit{processAutomation} is another \textit{productionInvestment} option and it represents the company's direction towards more automated, futuristic processes. Its range is the same as the other \textit{productionInvestment} and is set by the amount of money invested. Nevertheless, it is a bit more complex as it needs to have some prerequisites fulfilled regarding \textit{employeeSkills}. In order to increase \textit{pA} according to the money invested, the player must have trained the employees in the production area, which means that the new technologies that will be implemented in production, will meet with employees that are trained to handle them. The possible trainings can be seen in section \ref{sub:KPI}. It is required to have at least $1$ production engineer trained, for each level of \textit{pA}. For instance, in order to invest and have \textit{pA} set in level $4$, at least $4$ production employees need to be trained in the production area.
+
 All the simulation explained in this section will not be visible to the player, in order to increase the level of difficulty of the game and make the player more perceptive to the effect of these elements. 
 
 
@@ -255,14 +255,7 @@ As further clarified in chapter \ref{warehouse_simulation}, the products produce
 \subsection{Performance metrics}
 \label{sub:PM}
 
-In this section we are going to present some important metrics that help us understand how, not only quality but also the \textit{productionProcessProductivity} is measured in our game. In order to measure production productivity there are several other metrics that need to be defined. \\
-Equation \ref{eq: PES} shows the calculation of \textit{totalEngineerQualityOfWork}.
-
-This calculation is a weighted average of the level of \textit{processAutomation} and \textit{employeeSkills}, which are defined in chapter \ref{sec:HRsim}. As you can notice more weight has been given to \textit{employeeSkills} as it is a more relevant factor in determining our dependent variable. \textit{processAutomation} on the other hand is a bit more complex as it needs to have some prerequisites fulfilled regarding \textit{employeeSkills}. In order to increase \textit{pA} according to the money invested, the player must have trained the employees in the production area, which means that the new technologies that will be implemented in production, will meet with employees that are trained to handle them. The possible trainings can be seen in section \ref{sub:KPI}. It is required to have at least $1$ production engineer trained, for each level of \textit{pA}. For instance, in order to invest and have \textit{pA} set in level $4$, at least $4$ production employees need to be trained in the production area.
-\begin{equation}
-totalEngineerQualityOfWork = 0.4\cdot pA + 0.6\cdot eS
-\label{eq: PES}
-\end{equation}
+In this section we are going to present some important metrics that help us understand how, not only quality but also the \textit{productionProcessProductivity} is measured in our game. In order to measure production productivity we also need to define  \textit{manufactureEfficiency}. 
 
 \textit{manufactureEfficiency} is measured by dividing the number of goods produced, on a daily basis, by the current number of machines times their average capacity to produce. This measure is important as it shows the player the rate in which the machinery is being utilized. This index has a range of $[0-1]$,which means if \textit{mE} is close to $1$ the usage of the machinery is optimal, but if this index is low, the player should realize he should either produce more or sell some of the machinery in order to keep efficiency high and not waste resources.
 \begin{equation}
