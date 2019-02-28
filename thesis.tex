@@ -16,6 +16,7 @@
 \usepackage{amssymb}
 \usepackage{glossaries}
 \usepackage{lscape}
+\usepackage{interval}
 \usepackage{longtable}
 \usepackage{ntheorem}
 \usepackage{comment}
@@ -132,6 +133,14 @@ name={eI},%
 description={ecoIndex}%
 }
 % Glossary Production
+\newglossaryentry{C_pC}{%
+    name={C_pC},%
+    description={Set of components categories for a product category}%
+}
+\newglossaryentry{pC}{%
+    name={pC},%
+    description={product category}%
+}
 \newglossaryentry{mE}{%
 name={mE},%
 description={manufactureEfficiency}%
@@ -715,6 +724,8 @@ serves as basis for implementation blub
 Suggestion: Split legend from the rest overall graph and move lower section more horizontally to fit in the page
 
 NEW PICTURE!!!
+
++ set to beginning of chapter 3
 \begin{landscape}
 \begin{figure}
     \centering
@@ -726,19 +737,19 @@ NEW PICTURE!!!
 
 \section{External events}
 \label{sec:ectEvent}
-Companies have to deal with influencing factors which are neither planned nor foreseeable\cite{Campbell}. This section describes external events which influence the course of the game. The term 'external' events is used as they are out of the player's visible and obvious control. Technically, they are excluded from the typical cycle of the game mechanics, but manipulate them from the 'outside'. Actions taken may have an influence on an event's probability to happen, but this is invisible to the player. From a location point of view events can take place inside the company, for example strikes, or outside like increasing taxes. A punishing character of events is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events. A full overview of them and their real-world background are listed in table \ref{table:Examples_events} below: \\ 
+Companies have to deal with influencing factors which are neither planned nor foreseeable. \cite{Campbell} This section describes external events which influence the course of the game. The term 'external' events is used as they are out of the player's visible and obvious control. Technically, they are excluded from the typical cycle of the game mechanics, but manipulate them from the 'outside'. Actions taken may have an influence on an event's probability to happen, but this is invisible to the player. From a location point of view events can take place inside the company, for example strikes, or outside like increasing taxes. A punishing character of events is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events. A full overview of them and their real-world background are listed in table \ref{table:Examples_events} below: \\ 
 
 \begin{longtable}{|l|l|l|}
 \hline
 \textbf{\#} & \textbf{External Event} & \textbf{Real-World example} \\ \hline
-\textbf{1} & \begin{tabular}[c]{@{}l@{}}Production Problems \\ Pop-Up\end{tabular} & \begin{tabular}[c]{@{}l@{}}Not applicable to real-world, \\ In-Game implementation\end{tabular} \\ \hline
-\textbf{2} & \begin{tabular}[c]{@{}l@{}}New technology \\ increases Quality\end{tabular} & \begin{tabular}[c]{@{}l@{}}A paper released in 2010 examined the \\ relationship between technology \\ and customer satisfaction\cite{Ryding}\end{tabular} \\ \hline
-\textbf{3} & \begin{tabular}[c]{@{}l@{}}Company Acquisition \\ offered\end{tabular} & \begin{tabular}[c]{@{}l@{}}High-Performing companies like Apple often\\ invests in smaller ones to buy knowledge.\end{tabular} \\ \hline
+\textbf{1} & \begin{tabular}[c]{@{}l@{}}Production problems \\ pop-up\end{tabular} & \begin{tabular}[c]{@{}l@{}}Not applicable to real-world, \\ In-Game implementation\end{tabular} \\ \hline
+\textbf{2} & \begin{tabular}[c]{@{}l@{}}New technology \\ increases quality\end{tabular} & \begin{tabular}[c]{@{}l@{}}A paper released in 2010 examined the \\ relationship between technology \\ and customer satisfaction\cite{Ryding}\end{tabular} \\ \hline
+\textbf{3} & \begin{tabular}[c]{@{}l@{}}Company acquisition \\ offered\end{tabular} & \begin{tabular}[c]{@{}l@{}}High-Performing companies like Apple often\\ invest in smaller ones to buy knowledge.\end{tabular} \\ \hline
 \textbf{4} & \begin{tabular}[c]{@{}l@{}}Large company \\ overtakes market share\end{tabular} & \begin{tabular}[c]{@{}l@{}}The launch of the iPhone led to whole\\ change of the mobile phone market\end{tabular} \\ \hline
-\textbf{5} & \begin{tabular}[c]{@{}l@{}}Company Brand \\ reputation plunges\end{tabular} & \begin{tabular}[c]{@{}l@{}}After the failure of several Airbags \\ sales of GM dropped dramatically\end{tabular} \\ \hline
+\textbf{5} & \begin{tabular}[c]{@{}l@{}}Company brand \\ reputation plunges\end{tabular} & \begin{tabular}[c]{@{}l@{}}After the failure of several airbags \\ sales of GM dropped dramatically\end{tabular} \\ \hline
 \textbf{6} & \begin{tabular}[c]{@{}l@{}}Computer virus \\ attacks\end{tabular} & \begin{tabular}[c]{@{}l@{}}In 2017 Maersk encountered a cyberattack\\ causing damage to operations of 300 mEUR\end{tabular} \\ \hline
-\textbf{7} & \begin{tabular}[c]{@{}l@{}}Tax Changes lead \\ to higher or less rates\end{tabular} & \begin{tabular}[c]{@{}l@{}}The US and 7 EU countries changed \\ their corporate tax rates for 2018\end{tabular} \\ \hline
-\textbf{8} & Stricter Eco Laws & \begin{tabular}[c]{@{}l@{}}As a result of the Diesel scandal many \\ countries enforced the environmental laws\end{tabular} \\ \hline
+\textbf{7} & \begin{tabular}[c]{@{}l@{}}Tax changes lead \\ to higher or less rates\end{tabular} & \begin{tabular}[c]{@{}l@{}}The US and 7 EU countries changed \\ their corporate tax rates for 2018\end{tabular} \\ \hline
+\textbf{8} & Stricter eco laws & \begin{tabular}[c]{@{}l@{}}As a result of the Diesel scandal many \\ countries enforced the environmental laws\end{tabular} \\ \hline
 \textbf{9} & Inflation changes & \begin{tabular}[c]{@{}l@{}}Destatis reported an average inflation \\ change of during the last 20 years of 1.4\%\end{tabular} \\ \hline
 \textbf{10} & \begin{tabular}[c]{@{}l@{}}Stealing inside\\ the company\end{tabular} & \begin{tabular}[c]{@{}l@{}}Research shows a strong relationship \\ between low job satisfaction \\ and stealing by employees\cite{Kulas}.\end{tabular} \\ \hline
 \textbf{11} & \begin{tabular}[c]{@{}l@{}}Strikes\end{tabular} & \begin{tabular}[c]{@{}l@{}}Strikes occur regularly \\ to enforce salary increases.\end{tabular} \\ \hline
@@ -775,7 +786,10 @@ Events are mostly cross-functional. This means that the trigger of an event belo
 \end{itemize}
 
 The decision which event should get which characteristic was based on multiple aspects. In general, a business simulation intends to reflect the real-world which includes one-time events. Their nature and likeliness to happen are to be transferred to the game environment. However, there are aspects which are contradictory to this intend.
-Determining probabilities where applicable is based on multiple considerations. Empirical evidence for the probability of events might be rare or the probability is so low that they would only happen after a very long game duration. Events having such a high probability that they lead to a Game-Over in an early stage must not happen in an early state as they would frustrate the player. In the end gaming should be fun too, not only reflecting the real-world. Copying the latter is also limited as a simulation can never cover every 'life' aspect.  Following these considerations, probabilities from scientific resources were used when available and realistic for in-game application. If this was not the case, the probability was sourced from other trustworthy sources like reliable newspapers or estimated based on the indicators and scales of the existing game parts. Therefore a probability can distort from its real-world example. If suitable, an event is given a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. Some events have only a notification as a result without manipulating the game mechanics. Transferring real-world events directly to an artificial environment was almost never possible. A full overview of events, influencing factors, thresholds, probabilities and preconditions, impacted factors and remarks is listed in the Appendix table \ref{events_list}. \\
+Determining probabilities where application is based on multiple considerations. Empirical evidence for the probability of events might be rare or the probability is so low that they would only happen after a very long game duration. Events having such a high probability that they lead to a Game-Over in an early stage must not happen in an early state as they would frustrate the player. In the end gaming should be fun too, not only reflecting the real-world. Copying the latter is also limited as a simulation can never cover every 'life' aspect. 
+
+Following these considerations, probabilities from scientific resources were used when available and realistic for in-game application. If this was not the case, the probability was sourced from other trustworthy sources like reliable newspapers or estimated based on the indicators and scales of the existing game parts. Therefore a probability can distort from its real-world example. If suitable, an event is given a complete random occurrence providing a more challenging game experience to the player. This is the case for 5 events. Some events have only a notification as a result without manipulating the game mechanics. Transferring real-world events directly to an artificial environment was almost never possible. A full overview of events, influencing factors, thresholds, probabilities and preconditions, impacted factors and remarks is listed in the Appendix table \ref{events_list}. 
+
 From an UI point of view, the events displayed as informing Pop-Ups or they are invisible to the player. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet. However, its worth listing them in this section. 
 
 
@@ -786,9 +800,15 @@ From an UI point of view, the events displayed as informing Pop-Ups or they are 
 \section{Summary}
 Developed xy KPI, tested in prototype, alignment of simulations
 
+This project at hand is a concept of a business simulation game called "CapitalismX". The first two chapters constitute a user manual for a potential player of the game, explaining the what to expect of the game, what role the player has and how to play the game. The third chapter addresses the game mechanics which are even mostly tested by the game prototype. 
+
+However, the concept as described in chapter 3 contains more functionality than the prototype currently provides. If some functionality is not covered in the prototype, this is mentioned in the respective simulations. The core of all simulations is the [overall / full Graph], which can be found in figure \ref{fig:OverallGraph}. This graph combines all simulations and serves as a basis for the prototype. 
+
 \section{Future Work}
 \label{sec:future}
-There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended: 
+There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended:
+
+Ath like: original concept was introducing another phase of the game, which would take place from 2017-2030(?) with VR and mobile integration, xxx. 
 
 \begin{table}[]
 \begin{tabular}{|l|l|}

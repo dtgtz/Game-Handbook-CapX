@@ -264,15 +264,15 @@ loanRate = a+ i\textsubscript{t}
 \end{aligned}    
 \end{equation}
 
-% @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder? - AUF JEDEN FALL :o
+% @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder? - AUF JEDEN FALL, zumindest in den Appendix :o
 
 However, the raising of capital from the bank is restricted.
-The requested loan must not be larger than 70 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan is in fact larger than 70\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 70\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.\\
+The requested loan \textit{S} must not be larger than 70 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan \textit{S} is in fact larger than 70\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 70\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.\\
 For a better understanding, the following algorithm can be helpful:
 \begin{equation}
     \begin{aligned}
-         \texttt{If loanRequest} \leq \texttt{netWorth} \cdot 70\% \\ \xrightarrow{} \text{accept AND offer three credit forms} \\
-         \texttt{If loanRequest} > \texttt{netWorth} \cdot 70\% \\ \xrightarrow{} \text{reject AND offer} \ (\texttt{netWorth} \cdot 70\%)
+         \texttt{If S} \leq \texttt{netWorth} \cdot 70\%  \xrightarrow{} \text{accept AND offer three credit forms} \\
+         \texttt{If S} > \texttt{netWorth} \cdot 70\%  \xrightarrow{} \text{reject AND offer} \ (\texttt{netWorth} \cdot 70\%)
     \end{aligned}    
 \end{equation}
 

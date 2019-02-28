@@ -3,12 +3,11 @@
 
 \subsection{Customer Satisfaction}
 \label{customerSatisfaction}
-In this game, the customer simulation is a weighted combination of the \textit{salesPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} (\gls{cS}).
-This means that the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} are the three key indicators for customers' buying decisions. Thus, these three variables determine the extent to which customers are interested in buying a product or not.
+%In this game, the customer simulation is a weighted combination of the \textit{salesPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} (\gls{cS}).
+%This means that the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} are the three key indicators for customers' buying decisions. Thus, these three variables determine the extent to which customers are interested in buying a product or not.
+%How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of \textit{customerSatisfaction}, which will be discussed in more detail in this chapter.
 
-How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of \textit{customerSatisfaction}, which will be discussed in more detail in this chapter.
-
-As well as in reality, the \textit{customerSatisfaction} plays an important role in terms of the number of products sold and thus in terms of sales. \cite{deptolla_effects_2004} In CapitalismX, the \textit{salesFigures} refer to the number of products sold.
+As in reality, the \textit{customerSatisfaction} plays an important role in terms of the number of products sold and thus in terms of sales. \cite{deptolla_effects_2004} In CapitalismX, the \textit{salesFigures} refer to the number of products sold.
 Thus, the \textit{customerSatisfaction} is designed to directly influence potential customers' interest in a particular product. The higher the \textit{customerSatisfaction} in general, the more customers are willing to pay for exactly the same product. 
 In this game, \textit{customerSatisfaction} is composed of various variables from almost all parts of the game, which are listed below:
 \begin{enumerate}
@@ -21,16 +20,19 @@ In this game, \textit{customerSatisfaction} is composed of various variables fro
 Each of these variables has a weighted influence on the calculation of the customer satisfaction, which depends on its importance.
 The \textit{overallAppeal} (oA) will be explained in the following, as it was not used earlier in the game mechanics like all the other variables used for the calculation of the \textit{customerSatisfaction}.
 
-The \textit{overallAppeal} is calculated as shown in equation \ref{oA}. Thereby, the result of the \textit{productAppeal} divided by the \textit{priceAppeal} must be multiplied by 100 to ensure that the \textit{overallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables (tSQ, lI, cI, eB). Additionally, the upper value range of the \textit{overallAppeal} is kept by $100$. This ensures that the value range for each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
+The \textit{overallAppeal} is calculated as shown in equation \ref{oA}. Thereby, the result of the \textit{productAppeal} is mutliplied by the \textit{priceAppeal}. 
+% If you need normalization, don't do it here. This variable is also used in other parts where no normalization is assumed.
+%It must be multiplied by 100 to ensure that the \textit{overallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables (tSQ, lI, cI, eB). Additionally, the upper value range of the \textit{overallAppeal} is kept by $100$. This ensures that the value range for each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
+
 \begin{equation}
 \label{oA}
 \begin{aligned}
-overallAppeal = \dfrac{productAppeal}{priceAppeal} \cdot 100 \\
- oA = 
-\begin{cases}
-    oA = 100 & \text{if } oA \geq 100 \\
-    oA = oA & \text{otherwise}
-\end{cases}
+overallAppeal = productAppeal \cdot priceAppeal% \cdot 100 \\
+ %oA = 
+%\begin{cases}
+%    oA = 100 & \text{if } oA \geq 100 \\
+%    oA = oA & \text{otherwise}
+%\end{cases}
 \end{aligned}
 \end{equation}
 
@@ -40,25 +42,25 @@ The \textit{productAppeal} is the \textit{totalProductQuality} (tPQ) devided by 
     productAppeal = \dfrac{tPQ}{proxyQuality}
 \end{equation}
 The \textit{proxyQuality} represents the maximum of the \textit{marketProductUtility} or the \textit{totalProductQuality} (of the player's own products) regarding the same \textit{productCategory}.
-In turn, the \textit{marketProductUtility} depends on the \textit{time} (t) and on the \textit{productCategory}. The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with $0.7$, which results in equation \ref{marketProdUtility}.
-%Steffen will make the eqaution nicer
+In turn, the \textit{marketProductUtility} (\ref{marketProdUtility}) depends on the \textit{time} (t) and on the \textit{productCategory} (\gls{pC}). The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with a constant $a \in [0.7, 1.2]$. This constant basically determines the production process productivity of the market. Thus, it can be interpreted as the skill of the competitors and therefore, to a large extent, determines the difficulty of the game.
+
 \begin{equation}
 \label{marketProdUtility}
 \begin{aligned}
+%& (of the most recent level of allComponents in the productCategory) \cdot 0.7 &&
     & marketProductUtility(t, productCategory) \\
-    & = \sum_{c \in C} baseUtility_{c} \\
-    %& (of the most recent level of allComponents in the productCategory) \cdot 0.7 &&
-    & \argmax\limits_{comp\in \{productCategory.allComponents: availabilityDate \leq t\}}(comp.baseUtility) \cdot 0.7
+    & = \sum_{cp \in C_{pC}} \argmax\limits_{\{c \in components_{cp}| availabilityDate_c \leq t\}}(baseUtility_c)
 \end{aligned}    
 \end{equation}
-Moreover, the \textit{priceAppeal} is calculated by the \textit{salesPrice} (set by the player) divided by the \textit{proxyPrice}.
+Moreover, the \textit{priceAppeal} for a product is the ratio of the \textit{proxyPrice} and the \textit{salesPrice} (set by the player).
 \begin{equation}
-    priceAppeal = \dfrac{salesPrice}{proxyPrice}
+    priceAppeal = \dfrac{proxyPrice}{salesPrice}
 \end{equation}
 The \textit{proxyPrice} in turn represents the sum of the \textit{baseCost} of all components of a product with the same \textit{componentLevel}.
-%Steffen will make the eqaution nicer
+%Steffen will make the equation nicer
+% Probably not needed. We can just choose a constant for each product type.
 \begin{equation}
-    proxyPrice = \sum_{c \in C} baseCost_{c} with the same componentLevel
+    proxyPrice = \sum_{cp \in C_{cP}} baseCost_{c} with the same componentLevel
 \end{equation}
 Finally, the \textit{customerSatisfaction} is calculated as shown in equation \ref{cSCalc}. This calculation is based on a sigmoid function and has a threshold of $1$, as the \textit{customerSatisfaction} cannot become larger than 1, which equals 100\%.
 \begin{equation}
