@@ -5,6 +5,9 @@
 \label{customerSatisfaction}
 %In this game, the customer simulation is a weighted combination of the \textit{salesPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} (\gls{cS}).
 %This means that the \textit{productPrice}, the \textit{productQuality} and the \textit{customerSatisfaction} are the three key indicators for customers' buying decisions. Thus, these three variables determine the extent to which customers are interested in buying a product or not.
+
+% add: totalSalesPeopleQualityofWork
+
 %How exactly the customer interest is calculated is discussed in detail in chapter \ref{demandCalc}. The prerequisite for this is the calculation of \textit{customerSatisfaction}, which will be discussed in more detail in this chapter.
 
 As in reality, the \textit{customerSatisfaction} plays an important role in terms of the number of products sold and thus in terms of sales. \cite{deptolla_effects_2004} In CapitalismX, the \textit{salesFigures} refer to the number of products sold.
@@ -24,25 +27,25 @@ The \textit{overallAppeal} is calculated as shown in equation \ref{oA}. Thereby,
 % If you need normalization, don't do it here. This variable is also used in other parts where no normalization is assumed.
 %It must be multiplied by 100 to ensure that the \textit{overallAppeal} has the same influence on the calculation of the \textit{customerSatisfaction} as all other variables (tSQ, lI, cI, eB). Additionally, the upper value range of the \textit{overallAppeal} is kept by $100$. This ensures that the value range for each variable that influences the \textit{customerSatisfaction} goes from $0$ to $100$.
 
+% oA wird in % interpretiert
+
 \begin{equation}
 \label{oA}
 \begin{aligned}
-overallAppeal = productAppeal \cdot priceAppeal% \cdot 100 \\
- %oA = 
-%\begin{cases}
-%    oA = 100 & \text{if } oA \geq 100 \\
-%    oA = oA & \text{otherwise}
-%\end{cases}
+overallAppeal = productAppeal \cdot priceAppeal
 \end{aligned}
 \end{equation}
 
 In order to understand equation \ref{oA}, the \textit{productAppeal} and \textit{priceAppeal} must be defined.
+% 
 The \textit{productAppeal} is the \textit{totalProductQuality} (tPQ) devided by the \textit{proxyQuality}.
 \begin{equation}
     productAppeal = \dfrac{tPQ}{proxyQuality}
 \end{equation}
 The \textit{proxyQuality} represents the maximum of the \textit{marketProductUtility} or the \textit{totalProductQuality} (of the player's own products) regarding the same \textit{productCategory}.
-In turn, the \textit{marketProductUtility} (\ref{marketProdUtility}) depends on the \textit{time} (t) and on the \textit{productCategory} (\gls{pC}). The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with a constant $a \in [0.7, 1.2]$. This constant basically determines the production process productivity of the market. Thus, it can be interpreted as the skill of the competitors and therefore, to a large extent, determines the difficulty of the game.
+In turn, the \textit{marketProductUtility} (\ref{marketProdUtility}) depends on the \textit{time} (t) and on the \textit{productCategory} (\gls{pC}). The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with a constant $a \in [0.7, 1.2]$. 
+% Or a not constant? Changing difficulty
+This constant basically determines the production process productivity of the market. Thus, it can be interpreted as the skill of the competitors and therefore, to a large extent, determines the difficulty of the game.
 
 \begin{equation}
 \label{marketProdUtility}
@@ -59,28 +62,31 @@ Moreover, the \textit{priceAppeal} for a product is the ratio of the \textit{pro
 The \textit{proxyPrice} in turn represents the sum of the \textit{baseCost} of all components of a product with the same \textit{componentLevel}.
 %Steffen will make the equation nicer
 % Probably not needed. We can just choose a constant for each product type.
+
 \begin{equation}
     proxyPrice = \sum_{cp \in C_{cP}} baseCost_{c} with the same componentLevel
 \end{equation}
 Finally, the \textit{customerSatisfaction} is calculated as shown in equation \ref{cSCalc}. This calculation is based on a sigmoid function and has a threshold of $1$, as the \textit{customerSatisfaction} cannot become larger than 1, which equals 100\%.
+
+\begin{equation}
+    tOA = \sum_{p \in P} oA
+\end{equation}
+
+\begin{equation}
+   tOA_{cS}(tOA) = tanh(tOA * 0.7) \cdot 100
+\end{equation}
+
 \begin{equation}
 \begin{aligned}
 \label{cSCalc}
-    & cS(oA, tSQ, lI, cI, eB) \\
-    & = tanh(\dfrac{(0,5 \cdot oA + 0,2 \cdot tSQ + 0,1 \cdot lI + 0,15 \cdot cI + 0,05 \cdot eB)}{100}) %value must be defined!
-\end{aligned}    
+    & cS(tOA_{cS}, tSQ, lI, cI, eB) \\
+    & = tanh(\dfrac{(0.5 \cdot tOA_{cS} + 0.2 \cdot tSQ + 0.1 \cdot lI + 0.15 \cdot cI + 0.05 \cdot eB)}{100}) %value must be defined!
+\end{aligned}   
 \end{equation}
 % tanh((0,5*oA + 0,2*tSQ + 0,1*lI + 0,15*cI + 0,05*eB)/1)
 % tanh((0,5x + 0,2*100 + 0,1*100 + 0,15*100+ 0,05*100)/1) from 0 to 2
 % value muss 100 sein, damit x bei 50 die cS von 1 erreicht. (0,5 * 100 = 50)
 % ==> tanh((0,5*x + 0,2*100 + 0,1*100 + 0,15*100+ 5)/100) from 0 to 55
-% productAppeal: e.g. 300/400
-% priceAppeal: e.g. 250/150
-% Then, the overallAppeal would be: 0,45
-% The oA can have a value within the value from 0 to infinity, because the salesPrice can be much lower than the proxyPrice (e.g. priceAppeal = 1/300 => and e.g. productAppeal = 1 => oA = 1/(1/300) = 300
-% So, we need a threshold for the setting of the salesPrice, which must not be smaller than the proxyPrice!
-% Moreover, we have to multiply the oA with 100 to ensure, that the oA has an equal impact on the cS, such as the other variables (tSQ, etc all have a value range from 0 to 100)
-% e.g. 0,45 * 100 = 45
 
 Furthermore, there is only one \textit{customerSatisfaction} calculated. That means, that the \textit{customerSatisfaction} is not calculated for every single product, but has the same influence for each product in the demand calculation, which is explained in more detail in the following chapter \ref{demandCalc}.
 

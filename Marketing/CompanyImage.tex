@@ -93,12 +93,49 @@ The total sum of the above possible choices is the total \textit{companyImage}. 
 
 The original scale of 0 to 28 is squared and divided by the factor of 7.84 in order to map the original scale on a scale of 0 to 100. In this case the rational behind the mapping is the fact that little activities do not have such  a big influence on the overall \textit{companyImage}. When a company starts to combine all its activities it can generate huge impact and publicity which leads to a strong increase of the \textit{companyImage}.
 
-In addition to marketing campaigns and social engagement projects, the player can also publish press releases. Each press release has a name and an impact, but it is only effective if an unexpected event occurs beforehand.  Chapter \ref{sec:ectEvent} describes the concept of external events in detail. At this point, only those events are mentioned whose effects can be mitigated by timely and appropriate press releases.
-
-The player has four different press releases to choose from: 
+In addition to marketing campaigns and social engagement projects, the player can also publish press releases. Each press release has a name and an impact, but it is only effective if an unexpected event occurs beforehand. Chapter \ref{sec:ectEvent} describes the concept of external events in detail. At this point, only those events are mentioned whose effects can be mitigated by timely and appropriate press releases.
+In order for the press release to have a mitigating effect, they must be published by the player at the same day as the external event, if it happens later, the release will no longer affect the damage caused by the event. The player has four different press releases to choose from: 
 \begin{itemize}
     \item Privacy and security efforts: The aim of this press release is to give customers the feeling that their data is in good hands and is protected and processed with the necessary care.  
     \item affordable prices: This announcement is intended to convey to customers that product prices remain realistic and will not become unreasonably more expensive due to the current economic situation. 
     \item guaranteed delivery times: This statement guarantees customers that they will receive their products promptly, even in difficult situations. 
     \item and apology: This press release allows the company to publicly apologize to the public for its behavior or inconvenience.
 \end{itemize}
+
+Table \ref{press_release_events} shows which press releases in combination with which external events show their impact and which influence they have.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|r|r|r|}
+\hline
+Press release   & external event  & impact event & effect press release
+\\ \hline
+Privacy and security efforts  &       &      & \\
+affordable prices             &       &      & \\
+guaranteed delivery times     &       &      & \\
+guaranteed delivery times     &       &      & \\
+guaranteed delivery times     &       &      & \\
+apology                       &       &      & \\
+\hline
+\end{tabular}
+\caption{Combination press releases and external events}
+\label{press_release_events}
+\end{table}
+
+If the player publishes press releases regardless of these external events, they are simply ignored by the population, which means that they have no influence on the course of the game but cost the company money. How much a press release costs can be seen in the table \ref{cost_press_releases}. 
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|r|r|}
+\hline
+Press release                 & price in cc   \\ \hline
+Privacy and security efforts  &    200 \\
+affordable prices             &    100 \\
+guaranteed delivery times     &    100 \\
+apology                       &    150 \\
+\hline
+\end{tabular}
+\caption{Cost press releases}
+\label{cost_press_releases}
+\end{table}
+

@@ -28,8 +28,10 @@ R\&D= 0.95 + 0.05 \cdot R\&D
 \end{equation}
 A similar scaling has also been carried out for R\&D, in which the level of impact is between $1$ and $1.2$. Meaning that even if the player has the lowest level of \textit{productionInvestments}, he or she does not lower the \textit{totalProductQuality} as the impact of R\&D does not impact it. If R\&D is in the highest levels than it will influence the \textit{totalProductQuality} by $1.2$ times.
 \begin{center}
+% remove equation of tEQoW
 \begin{equation}
-tEQoW=\sum_{e \in E}{(skillLevel_e \cdot JSS_e)}
+tEQoW=\sum_{\{e \in E\}}{(skillLevel_e \cdot JSS_e)}
+%tEQoW=\sum_{e \in E}{(skillLevel_e \cdot JSS_e)}
 \label{eq:tEQoW}
 \end{equation}
 where \\
@@ -48,7 +50,7 @@ In order to converge all the above mentioned elements and to measure the \textit
 % why multiply our factors
 %what will the output look like, etc..
 \begin{equation}
-tPQ = pT \cdot |\sqrt{tEP}| \cdot tProcureQ \cdot R\&D 
+tPQ = pT \cdot |\sqrt{tEP}| \cdot tProcureQ \cdot R\&D
 \label{eq:PQ}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
@@ -126,6 +128,7 @@ These investments options are also measured in our standard $5$ points Likert-Sc
 \hline
  Level & Description & CapCoins$_{(cc)}$\\
 \hline \hline
+% Change no investment to 0
  1 & No Investment & $1,000cc$ \\
  2 & Bad & $ 5,000cc$\\
  3 & Normal & $10,000cc$ \\

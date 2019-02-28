@@ -8,47 +8,97 @@ The more satisfied customers are with the company, the more they are willing to 
 \begin{equation}
 \label{func:demandPrice}
 \begin{aligned}
- oA_{demand} = 
-\begin{cases}
-    oA \cdot 1.2 & \text{if } cS \leq 0.8 \\
-    oA \cdot 1.1 & \text{if } cS \geq 0.6 \\
-    oA \cdot 1.05 & \text{if } cS \geq 0.5 \\
-    oA \cdot 1 & \text{if } cS \geq 0.4 \\
-    oA \cdot 0.9 & \text{if } cS \geq 0.2 \\
-    oA \cdot 0.8 & \text{otherwise} \\
-\end{cases}
+ oA_{demand} = oA \cdot (0.8 + cS \cdot 0.4)
 \end{aligned}
 \end{equation}
 
-In order to make the demand of CapitalismX clients more similar to that of a real market, the demand curve is an S-shaped curve. This curve shows a larger slope at the beginning and end of the value range we use than in the middle.
-\newline
+In order to make the demand of CapitalismX clients more similar to that of a real market, the demand curve is not linear. 
+% explain wy the curve is lie this, example values -> oA = 2 dPC = ....
+
 The \textit{demandPercentage} (\gls{dPC}) is calculated by using the \textit{overallAppeal} as input for the following function. 
 \begin{equation}
 \label{func:demandPercentage}
 \begin{aligned}
-% 168*e^(-4.5*(10^-1)*(x^2))
-dPC(oA_{demand}) = 168 \cdot e^{−4.5 \cdot 10^{ -1 } \cdot oA_{demand}^{ 2 } } \\
-dPC = 
-    \begin{cases}
-        100\% & \text{if} \; dPC \geq 100\\
-        0\% & \text{if} \; dPC \leq 0\\
-    \end{cases}
+% dPC(oA_{demand}) = tanh(oA_{demand}/2)
+dPC(
 \end{aligned}
 \end{equation}
 
-Figure FIGURE shows the course of the \textit{demandFunction}. The x-axis corresponds to the \textit{overallAppeal} of a product and the y-axis to the percentage interest of the population, the \textit{demandPercentage}. 
+Figure \ref{demand_function} shows the course of the \textit{demandFunction}. The x-axis corresponds to the \textit{overallAppeal} of a product and the y-axis to the percentage interest of the population, the \textit{demandPercentage}. 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=12cm]{images/demand_function.JPG}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    xmin=-0.1, xmax=4,
+    ymin=-0,1, ymax=1.2,
+    axis lines=center,
+    axis on top=true,
+    domain=-2.5:4,
+    ylabel=$oA$,
+    xlabel=$dPC$,
+    ]
+
+    \addplot [mark=none,draw=red,ultra thick] {tanh(\x/2)};
+    \node [right, red] at (axis cs: 1,0.3) {$y = \tanh x/2$};
+
+    % Add the asymptotes
+    \draw [blue, dotted, thick] (axis cs:-2.5,-1)-- (axis cs:0,-1);
+    \draw [blue, dotted, thick] (axis cs:+4,+1)-- (axis cs:0,+1);
+\end{axis}
+\end{tikzpicture}
 	\caption{Demand function}
-	\label{jpg:demand_function}
+	\label{demand_function}
 \end{figure}
 
-The \textit{totalDemand} (\gls{tD}) for a product is finally calculated by combining the demand in percent with the \textit{totalPopulation} (\gls{tP}). This approach enables the total demand to be higher than the actual quantity of products offered.
+The \textit{demandAmount} (\gls{dA}) for a product is finally calculated by combining the demand in percent with the \textit{gamePopulation} (\gls{gP}). This approach enables the total demand to be higher than the actual quantity of products offered.
 \begin{equation}
-\label{func:totalDemand}
-tD = dPC \cdot tP    
+\label{func:demandAmount}
+dA = dPC \cdot gP    
+\end{equation}
+
+After calculating the $demandAmount$ for the entire product lifecycle we have to calculate the demand for a single day.
+
+For product $p$:
+\begin{equation}
+	daysSinceLaunch = t_d -launchDay_{p}
+\end{equation}
+
+Product demand in each period using the $daysSinceLaunch$ (\gls{dSL}):
+\begin{equation}
+\begin{aligned}
+periodicDemandAmount(\gls{pDA}) = demandAmount\\ 
+\cdot 0.002\cdot (\frac{-tanh(0.01 \cdot dSL-3)}{2} + 0.5)
+\end{aligned}
+\end{equation}
+
+%figure: 0.002 *(−tanh(0.01* x−3)2+ 0.5)
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    xmin= 0, xmax=400,
+    ymin= 0, ymax=0.006,
+    axis lines=center,
+    axis on top=true,
+    domain=-2.5:400,
+    ylabel=$pDA$,
+    xlabel=$dSL$,
+    ]
+
+    \addplot [mark=none,draw=red,ultra thick] {0.002*(-tanh(0.01 * \x - 3) * 2+0.5)};
+    \node [right, red] at (axis cs: 1,0.001) {$y = 0.002\cdot(-\tanh (0.01\cdot x - 3)\cdot 2 + 0.5)$};
+    
+\end{axis}
+\end{tikzpicture}
+	\caption{periodicDemandAmount function}
+	\label{periodicDemandAmount_function}
+\end{figure}
+
+
+This function covers the entire demand over a longer period of time as
+\begin{equation}
+	\int_{0}^{\infty} 0.002 \cdot (\frac{-tanh(0.01 \cdot dSL-3)}{2} + 0.5)\; \mathrm{d} dSL = 1  
 \end{equation}
 
 The quantity actually sold by the company, so-called \textit{salesFigures} per product (\gls{sFP}), depends on whether the actual demand exceeds the \textit{numberOfferedProducts} (\gls{nOP}) or not.
@@ -57,18 +107,18 @@ The quantity actually sold by the company, so-called \textit{salesFigures} per p
 \begin{aligned}
 sFP = 
 \begin{cases}
-     nOP & \text{if} \; tD > nOP\\
-     tD & \text{otherwise} \\
+     nOP & \text{if} \; pDA > nOP\\
+     pDA & \text{otherwise} \\
 \end{cases}
 \end{aligned}
 \end{equation}
 
-For the calculation of the \textit{marketShare} (\gls{mS}) it is assumed that the proportion of the population who would have liked to buy a product but went away empty-handed buys its product from a competitor. The company's \textit{totalMarketShare} (\gls{tMS}) is calculated using the sum of the sales figures of the single products and the sum of the demands for them. Following formulas show the calculation of the market share of a product and the total market share of the company.  
+For the calculation of the \textit{marketShare} (\gls{mS}) it is assumed that the proportion of the population who would have liked to buy a product but went away empty-handed buys its product from a competitor. The company's \textit{totalMarketShare} (\gls{tMS}) is calculated using the sum of the sales figures of the single products and the sum of the demands for them. Following formulas show the calculation of the market share of a product and the total market share of the company. 
 \begin{equation}
 \label{func:marketShare}
 \begin{aligned}
-mS = \frac{sFP}{tD} \\
-tMS = \frac{\sum(sFP)}{\sum(tD)}  
+mS = \frac{sFP}{dA} \\
+tMS = \frac{\sum(sFP)}{\sum(dA)}  
 \end{aligned}
 \end{equation}
 
