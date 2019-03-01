@@ -630,13 +630,10 @@ In summary, you will decide on all the features provided in this game. Your deci
 
 \section{Setting and Storyline}
 \label{SettingStory}
-% I don't understand what is meant by modality
-% ... one-man business with you as the only employee ...
-% corporation instead of corporate
-Capitalism X is created relying on a progressive game-play modality, meaning that the game will start as a one-man business and then evolve step by step, by employing, producing, expanding, buying and selling until the end goal is achieved, which is to transform the initial company into a large corporate. 
+
+Capitalism X is created relying on a progressive game-play modality, meaning that the game will start as a one-man business with you as the only employee, and then evolve step by step, by employing, producing, expanding, buying and selling until the end goal is achieved, which is to transform the initial company into a large corporation. 
 
 \subsubsection{Setting}
-% I don't understand the first two sentences
 The setting of our game is in a fictional country, which we have designed after having drawn some simple parallels with real countries or cities. These parallels mean that our country has the most important features, that allow an economy to grow. Hence, we divided our map elements into functional and non-functional elements. Where functional buildings are the ones you can interact with, for instance, taking a loan in a bank, advertising in a media building, hiring employees in a job center, etc.  To give another illustration, our fictional country operates with the outside world through the simulation of a harbor in the early stages of the game and then it will be possible to unlock an airport. Whereas non-functional buildings are objects with a decorative purpose to make the map look and feel  more realistic to the user’s perception. The complete list of functional and non-functional buildings can be found in table \ref{table:map-el}. 
 \begin{table}[ht]
 \centering
@@ -656,12 +653,9 @@ The setting of our game is in a fictional country, which we have designed after 
 \end{table}
 
 
-Regarding the time-frame, our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence the economy and each year in the real world is represented by $365$ seconds.
+Regarding the time-frame, our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence the economy and each year in the real world is represented by $365$ seconds. This means that the total number of hours you can play Capitalism X is approximately $2.7$ hours. 
+On the other hand, we have to emphasize the parameters can change daily, monthly, quarterly or yearly  asynchronously to user inputs.
 
-% This is not accurate. Parameters can change daily, monthly, quarterly, yearly or asynchronously through user inputs.
-This results in a change of parameters in the game every $6$ minutes, in order to represent yearly real data. This means that the total number of hours you can play Capitalism X is approximately $2.7$ hours. 
-
-% That's probably better in the ideas section
 During the entire time-span of the game, there will be a democratic government that operates and interacts with the game environment. The government can also intervene to impose laws, taxes and additional measures, if the company is not compliant to the current regulations. 
 
 Furthermore an additional unique element in this game simulation is the currency. Capitalism X has its own currency, which is the CapCoin (\gls{cc}), and every function within the game is adapted to operate with this currency.
@@ -678,9 +672,11 @@ An important element that is included in the game-play is the make or buy decisi
 
 Moreover you will be faced with external events. These events will take place during the time-span of the game-play, and they will arise as a consequence to the company’s operations or they can be independent. Independent operations are those operation that do not rely on any company indicator and will happen nonetheless. These events will be further explained in section \ref{sec:ectEvent}.	
 
-\begin{figure} [!htbp]
+The figure below shows our concept of the map of our fictional city. All the elements mentioned in table /ref{table:map-el}, should be included in this view. But the building asset creation was not the scope of our project, so we created only some general buildings as to give an impression
+of what should our city look like. 
+\begin{figure} [!ht]
     \centering
-    \includegraphics{images/screenshot-map.png}[scale=0.5]
+    \includegraphics[scale=0.23]{images/screenshot-map.png}
     \caption{CapitalismX Map Concept}
     \label{fig:map}
 \end{figure}
@@ -891,15 +887,17 @@ Following these considerations, probabilities from scientific resources were use
 From an UI point of view, the events displayed as informing Pop-Ups or they are invisible to the player. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet. However, its worth listing them in this section. 
 
 \input{Prototype/implementation.tex}
-\chapter{Discussion}
-\label{cha:discussion}
 
-
-\section{Conclusion}
+\chapter{Conclusion}
 \label{sec:conclusion}
-The project at hand is a concept of a business simulation game called Capitalism X. The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested in the implemented prototype. 
-However, the game mechanics described in chapter \ref{cha:alg} contain more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is stated in the respective simulation. All simulations are consolidated in the overall graph, which can be found in figure \ref{fig:OverallGraph}. In most cases, each individual simulation corresponds to the real world. 
-Throughout the development process of Capitalism X, several KPIs have been designed to determine the player's performance. 
+
+\section{Summary}
+\label{sec:summary}
+The project at hand is a concept of a business simulation game called Capitalism X. The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested in the implemented prototype. The game mechanics cover the following areas: Human Resources, procurement, production, warehousing, logistics, support, marketing, finance and the customer demand. Additionally, external events are defined and described. Happening ran oi are as a rmactioneto mhe tldyar'sebehavior, they pp act .ht buseness from the out isedi  navious wryis aIn chapter \ref{cha:alg} also the implementation of the prototype is explained, which will make it much easier for a follow-up project, to understand how the prototype was implemented and used to test the game mechanics. 
+However, the game mechanics described in chapter \ref{cha:alg} contain more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is stated in the respective simulation. All simulations are consolidated in the overall graph, which can be found in figure \ref{fig:OverallGraph}. In most cases, each individual simulation corresponds to the real world.
+
+Moreover, throughout the development process of Capitalism X, several KPIs have been designed to determine the player's performance.
+
 % In the end this resulted in a sound concept. 
 % Some trivial facts of the project like the course, personal opinion
 % fullGraph includes all simulations and with all simulations you get an entire business simulation game including the following parts: HR, Finance, ....
@@ -910,7 +908,7 @@ In summary, there were far more ideas than could be captured during the conceptu
 
 % I'd use mode not modality
 The original concept was to introduce another (future) phase of the game taking take place from 2018-2030. In this following phase, the company would evolve to a big player like Google, Facebook or Amazon, with the goal to build an environment which allows to control every aspect of people’s lives. 
-Moreover, different modes of game-play were established. First, the player would start playing a normal desktop game. In the second stage the multiplayer mode would be introduced and as the game proceed sthere would be the possibility to extend it to virtual reality. These ideas and more can be found in table \ref{future_work}.
+Moreover, different modes of game-play were established. First, the player would start playing a normal desktop game. In the second stage the multiplayer mode would be introduced and as the game proceeds there would be the possibility to extend it to virtual reality. These ideas and more can be found in table \ref{future_work}.
 
 \begin{longtable}{|l|l|}
 \hline

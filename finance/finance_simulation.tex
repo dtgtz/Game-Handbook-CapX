@@ -101,8 +101,7 @@ If assets are sold, the \textit{cash} increases by the amount of \textit{assetsS
     \end{equation}
 \end{itemize}
 
-Also investments decrease cash and increase assets when bought. Investment returns are either positive or negative incomes from the investment area in the financial dashboard. Investing in real estate funds, stocks or venture capital can provide the player with an investment gain, which is displayed in the finance view %wieso Reference auf manual?
-[REFERENCE TO MANUAL!!!]. However, if he risks too much, he can suffer high losses and thus put his own company at risk. Chapter \ref{sec:investments_simulation} describes the process in detail.
+Also investments decrease cash and increase assets when bought. Investment returns are either positive or negative incomes from the investment area in the financial dashboard. Investing in real estate funds, stocks or venture capital can provide the player with an investment gain, which is displayed in the finance view \ref{fig:finance_view}. However, if he risks too much, he can suffer high losses and thus put his own company at risk. Chapter \ref{sec:investments_simulation} describes the process in detail.
 
 \subsubsection{NOPAT}
 
@@ -138,12 +137,10 @@ As described in chapter \ref{logistic_simulation} the produced products per day 
 
 \subsubsection{EBIT}
 
-The next level under the company's \textit{NOPAT} is the \textit{EBIT}, which are the earnings before interest and tax, a commonly used key financial indicator in company's financial statements. \cite{lee_e_2006} Again, the calculation of the \textit{EBIT} is simplified for the business simulation game at hand. To sum it up, %all! ist ja nur noch ein Wert, richtig?
-revenues are added to the \textit{EBIT} whereas the total expenses are subtracted. The \textit{EBIT} is displayed in the operations section of the finance view and updated on a daily basis. This means, also the total revenues and total expenses are calculated on a daily basis.\\
+The next level under the company's \textit{NOPAT} is the \textit{EBIT}, which are the earnings before interest and tax, a commonly used key financial indicator in company's financial statements. \cite{lee_e_2006} Again, the calculation of the \textit{EBIT} is simplified for the business simulation game at hand. To sum it up, the revenues are added to the \textit{EBIT} whereas the total expenses are subtracted. The \textit{EBIT} is displayed in the operations section of the finance view and updated on a daily basis. This means, also the total revenues and total expenses are calculated on a daily basis.\\
 \\
 \textbf{Revenues}\\
 \\
-%In order to calculate the EBIT, it is necessary to first consolidate all the revenues. Brauchen wir diesen Satz noch?
 The total revenue is calculated by adding all incoming cash flows from the goods sold (\textit{productSale}). The sum of \textit{productSale} is displayed by the \textit{totalSalesRevenues}, which can be derived by multiplying a product’s sales price \textit{(sP)} with the amount of units sold, which are the sales figures (\gls{sFig}). 
     \begin{equation}
         totalSalesRevenue~(\gls{tSR}) = \sum_{p \in P}(sFig \cdot sP) 
@@ -152,8 +149,7 @@ To put it into a nutshell, the total revenues equal the \textit{totalSalesRevenu
 
 \begin{equation}
 \label{func:totalRevenue}
-    totalRevenues = \& ~totalSalesRevenues 
-    % \& was stellt das & dar?
+    totalRevenues = ~totalSalesRevenues 
 \end{equation}\\
 \\
 \textbf{Expenses}\\
@@ -173,8 +169,7 @@ The other part needed to calculate the EBIT are the total expenses. All costs an
         totalSalaries = \sum_{e\in E} e.salary
     \end{equation}
     The calculation of these costs can be found in chapter \ref{sec:HRsim}.
-    \item \textit{totalWarehouseCosts} (\textit{tWC}), which is the sum of the acquisition costs % or sth like aquisition costs and depreciation displayed for a daily value???
-    for all warehouses, the monthly costs for warehouses \textit{cWH} (cf. equation \ref{func:cWH}) and the daily storage costs \textit{sC} (cf. equation \ref{func:SC}). All produced goods are collected at a warehouse and sent out to the market at the end of the day but they do not cause storing costs. Only when producing more products than the market currently demands the spare products are stored in a warehouse, which causes warehousing and storage costs. Added to that, the components which are not manufactured into products yet generate warehousing costs, as they need to be stored until ready for production. 
+    \item \textit{totalWarehouseCosts} (\textit{tWC}), which is the sum of the acquisition costs for all warehouses, the monthly costs for warehouses \textit{cWH} (cf. equation \ref{func:cWH}) and the daily storage costs \textit{sC} (cf. equation \ref{func:SC}). All produced goods are collected at a warehouse and sent out to the market at the end of the day but they do not cause storing costs. Only when producing more products than the market currently demands the spare products are stored in a warehouse, which causes warehousing and storage costs. Added to that, the components which are not manufactured into products yet generate warehousing costs, as they need to be stored until ready for production. 
     \begin{equation}
         totalWarehouseCosts~(tWC) = cWH + sC
     \end{equation}
@@ -200,7 +195,7 @@ The other part needed to calculate the EBIT are the total expenses. All costs an
     \item \textit{totalSupportCosts} (\textit{tSC}), which occur if the player chooses to offer product support and maintenance for customers. The \textit{tSC} calculation can be found in chapter \ref{product_support_simulation}.
 \end{itemize}
 
-According to the list of total revenues and total expenses above, the EBIT can be calculated as follows in function \ref{func:ebit1}. This equation is illustrated by the total finance graph, which can be found in the appendix \ref{fig:finance_graph}. % Diesen Graphen wolltest du ja haben, oder? 
+According to the list of total revenues and total expenses above, the EBIT can be calculated as follows in function \ref{func:ebit1}. This equation is illustrated by the total finance graph, which can be found in the appendix \ref{fig:finance_graph}.  
 \begin{equation}
 \label{func:ebit1}
     EBIT = totalRevenues - totalExpenses
@@ -260,8 +255,7 @@ loanRate = a+ i\textsubscript{t}
 \end{aligned}    
 \end{equation}
 
-% @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder? - AUF JEDEN FALL, zumindest in den Appendix :o \ref{fig:loanRepayment}
-
+An exemplary repayment model for a midterm loan can be seen in the Appendix \ref{fig:loanRepayment} where all the above described equation are summed up in a table.
 However, the raising of capital from the bank is restricted.
 The requested loan \textit{S} must not be larger than 70 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan \textit{S} is in fact larger than 70\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 70\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.\\
 For a better understanding, the following algorithm can be helpful:
@@ -316,7 +310,7 @@ In the end, our daily return is generated by a Gaussian distribution:
 \subsection{The Finance Dashboard}
 \label{sec:finance_dashboard}
 
-The finance dashboard summarizes all cash flows of the company in one overview. In fact, the finance dashboard represents exactly the finance graph in \ref{fig:finance_graph} described at the beginning in a user-friendly way. All displayed figures are calculated in the backend on a daily basis. Thus the balance sheet, which in reality is drawn up at the end of the year is even calculated to daily accuracy in the Finance dashboard - displayed in the left sidebar (cf. [REFERENCE TO MANUAL].
+The finance dashboard summarizes all cash flows of the company in one overview. In fact, the finance dashboard represents exactly the finance graph in \ref{fig:finance_graph} described at the beginning in a user-friendly way. Almost all displayed figures are calculated in the backend on a daily basis. Thus the balance sheet, which in reality is drawn up at the end of the year is even calculated to daily accuracy in the Finance dashboard - displayed in the left sidebar (in figure \ref{fig:finance_view}).
 
 The banking system is intended, but not implemented, and will also take its place in the left sidebar. This area also serves as an action field, so that the player enters the desired loan amount to receive an offer. The player also has access to credits already received. The structure of the banking system can be read in chapter \ref{sec: banking}. 
 

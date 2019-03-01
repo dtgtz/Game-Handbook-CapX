@@ -35,10 +35,9 @@ The \textit{jobSatisfaction} is an essential part of a Key Performance Indicator
 
 The \textit{jobSatisfaction} is such an important factor due to the fact that the \textit{employerBranding} is influenced by it. This is critical as the \textit{employerBranding} has a huge impact on how the company is perceived on the markets by potential employees but also by customers and suppliers. Moreover, the \textit{employerBranding} is also influenced by the general \textit{companyImage} and can be influenced through marketing and PR activities. 
 
-%maybe add min and max of employee satisfaction? because without, "below 50" appears a bit weird.
-The success of a company highly depends on the ability of attracting the best people. The ease of recruitment is highly dependent on the job satisfaction of the employees. Extrinsic motivation needs to be provided to attract employees in case the job satisfaction and by this the employer branding are low. A low job satisfaction makes it necessary to pay higher salaries. Not only the recruiting of employees is more difficult with a lower job satisfaction but also the employee turnover is higher. A job satisfaction below 50 leads to an increase in hiring costs of 50\% which sums up to 7500 CapCoins \cite{frederiksen2016}
+The success of a company highly depends on the ability of attracting the best people. The ease of recruitment is highly dependent on the job satisfaction of the employees. Extrinsic motivation needs to be provided to attract employees in case the job satisfaction and by this the employer branding are low. A low job satisfaction makes it necessary to pay higher salaries. Not only the recruiting of employees is more difficult with a lower job satisfaction but also the employee turnover is higher. A \textit{jobSatisfactionScore} below 50 (on the 0-100 scale) leads to an increase in hiring costs of 50\% which sums up to 7500 CapCoins. \cite{frederiksen2016}
 
-Different factors exist which influence the job satisfaction. \cite{Kapur} The implementation and integration of softfactors which influence the job satisfaction was not the primary goal for CapX, we concentrated on the hardfactors which include salary and paymix, worktime, the skills and education and the provided benefits by the company. 
+Different factors exist which influence the \textit{jobSatisfaction}. \cite{Kapur} The implementation and integration of softfactors which influence the \textit{jobSatisfaction} was not the primary goal for CapX, we concentrated on the hardfactors which include salary and paymix, worktime, the skills and education and the provided benefits by the company. 
 
 The table \ref{tab:benefitsJSS} shows the possible influencing factors which can be chosen by the player to influence the employees job satisfaction. The monetary impact is counted in CapCoins per employee per month. 
 
@@ -89,7 +88,6 @@ The table \ref{tab:benefitsJSS} shows the possible influencing factors which can
     \label{tab:benefitsJSS}
 \end{table}
 
-%ABOVE THERE IS JOB SATISFACTION 50 MENTIONED???
 For each of the above mentioned categories (salary, working time model, working hours, company car, IT equipment, food benefits and sports) the player needs to make a decision which benefit category to offer. The job satisfaction score can have a minimum of 0 points and a maximum of 28 points.
 
 As this scale is too simple in order to be somehow realistic, a manipulation of the original scale is needed. The marginal impact of an additional increase of factors which lead to a higher job satisfaction decreases over time, e.g. an employee which has an above average salary, a company car, trusted based working hours and all other benefits on the highest level, would not value the additional offering of a free sports club voucher as much as an employee that has no benefits at all and gets a sports club voucher. Thus the scale of 0 - 28 was transformed to a root function.
@@ -100,7 +98,7 @@ Moreover, the job satisfaction also depends on the level of the employee. Each e
 \begin{axis}[
     axis lines = left,
     xlabel = Original Scale (OS),
-    ylabel = Job Satisfaction Score (JSS),
+    ylabel = Job Satisfaction Score (\gls{JSS}),
     grid style = dashed,
     legend pos=north west
 ]
@@ -116,12 +114,12 @@ Moreover, the job satisfaction also depends on the level of the employee. Each e
 \end{tikzpicture}
 
 \subsubsection{Quality of Work}
-The quality of work is a measure for the output quality of every process step in the corporation where an employee is involved. We are aware, that the quality of process outputs is influenced by more than the chosen factors here. However, for the sake of the realization of the game, we concentrated on the factors which can be chosen by a player simulating the role of a CEO or Chief Human Resources Officer (CHRO). Besides the influencing factors, which are defined and explained below, the skill level is the most important factor for the quality of an employee. The underlying assumption is that higher skilled employees have more experience and perform similar activities better than employees with a lower skill level in a comparable position.
+The \textit{qualityOfWork} is a measure for the output quality of every process step in the corporation where an employee is involved. We are aware, that the quality of process outputs is influenced by more than the chosen factors here. However, for the sake of the realization of the game, we concentrated on the factors which can be chosen by a player simulating the role of a CEO or Chief Human Resources Officer (CHRO). Besides the influencing factors, which are defined and explained below, the \textit{skillLevel} is the most important factor for the quality of an employee. The underlying assumption is that higher skilled employees have more experience and perform similar activities better than employees with a lower skill level in a comparable position.
 
-The skill level becomes a strategic mechanism as it influences the quality of work significantly. In fact, a better quality of work leads to higher output of the production, can decrease product failure and improve the quality of the products, allows new products to be developed, and for example in case of sales employees generate more sales. 
+The \textit{skillLevel} becomes a strategic mechanism as it influences the \textit{qualityOfWork} significantly. In fact, a better quality of work leads to higher output of the production, can decrease product failure and improve the quality of the products, allows new products to be developed, and for example in case of sales employees generate more sales. 
 
-The skill level alone is not enough to describe the influence on the Quality of work. The happiness and satisfaction with the job is also a measure that influences the quality of the delivered work by the employees.
-Thus, the total quality of work is measured by an equal weighted average of the skill level and the job satisfaction. The skill level of employees can be influenced by trainings which is described in the section below.
+The \textit{skillLevel} alone is not enough to describe the influence on the \textit{qualityOfWork}. The happiness and satisfaction with the job is also a measure that influences the quality of the delivered work by the employees.
+Thus, the total \textit{qualityOfWork} is measured by an equal weighted average of the skill level and the job satisfaction. The skill level of employees can be influenced by training which is described in the section below.
 
 \subsubsection{Training}
 Employees can be categorized into 5 groups:
@@ -132,9 +130,9 @@ Employees can be categorized into 5 groups:
     \item Specialist (60)
     \item Expert (80)
 \end{itemize}
-The initial skill level for these employees is set to (20, 30, 40, 60, 80) according to the order of the list above. In order to improve the skill level and by this the quality of work of the employees, training can be added to the learning journey of employees. 
+The initial \textit{skillLevel} for these employees is set to (20, 30, 40, 60, 80) according to the order of the list above. In order to improve the \textit{skillLevel} and by this the \textit{qualityOfWork} of the employees, training can be added to the learning journey of employees. 
 
-Training can be assigned to a certain number of employees. The cost per training and also the increase of the skill level of the single employee depends on the kind of training. There are two different training types: courses and workshops. Both training types influence the skill level of the employee and the salary of the employee. The  table \ref{tab:trainings_employees} shows the impact of trainings on the salary and the skill level of employees.
+Training can be assigned to a certain number of employees. The cost per training and also the increase of the \textit{skillLevel} of the single employee depends on the kind of training. There are two different training types: courses and workshops. Both training types influence the \textit{skillLevel} of the employee and the salary of the employee. The table \ref{tab:trainings_employees} shows the impact of training on the salary and the \textit{skillLevel} of employees.
 
 \begin{table}
     \centering
@@ -147,14 +145,14 @@ Training can be assigned to a certain number of employees. The cost per training
      Skill Level & +1 & +2  \\
      \hline
 \end{tabular}
-\caption{Influence of trainings on employees}
+\caption{Influence of training on employees}
     \label{tab:trainings_employees}
 \end{table}
 
 
 \subsection{Summary}
 
-The single KPIs are calculated as follows:\\\\
+The single KPIs are calculated as follows:\\
 Quality of Work (\gls{QoW})
 \begin{equation}
      QoW = JSS \cdot 0.5 + SkillLevel \cdot 0.5   
@@ -167,12 +165,11 @@ Employer Branding (\gls{eB})
     \text{and applying the punishment function \ref{employer_branding_detail}} 
   \end{array}
 \end{equation}
-Furthermore, we have the following KPIs:
+Furthermore, the following KPIs are used:
 
-% SKILL LEVEL IN ITALIC FONT??? AND MAYBE THE FIRST ITEM AS AN EQUATION? LETS TALK ABOUT THIS TOGETHER
 \begin{itemize}
-\item Skill Level = InitialSkillLevel \\
-(based on employee category + influence training)
+\item \textit{skillLevel} = InitialSkillLevel \\
+(based on employee category + influence of training)
 \item \textit{totalJobSatisfaction} (tJS): Calculation based on JSS section \ref{subsub:jss}
 \item \textit{companyImage} (cI): Calculation based on CI section \ref{company_image}
 \end{itemize}
