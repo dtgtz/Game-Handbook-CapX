@@ -9,8 +9,8 @@ In this simulation we are going to focus on three very important indicators, nam
 
 Firstly, \textit{totalProductQuality} (\gls{tPQ}) is considered a very important element in the production simulation, nevertheless it is a very volatile concept and thus challenging to define and implement in this simulation. Often defined as conformance to requirements \cite{crosby_quality_1979}, quality is an elusive factor of production, which we have tried to frame in order to serve the scope of this project.
 
-% Start list with tProcureQ, as the othe factors are multiplicators of this factor
- Several factors that affect the \textit{totalProductQuality} in our CapitalismX simulation are listed below:
+% Start list with tProcureQ, as the the factors are multiplicators of this factor
+ Several factors that affect the \textit{totalProductQuality} in our Capitalism X simulation are listed below:
 \begin{itemize}
 \item productionTechnology (\gls{pT})
 \item totalEngineerProductivity (\gls{tEP}) 
@@ -37,7 +37,7 @@ A similar scaling has also been carried out for R\&D, in which the level of impa
 \gls{pAF}= 0.95 + 0.05 \cdot pA
 \label{eq:R\&D}
 \end{equation}
-The \textit{processAutomationFactor} is also calculated in the same way. This is because even if there are no investments in \textit{pA}, this does not mean that the process is bad, and this factor should affect the \textit{totalProductQuality} negatively. It only means that there are no futuristic automatization processes running. If \textit{processAutomation} is in high levels, it can improve our products quality with a factor of $1.2$. 
+The \textit{processAutomationFactor} is also calculated in the same way. This is because even if there are no investments in \textit{processAutomation} \gls{}, this does not mean that the process is bad, and this factor should affect the \textit{totalProductQuality} negatively. It only means that there are no futuristic automatization processes running. If \textit{processAutomation} is in high levels, it can improve our products quality with a factor of $1.2$. 
 
 \begin{center}
 \begin{equation}
@@ -58,7 +58,7 @@ In order to converge all the above mentioned elements and to measure the \textit
 
 % Vertical lines are not needed, root can't be less than 0
 \begin{equation}
-tPQ_{perProduct} = tProcureQ \cdot pTF \cdot |\sqrt[10]{tEP}| \cdot  R\&DF
+tPQ_{perProduct} = tProcureQ \cdot pTF \cdot |\sqrt[10]{tEP}| \cdot  RDF
 \label{eq:PQ}
 \end{equation}
  We measure the \textit{totalProductQuality} as a product of the three factors that were defined above, and the most important factor \textit{totalProcurementQuality}. We have defined it as most important, because the base material and components of our product constitute a large part in determining its quality.
