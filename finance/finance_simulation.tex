@@ -16,9 +16,9 @@ The finance simulation is connected to almost all other simulations, as costs an
 
 \subsection{Calculation of Financial Key Figures}
 \subsubsection{Company Net Worth}
-The main financial key figure is the company net worth (\textit{netWorth}). A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:balanceSheet} shows an exemplary balance sheet in CapitalismX which is updated daily for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses.
+The main financial key figure is the company net worth (\textit{netWorth}). A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:balanceSheet} shows an exemplary balance sheet in Capitalism X which is updated daily for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses.
 
-However, in CapitalismX the company \textit{netWorth} as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. The company \textit{netWorth} is calculated in equation \ref{func:netWorth}. Currently, the player gets 1,000,000 CapCoins equity capital as starting capital. In later implementation, this value needs to be adjusted according to tests with all financial costs and profits. Also, currently the balance sheet in the prototype does neither include the current assets nor the total expenses, due to reasons of complexity. Nevertheless, the current assets as well as the total expenses are included in the operations section of the finance dashboard, which is explained in section \ref{sec:finance_dashboard}.
+However, in Capitalism X the company \textit{netWorth} as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. The company \textit{netWorth} is calculated in equation \ref{func:netWorth}. Currently, the player gets 1,000,000 CapCoins equity capital as starting capital. In later implementation, this value needs to be adjusted according to tests with all financial costs and profits. Also, currently the balance sheet in the prototype does neither include the current assets nor the total expenses, due to reasons of complexity. Nevertheless, the current assets as well as the total expenses are included in the operations section of the finance dashboard, which is explained in section \ref{sec:finance_dashboard}.
 
 \begin{table}[ht]
 \begin{tabular}{|p{5.8cm}|p{5.8cm}|}
@@ -71,7 +71,7 @@ The cash can be calculated as follows in equation \ref{func:cash}, whereas the c
 
 % Describe relationship between assets and cash, so if buying a machine is shoving money from cash to assets
 When purchasing assets, the amount of the asset's \textit{purchasePrice} is simply shoved from cash to assets, because the value of assets increases whereas the cash decreases by the amount of the \textit{purchasePrice}. This accounting exchange does not affect the \textit{netWorth}.
-The assets of a company consist of elements necessary to operate productively. The \textit{purchasePrice} of an asset is reported in the balance sheet in order to identify impairment. In CapitalismX, this is represented by a straight-line depreciation using the formula \ref{calc:depreciation}. 
+The assets of a company consist of elements necessary to operate productively. The \textit{purchasePrice} of an asset is reported in the balance sheet in order to identify impairment. In Capitalism X, this is represented by a straight-line depreciation using the formula \ref{calc:depreciation}. 
     
 \begin{equation}
      \label{calc:depreciation}
@@ -114,7 +114,7 @@ The next important key figure is the \gls{NOPAT}. The \textit{NOPAT} can be calc
 \subsubsection{Income tax}
 \label{sec:incomeTax}
 
-In CapitalismX the \textit{incomeTax} is levied on a daily basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IAS 12 \textit{Income Taxes} paragraph from the IFRS\footnote{https://www.ifrs.org/-/media/feature/meetings/2018/october/iasb/ap12c-ias12.pdf}. To determine realistic tax rates, corporations selling similar products to the ones in CapitalismX were compared, using the IFRS statements from yahoo finance, resulting is a \textit{taxRate} of 20\% for CapitalismX. The compared corporations with their tax rate can be seen in table \ref{Example_Tax}.
+In Capitalism X the \textit{incomeTax} is levied on a daily basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IAS 12 \textit{Income Taxes} paragraph from the IFRS\footnote{https://www.ifrs.org/-/media/feature/meetings/2018/october/iasb/ap12c-ias12.pdf}. To determine realistic tax rates, corporations selling similar products to the ones in Capitalism X were compared, using the IFRS statements from yahoo finance, resulting is a \textit{taxRate} of 20\% for Capitalism X. The compared corporations with their tax rate can be seen in table \ref{Example_Tax}.
 
 \begin{table}[!h]
 \centering
@@ -277,7 +277,7 @@ For a better understanding, the following algorithm can be helpful:
 \subsection{Investments}
 \label{sec:investments_simulation}
 
- Investments in CapitalismX are a way to allocate your residual cash to assets with an expected profit. However, each investment is risky and positive return isn't guaranteed. Thus, your liquidity may suffer if you put too much money into investments.
+ Investments in Capitalism X are a way to allocate your residual cash to assets with an expected profit. However, each investment is risky and positive return isn't guaranteed. Thus, your liquidity may suffer if you put too much money into investments.
   
   We decided for three classes of investments with different expected returns and assume higher risk for higher return:
 \begin{itemize}

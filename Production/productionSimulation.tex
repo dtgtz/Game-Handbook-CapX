@@ -95,7 +95,7 @@ There are also possibilities to improve the \textit{productionTechnology} level 
     \item Purchasing new machinery (level $5$) \\
 Purchasing new machinery immediately sets the machine's technology level to $5$, the maximum level, because the machinery is new and it complies with the measures of eco-laws and safety regulations.
 \item Maintaining \& repairing $(+1)$ \\
-Maintaining a machine is a regular process in all production companies. In CapitalismX, maintenance is optional for each machine, and the player can select which machine to maintain for a certain price. The price for maintenance is fixed for every machine and it improves the \textit{productionTechnology} scale by one level. \\
+Maintaining a machine is a regular process in all production companies. In Capitalism X, maintenance is optional for each machine, and the player can select which machine to maintain for a certain price. The price for maintenance is fixed for every machine and it improves the \textit{productionTechnology} scale by one level. \\
 Repairs are also very frequent processes in production companies. Machines do not always function properly, and after using them at full capacity for a period of time they need intervening actions in order to restore them into their optimal state. In this simulation, repairs also increase the \textit{productionTechnology} scale by one level, as repairing is necessary, but it does not offer additional features to the machine. Both these processes have a cost of $2,000cc$ per machine.
 
 \item Upgrading ($+2$) \\
@@ -198,8 +198,7 @@ which is the total of all component's costs, since we need several components in
    \end{equation}
 
 Since machinery is purchased we have to account this expense to \textit{purchasedAssetsCosts}, which is part of the \textit{Fixed Costs}. \textit{Fixed Costs (FC)} like \textit{machineryDepreciation} costs or rent are also included because they are inevitable expenses that are present in every production company. 
-% this is not entirely clear because we didn't introduce facilitiyRent and purchasedAssetCosts
-% I think we should rather use the machinery fixed cost here
+
 \begin{equation}
    \begin{aligned}
  FC = facilityRent + purchasedAssetCosts \\ +machineryDepreciationCosts
@@ -213,9 +212,9 @@ Since machinery is purchased we have to account this expense to \textit{purchase
 	\label{fig:productionCosts}
 \end{figure}
 All the above mentioned costs, add up to two major categories, \textit{variableCosts} and \textit{fixedCosts}. Together they compose the \textit{totalProductCost}. As demonstrated in equation \ref{eq: PC/u} the fixed costs are divided by the number of units that the player is going to produce, since the index that we are defining the \textit{totalProductCost} is calculated for each product in the set of products $P$.
-% we introduced the set P for the products in the glossary so we can use it here (I added it)
+
 \begin{equation}
-	totalProductCost_{per Product}= VC + \frac{FC}{nr.Products} % nr. products = |P| 
+	totalProductCost_{per Product}= VC + \frac{FC}{P} % nr. products = |P| 
 	\label{eq: PC/u}
 \end{equation}
 By observing the above equation, we have described how the costs are simulated in the production process. 
