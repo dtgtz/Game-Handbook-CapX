@@ -3,7 +3,6 @@
 
 The company image is a very important KPI to measure the company reputation. The company image is the sum of many small activities which leaves a footprint that can be recognized with the company. Single activities can improve or destroy the \textit{companyImage} (\gls{cI}) from the point of view of individuals. The goal of a high valued company image is of course monetary benefit. Therefore, activities which tend to increase the \textit{companyImage} are not for free and it is always a difficult assessment whether to invest in a certain activity or not. In the game we concentrated on factors which can be realistically and interestingly be influenced by the player.
 
-% cost table alternative
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|r|r|r|}
@@ -67,7 +66,7 @@ at least 4 times per year         & 5    & 6.5    & 8.5  \\
 
 The total sum of the above possible choices is the total \textit{companyImage}. The score can reach values from 0 to 28 as it is the case for the \textit{totalJobSatisfaction}. In order to build also here a more realistic representation we figured out that the marginal benefit of an increase of the \textit{companyImage} increases with the collected amount of points. Therefore, we manipulated also this formula and came up with the function that can be seen in figure \ref{fig:scaling}.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -92,6 +91,9 @@ The total sum of the above possible choices is the total \textit{companyImage}. 
 
 The original scale of 0 to 28 is squared and divided by the factor of 7.84 in order to map the original scale on a scale of 0 to 100. In this case the rational behind the mapping is the fact that little activities do not have such  a big influence on the overall \textit{companyImage}. When a company starts to combine all its activities it can generate huge impact and publicity which leads to a strong increase of the \textit{companyImage}.
 
+
+\subsubsection{Press Releases} \label{press_releases}
+
 In addition to marketing campaigns and social engagement projects, the player can also publish press releases. Each press release has a name and an impact, but it is only effective if an unexpected event occurs beforehand. Chapter \ref{sec:ectEvent} describes the concept of external events in detail. At this point, only those events are mentioned whose effects can be mitigated by timely and appropriate press releases.
 In order for the press release to have a mitigating effect, they must be published by the player at the latest 10 days after the external event. If it happens later, the release will no longer affect the damage caused by the event. The player has three different press releases to choose from: 
 \begin{itemize}
@@ -102,7 +104,7 @@ In order for the press release to have a mitigating effect, they must be publish
 
 Table \ref{press_release_events} shows which press releases in combination with which external events show their impact and which influence they have.
 
-\begin{table}[]
+\begin{table}[h]
 \begin{tabular}{|l|l|l|l|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Press release}}    & \multicolumn{1}{c|}{\textbf{External event}}                                & \multicolumn{1}{c|}{\textbf{Impact event}} & \multicolumn{1}{c|}{\textbf{Effect press release}} \\ \hline

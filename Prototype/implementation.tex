@@ -2,18 +2,40 @@
 %Steffen\\\\
 \subsection{Architecture of the Prototype}
 
-CapitalismX is a Node.js\footnote{https://nodejs.org/} app written in JavaScript and the stylesheet language SASS\footnote{https://sass-lang.com}. It makes use of the library React\footnote{https://reactjs.org/} and its XML-like JavaScript syntax extension JSX to define user interface components. Furthermore, Redux\footnote{https://redux.js.org/} is used to manage the state of components and their communication with each other. The 3D map is realized using Three.js\footnote{https://threejs.org/}. The Node Package Manager (NPM)\footnote{https://www.npmjs.com/} helps to manage dependencies, build and deployment.
+Capitalism X is a Node.js\footnote{https://nodejs.org/} app written in JavaScript and the stylesheet language SASS\footnote{https://sass-lang.com}. It makes use of the library React\footnote{https://reactjs.org/} and its XML-like JavaScript syntax extension JSX to define user interface components. Furthermore, Redux\footnote{https://redux.js.org/} is used to manage the state of components and their communication with each other. The 3D map is realized using Three.js\footnote{https://threejs.org/}. Node Package Manager (NPM)\footnote{https://www.npmjs.com/} helps to manage dependencies, build and deployment.
 \\
 Various smaller NPM packages are used for a number of specific tasks. A full list of dependencies can be found in the \texttt{package.json} file in the root directory of the prototype project folder.\\\\
 It should be possible to run the app in any state-of-the-art browser, but at the moment it is only tested in Google Chrome\footnote{https://google.com/chrome/} (version 72.0.3626.109).
 \\
-This section doesn't cover the prototype implementation in its entirety, but will highlight some of the key implementation decisions, especially those concerned with the game mechanics.
+This section doesn't cover the prototype implementation in its entirety, but will give an overview of the project structure and explain the current state of the implementation.
+
+\subsection{Project Structure}
+In the following we will roughly explain how the project is composed and describe the content of the most important directories and files. It follows the standard folder structure of a React+Redux application.
+\begin{itemize}
+    \item \texttt{REAMDME.md} contains instructions on how to install and run the game locally on your computer
+    \item \texttt{package.json} contains our project's dependencies and build settings
+    \item The \texttt{public} directory contains the \texttt{index.html} of our application
+    \item The \texttt{src} folder contains the source code
+    \begin{itemize}
+        \item \texttt{actions} contains all the actions which change the application state
+        \item \texttt{components} contains all the React components making up the user interface
+        \item \texttt{constants} contains all game parameters and defaults in JSON format
+        \item \texttt{containers} contains the ``smart" components mapping the required application state and actions to parameters (props) of the respective component
+        \item \texttt{models} contains a custom graph data structure used for the financial simulation
+        \item \texttt{reducers} contain all reducers, which change the application state depending on the performed actions
+        \item \texttt{selectors} contain all (memoized) selectors. Most of the KPI calculations are performed here.
+        \item \texttt{static} contains resources like icons and 3D graphics assets
+        \item \texttt{styles} contain the application's stylesheets
+        \item \texttt{util} contains various helper functions
+        \item \texttt{index.js} is the starting point of our application. The application loop is specified here.
+    \end{itemize}
+\end{itemize}
 
 \subsection{Simulation}
 
-In order to work with React and Redux we make heavy use of immutable data structures and functional programming paradigms like \texttt{map} and \texttt{reduce}.
+In order to work with React and Redux we make heavy use of immutable data structures and functional programming paradigms like \texttt{map}, \texttt{reduce} and \texttt{filter}.
 
-All the KPIs calculated from aggregate functions are done in the respective file in \texttt{src/selectors}. We use the redux-reselect \footnote{https://github.com/reduxjs/reselect} selector library to make use of memoized selectors, which results in a vast performance improvement for mappers and reducers, as they only have to be recalculated if their input values change.
+All the KPIs derived from aggregate functions are calculated in the respective file in \texttt{src/selectors}. We use the redux-reselect \footnote{https://github.com/reduxjs/reselect} selector library to make use of memoized selectors, which results in a vast performance improvement for mappers and reducers, as they only have to be recalculated if their input values change.
 
 One of the key challenges in the prototype implementation was the technical specification of all the complex relationships between variables and objects in the game mechanics graph. The complexity of this graph is mostly due to the heterogeneity of the data types, ranging from elementary integers to arrays of complex nested objects. 
 Hence, a conventional graph of real number vertices and real edge weights is not sufficient for our needs.
@@ -23,21 +45,20 @@ The goal was to implement a general-purpose graph abstraction which can deal wit
 Therefore, each node consists of a dictionary of vertices each storing their key, value, an arbitrary weight function with an arbitrary number of parameters, and the keys of all incoming nodes (mapping to the parameters in the weight function). With this data structure, a separate adjacency list is superfluous, as each vertex already stores its incoming vertices and weight functions, and thus all edges in the graph are defined.
 
 
-Moreover, we extend this graph class by introducing a counter for the elapsed game time. Periodically, the graph time is forwarded by one time quantum (in our game one day), which triggers a complete recalculation of the graph. This counter is essential for weight functions involving time, e.g. to model the degrading demand of a product over time.
+Moreover, we extend this graph class by introducing a counter for the elapsed game time. Periodically, the graph time is forwarded by one time quantum (in our game one day), which triggers a complete recalculation of the graph. This counter is essential for weight functions involving time, e.g. to model the degrading demand of a product over time. This approach allows for a high level of encapsulation when defining the graph in the code. 
 
-This approach allows for a high level of encapsulation when defining the graph in the code. There are two separate types of vertices. First, we have root vertices in the beginning of the graph. They directly correspond to the input values the user specifies in the GUI. Most importantly, they have no incoming edges. The following function of the \texttt{SimulationGraph} class can be used to create a root vertex:
+There are two separate types of vertices. First, we have root vertices in the beginning of the graph. They directly correspond to the input values specified by the user in the GUI and can be asynchronously updated by external functions. Most importantly, they have no incoming edges, as they are directly determined calculated in the repsective selector. The following function of the \texttt{SimulationGraph} class can be used to create a root vertex:
 
 \begin{center}
 	\texttt{createVertex(key, defaultValue)}
 \end{center}
 
-Second, we have internal vertices with at least one incoming vertex. As they do have incoming edges we also have to pass a weight function \texttt{wf} and the weight function parameter vertex keys:
+Second, we have internal vertices with at least one influencing vertex. As they do have incoming edges we also have to pass a weight function \texttt{wf} and the keys mapping to the weight function parameters:
 \begin{center}
-	\texttt{createCalculatedVertex(key, defaultValue, wf, keys)}
+	\texttt{createCalculatedVertex(key, wf, keys)}
 \end{center}
  
  In addition, we also might want to use the simulation time and previous value of the node in the function. Thus, the weight function is also implicitly given the current time and optionally the previous vertex value as a parameter.
- 
  
  %\newpage
  
@@ -50,4 +71,18 @@ Second, we have internal vertices with at least one incoming vertex. As they do 
 	\STATE \texttt{createCalculatedVertex(\newline \hspace*{1mm} "investmentEarnings",\newline \hspace*{2mm} function(t, amount, risk, std) \{ \newline \hspace*{10mm}return amount * gauss(mean, std)  \newline \hspace*{2mm} \},\newline \hspace*{2mm} ["investmentAmount", "investmentRisk", "investmentMean"]\newline )}    
   \end{algorithmic}
   \vspace{1cm}
-  The entire game mechanics are modeled in this way. The complete graph implementation for our game can be found in the \texttt{SimulationGraph} class in the directory \texttt{src/model/graph/} of the game directory. Only the root vertices can be changed from outside the \texttt{SimulationGraph} class and their values are fetched from the GUI state each simulation cycle. A change in these vertices corresponds to a new user input.
+  In theory, the entire game mechanics could modeled using this graph. However, for performance reasons, all KPIs which can be calculated in memoized selectors (this is true for almost all KPIs) are simply passed to this graph and calculated beforehand.
+  
+  \subsection{Current state}
+  \label{sub:currentState}
+  
+  As of now, the prototype can be used to see view your company's financials, invest money; hire, fire and traing employees, change the work conditions affecting the satisfaction of the employees; launch and deprecate products, choose components and suppliers, buy and sell machines to control the supply of your products, change investments in production technologies; hire a lobbyist to lower the tax rate. Also, the demand calculation is performed in its entire complexity, components are locked until their availability year, and component prices adjust dynamically over time, updated monthly. In addition, the game is saved automatically to the browser's local storage and can be continued at a later point.\\
+  
+  Furthermore, you may perform the following actions for which the game mechanics are not yet completely modeled: buy and sell trucks and warehouses, hire an external logistics partner, choose a consultancy company, start campaigns, make public statements, do market research.\\
+  
+  Moreover, as of now, the cashflow table only displays periodic costs like salaries and material costs depending on the number of sold products, but it doesn't show one-time purchases like product launch prices or hiring costs of employees (although they are still subtracted from the cash).\\
+  
+  For testing purposes, the cash amount of the user is tracked, but purchases are still possible when the cash or net worth falls below zero. The possibility to request a loan from a bank is thus not implemented yet.\\
+ 
+Almost all values used and calculations performed are exactly as specified in the documentation and the basic architecture for many of the missing features is already in place. However, time constraints have not allowed us to achieve 100 \% consistency with the documentation yet and we couldn't finish and properly test the implementation of the remaining missing features. Also, just as the documentation, we sometimes assume 30 days for a month and 365 days for a year, which is why for example the employee salaries can have minor rounding errors and vary slightly from quarter to quarter although there have been no changes in salaries.\\\\
+The repository is hosted on \href{https://github.com/swaldmann/CapitalismX}{https://github.com/swaldmann/CapitalismX} and a deployed version is available via \href{https://swaldmann.github.io/CapitalismX}{https://swaldmann.github.io/CapitalismX}.

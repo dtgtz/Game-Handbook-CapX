@@ -9,30 +9,54 @@ In our concept of CapitalismX, the production process is a grouping of various o
 \item Logistics 
 \item Warehousing 
 \end{itemize}
-You will find all of the above mentioned processes in the tabs of the Production View. Each tab contains all the respective elements, that keep the production process running.
-The manufacturing process, which is the focus of this section is composed of several elements. Most of these elements will be visible to you through the Production view accessible in the CapitalismX game settings. Furthermore these elements, will serve as variables that will interact with each other in the game mechanics, and provide you with the appropriate indicators of performance, regarding the Production process. However other important elements will not be directly visible to you but will serve a very important role in the game mechanics. \\
-In this section we will explain all the different views and elements you can encounter whilst browsing the production view.
+You will find all of the above mentioned processes in the tabs of the production view. Each tab contains all the respective elements, that keep the production process running.
+%INSERT SCREENSHOTS!!! Leave out the game mechanics part`???
+The manufacturing process, which is the focus of this section is composed of several elements. Most of these elements will be visible to you through the Production view accessible in the CapitalismX game settings. Furthermore these elements, will serve as variables that will interact with each other in the game mechanics, and provide you with the appropriate indicators of performance, regarding the Production process. However other important elements will not be directly visible to you but will serve a very important role in the game mechanics. In this section we will explain all the different views and elements you can encounter whilst browsing the production view.
 
 \subsubsection{Procurement View}
 \label{sub:ProcurementView}
-In order to start manufacturing or retailing goods, you need to procure the components necessary. First, you need to choose a suitable product portfolio for you. In order to do so, please go to the production area and select the procurement tab. There you have the possibility to add a new product to your portfolio. In the beginning, it is reasonable to start with a smaller product portfolio. [SCREENSHOT] In later stages of the game however, it might be interesting to test out the production and sale of different products, and maybe even different version of products, for example selling a high-quality, high-priced laptop and to compare it to selling a low-quality, low-priced laptop. Insights of such experiments might be derived from market research, sales figures, etc.
+In order to start manufacturing or reselling goods, you need to procure the components necessary. First, you need to choose a suitable product portfolio for you. In order to do so, please go to the production area and select the procurement tab. You can see the procurement view in figure \ref{fig:procurementView}. 
 
-Also, you have an overview about the components the engineers need in order to manufacture a specific product. Some might be locked at the beginning and will be unlocked in due time. When clicking on a component, an overlay opens where you have the possibility to select the component from three different suppliers. [SCREENSHOT]. There are several features that help you decide which supplier to choose: the price, the eco-index and the quality index. The price varies, depending on the supplier. Next, the eco-index is a measure that defines a supplier’s ecological footprint, influenced by their logistics, sustainability in production, ecological footprint of their suppliers, and so on. This means, the components you choose might also have an influence on your company’s eco-index. Third, the quality index gives you insights about the component’s quality, so the higher the quality index, the higher the component’s quality. Again, the component’s quality has an influence on your final product’s quality index, which you should keep in mind, when defining a product’s price.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/procurementView.png}
+    \caption{Procurement view for choosing product portfolio and buying components}
+    \label{fig:procurementView}
+\end{figure}
+
+There you have the possibility to add a new product to your portfolio. In the beginning, it is reasonable to start with a smaller product portfolio. In later stages of the game however, it might be interesting to test out the production and sale of different products, and maybe even different version of products, for example selling a high-quality, high-priced laptop and to compare it to selling a low-quality, low-priced laptop. Insights of such experiments might be derived from market research, sales figures, etc.
+
+Also, you have an overview about the components the engineers need in order to manufacture a specific product. Some might be locked at the beginning and will be unlocked in due time. When clicking on a component, an overlay opens where you have the possibility to select the component from three different suppliers, which you can see in figure \ref{fig:procurementSupplier}. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/procurementSupplier.png}
+    \caption{Choosing the supplier for a component}
+    \label{fig:procurementSupplier}
+\end{figure}
+There are several features that help you decide which supplier to choose: the price, the eco-index and the quality index. The price varies, depending on the supplier. Next, the eco-index is a measure that defines a supplier’s ecological footprint, influenced by their logistics, sustainability in production, ecological footprint of their suppliers, and so on. This means, the components you choose might also have an influence on your company’s eco-index. Third, the quality index gives you insights about the component’s quality, so the higher the quality index, the higher the component’s quality. Again, the component’s quality has an influence on your final product’s quality index, which you should keep in mind, when defining a product’s price.
 
 After deciding on a component from a supplier, you need to choose the amount of components you want to purchase. For a higher amount, you might get a mass discount, but beware --  buying more components than you manufacture to products may lead to higher warehousing costs. 
 
 \subsubsection{Product View}
 \label{sub:ProductView}
-Now it is time to generate some revenue for your hard work! After hiring engineers, procuring the components and machinery needed, you have to decide on a market price for your respective product. In order to do so, you might go to the product view tab in the production area. There you get an overview about each product in your portfolio. [screenshot]
+Now it is time to generate some revenue for your hard work! After hiring engineers, procuring the components and machinery needed, you have to decide on a market price for your respective product. In order to do so, you might go to the product view tab in the production area. There you get an overview about each product in your portfolio, which you can see in figure \ref{fig:productView}.
+
+\begin{figure} [h]
+    \centering
+    \includegraphics[width=\textwidth]{images/productView2.png}
+    \caption{Product view}
+    \label{fig:productView}
+\end{figure}
 
 First, you can see the product’s name, which you can adapt in the procurement view. Second, you can enter the quantity you want to produce. Next to that, you have the amount of units in stock displayed. The amount in stock will be reduced automatically when some customer buys the respective product. This means, that only if the stock is empty, products with new components will be sold to the market. However, you can produce all the time and increase the units in stock if the market is not responding yet. 
 
-Back to the UI: next to the units in stock you can see the cumulated product costs, which include the sum of component prices, and other fixed costs, such as electricity, and variable costs that occur during production. Based on this amount of CapCoins you might enter a market price in the next field. The respective profit margin is calculated automatically and displayed next to your defined market price. Again, market research and older sales figures may give you a hint about the reasonableness of your market price. 
+Back to the UI: next to the units in stock you can see the total product costs, which include the sum of component prices, and other fixed costs, such as electricity, and variable costs that occur during production. Based on this amount of CapCoins you might enter a market price in the next field. The respective profit margin is calculated automatically and displayed next to your defined market price. Again, market research and older sales figures may give you a hint about the reasonableness of your market price. 
 
 With that being said, the actions you are required to take are defining the price per product in the production view. Then, as soon as you enter a quantity, the products are produced if sufficient production capacity is available. Otherwise, the products are manufactured according to the FIFO principle. After production, the products are available for purchase by your customers on the market.
 
 \subsubsection{Machinery view} 
 \label{sub:MachineryView}
+%INSERT SCREENSHOTS
 Let us continue with the Machinery view, which indicates a snapshot of the current status of the company's machines. Their number and overall capacity, can be found on the left side of the tab. When looking at the right side of the tab you can get a more in depth perspective of each machine. The current capacity is a value that shows the user the maximum amount of products that the machine can produce in a day. 
 
  In the list of the individual machines, it will also be possible to maintain, upgrade and sell individual machines. The maintain and upgrade options improve the selected machinery state or in other words its production technology. 
@@ -44,7 +68,9 @@ The overview of this logic is represented in the actual Production view by a pie
  
 Apart from these options, there is also the possibility to sell a machine. The selling price will be determined by the game mechanics and cannot be altered by the user. This amount will be based on the capacity of the machine and its production technology level.
 
-In the machinery view, there are also some \textit{productionInvestments} that you can make. In order to invest in R\&D, System Security or Process Automation, you have to input the amount of CapCoins you want to invest. The amount you can input is either $100cc,500cc,1000cc,1500cc,2000cc$. You will have to contemplate how and what do these investment options affect, to be able to call yourself a CapitalismX pro.
+In the machinery view, there are also some \textit{productionInvestments} that you can make. In order to invest in R\&D, system security or process automation, you have to input the amount of CapCoins you want to
+% That amount is different in the production chapter, use the same values for both
+invest. The amount you can input is either $100cc,500cc,1000cc,1500cc,2000cc$. You will have to contemplate how and what do these investment options affect, to be able to call yourself a CapitalismX pro.
 
 \subsubsection{Performance Metrics}
 This section will give you a short introduction to all the metrics that we have selected to display in the Production View. Do not be intimidated by the multiple graphs and parameters, as these metrics are your friends. They will show you everything that is happening in production, why is it happening and how well is it going. All you have to do is figure out how to keep those levels soaring. 

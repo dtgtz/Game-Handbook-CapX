@@ -36,7 +36,11 @@ The \textit{totalSupportTypeQuality} is calculated from the various support type
 \end{equation}
 
 The \textit{totalSupportCost} (\gls{tSC}) are calculated from the sum of the monthly \textit{typeCost} and the \textit{contractualCost} (\gls{cSP}) for cooperation with the partner company.
+\begin{center}
 \begin{equation}
-\label{func:totalSupportCost}
-    tSC = \sum cST + cSP
+tSC=\sum_{st \in ST}{cST} + cSP
+\label{eq:totalSupportCost}
 \end{equation}
+where \\
+\textit{ST} = Set of offered support types 
+\end{center}

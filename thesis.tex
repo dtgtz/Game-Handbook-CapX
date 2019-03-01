@@ -33,8 +33,11 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
+\hypersetup{colorlinks=true,urlcolor=blue}
 % well, when your work is concerned with definitions, proposition and so on, we suggest this
 % feel free to add Corrolary, Theorem or whatever you need
+
+
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 
@@ -141,7 +144,7 @@ description={CapCoins}%
 }
 \newglossaryentry{S}{%
 name={S},%
-description={request loanAmount}%
+description={requested loanAmount}%
 }
 \newglossaryentry{t}{%
 name={t},%
@@ -161,7 +164,12 @@ description={interest rate for loan (interestsLoan)}%
 name={eI},%
 description={ecoIndex}%
 }
+
 % Glossary Production
+\newglossaryentry{P}{%
+name={P},%
+description={Set of products}%
+}
 \newglossaryentry{C_pC}{%
     name={C_pC},%
     description={Set of components categories for a product category}%
@@ -228,7 +236,7 @@ description={processAutomationFactor}%
 }
 \newglossaryentry{nPP}{%
 name={nPP},%
-description={Number of Produced Products}%
+description={numberProducedProducts}%
 }
 \newglossaryentry{RDF}{%
 name={RDF},%
@@ -278,10 +286,6 @@ description={Online survey}%
 name={eIT},%
 description={ecoIndexTruck}%
 }
-\newglossaryentry{tEIT}{%
-name={tEIT},%
-description={totalEcoIndexTruck}%
-}
 \newglossaryentry{qIT}{%
 name={qIT},%
 description={qaulityIndexTruck}%
@@ -293,6 +297,10 @@ description={purchasePriceTruck}%
 \newglossaryentry{nT}{%
 name={nT},%
 description={numberTrucks}%
+}
+\newglossaryentry{T}{%
+name={T},%
+description={Set of purchased trucks}%
 }
 \newglossaryentry{cF}{%
 name={cF},%
@@ -404,10 +412,13 @@ description={totalSupportCost}%
 name={cSP},%
 description={costSupportPartner}%
 }
-
 \newglossaryentry{sTQ}{%
 name={sTQ},%
 description={supportTypeQuality}%
+}
+\newglossaryentry{ST}{%
+name={ST},%
+description={Set of offered support types}%
 }
 
 %Glossary Warehouse
@@ -528,6 +539,7 @@ description={Set of components of a product P}%
 name={c},%
 description={component}%
 }
+
 %Glossary CustomerSatisfaction 
 \newglossaryentry{cS}{%
 name={cS},%
@@ -604,11 +616,9 @@ Steffen Waldmann \\
 %Nike
 Have you ever wanted to test out your economic skills and entrepreneurial spirit? Did you ever wish to take action and do things your way? Did you ever think that with the steering wheel in your hand, you'd give a company a whole new direction and possibility to rise? 
 
-% Would rather use smth like consumer technology instead of IT, we do hardware not information
-Capitalism X now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades. You are going to start with a small IT company and, with your sophisticated input, you can build up an enterprise.
+Capitalism X now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades. You are going to start with a small technology company and, with your sophisticated input, you can build up an enterprise.
 
-% maximize net worth instead of profit
-The goal of this interactive business simulation game is simple: Maximize your company's profit! As a CEO you will have to take care of multiple issues, that occur in daily business, such as defining your product portfolio, controlling your financial status, managing employees and so on. However, unforeseen events might suddenly occur! In these cases, you can prove your decision-making abilities and guide your company through delicate situations. 
+The goal of this interactive business simulation game is simple: Maximize your company's net worth! As a CEO you will have to take care of multiple issues, that occur in daily business, such as defining your product portfolio, controlling your financial status, managing employees and so on. However, unforeseen events might suddenly occur! In these cases, you can prove your decision-making abilities and guide your company through delicate situations. 
 
 With Capitalism X you can expect a game which let you experience the core processes of a corporation. Activities in this game match the processes which are derived from real world companies. You will start as a start-up and develop the company through smart decisions and actions to a big corporation. Although the decisions you will make are based on simplified assumptions, the overall complexity is based on a real world scenario and will give you an overview about the inter-dependencies in a company.
  
@@ -669,19 +679,20 @@ An important element that is included in the game-play is the make or buy decisi
 Moreover you will be faced with external events. These events will take place during the time-span of the game-play, and they will arise as a consequence to the company’s operations or they can be independent. Independent operations are those operation that do not rely on any company indicator and will happen nonetheless. These events will be further explained in section \ref{sec:ectEvent}.	
 
 \chapter{How to Play Capitalism X}
+\label{cha:howtoplay}
 
 \section{Getting Started with Capitalism X}
 %Steffen, Nike Halbe Seite\\
 
 Are you ready to get started? If yes, enter the following URL to the Google Chrome browser and start your first game of Capitalism X: \\
-\texttt{https://swaldmann.github.io/CapitalismX}
+\texttt{https://swaldmann.github.io/CapitalismX}.
+However, it is advisable to have a look at the limitations as described in chapter \ref{sub:currentState} first.
 
-Now you have the possibility to start a new game or load an existing game and start right away where to took off earlier. %(requires sign-in). When starting a new game, you have to create %an account first, so that you can stop the game and continue %later on. For registration you will need a valid email address %and your name. After successful registration, you can select a %nickname and a company name. 
+Now you have the possibility to start a new game or load an existing game and start right away where to took off earlier. %(requires sign-in). When starting a new game, you have to create an account first, so that you can stop the game and continue later on. For registration you will need a valid email address and your name. After successful registration, you can select a nickname and a company name. I DONT AGREE - we should keep that here, because this is our concept...
 
-It is recommended to have a look at the tutorial provided 
+It is recommended to have a look at the following  tutorial  
 %after the registration process 
-if you have not played Capitalism X before. Also, it might be very helpful to read this game manual, as it gives you a couple of hints about how to handle some situations. The tutorial is a short video that gives you an overview about the different buildings and views in the game. Also, it provides you with step-by-step instructions on how to perform the most important activities.
-% We don't have a video, I find this confusing for Heiner --> idea list
+if you have not played Capitalism X before. Also, it might be very helpful to read this game manual, as it gives you a couple of hints about how to handle some situations. The manual at hand gives you an overview about the different buildings and views in the game. Also, it provides you with step-by-step instructions on how to perform the most important activities.
 
 \section{Interface and Features}
 
@@ -701,8 +712,7 @@ The finance view, provides you with an overview about the financial situation of
 Next, you can procure, produce and sell goods and equipment in the production view. For more insights on procurement, production, selling, and logistics, please take a look at chapter \ref{production_manual}. 
 Last but not least, you can visit the marketing area, where you can start marketing campaigns, start market research activities or commission consulting companies. You can find more information in chapter \ref{marketing_manual}.
 
-% would replace "revisit" here
-Throughout the game, time passes starting from January 1st, 1990 on. You can revisit this time at the top right corner of the screen and can be seen in picture \ref{fig:time}.
+Throughout the game, time passes starting from January 1st, 1990 on. You can see this time at the top right corner of the screen and can be seen in picture \ref{fig:time}.
 \begin{figure} [!htbp]
     \centering
     \includegraphics{images/time.png}
@@ -711,12 +721,11 @@ Throughout the game, time passes starting from January 1st, 1990 on. You can rev
 \end{figure}
 Next to the time box, there is a little "pause" sign, where you can pause the time in case you want to adapt some settings and do not want the time to elapse before you finished your adaptations.
 
-% replace decent with subtle
-Apart from that, at the bottom of the screen you can find a news ticker banner, that gives you decent hints about possible settings to adapt. A proper example here would be  If warehouses are full, no more products can be stored for sale. In Capitalism X some unexpected incidents may happen to your company or to the environment, for example it could happen that an earthquake destroys part of your production facility or that a sudden hacker attack is going to steal sensitive data from you. In these cases, urgent intervention from you is needed! Therefore, a pop-up window will open, where instant decisions have to be taken. It is absolutely not recommended to ignore such pop-up windows, because an omitted action is highly probable to cause your company huge damage.
+Apart from that, at the bottom of the screen you can find a news ticker banner, that gives you subtle hints about possible settings to adapt. A proper example here would be  If warehouses are full, no more products can be stored for sale. In Capitalism X some unexpected incidents may happen to your company or to the environment, for example it could happen that an earthquake destroys part of your production facility or that a sudden hacker attack is going to steal sensitive data from you. In these cases, urgent intervention from you is needed! Therefore, a pop-up window will open, where instant decisions have to be taken. It is absolutely not recommended to ignore such pop-up windows, because an omitted action is highly probable to cause your company huge damage.
 
+% How to Finance
 \input{finance/finance_manual.tex}
  
-%\include{finance/investments.tex}
 
 %How to HR
 \input{HR/how_to_play_hr.tex}
@@ -733,22 +742,21 @@ Apart from that, at the bottom of the screen you can find a news ticker banner, 
 \label{sub:portfolio}
 %Nike - Description of products 
 
-% manufactured goods first instead of first manufactured goods
-You as the CEO decide which products you want to offer. In Capitalism X, there are two different types of products. Those two different groups are first manufactured goods, and second, resale products that are simply bought as a whole and resold under the company brand.
+You as the CEO decide which products you want to offer. In Capitalism X, there are two different types of products. Those two different groups are manufactured goods firstly and resale products secondly. Resell products are simply bought as a whole and resold under the company brand.
 
 To start with the resale products, consisting of two different sub-groups of products: the mass storage devices and the movie playback devices. As the products evolve over the time frame of the game, the scope of the single product group also changes. Mass storage devices will evolve, given a decent investment to innovate, from CD over DVD to Blu-Ray, from small SD cards to SD cards with very large memory, and from USB sticks with small memory and in simple versions to evolved versions with large memory. Movie playback devices may evolve from simple video recorders for recording tapes to DVD and Blu-Ray player, that even can become smart.
 
-% Don't understand the first sentence
+% Don't understand the first sentence - SUGGESTION: There are more products to offer as manufactured goods than as resell goods???
 The larger part of the product portfolio is displayed by the manufactured goods. To produce those, you have to slip into the role of a strategic head of manufacturing and you have to take care about the education and satisfaction of employees in order to provide a high manufacturing and therefore also high product quality; about the procurement of components and warehousing of products; and so on.
 The manufactured goods are divided into four product sub-groups, which are notebooks, phones, gameboys, and televisions. 
 
-% Actuality != Aktualiät (in this sense)
-Contrary to resale products, the manufactured products consist of single components, that you have to procure in the procurement view. Also, you need engineers in order to aggregate the components to products. As described in section \ref{HR_manual}, the education and skills of the engineers influence the quality of the product. Other than that, the product quality is also determined on the component's actuality. Another difference to the resale products is, that the manufactured product's evolution is depicted by different levels, meaning that a notebook always stays a notebook, but it surely evolves to a higher performing version. To put it into a nutshell, you must continuously innovate and invest in new components, skilled engineers, and procurement of components in order to achieve the best competitive products. 
+Contrary to resale products, the manufactured products consist of single components, that you have to procure in the procurement view. Also, you need engineers in order to aggregate the components to products. As described in section \ref{HR_manual}, the education and skills of the engineers influence the quality of the product. Other than that, the product quality is also determined on the component's age, meaning the duration a specific component is available on the market. Another difference to the resale products is, that the manufactured product's evolution is depicted by different levels, meaning that a notebook always stays a notebook, but it surely evolves to a higher performing version. To put it into a nutshell, you must continuously innovate and invest in new components, skilled engineers, and procurement of components in order to achieve the best competitive products. 
 
 Apart from that, you have the possibility to produce more than one product from a product sub-group, which offers various strategic advantages. For example, it is possible to produce two different phones at the same time, to test out different features and product strategies in the market. Phone A could be a very basic, simple phone, suitable for basic tasks like phone calls, messages, emails, surfing in the web. Obviously, Phone A would have a rather cheap price, but also the components do not need to be the latest state of the art tech. Phone B on the other side, could be a very advanced hence expensive phone, including a high resolution camera, high-speed internet connectivity and a fast CPU.
 
 \subsection{Challenges and Opportunities}
 
+% maybe define a BIT more what is meant by "others come around occasionally"? such as earthquakes???
 Planning plays an essential part in business, but not everything can be foreseen. Companies and their executives must deal with uncertainty. Let's imagine that you just packed your bags for holiday and it gets lost at the airport. Did you consider this scenario before it happened? Running a business is similar: You can cover many scenarios and possibilities, but not every possible aspect. Therefore the game includes challenges and opportunities that are out of reach. Some of them are the result of bad management, some are rewarding. Some are influenced by your actions as a player, others come around occasionally. 
 
 Their effects become visible via various indicators, like financial figures, capacity of warehouses or customer satisfaction. An immediate response is necessary to minimize negative consequences. Or to grab the chance when it is offered. And of course, a 'just straightforward' course of the game would be boring after some playtime. 
@@ -758,10 +766,10 @@ Their effects become visible via various indicators, like financial figures, cap
 
 \section{Overview of Game Mechanics} 
 \label{sec:link}
+
+%Maybe describe the full graph a bit more? such as displays all simulations, basis for implementation of prototype, blah?
 A functioning business simulation requires that all mechanics play well together. A graphical representation contains all information in one place. This helps when implementing the prototype. In addition, such an overview supports the alignment of the different in-game simulations. The overall graph, which connects all simulations, is shown below in figure \ref{fig:OverallGraph}. 
 It is also assumed that we can use the game time in our calculations. With $t_d$ we denote the time of elapsed days, whereas $t_y$ is the number of years elapsed. The game time starts on January 1st, 1990. 
-
-% Replace with recent screenshot from fullGraph_shrinked
 
 \begin{figure}[H]
     \centering
@@ -771,7 +779,7 @@ It is also assumed that we can use the game time in our calculations. With $t_d$
 \end{figure}
 
 \begin{figure}[H]
-    \includegraphics[angle=90, scale = 0.32]{fullGraph.pdf}
+    \includegraphics[angle=90, width=\textwidth]{fullGraph.pdf}
     \caption{Overall Graph including all parts of Capitalism X}
     \label{fig:OverallGraph}
 \end{figure}
@@ -881,9 +889,9 @@ From an UI point of view, the events displayed as informing Pop-Ups or they are 
 
 \section{Conclusion}
 \label{sec:conclusion}
-This project at hand is a concept of a business simulation game called "Capitalism X". The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested by the game prototype. 
+This project at hand is a concept of a business simulation game called ``Capitalism X". The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested in the game prototype. 
 
-However, the concept as described in chapter 3 contains more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is mentioned in the respective simulations. All simulations are consolidated in the overall full Graph\ref{fig:OverallGraph}, which can be found in figure xy. 
+However, the concept as described in chapter 3 contains more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is mentioned in the respective simulations. All simulations are consolidated in the overall graph, which can be found in figure \ref{fig:OverallGraph}. 
 Throughout the development process, multiple KPIs were designed, which fit into the different game simulations. They are aligned with each other, sampling the real-world in most cases and where 
 applicable. In the end this resulted in a sound concept. 
 
@@ -893,10 +901,13 @@ Some trivial facts of the project like the course, personal opinion
 \label{sec:future}
 There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended. This may be the case in a follow-up project. Finally, the game concept might also be sold to a gaming company which is willing to fully program and publish the game. 
 
+% I'd use mode not modality
 The original concept was introducing another phase of the game, which would take place from 2017-2030. In this following phase the company would evolve to a big player like Google or Facebook or Amazon, and the goal is to set an environment which allows to control every aspect of people’s lives. 
 We also came up with different modes of game-play. Firstly, the player would start with a normal desktop game, in the second stage the multiplayer modality would be introduced and as the game progresses there would be the possibility to extend to virtual reality. 
 These ideas and more can be found in table \ref{future_work}.
 
+% Who screwed up this table again? Took me a long time to fix it -.-
+% video tut entry...
 \begin{longtable}{|l|l|}
 \entering
 \hline
@@ -913,6 +924,7 @@ These ideas and more can be found in table \ref{future_work}.
 \textbf{Intelligent Consultancies} & \begin{tabular}[c]{@{}l@{}}Instead of affecting the company's KPIs a \\ consultancy could give hints what to do\end{tabular} \\ \hline \textbf{Private CEO options} & Include private investments for the CEO \\ \hline
 \textbf{Improving simulations} & \begin{tabular}[c]{@{}l@{}}Build in more real-world features to \\ make the game more realistic \end{tabular} \\ \hline
 \textbf{Futuristic products} & \begin{tabular}[c]{@{}l@{}}In the future there will be products with features \\ not developed yet in real \end{tabular} \\ \hline
+% Interactive Tutorial
 
 \hline
 \caption{Future work ideas}
@@ -927,13 +939,6 @@ These ideas and more can be found in table \ref{future_work}.
 \chapter{Appendix}
 \label{cha:appendix}
 \input{Appendix.tex}
-\begin{figure}
-    \centering
-    \includegraphics[trim=0cm 5cm 0cm 0cm, scale = 0.75]{images/staticComponentAttributes.pdf}
-    \caption{Static component attributes (regression against \textit{componentLevel})}
-    \label{fig:staticComponentAttributes}
-\end{figure}
-
 
 \newpage
 

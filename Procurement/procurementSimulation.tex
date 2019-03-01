@@ -46,8 +46,7 @@ The \textit{baseCost} of a component is calculated by multiplying the \textit{ti
 \end{aligned}    
 \end{equation}
 
-% Explain somewhere that the availabilityDate is the availability year, or rename it to availabilityYear
-The \textit{timeBasedComponentPrice} is the calculated price of a component that is based on the \textit{initialComponentPrice} and depends on a component's \textit{availabilityDate}. The \textit{availabilityDate} is required to activate a \textit{componentLevel}. This means that a particular level of a component is activated when it reaches the year in which it is released, as it is locked before exceeding its \textit{availabilityDate}. In summary, the use of the \textit{availabilityDate} ensures that the player cannot directly select the latest level of a component, but is bound to the chronological development of the components.
+The \textit{timeBasedComponentPrice} is the calculated price of a component that is based on the \textit{initialComponentPrice} and depends on a component's \textit{availabilityDate} that represents the year in which a component is activated. This means that a particular level of a component is activated when it reaches the year in which it is released, as it is locked before exceeding its \textit{availabilityDate}. In summary, the use of the \textit{availabilityDate} ensures that the player cannot directly select the latest level of a component, but is bound to the chronological development of the components.
 
 Moreover, a component's \textit{ecoIndex} and \textit{supplierQuality} are calculated by selecting a random integer value within the defined value range. An example of determining the \textit{supplierEcoIndex} of a "premium" component is shown in equation \ref{supplierEcoIndex}.
 \begin{equation}
@@ -57,7 +56,8 @@ Moreover, a component's \textit{ecoIndex} and \textit{supplierQuality} are calcu
 
 Furthermore, each component has a \textit{baseUtility}, which is defined manually. This is the case because the changes of the \textit{baseUtility} differ greatly between the different versions of a component. For example, for cameras, the increase in \textit{baseUtility} from the first level to the second level, from "1.2 MP" to "2 MP", is much lower than the increase from the second to the third level, from "2 MP" to "5 MP".
 
-The \textit{supplierEcoIndex}, \textit{supplierQuality} and \textit{baseUtility} represent the variables needed for the calculation of the \textit{totalProcurementQuality} (\gls{tProcureQ}) per product, which is shown in equation \ref{totalProcurementQuality}. The \textit{totalProcurementQuality} then influences the \textit{totalProductQuality} of a product.
+The \textit{supplierEcoIndex}, \textit{supplierQuality} and \textit{baseUtility} represent the variables needed for the calculation of the \textit{totalProcurementQuality} (\gls{tProcureQ}) per product, which is shown in equation \ref{totalProcurementQuality}. The \textit{totalProcurementQuality} then influences the \textit{totalProductQuality} of a product. For a set of components of a product $p$ ($C_p$) the calculation is performed as follows:
+
 \begin{equation}
 \label{totalProcurementQuality}
 \begin{aligned}
@@ -66,7 +66,7 @@ The \textit{supplierEcoIndex}, \textit{supplierQuality} and \textit{baseUtility}
     \end{aligned}
 \end{equation}
 
-All components (\textit{componentCategories}) per product (\textit{productCategory}) including their static attributes, which are \textit{componentLevel}, \textit{componentName}, \textit{availabilityDate} and \textit{baseUtility}, can be found in appendix \ref{fig:staticComponentAttributes}.\\
+All components (\textit{componentCategories}) per product (\textit{productCategory}) including their static attributes, which are \textit{componentLevel}, \textit{componentName}, \textit{availabilityDate} and \textit{baseUtility}, can be found in appendix \ref{fig:staticComponentAttributes1} and \ref{fig:staticComponentAttributes2}.\\
 Figure \ref{img:totalComponentCosts} should help to understand the complex calculation of a component's \textit{baseCost}, as well as the relation and the influences between the different attributes of a component and a component’s initial price (\textit{initialComponentPrice}).
 
 \begin{figure} [H]

@@ -33,7 +33,7 @@ The \textit{productAppeal} is the \textit{totalProductQuality} (\textit{\gls{tPQ
 The \textit{proxyQuality} represents the maximum of the \textit{marketProductUtility} or the \textit{highestProductQuality} (of the player's own products) regarding the same \textit{productCategory}.
 In turn, the \textit{marketProductUtility} (see equation \ref{marketProductUtility}) depends on the \textit{time} ($t_y$) and on the \textit{productCategory} (\textit{\gls{pC}}). The \textit{marketProductUtility} then represents the sum of all \textit{baseUtilites} of the most recent level of all components in a specific \textit{productCategory} multiplied with a constant $a \in [0.7, 1.2]$. 
 % Or a not constant? Changing difficulty
-This constant basically determines the production process productivity of the market. Thus, it can be interpreted as the skill of the competitors and therefore, to a large extent, determines the difficulty of the game.
+This constant basically determines the production process productivity of the market. Thus, it can be interpreted as the skill of the competitors and therefore, to a large extent, determines the difficulty of the game. In the following, $C_{pC}$ describes the set of components for a product category, $P$ is the set of products and $p'$ is the product for which the calculations are performed.
 
 \begin{equation}
 \label{marketProductUtility}
@@ -67,7 +67,7 @@ Moreover, the \textit{priceAppeal} for a product is the ratio of the \textit{pro
 %Steffen will make the equation nicer
 % Probably not needed. We can just choose a constant for each product type.
 \begin{equation}
-    proxyPrice = \sum_{cp \in C_{cP}} baseCost_{c} with the same componentLevel
+    proxyPrice = \sum_{cp \in C_{pC}} \argmax\limits_{\{c \in components_{cp}| availabilityDate_c \leq t_y\}}(baseCost_c)\\
 \end{equation}
 \begin{equation}
     priceAppeal = \dfrac{proxyPrice}{salesPrice}

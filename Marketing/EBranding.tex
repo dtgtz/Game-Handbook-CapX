@@ -24,7 +24,7 @@ Therefore we need to include an indicator function which incorporates a punishme
 
 By this we ensure a sufficient punishment of the overall \textit{employerBranding}. 
 
-\begin{comment} % is now explained with the mathematical formula
+\begin{comment} % is now explained with a mathematical formula
 This can be done by incorporating a multiplier which is based on an IF statement. See the \textit{Excel} implementation below:
 \begin{center}
    $=ROUND(((0.4 \cdot cI+0.6 \cdot tJS) \cdot IF(cI<30,0.5,IF(cI<60,0.8,IF(cI>60,1))))/10,0)$
@@ -38,7 +38,7 @@ The following pseudo code explains the statement above.
     \item ELSEIF CI $\geq$ 60 THEN Employer Branding = Employer Branding * 1
 \end{itemize}
 
-% leaving out the 3D figure
+% leave out the 3D figure
 To achieve this we need to create a matrix and a 3D graph to visualize the possible implications on the employer branding. Graphic \ref{img:EBS} shows the implications of the two input parameters on the Employer Branding.
 
 \begin{figure}
