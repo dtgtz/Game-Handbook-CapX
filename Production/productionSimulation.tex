@@ -3,11 +3,13 @@
  \begin{quotation}
 "Production is a process of combining various material inputs and immaterial inputs (plans, know-how) in order to make an output for consumption. It is the act of creating an output, a good or service which has value and contributes to the utility of individuals."\cite{noauthor_production_2019}
  \end{quotation}
-The definition above provides us with the basis of the production process. In it we can already start to differentiate separate sectors, such as the Procurement Department for getting the material inputs and the HR department for providing the know-how, the human factor in production. \\
+The definition above provides us with the basis of the production process. In it we can already start to differentiate separate sectors, such as the Procurement Department for getting the material inputs and the HR department for providing the know-how, the human factor in production. 
+
 In this simulation we are going to focus on three very important indicators, namely \textit{totalProductQuality}, \textit{productCost} and \textit{productionProcessProductivity}. In order to derive these indicators we will need to analyze the factors that influence them and give them proper values. 
 
 Firstly, \textit{totalProductQuality} (\gls{tPQ}) is considered a very important element in the production simulation, nevertheless it is a very volatile concept and thus challenging to define and implement in this simulation. Often defined as conformance to requirements \cite{crosby_quality_1979}, quality is an elusive factor of production, which we have tried to frame in order to serve the scope of this project.
 
+% Start list with tProcureQ, as the othe factors are multiplicators of this factor
  Several factors that affect the \textit{totalProductQuality} in our CapitalismX simulation are listed below:
 \begin{itemize}
 \item productionTechnology (\gls{pT})
@@ -15,20 +17,29 @@ Firstly, \textit{totalProductQuality} (\gls{tPQ}) is considered a very important
 \item totalProcurementQuality (tProcureQ)
 \item R\&D
 \end{itemize}
-The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerProductivity} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, etc. \\
+The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerProductivity} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, etc. 
+
 These elements all correlate in order to give an estimation of the \textit{totalProductQuality} per product. In order to estimate this correlation we compiled the following formulas.
  \begin{equation}
-pT=0.7+0.1 \cdot pT
+\gls{pTF}=0.7+0.1 \cdot pT
  \label{eq:pT}
  \end{equation}
-By using formula \ref{eq:pT} the impact that \textit{productionTechnology} has on the \textit{totalProductQuality} can vary from $0.8$ to $1.2$. Meaning that if the \textit{pT} is lower than level $3$ which is the normal, good conditions state, this newly calculated \textit{pT} will have a negative effect on the \textit{totalProductQuality}, and if it is higher than $3$ the effect will be positive.
+ 
+By using formula \ref{eq:pT} the impact that \textit{productionTechnology} has on the \textit{totalProductQuality} can vary from $0.8$ to $1.2$, we measure this in the \textit{productionTechnologyFactor} (pTF). Meaning that if the \textit{pT} is lower than level $3$ which is the normal, good conditions state, this newly calculated \textit{pT} will have a decreasing effect on the \textit{totalProductQuality}, and if it is higher than $3$ the effect will be positive.
 \begin{equation}
-R\&D= 0.95 + 0.05 \cdot R\&D
+\gls{RDF}= 0.95 + 0.05 \cdot R\&D
 \label{eq:R\&D}
 \end{equation}
-A similar scaling has also been carried out for R\&D, in which the level of impact is between $1$ and $1.2$. Meaning that even if the player has the lowest level of \textit{productionInvestments}, he or she does not lower the \textit{totalProductQuality} as the impact of R\&D does not impact it. If R\&D is in the highest levels than it will influence the \textit{totalProductQuality} by $1.2$ times.
-\begin{center}
 
+A similar scaling has also been carried out for R\&D, in which the level of impact is between $1$ and $1.2$. Meaning that even if the player has the lowest level of \textit{productionInvestments}, he or she does not lower the \textit{totalProductQuality} as the level of R\&D does not impact it. Our company will have no \textit{productionInvestment} in the beginnings and that should not lower the \textit{totalProductQuality}. If R\&D is in the highest levels than it will maximally influence the \textit{totalProductQuality} by $1.2$ times.
+
+\begin{equation}
+\gls{pAF}= 0.95 + 0.05 \cdot pA
+\label{eq:R\&D}
+\end{equation}
+The \textit{processAutomationFactor} is also calculated in the same way. This is because even if there are no investments in \textit{pA}, this does not mean that the process is bad, and this factor should affect the \textit{totalProductQuality} negatively. It only means that there are no futuristic automatization processes running. If \textit{processAutomation} is in high levels, it can improve our products quality with a factor of $1.2$. 
+
+\begin{center}
 \begin{equation}
 tEQoW=\sum_{e \in EN}{QoW}
 \label{eq:tEQoW}
@@ -38,24 +49,33 @@ where \\
 \end{center}
 Formula \ref{eq:tEQoW} allows us to measure the \textit{totalEngineerQualityofWork} by deriving the sum of the \textit{qualityOfWork}, for all engineers. The calculations for \textit{qualityOfWork} can be found in the HR simulation, formula \ref{QoW}.
 \begin{equation}
-tEP=tEQoW \cdot pA
+tEP=tEQoW \cdot pAF
 \label{eq:tEP}
 \end{equation}
 Equation \ref{eq:tEP} mentioned above, shows the calculation of the \textit{totalEngineerProductivity}. This variable is given the value of the product of \textit{totalEngineerQualityofWork} and \textit{processAutomation}. It is done so, because \textit{processAutomation} is developing the futuristic  aspect of production and the higher the \textit{processAutomation} is the higher the \textit{totalEngineerProductivity}. 
 
 In order to converge all the above mentioned elements and to measure the \textit{totalProductQuality} per product, we have compiled the following equation. 
-%add description of the formula below, 
-% why multiply our factors
-%what will the output look like, etc..
+
+% Vertical lines are not needed, root can't be less than 0
 \begin{equation}
-tPQ_{perProduct} = pT \cdot |\sqrt{tEP}| \cdot tProcureQ \cdot R\&D
+tPQ_{perProduct} = tProcureQ \cdot pTF \cdot |\sqrt[10]{tEP}| \cdot  R\&DF
 \label{eq:PQ}
 \end{equation}
-\footnotetext{N: index is normalized in the range of $[0-1]$}
-After giving you an understanding of our concept of the \textit{totalProductQuality}, in the following sections we will explain the elements that  are included in this formula, and also further concepts that apply to the production process.
+ We measure the \textit{totalProductQuality} as a product of the three factors that were defined above, and the most important factor \textit{totalProcurementQuality}. We have defined it as most important, because the base material and components of our product constitute a large part in determining its quality.
+ The factor \textit{totalEngineeringProductivity}
+ % The growth of the factor \textit{totalEngineeringProductivity} has been slowed down by putting it in the 10th root
+ has been normalized by putting it in the square root of power $10$. 
+ % I don't understand this sentence, I think it could be clearer
+ To further support this normalization into the range of the other factors the absolute value of this operation has been calculated.
+ 
+ Furthermore we will introduce the \textit{nrProducedProducts} (\gls{nPP}) variable. This variable is measured in terms of daily amount of units produced for every product. This variable is used when calculating demand in chapter \ref{}. %Janine where is this var used?
+ An additional element of a product that we would like to explain is the \textit{launchDate}. By using the \textit{launchDate}, we can prioritize the production process, in the case of a capacity limit. Meaning, if we have two different smartphones in line to be produced, and the machines do not have enough capacity to produce them both, the smartphone with an earlier \textit{launchDate} would be produced first.
+
+After giving you an understanding of our concept of  \textit{totalProductQuality}, in the following sections we will explain the elements that  are included in this formula, and also further concepts that apply to the production process.
 
 \subsection{Production Technology Level}
 We will focus on \textit{productionTechnology} in this chapter, as you will encounter all the other elements in the following simulations. \\
+% Sure it's a Likert scale?
 Table \ref{table:my-label}, explains the $5$ points Likert-Scale for measuring \textit{productionTechnology}. This scale has a range of $[1-5]$, where $1$ is the lowest value and $5$ the highest.
 
 \begin{table}[ht]
@@ -88,14 +108,14 @@ Repairs are also very frequent processes in production companies. Machines do no
 Upgrading a machine is a process that implements new, better features into the current machine.
 The cost of upgrading a machine is $5,000cc$, because alongside with increasing the \textit{productionTechnology} scale by two levels, upgrading also allows increasing the individual \textit{machineCapacity} by $20\%$. 
 \end{itemize}
-When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a \textit{productionTechnology} level equal to $5$. The \textit{buyMachinePrice} is calculated as the sum of the \textit{machinePrice} equal to $100,000cc$, with the \textit{machineCapacity (\gls{mC})} times $120\%$.  The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
+When buying a new machine the prices will be set by the game mechanics. This price calculation will be decided on the capacity of each machine, since they will all have a \textit{productionTechnology} level equal to $5$. The \textit{purchasePrice} is calculated as the sum of the \textit{machinePrice} equal to $100,000cc$, with the \textit{machineCapacity (\gls{mC})} times $120\%$.  The supplementary $20\%$ of the price is added to the amount, as an additional payment for the retailer.
 \begin{equation}
-buyMachinePrice=(machinePrice+mC)\cdot 120\%
+purchasePrice=(machinePrice+mC)\cdot 120\%
 \label{eq:buyMachine}
 \end{equation}
 In this simulation it is also possible to sell your current machines. A player should choose this option if he is low on CapCoins, or has purchased too many machines and they are deteriorating. The selling price will be set by the game mechanics, accordingly with equation \ref{eq:sellMachine}.
 \begin{equation}
-sellMachinePrice=(pT \cdot levelPrice_{PerPTLevel})+mC
+resellPrice=(pT \cdot levelPrice_{PerPTLevel})+mC
 \label{eq:sellMachine}
 \end{equation}
 \begin{center}
@@ -184,22 +204,24 @@ which is the total of all component's costs, since we need several components in
    \end{equation}
 
 Since machinery is purchased we have to account this expense to \textit{purchasedAssetsCosts}, which is part of the \textit{Fixed Costs}. \textit{Fixed Costs (FC)} like \textit{machineryDepreciation} costs or rent are also included because they are inevitable expenses that are present in every production company. 
+% this is not entirely clear because we didn't introduce facilitiyRent and purchasedAssetCosts
+% I think we should rather use the machinery fixed cost here
 \begin{equation}
    \begin{aligned}
  FC = facilityRent + purchasedAssetCosts \\ +machineryDepreciationCosts
    \end{aligned}
    \end{equation}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
-		\includegraphics[scale=0.65]{images/ProductionCosts.pdf}
+		\includegraphics[scale=0.55]{images/ProductionCosts.pdf}
 	\caption{Composition of \textit{totalProductCost}}
 	\label{fig:productionCosts}
 \end{figure}
-All the above mentioned costs, add up to two major categories, \textit{variableCosts} and \textit{fixedCosts}. Together they compose the \textit{totalProductCost}. As demonstrated in equation \ref{eq: PC/u} the fixed costs are divided by the number of units that the player is going to produce, since the index that we are defining the \textit{totalProductCost} is calculated for each product.
- 
+All the above mentioned costs, add up to two major categories, \textit{variableCosts} and \textit{fixedCosts}. Together they compose the \textit{totalProductCost}. As demonstrated in equation \ref{eq: PC/u} the fixed costs are divided by the number of units that the player is going to produce, since the index that we are defining the \textit{totalProductCost} is calculated for each product in the set of products $P$.
+% we introduced the set P for the products in the glossary so we can use it here (I added it)
 \begin{equation}
-	totalProductCost_{per Product}= VC + \frac{FC}{nr.Products} 
+	totalProductCost_{per Product}= VC + \frac{FC}{nr.Products} % nr. products = |P| 
 	\label{eq: PC/u}
 \end{equation}
 By observing the above equation, we have described how the costs are simulated in the production process. 
@@ -257,16 +279,21 @@ As further clarified in chapter \ref{warehouse_simulation}, the products produce
 
 In this section we are going to present some important metrics that help us understand how, not only quality but also the \textit{productionProcessProductivity} is measured in our game. In order to measure production productivity we also need to define  \textit{manufactureEfficiency}. 
 
-\textit{manufactureEfficiency} is measured by dividing the number of goods produced, on a daily basis, by the current number of machines times their average capacity to produce. This measure is important as it shows the player the rate in which the machinery is being utilized. This index has a range of $[0-1]$,which means if \textit{mE} is close to $1$ the usage of the machinery is optimal, but if this index is low, the player should realize he should either produce more or sell some of the machinery in order to keep efficiency high and not waste resources.
+\textit{manufactureEfficiency} is measured by dividing the number of goods produced, on a monthly basis, by the current number of machines times their average capacity to produce in a month. This measure is important as it shows the player the rate in which the machinery is being utilized. This index has a range of $[0-1]$,which means if \textit{mE} is close to $1$ the usage of the machinery is optimal, but if this index is low, the player should realize he should either produce more or sell some of the machinery in order to keep efficiency high and not waste resources.
 \begin{equation}
-mE= \frac{nr. units Produced(daily)}{nr. Machines\cdot avg. Capacity}  
+mE_{perMonth}= \frac{nr. units Produced_{perMonth}}{nr. Machines\cdot avg. Capacity_{perMonth}}  
 \label{eq: ME}
 \end{equation}
 
-\textit{productionProcessProductivity} (\textit{pPP}) is an indicator of the efficiency of our production  process. It is based on \textit{productionTechnology} and \textit{totalEngineerQualityOfWork} as indicators of the quality of the process and \textit{manufactureEfficiency} as an indicator of the efficiency of the manufacturing process.
+\textit{productionProcessProductivity} (\textit{pPP}) is an indicator of the efficiency of our production  process. It is based on \textit{productionTechnology} and \textit{totalEngineerProductivity} as indicators of the quality of the process and \textit{manufactureEfficiency} as an indicator of the efficiency of the manufacturing process.
 \begin{equation}
-pPP= \frac{(pT + \sqrt{tEQOW}) \cdot mE}{10_{N\footnotemark}}
+pPP_{perMonth}= (pT + |\sqrt[10]{tEP}|) \cdot mE_{perMonth}
 \label{eq:PPP}
+\end{equation}
+In this equation, we are going to handle the value of \textit{tEP} in the same manner as we handled it in \textit{tPQ}, by taking the absolute value of its square root to the power of 10. Sequentially, in order to normalize \textit{pPP} we calculate according to the following normalization function, where the \textit{max} and \textit{min} of our \textit{pPP} are $3.2$ and $0.2$ accordingly.
+
+\begin{equation}
+   pPP_{N\footnotemark}= \frac{x-min}{max-min}=\frac{pPP-0.2}{3.2-0.2}
 \end{equation}
 \footnotetext{N: index is normalized in the range of $[0-1]$}
  

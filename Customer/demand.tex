@@ -4,25 +4,39 @@
 In Capitalism X, we assume that the demand for a product is based on customer satisfaction and the \textit{salesPrice}, the \textit{proxyPrice}, the \textit{totalProductQuality} and the \textit{proxyQuality}. 
 The customer satisfaction influences the interest of the population in the respective products by shifting the price at which 100\% are interested.
  
-The more satisfied customers are with the company, the more they are willing to pay for the same products. However, if customer satisfaction falls below 0.4, the \textit{overallAppeal} is influenced negatively. The following formula shows how the \textit{customerSatisfaction} affects the \textit{overallAppeal}.
+The more satisfied customers are with the company, the more they are willing to pay for the same products. However, if customer satisfaction falls below 0.5, the \textit{overallAppeal} is influenced negatively. The maximum increase achieved by \textit{customerSatisfaction} can be 20\% this is reached for $cS = 1$. The following formula shows how the \textit{customerSatisfaction} affects the \textit{overallAppeal}.
 \begin{equation}
 \label{func:demandPrice}
 \begin{aligned}
- oA_{demand} = oA \cdot (0.8 + cS \cdot 0.4)
+ oA_{cs} = oA \cdot (0.4 \cdot cS + 0.8)
 \end{aligned}
 \end{equation}
 
-In order to make the demand of CapitalismX clients more similar to that of a real market, the demand curve is not linear. 
-% explain wy the curve is lie this, example values -> oA = 2 dPC = ....
+In addition to \textit{customerSatisfaction}, also the sales employees influence the demand for a product. The influence here is managed by their quality of work. Formula \ref{eq:tSQOW} first describes how the \textit{totalSalesQualityOfWork} (\gls{tSQOW})is calculated and formula \ref{eq:oA_demnd} then how it effects the \textit{$overallAppeal_{demand}$}.
 
-The \textit{demandPercentage} (\gls{dPC}) is calculated by using the \textit{overallAppeal} as input for the following function. 
+\begin{center}
+\begin{equation}
+tSQOW=\sum_{e \in ES}{QoW}
+\label{eq:tSQOW}
+\end{equation}
+where \\
+\textit{ES} = Set of hired sales people
+\end{center}
+
+\begin{equation}
+    oA_{demand} = oA_{cs} \cdot ( 0.2 \cdot \sqrt[10]{tSQOW} + 0.9)   
+\label{eq:oA_demnd}
+\end{equation}
+
+In order to make the demand of CapitalismX clients more similar to that of a real market, the demand curve is not linear. The \textit{demandPercentage} (\gls{dPC}) is calculated by using the \textit{overallAppeal} as input for the following function. 
 \begin{equation}
 \label{func:demandPercentage}
 \begin{aligned}
-% dPC(oA_{demand}) = tanh(oA_{demand}/2)
-dPC(
+dPC(oA_{demand}) = tanh(\frac{oA_{demand}}{2})
 \end{aligned}
 \end{equation}
+
+If this function is used to calculate the \textit{demandPercentage}, 76\% of the \textit{gamePopulation} is willing to buy the product at a price-performance ratio of 2. If the product to be sold corresponds exactly to the market average, 46\% of the \textit{gamePopulation} is interested. As already described, the price performance ratio is expressed by the \textit{overallAppeal} of the product.
 
 Figure \ref{demand_function} shows the course of the \textit{demandFunction}. The x-axis corresponds to the \textit{overallAppeal} of a product and the y-axis to the percentage interest of the population, the \textit{demandPercentage}. 
 
@@ -38,10 +52,9 @@ Figure \ref{demand_function} shows the course of the \textit{demandFunction}. Th
     ylabel=$dPC$,
     xlabel=$oA$,
     ]
-
     \addplot [mark=none,draw=red,ultra thick] {tanh(\x/2)};
     \node [right, black] at (axis cs: 1,0.3) {$y = \tanh x/2$};
-    \draw [blue, dotted, thick] (axis cs:+4,+1)-- (axis cs:0,+1);
+    \draw [blue, dotted, thick] (axis cs:+4,+1)--(axis cs:0,+1);
 \end{axis}
 \end{tikzpicture}
 	\caption{demandPercentage function}
@@ -60,6 +73,7 @@ Since we don't sell the total demand at once but distributed over a longer perio
 \begin{equation}
 	daysSinceLaunch_p = t_d -launchDay_{p}
 \end{equation}
+
 As the following calculations are performed per product we will implicitly assume but omit the $p$ index.
 We can calculate the periodicDemandAmount \gls{pDA} for each day using the \gls{dSL}):
 \begin{equation}
@@ -74,7 +88,7 @@ pDA(dA, \gls{dSL}) = dA \cdot 0.002\cdot (\frac{-tanh(0.01 \cdot dSL-3)}{2} + 0.
 \begin{tikzpicture}
 \begin{axis}[
     xmin= 0, xmax=800,
-    ymin= 0, ymax=0.003,
+    ymin= 0, ymax=0.0025,
     axis lines=center,
     axis on top=true,
     domain=-2.5:800,
@@ -101,26 +115,30 @@ This function covers the entire demand over a longer period of time as
 	\int_{0}^{\infty} 0.002 \cdot (\frac{-tanh(0.01 \cdot dSL-3)}{2} + 0.5)\; \mathrm{d} dSL = 1  
 \end{equation}
 
-The quantity actually sold by the company, so-called \textit{salesFigures} per product (\gls{sFP}), depends on whether the actual demand exceeds the \textit{numberOfferedProducts} (\gls{nOP}) or not.
+The quantity actually sold by the company, so-called \textit{salesFigures} per product (\gls{sFP}), depends on whether the actual demand exceeds the \textit{numberProducedProducts} (\gls{nPP}) or not.
 \begin{equation}
 \label{func:salesFigure}
 \begin{aligned}
 sFP = 
 \begin{cases}
-     nOP & \text{if} \; pDA > nOP\\
+     nPP & \text{if} \; pDA > nPP\\
      pDA & \text{otherwise} \\
 \end{cases}
 \end{aligned}
 \end{equation}
 
-For the calculation of the \textit{marketShare} (\gls{mS}) it is assumed that the proportion of the population who would have liked to buy a product but went away empty-handed buys its product from a competitor. The company's \textit{totalMarketShare} (\gls{tMS}) is calculated using the sum of the sales figures of the single products and the sum of the demands for them. Following formulas show the calculation of the market share of a product and the total market share of the company. 
+For the calculation of the \textit{marketShare} (\gls{mS}) it is assumed that the proportion of the population who would have liked to buy a product but went away empty-handed buys its product from a competitor. The company's \textit{totalMarketShare} (\gls{tMS}) is calculated using the sum of the sales figures of the single products and the sum of the demands for them. Following formulas show the calculation of the market share of a product \ref{func:marketShare_product} and the total market share of the company \ref{func:marketShare_company}. 
 \begin{equation}
-\label{func:marketShare}
+\label{func:marketShare_product} 
 \begin{aligned}
-% I'd rather use:
-%MS = \frac{sFP}{population} \\
-mS = \frac{sFP}{dA} \\
-tMS = \frac{\sum_{p \in P}(sFP)}{\sum(dA)}  
+mS = \frac{sFP}{gP} \\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\label{func:marketShare_company}
+\begin{aligned}
+tMS = \frac{\sum_{p \in P}(sFP)}{\sum_{p \in P}(gP)}  
 \end{aligned}
 \end{equation}
 

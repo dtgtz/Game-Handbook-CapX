@@ -27,11 +27,14 @@ The internal logistics fleet consists only of purchased trucks. The quality of t
     \item A \textit{qualityIndexTruck} (\gls{qIT}) that expresses the quality of the transport.
     \item A \textit{purchasePriceTruck} (\gls{pPT})that depends on the quality and environmental friendliness of the truck. The base price for a truck is 100,000 CapCoins 
     \footnote{https://www.motor-talk.de/forum/wie-teuer-ist-ein-neuer-lkw-t1631664.html}.
-    \item Monthly maintenance costs corresponding to 0,1\% of the initial purchase price divided by 12 months. These monthly cost are called \textit{fixTruckCost} (\gls{fTC})
-    \item And a \textit{depreciationRateTruck} that is linear and amounts to 9 years for each truck \footnote{https://www.betriebsausgabe.de/afa-tabelle/}.
+    % I'd lift it to 1%, 0.1% is too little (just 100 dollars a year for a 100,000$ vehicle)
+    \item Monthly maintenance costs corresponding to 0.1\% of the initial purchase price divided by 12 months. These monthly cost are called \textit{fixTruckCost} (\gls{fTC})
+    \item And a depreciation rate that is linear and amounts to 9 years for each truck and used to calculate the \textit{resellPrice}  \footnote{https://www.betriebsausgabe.de/afa-tabelle/}.
 \end{itemize}
 
-As already described, \textit{qualityIndexTruck} and \textit{ecoIndexTruck} influence the initial \textit{purchasePriceTruck} of a truck, which is 10,000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table \ref{Truck_characteristics} shows how they are composed in detail.
+As already described, \textit{qualityIndexTruck} and \textit{ecoIndexTruck} influence the initial
+% earlier you say the base cost of a truck is 100,000 (not 10,000) and the purchasePriceTruck is dependent on ecoIndex etc.
+\textit{purchasePriceTruck} of a truck, which is 10,000 CapCoins. In order to give the player more freedom for decisions, there are basically six different truck models available for purchase, table \ref{Truck_characteristics} shows how they are composed in detail.
 
 The \textit{qualityIndexTruck} and the \textit{ecoIndexTruck}, are set randomly in the given ranges.The \textit{purchasePriceTruck} for the respective truck and the \textit{fixCostsDelivery} (\gls{fCD}) are calculated by multiplying the base price with the factors. These factors are also randomly assigned in a certain value range. Cause of the fact that the intervals of the individual models overlap, it can happen that a more favourable model has better properties than a more expensive one.
 
@@ -39,7 +42,7 @@ The \textit{qualityIndexTruck} and the \textit{ecoIndexTruck}, are set randomly 
     \centering
     \begin{tabular}{|l|r|r|r|}
     \hline
-    qIT & eIT & Influence pPT & influence fCD \\
+    \textbf{qIT} & \textbf{eIT} & \textbf{Influence pPT} & \textbf{influence fCD} \\ \hline
     60 - 100      & 60 - 100   & 1.1 - 1.3   & 0.6 - 0.8       \\
     60 - 100      & 0 - 40     & 0.9 - 1.1   & 0.8 - 1.1       \\
     30 - 70       & 60 - 100   & 1.0 - 1.2   & 0.7 - 0.9       \\
@@ -59,8 +62,11 @@ The total capacity thus results from the \textit{numberTrucks} (\gls{nT}) in the
 \end{equation}
 
 % describe totalEcoIndexTruck
-
-totalEcoIndexTruck (\gls{tEIT})= \frac{\sum eIT }{nT}
+The eco index of the total delivery fleet corresponds to the average value of the individual trucks, this value is called \textit{totalEcoIndexTruck} (\gls{tEIT}). The following formula shows the calculation. 
+% better: define set of trucks T in glossary and use |T| instead of nT, also t \in \T in sum
+\begin{equation}
+    totalEcoIndexTruck (\gls{tEIT})= \frac{\sum eIT }{nT}  
+\end{equation}
 
 The overall quality internal logistics, the so-called \textit{internalLogisticIndex} (\gls{iLI}), is calculated on the basis of the \textit{qualityIndexTruck} and the \textit{ecoIndexTruck} of the individual trucks.
 \begin{equation}
@@ -73,6 +79,7 @@ The overall quality internal logistics, the so-called \textit{internalLogisticIn
 \end{equation}
 
 Of course, the delivery of the products entails costs for the company. These consist of the \textit{fixCostDelivery} and the \textit{variableCostsDelivery} per delivered package (\gls{vCD}). 
+% maybe a little too expensive (as we deliver every day)?
 A delivery by truck in principle costs 2,000 CapCoins. Like the purchase price, the fixed delivery costs also vary on the basis of \textit{qualityIndexTruck} and \textit{ecoIndexTruck}. The \textit{variableCostsDelivery} per product are the same for each truck and amount to 2 CapCoins.
 
 The cost of a delivery thus depends on the total number of \textit{deliverdProduct} (\gls{dP}). 
@@ -115,7 +122,7 @@ The table \ref{External_logistic_partner_characteristics} shows how exactly the 
     \centering
     \begin{tabular}{|r|r|r|r|r|}
     \hline
-    qIP & eIP & rIP & influence tCCLP & influence vCDE \\
+    \textbf{qIP} & \textbf{eIP} & \textbf{rIP} & \textbf{influence tCCLP} & \textbf{influence vCDE} \\ \hline
     60 - 100      & 60 - 100   & 60 - 100  & 1.1 - 1.3    & 0.7 - 0.9     \\
     60 - 100      & 30 - 70    & 30 - 70   & 1.0 - 1.2    & 0.8 - 1.0     \\
     60 - 100      & 0 - 40     & 60 - 100  & 1.0 - 1.2    & 0.8 - 1.0     \\

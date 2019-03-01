@@ -21,6 +21,7 @@
 \usepackage{ntheorem}
 \usepackage{comment}
 \usepackage{caption}
+\usepackage{tabularx}
 \usepackage[colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black]{hyperref}
 %\usepackage[table,xcdraw]{xcolor}
 % \usepackage{paralist}
@@ -92,6 +93,11 @@ description={Customer Satisfaction}%
 \newglossaryentry{QoW}{%
 name={QoW},%
 description={Quality of Work}%
+}
+
+\newglossaryentry{EB}{%
+name={EB},%
+description={Employer Branding}%
 }
 
 %Glossary Finance
@@ -212,6 +218,22 @@ description={salesFigures}%
 name={mC},%
 description={machineCapacity}%
 }
+\newglossaryentry{pTF}{%
+name={pTF},%
+description={productionTechnologyFactor}%
+}
+\newglossaryentry{pAF}{%
+name={pAF},%
+description={processAutomationFactor}%
+}
+\newglossaryentry{nPP}{%
+name={nPP},%
+description={Number of Produced Products}%
+}
+\newglossaryentry{RDF}{%
+name={RDF},%
+description={Research and Development Factor}%
+}
 
 %Glossary Marketing
 \newglossaryentry{eB}{%
@@ -255,6 +277,10 @@ description={Online survey}%
 \newglossaryentry{eIT}{%
 name={eIT},%
 description={ecoIndexTruck}%
+}
+\newglossaryentry{tEIT}{%
+name={tEIT},%
+description={totalEcoIndexTruck}%
 }
 \newglossaryentry{qIT}{%
 name={qIT},%
@@ -455,10 +481,6 @@ description={salesPrice}%
 name={dA},%
 description={demandAmount}%
 }
-\newglossaryentry{nOP}{%
-name={nOP},%
-description={numberOfferedProducts}%
-}
 \newglossaryentry{mS}{%
 name={mS},%
 description={marketShare}%
@@ -479,6 +501,11 @@ description={demandPercentage}%
 name={gP},%
 description={gamePopulation}%
 }
+\newglossaryentry{tSQOW}{%
+name={tSQOW},%
+description={totalSalesQualityOfWork}%
+}
+
 
 %Glossary Procurement 
 \newglossaryentry{tBCP}{%
@@ -572,29 +599,35 @@ Steffen Waldmann \\
 
 \chapter{From a Small Start-Up to a Global Enterprise}
 \label{cha:intro}
-\section{What to Expect from CapitalismX}
+\section{What to Expect from Capitalism X}
+\label{expectation}
 %Nike
 Have you ever wanted to test out your economic skills and entrepreneurial spirit? Did you ever wish to take action and do things your way? Did you ever think that with the steering wheel in your hand, you'd give a company a whole new direction and possibility to rise? 
 
-CapitalismX now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades. You are going to start with a small IT company and, with your sophisticated input, you can build up an enterprise.
+% Would rather use smth like consumer technology instead of IT, we do hardware not information
+Capitalism X now gives you the possibility to become CEO! This business simulation game, which is equally fun and educative, gives you the chance to prove your successful way of managing a company through decades. You are going to start with a small IT company and, with your sophisticated input, you can build up an enterprise.
 
-The goal of this interactive business simulation game is simple: Maximize your company's profit! As a CEO you will have to take care of multiple issues, that occur in daily business, such as defining your product portfolio, controlling your financial status, managing employees and so on. However, also unforeseen events might occur suddenly! In these cases, you can prove your decision-making abilities and guide your company through delicate situations. 
+% maximize net worth instead of profit
+The goal of this interactive business simulation game is simple: Maximize your company's profit! As a CEO you will have to take care of multiple issues, that occur in daily business, such as defining your product portfolio, controlling your financial status, managing employees and so on. However, unforeseen events might suddenly occur! In these cases, you can prove your decision-making abilities and guide your company through delicate situations. 
 
-With CapX you can expect a game which let you experience the core processes of a corporation. Activities in this game match the processes which are derived from real world companies. You will start as a start-up and develop the company through smart decisions and actions to a big corporation. Although, the decisions you will make are based on simplified assumptions, the overall complexity is based on a real world scenario and will give you an overview about inter-dependencies in a company.
+With Capitalism X you can expect a game which let you experience the core processes of a corporation. Activities in this game match the processes which are derived from real world companies. You will start as a start-up and develop the company through smart decisions and actions to a big corporation. Although the decisions you will make are based on simplified assumptions, the overall complexity is based on a real world scenario and will give you an overview about the inter-dependencies in a company.
  
 \section{Player's Role}
 %Maike
-You will take on the role of CEO for either a start-up or a midsize company which is about to fail. During your career, you will encounter several obstacles and lead the business. So, you will slip into various roles, such as head of human resources, production or logistics, in order to take the necessary measures to run a successful business. Daily tasks include hiring, firing, motivating and training employees, innovating and manufacturing products, deciding on the product portfolio, dealing with government issues and taking financial figures into account. 
+You will take on the role of CEO for either a start-up or a mid-sized company which is about to fail. During your career, you will encounter several obstacles and lead the business. So, you will slip into various roles, such as head of human resources, production or logistics, in order to take the necessary measures to run a successful business. Daily tasks include hiring, firing, motivating and training employees, innovating and manufacturing products, deciding on the product portfolio, dealing with government issues and taking financial figures into account. 
 
 In summary, you will decide on all the features provided in this game. Your decisions are then integrated into finance, human resources, procurement, production, warehousing, logistics and marketing and will finally affect the performance of your company.
 
 \section{Setting and Storyline}
 \label{SettingStory}
-The CapitalismX game is created relying on a progressive game-play modality. Meaning that the game will start as a one-man business and then evolve step by step, by employing, producing, expanding, buying and selling  until the end goal is achieved, which is to transform the initial company into a large corporate. 
+% I don't understand what is meant by modality
+% ... one-man business with you as the only employee ...
+% corporation instead of corporate
+Capitalism X is created relying on a progressive game-play modality, meaning that the game will start as a one-man business and then evolve step by step, by employing, producing, expanding, buying and selling until the end goal is achieved, which is to transform the initial company into a large corporate. 
 
 \subsubsection{Setting}
-The setting of our game is in a fictional country, which we have designed after having drawn some simple parallels with real countries or cities. These parallels mean that our country has the most important features, that allow an economy to grow. Hence, we divided our map elements into functional and non-functional elements. Where functional buildings are the ones you can interact with, for instance, taking a loan in a bank, advertising in a media building, hiring employees in a job center, etc.  To give another illustration, our fictional country operates with the outside world through the simulation of a harbor in the early stages of the game and then it will be possible to unlock an airport. Whereas non-functional buildings are objects with a decorative purpose to make the map look and feel  more realistic to the user’s perception. The complete list of functional and non-functional buildings can be found in Table \ref{table:map-el}. 
-
+% I don't understand the first two sentences
+The setting of our game is in a fictional country, which we have designed after having drawn some simple parallels with real countries or cities. These parallels mean that our country has the most important features, that allow an economy to grow. Hence, we divided our map elements into functional and non-functional elements. Where functional buildings are the ones you can interact with, for instance, taking a loan in a bank, advertising in a media building, hiring employees in a job center, etc.  To give another illustration, our fictional country operates with the outside world through the simulation of a harbor in the early stages of the game and then it will be possible to unlock an airport. Whereas non-functional buildings are objects with a decorative purpose to make the map look and feel  more realistic to the user’s perception. The complete list of functional and non-functional buildings can be found in table \ref{table:map-el}. 
 \begin{table}[ht]
 \centering
 \begin{tabular}{r|l}
@@ -613,39 +646,47 @@ The setting of our game is in a fictional country, which we have designed after 
 \end{table}
 
 
-Regarding the time-frame our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence economy and each year in the real world would be represented by $365$ seconds.
-This results in a change of parameters in the game every $6$ minutes, in order to represent yearly real data. This means that the total number of hours you can play CapitalismX is approximately $2.7$ hours. 
+Regarding the time-frame, our game simulation is going to be set between $1990$ and $2017$. We have collected data for several factors that influence the economy and each year in the real world is represented by $365$ seconds.
 
+% This is not accurate. Parameters can change daily, monthly, quarterly, yearly or asynchronously through user inputs.
+This results in a change of parameters in the game every $6$ minutes, in order to represent yearly real data. This means that the total number of hours you can play Capitalism X is approximately $2.7$ hours. 
+
+% That's probably better in the ideas section
 During the entire time-span of the game, there will be a democratic government that operates and interacts with the game environment. The government can also intervene to impose laws, taxes and additional measures, if the company is not compliant to the current regulations. 
 
-Furthermore an additional unique element in this game simulation is the currency. CapitalismX has its own currency, which is the CapCoin (\gls{cc}), and every function within the game is adapted to operate with this currency.
+Furthermore an additional unique element in this game simulation is the currency. Capitalism X has its own currency, which is the CapCoin (\gls{cc}), and every function within the game is adapted to operate with this currency.
+
 \subsubsection{Storyline}
- The storyline that you will be operating in, would be that of managing an IT business, which you have founded as a start-up. You will be able to choose which employees to hire, which products to manufacture,  how to set the price on these products, etc. These options and many more comprise scenarios and decisions you will have to face in order to have a successful company. Having said this, it is evident that your role will be that of the CEO of the company. By assuming this role you will be able to control all the major departments of the company such as, HR, Finance, Manufacturing, Marketing, Procurement, etc. 
+ The storyline that you will be operating in would be that of managing a technology company, which you have founded as a start-up. You will be able to choose which employees to hire, which products to manufacture,  how to set the price on these products, etc. These options and many more comprise scenarios and decisions you will have to face in order to have a successful company. Having said this, it is evident that your role will be that of the CEO of the company. By assuming this role you will be able to control all the major departments of the company such as, HR, Finance, Manufacturing, Marketing, Procurement, etc. 
  
-In the beginning of the simulation all these departments will need immediate changes and additions, in order to start operating according to their functionality. You should be aware of the importance of developing all departments, whilst keeping an eye on the budget. A player cannot exceed the budget under any circumstance, as this will lead to a fatal “Game Over”. The only possibility for you to spend more CapCoins than the budget is to take a loan in a bank. 
+In the beginning of the simulation all these departments will need immediate changes and additions, in order to start operating according to their functionality. You should be aware of the importance of developing all departments, whilst keeping an eye on the budget. A player cannot exceed the budget under any circumstance, as this will lead to a fatal “Game Over”. The only possibility for you to spend more CapCoins than the budget is to take a loan from a bank. 
 
 The most basic rule of this game is the cause and consequence effect. Since even in real life everything we do is related to a consequence, the same principle applies to businesses and business simulations. We have based our simulations on this effect and have covered most of the causes and consequences of the actions of a CEO, inside the company. 
 
 An important element that is included in the game-play is the make or buy decision. You have two options, to either manufacture a product by purchasing all the required components or to buy it from another source and sell it as a retailer. The complete list of products that can be manufactured in-house and a more in detail explanation regarding products can be found in section \ref{sub:portfolio} Choose the portfolio. 
 
+
 Moreover you will be faced with external events. These events will take place during the time-span of the game-play, and they will arise as a consequence to the company’s operations or they can be independent. Independent operations are those operation that do not rely on any company indicator and will happen nonetheless. These events will be further explained in section \ref{sec:ectEvent}.	
 
-\chapter{How to Play CapitalismX}
+\chapter{How to Play Capitalism X}
 
-\section{Getting Started with CapX}
+\section{Getting Started with Capitalism X}
 %Steffen, Nike Halbe Seite\\
 
-Are you ready to get started? If yes, enter the following URL to the Google Chrome browser and start your first game of CapitalismX: \\
+Are you ready to get started? If yes, enter the following URL to the Google Chrome browser and start your first game of Capitalism X: \\
 \texttt{https://swaldmann.github.io/CapitalismX}
 
-Now you have the possibility to start a new game or load an existing game and start right away where to took off earlier (requires sign-in). When starting a new game, you have to create an account first, so that you can stop the game and continue later on. For registration you will need a valid email address and your name. After successful registration, you can select a nickname and a company name. 
+Now you have the possibility to start a new game or load an existing game and start right away where to took off earlier. %(requires sign-in). When starting a new game, you have to create %an account first, so that you can stop the game and continue %later on. For registration you will need a valid email address %and your name. After successful registration, you can select a %nickname and a company name. 
 
-It is recommended to have a look at the tutorial provided after the registration process if you have not played CapitalismX before. Also, it might be very helpful to read this game manual before, as it gives you a couple of hints about how to handle some situations. The tutorial is a short Video, that gives you an overview about the different buildings and views in the game. Also, it provides you with step-by-step instructions how to perform the most important activities.
+It is recommended to have a look at the tutorial provided 
+%after the registration process 
+if you have not played Capitalism X before. Also, it might be very helpful to read this game manual, as it gives you a couple of hints about how to handle some situations. The tutorial is a short video that gives you an overview about the different buildings and views in the game. Also, it provides you with step-by-step instructions on how to perform the most important activities.
+% We don't have a video, I find this confusing for Heiner --> idea list
 
 \section{Interface and Features}
 
 \subsection{Controls}  
-The main screen after starting a new game or loading a game in CapitalismX is an interactive map of all functional and non-functional buildings, which can be found in \ref{SettingStory}. In the government building you can choose and hire lobbyists, whereas in the job center you can select and hire your employees. The functional building of the harbour is your procurement area, where you can buy the components needed in order to manufacture products. Last but not least, you also have some competitors. By visiting the competitor buildings you will get insights about their market shares.
+The main screen after starting a new game or loading a game in Capitalism X is an interactive map of all functional and non-functional buildings, which can be found in \ref{SettingStory}. In the government building you can choose and hire lobbyists, whereas in the job center you can select and hire your employees. The functional building of the harbour is your procurement area, where you can buy the components needed in order to manufacture products. Last but not least, you also have some competitors. By visiting the competitor buildings you will get insights about their market shares.
 
 You can adapt settings or get an overview about the department specific performance by either clicking on the functional buildings or using the navigation bar at the top of the screen. The navigation bar can be seen as your headquarters, as all internal departments of your company can be found there. The departments in the navigation bar are finance, HR, production and marketing and include links to all other functionalities in the game. 
 \begin{figure} [!htbp]
@@ -656,11 +697,12 @@ You can adapt settings or get an overview about the department specific performa
 \end{figure} The detailed actions and settings are described in later chapters, but in the following you get an overview about the different actions that you can do by using the navigation bar.
 
 In the HR view, you can adapt all settings regarding human resources and employees, such as hiring and firing employees. Also you get insights about the employee satisfaction and other key figures. For more information about the HR view, please go to chapter \ref{HR_manual}.
-The finance view, provides you with an overview about the financial situation of the company, by giving you dashboard consisting of different performance indicators, such as cashflow and net worth of company. Also, you might take action on financial topics, such as loaning money from the bank. You can find details in chapter \ref{finance_manual}.
-Next, you can procure, produce and sell goods and equipment in the production view. For more insights on procurement, production and selling, please take a look at chapter \ref{production_manual}. 
+The finance view, provides you with an overview about the financial situation of the company, by giving you dashboard consisting of different performance indicators, such as cashflow and net worth of company. Also, you might take action on financial topics, such as taking a loan from the bank. You can find details in chapter \ref{finance_manual}.
+Next, you can procure, produce and sell goods and equipment in the production view. For more insights on procurement, production, selling, and logistics, please take a look at chapter \ref{production_manual}. 
 Last but not least, you can visit the marketing area, where you can start marketing campaigns, start market research activities or commission consulting companies. You can find more information in chapter \ref{marketing_manual}.
 
-Throughout the game time passes starting from 1990 on. You can revisit this time at the top right corner of the screen and can be seen in picture \ref{fig:time}.
+% would replace "revisit" here
+Throughout the game, time passes starting from January 1st, 1990 on. You can revisit this time at the top right corner of the screen and can be seen in picture \ref{fig:time}.
 \begin{figure} [!htbp]
     \centering
     \includegraphics{images/time.png}
@@ -669,7 +711,8 @@ Throughout the game time passes starting from 1990 on. You can revisit this time
 \end{figure}
 Next to the time box, there is a little "pause" sign, where you can pause the time in case you want to adapt some settings and do not want the time to elapse before you finished your adaptations.
 
-Apart from that, at the bottom of the screen you can find a newsticker-banner, that gives you decent hints about possible settings to adapt. A proper example here would be  If warehouses are full, no more products can be stored for sale.In CapitalismX some unexpected incidents may happen to your company or to the environment, for example it could happen that an earthquake destroys part of your production facility or that a sudden hacker attack is going to steal sensitive data from you. In these cases, urgent intervention from you is needed! Therefore, a pop-up window will open, where you have instant decisions to be taken and actions to start. It is absolutely not recommended to ignore such pop-up windows, because omitted action is highly probable to cause your company huge damage.
+% replace decent with subtle
+Apart from that, at the bottom of the screen you can find a news ticker banner, that gives you decent hints about possible settings to adapt. A proper example here would be  If warehouses are full, no more products can be stored for sale. In Capitalism X some unexpected incidents may happen to your company or to the environment, for example it could happen that an earthquake destroys part of your production facility or that a sudden hacker attack is going to steal sensitive data from you. In these cases, urgent intervention from you is needed! Therefore, a pop-up window will open, where instant decisions have to be taken. It is absolutely not recommended to ignore such pop-up windows, because an omitted action is highly probable to cause your company huge damage.
 
 \input{finance/finance_manual.tex}
  
@@ -690,14 +733,17 @@ Apart from that, at the bottom of the screen you can find a newsticker-banner, t
 \label{sub:portfolio}
 %Nike - Description of products 
 
-You as the CEO decide which products you want to offer. In CapitalismX, there are two different types of products. Those two different groups are first manufactured goods, and second, retail products that are simply bought as a whole and resold under the company brand.
+% manufactured goods first instead of first manufactured goods
+You as the CEO decide which products you want to offer. In Capitalism X, there are two different types of products. Those two different groups are first manufactured goods, and second, resale products that are simply bought as a whole and resold under the company brand.
 
-To start with the retail products, consisting of two different sub-groups of products: the mass storage devices and the movie playback devices. As the products evolve over the time frame of the game, the scope of the single product group also changes. Mass storage devices will evolve, given a decent investment to innovate, from CD over DVD to BlueRay, from small SD cards to SD cards with very large memory, and from USB Sticks with small memory and in simple versions to evolved versions with large memory. Movie playback devices may evolve from simple video recorders for recording tapes to DVD and BlueRay player, that even can become smart. 
+To start with the resale products, consisting of two different sub-groups of products: the mass storage devices and the movie playback devices. As the products evolve over the time frame of the game, the scope of the single product group also changes. Mass storage devices will evolve, given a decent investment to innovate, from CD over DVD to Blu-Ray, from small SD cards to SD cards with very large memory, and from USB sticks with small memory and in simple versions to evolved versions with large memory. Movie playback devices may evolve from simple video recorders for recording tapes to DVD and Blu-Ray player, that even can become smart.
 
+% Don't understand the first sentence
 The larger part of the product portfolio is displayed by the manufactured goods. To produce those, you have to slip into the role of a strategic head of manufacturing and you have to take care about the education and satisfaction of employees in order to provide a high manufacturing and therefore also high product quality; about the procurement of components and warehousing of products; and so on.
 The manufactured goods are divided into four product sub-groups, which are notebooks, phones, gameboys, and televisions. 
 
-Contrary to retail products, the manufactured products consist of single components, that you have to procure in the procurement view. Also, you need engineers in order to aggregate the components to products. As described in section \ref{HR_manual}, the education and skills of the engineers influence the quality of the product. Other than that, the product quality is also determined on the component's actuality. Another difference to the retail products is, that the manufactured product's evolution is depicted by different levels, meaning that a notebook always stays a notebook, but it surely evolves to a higher performing version. To put it into a nutshell, you must continuously innovate and invest in new components, skilled engineers, and procurement of components in order to achieve the best competitive products. 
+% Actuality != Aktualiät (in this sense)
+Contrary to resale products, the manufactured products consist of single components, that you have to procure in the procurement view. Also, you need engineers in order to aggregate the components to products. As described in section \ref{HR_manual}, the education and skills of the engineers influence the quality of the product. Other than that, the product quality is also determined on the component's actuality. Another difference to the resale products is, that the manufactured product's evolution is depicted by different levels, meaning that a notebook always stays a notebook, but it surely evolves to a higher performing version. To put it into a nutshell, you must continuously innovate and invest in new components, skilled engineers, and procurement of components in order to achieve the best competitive products. 
 
 Apart from that, you have the possibility to produce more than one product from a product sub-group, which offers various strategic advantages. For example, it is possible to produce two different phones at the same time, to test out different features and product strategies in the market. Phone A could be a very basic, simple phone, suitable for basic tasks like phone calls, messages, emails, surfing in the web. Obviously, Phone A would have a rather cheap price, but also the components do not need to be the latest state of the art tech. Phone B on the other side, could be a very advanced hence expensive phone, including a high resolution camera, high-speed internet connectivity and a fast CPU.
 
@@ -709,6 +755,26 @@ Their effects become visible via various indicators, like financial figures, cap
 
 \chapter{Game Mechanics and Prototype}
 \label{cha:alg}
+
+\section{Overview of Game Mechanics} 
+\label{sec:link}
+A functioning business simulation requires that all mechanics play well together. A graphical representation contains all information in one place. This helps when implementing the prototype. In addition, such an overview supports the alignment of the different in-game simulations. The overall graph, which connects all simulations, is shown below in figure \ref{fig:OverallGraph}. 
+It is also assumed that we can use the game time in our calculations. With $t_d$ we denote the time of elapsed days, whereas $t_y$ is the number of years elapsed. The game time starts on January 1st, 1990. 
+
+% Replace with recent screenshot from fullGraph_shrinked
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fullGraph_legend.pdf}
+    \caption{Legend for the overall graph including all parts of Capitalism X}
+    \label{fig:OverallGraphLegend}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[angle=90, scale = 0.32]{fullGraph.pdf}
+    \caption{Overall Graph including all parts of Capitalism X}
+    \label{fig:OverallGraph}
+\end{figure}
 
 %HR
 \input{HR/hr_simulation.tex}
@@ -731,7 +797,7 @@ Their effects become visible via various indicators, like financial figures, cap
 
 \section{Marketing Simulation}
 \label{markting_simulation}
-%CompanyImage
+%Company Image
 \input{Marketing/CompanyImage.tex}
 %Employer Branding
 \input{Marketing/EBranding.tex}
@@ -751,45 +817,11 @@ Their effects become visible via various indicators, like financial figures, cap
 %Finance
 \input{finance/finance_simulation.tex}
 
-%Finance_Investments
-\input{finance/investments.tex}
-
-\section{Overview of game mechanics} 
-\label{sec:link}
-Maybe rename to overview of mechanics
-A functioning business simulation requires that all mechanics play well together. A graphical representation contains all information in one place. This helps when implementing the prototype and writing the report. In addition, such an overview supports the alignment of the different in-game simulations. The so called 'fullGraph' is shown below in figure xy. 
-It is also assumed that we can use the game time in our calculations. With $t_d$ we denote the time of elapsed days, whereas $t_y$ is the number of years elapsed. Time starts at 1st January 1990. 
-
-NEW PICTURE!!!
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale = 0.7]{fullGraph_legend.pdf}
-    \caption{Legend Overall Graph including all parts of CapitalismX}
-    \label{fig:OverallGraphLegend}
-\end{figure}
-+ set to beginning of chapter 3 --> then chapter needs new name
-\begin{landscape}
-\begin{figure}
-    \centering
-    \includegraphics[scale = 0.26]{images/Tree-like-thing.pdf}
-    \caption{Overall Graph including all parts of CapitalismX}
-    \label{fig:OverallGraph}
-\end{figure}
-\end{landscape}
-\begin{landscape}
-\begin{figure}
-    \raggedright
-    \includegraphics[scale = 0.32]{fullGraph_shrinked.pdf}
-    \caption{Overall Graph including all parts of CapitalismX2}
-    \label{fig:OverallGraph2}
-\end{figure}
-\end{landscape}
-
-
 \section{External events}
 \label{sec:ectEvent}
 Companies have to deal with influencing factors which are neither planned nor foreseeable. \cite{Campbell} This section describes external events which influence the course of the game. The term 'external' events is used as they are out of the player's visible and obvious control. Technically, they are excluded from the typical cycle of the game mechanics, but manipulate them from the 'outside'. Actions taken may have an influence on an event's probability to happen, but this is invisible to the player. From a location point of view events can take place inside the company, for example strikes, or outside like increasing taxes. A punishing character of events is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events. A full overview of them and their real-world background are listed in table \ref{table:Examples_events} below: \\ 
 
+% What a monster you've created :D
 \begin{longtable}{|l|l|l|}
 \hline
 \textbf{\#} & \textbf{External Event} & \textbf{Real-World example} \\ \hline
@@ -843,9 +875,13 @@ Following these considerations, probabilities from scientific resources were use
 From an UI point of view, the events displayed as informing Pop-Ups or they are invisible to the player. They are not part of the prototype due to the limitation of the prototype's features. The event list can be further extended when more game features are developed. Some events are proposed as ideas as the features they are based on are not conceptualized yet. However, its worth listing them in this section. 
 
 \input{Prototype/implementation.tex}
+\chapter{Discussion}
+\label{cha:discussion}
 
-\chapter{Conclusion}
-This project at hand is a concept of a business simulation game called "CapitalismX". The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested by the game prototype. 
+
+\section{Conclusion}
+\label{sec:conclusion}
+This project at hand is a concept of a business simulation game called "Capitalism X". The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested by the game prototype. 
 
 However, the concept as described in chapter 3 contains more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is mentioned in the respective simulations. All simulations are consolidated in the overall full Graph\ref{fig:OverallGraph}, which can be found in figure xy. 
 Throughout the development process, multiple KPIs were designed, which fit into the different game simulations. They are aligned with each other, sampling the real-world in most cases and where 
@@ -855,26 +891,34 @@ Some trivial facts of the project like the course, personal opinion
 
 \section{Future Work}
 \label{sec:future}
-There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended. This may be the case in a follow-up project. Finally, the game concept might also be sold to a gaming company which is willing to fully program and publish the game. The original concept was introducing another phase of the game, which would take place from 2017-2030. In this following phase the company would evolve to a big player like Google or Facebook or Amazon, and the goal is to set an environment which allows to control every aspect of people’s lives. 
+There were far more ideas than could be captured during the development of the game. However, they should not be over-passed as the game can be further extended. This may be the case in a follow-up project. Finally, the game concept might also be sold to a gaming company which is willing to fully program and publish the game. 
 
-We also came up with different modalities of game-play. Firstly, the player would start with a normal desktop game, in the second stage the multiplayer modality would be introduced and as the game progresses there would be the possibility to extend to virtual reality. 
+The original concept was introducing another phase of the game, which would take place from 2017-2030. In this following phase the company would evolve to a big player like Google or Facebook or Amazon, and the goal is to set an environment which allows to control every aspect of people’s lives. 
+We also came up with different modes of game-play. Firstly, the player would start with a normal desktop game, in the second stage the multiplayer modality would be introduced and as the game progresses there would be the possibility to extend to virtual reality. 
+These ideas and more can be found in table \ref{future_work}.
 
-
-\begin{table}[H]
-\begin{tabular}{|l|l|}
+\begin{longtable}{|l|l|}
+\entering
 \hline
-\textbf{Idea}                      & \textbf{Description}                                                                                                                                               \\ \hline
-\textbf{Futuristic products}       & \begin{tabular}[c]{@{}l@{}}Add new products in a future stage of the company \\ which are not developed in the real-world yet\end{tabular}                         \\ \hline
-\textbf{Multiple countries}        & Cross-country business is far more complicated due to customs                                                                                                      \\ \hline
-\textbf{Online mode}               & Enable multiplayer online mode across country borders                                                                                                              \\ \hline
-\textbf{Mobile device integration} & Complement the game with mobile devices                                                                                                                            \\ \hline
-\textbf{Minigames}                 & \begin{tabular}[c]{@{}l@{}}Integrate minigames for e.g. cleaning the warehouse after a flood,\\ conducting interviews in marketing or driving a truck\end{tabular} \\ \hline
-\textbf{AR / VR support}           & Can support minigames in their experience                                                                                                                          \\ \hline
-\textbf{Events}           & More external events can included in the game based on the added features                                                                                                                        \\ \hline
-\end{tabular}
+\textbf{Idea} & \textbf{Description} \\ \hline
+\textbf{Multiple countries} & Cross-country business is far more complicated\\ \hline
+\textbf{Online mode} & Enable multiplayer mode across country borders \\ \hline
+\textbf{Highscore list} & Provide an online high-score list \\ \hline
+\textbf{Different roles} & \begin{tabular}[c]{@{}l@{}}Assign different roles of employees \\ to players, like CFO or COO\end{tabular}\\ \hline
+\textbf{Mobile device integration} & Complement the game with mobile devices \\ \hline
+\textbf{Minigames} & \begin{tabular}[c]{@{}l@{}}Integrate minigames for e.g. cleaning the \\ warehouse after a flood, conducting interviews \\ in  marketing or driving a truck\end{tabular}\\ \hline
+\textbf{Futuristic products} & \begin{tabular}[c]{@{}l@{}}Add new products in a future stage of the \\company which do not exist in real-world yet\end{tabular} \\ \hline
+\textbf{AR / VR support} & Can support minigames in their experience \\ \hline
+\textbf{Events} & \begin{tabular}[c]{@{}l@{}}More external events can be included in \\ the game based on the added features\end{tabular} \\ \hline
+\textbf{Intelligent Consultancies} & \begin{tabular}[c]{@{}l@{}}Instead of affecting the company's KPIs a \\ consultancy could give hints what to do\end{tabular} \\ \hline \textbf{Private CEO options} & Include private investments for the CEO \\ \hline
+\textbf{Improving simulations} & \begin{tabular}[c]{@{}l@{}}Build in more real-world features to \\ make the game more realistic \end{tabular} \\ \hline
+\textbf{Futuristic products} & \begin{tabular}[c]{@{}l@{}}In the future there will be products with features \\ not developed yet in real \end{tabular} \\ \hline
+
+\hline
 \caption{Future work ideas}
     \label{future_work}
-\end{table}
+\end{longtable}
+
 \bibliographystyle{plain}
 \bibliography{thesis-ref}
 \pagebreak

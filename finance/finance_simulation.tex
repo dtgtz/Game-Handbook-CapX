@@ -3,7 +3,7 @@
 
 \subsection{The Finance Graph}
 %nike, salih
-The finance simulation is connected to almost all other simulations, as costs and profits are ruling an enterprise's daily work. The complete finance graph can be found in appendix [PUT IN APPENDIX PLUS REFERENCE], however, it is part of the overall graph. Just for reasons of clarification and concise structure we developed a separate graph, whereas at least the start node and the leave nodes are exactly the same as in the overall graph. Contrary to the overall graph, we inserted aggregated nodes, that simply sum up the nodes in the overall graphs, for a clearer overview about how the single financial performance indicators are calculated. Especially for the calculation of the \gls{EBIT} this graph is important, because it displays all the expenses and all the revenues from different sources neat and clean. These aggregated total nodes are:
+The finance simulation is connected to almost all other simulations, as costs and profits are ruling an enterprise's daily work. The complete finance graph can be found in appendix \ref{fig:finance_graph}, however, it is part of the overall graph. Just for reasons of clarification and concise structure we developed a separate graph, whereas at least the start node and the leave nodes are exactly the same as in the overall graph. Contrary to the overall graph, we inserted aggregated nodes, that simply sum up the nodes in the overall graphs, for a clearer overview about how the single financial performance indicators are calculated. Especially for the calculation of the \gls{EBIT} this graph is important, because it displays all the expenses and all the revenues from different sources neat and clean. These aggregated total nodes are:
 \begin{itemize}
     \item \textit{totalMarketingCosts (tMC)}
     \item \textit{totalLogisticCosts (tLC)}
@@ -12,23 +12,14 @@ The finance simulation is connected to almost all other simulations, as costs an
     \item \textit{totalWarehouseCosts (tWH)}
     \item \textit{totalProductCosts (tPC)}
     \item \textit{totalRevenues}
-    \item \textit{totalAssetsSold}
 \end{itemize}
-%A part of the finance graph can be found in figure \ref{fig:financeGraphPart}, which displays the calculation of the net operating profit after tax (\gls{NOPAT}) and the net worth.
-
-%note: schönerer Screenshot. Oder investments weglassen???? Dann lesbarer
-%\begin{figure} [!htbp]
-%    \centering
- %   \includegraphics [width=\textwidth] {images/financeGraphPart2.png}
- %   \caption{Part of the Finance Graph}
- %   \label{fig:financeGraphPart}
-%\end{figure}
 
 \subsection{Calculation of Financial Key Figures}
 \subsubsection{Company Net Worth}
-The main financial key figure is the company net worth (\textit{netWorth}). A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:balanceSheet} shows an exemplary balance sheet in CapitalismX which is updated daily for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses. 
+The main financial key figure is the company net worth (\textit{netWorth}). A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:balanceSheet} shows an exemplary balance sheet in CapitalismX which is updated daily for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses.
 
-However, in CapitalismX the company net worth as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. The company \textit{netWorth} is calculated in equation \ref{func:netWorth}. Currently, the player gets 1,000,000 CapCoins equity capital as starting capital. In later implementation, this value needs to be adjusted according to tests with all financial costs and profits.
+However, in CapitalismX the company \textit{netWorth} as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. The company \textit{netWorth} is calculated in equation \ref{func:netWorth}. Currently, the player gets 1,000,000 CapCoins equity capital as starting capital. In later implementation, this value needs to be adjusted according to tests with all financial costs and profits. Also, currently the balance sheet in the prototype does neither include the current assets nor the total expenses, due to reasons of complexity. Nevertheless, the current assets as well as the total expenses are included in the cashflow %still called cashflow?
+section of the finance dashboard, which is explained in section \ref{sec:finance_dashboard}.
 
 \begin{table}[ht]
 \begin{tabular}{|p{5.8cm}|p{5.8cm}|}
@@ -58,7 +49,10 @@ However, in CapitalismX the company net worth as well as all other financial key
 \begin{split}
     netWorth = cash + assets - loanAmount \\ ~\text{whereas}~liabilities = loanAmount
     \end{split}
+    %Vorschlag für die Formel: cash+assets-liabilities
 \end{equation}
+
+\subsubsection{The Relation Between Assets and Cash}
 
 The company's assets are defined as the sum of fleet (\textit{totalTruckValues}), equipment for production (\textit{totalMachineValues}), value of buildings (\textit{totalWarehousingValues}), and the investments earned (\textit{totalInvestmentAmount}), which is displayed in equation \ref{func:assets}:
 \begin{equation}
@@ -71,11 +65,46 @@ The company's assets are defined as the sum of fleet (\textit{totalTruckValues})
     \end{aligned}
 \end{equation}
 
-The cash can be calculated as follows in equation \ref{func:cash}, whereas the current cash amount, which is calculated on a daily basis, is added to the former amount of cash.
+The cash can be calculated as follows in equation \ref{func:cash}, whereas the current cash amount, which is calculated on a daily basis, is added to the former amount of cash. This is displayed by $+=$ which is the addition assignment operator.
 \begin{equation}
     \label{func:cash}
-    cash \mathrel{+}= NOPAT  %added to the old amount of cash; cash is added to net worth
+    cash \mathrel{+}= NOPAT + assetsSold 
 \end{equation}
+
+% Describe relationship between assets and cash, so if buying a machine is shoving money from cash to assets
+When purchasing assets, the amount of the asset's \textit{purchasePrice} is simply shoved from cash to assets, because the value of assets increases whereas the cash decreases by the amount of the \textit{purchasePrice}. This does not affect the \textit{netWorth}.
+The assets of a company consist of elements necessary to operate productively. The cost of an asset is reported in the balance sheet in order to identify impairment. In CapitalismX, this is represented by straight-line depreciation using the formula \ref{calc:depreciation}. 
+    
+\begin{equation}
+     \label{calc:depreciation}
+     Annual \ depreciation = {\frac{purchasePrice}{useful \ life \ of \ the \ asset}}
+\end{equation}
+If the player now decides to sell one of the assets before the end of its useful life, he can sell it at its residual value, which is the \textit{resellPrice} (\ref{calc:residualvalue}). 
+\begin{equation}
+     \label{calc:residualvalue}
+     resellPrice = {{purchasePrice} - {annual \ depreciation \cdot t }}
+\end{equation}
+
+If assets are sold, the \textit{cash} increases by the amount of \textit{assetsSold}, which are defined by the following values:
+   
+\begin{itemize}
+    \item \textit{totalWarehouseValues}. The player has the possibility to build a warehouse to store his products. However, it may happen that the warehouse is no longer needed. %The residual value corresponds to the \textit{resellPrice} \ref{calc:residualvalue}. 
+    The cost calculation of the warehouse and the useful life are described in chapter \ref{warehouse_simulation}. The sum of all resold warehouses is described by the \textit{totalWarehouseValues}, 
+    \begin{equation}
+        totalWarehouseValues = \sum resellPrice_{Warehouse}
+    \end{equation}
+    \item \textit{totalTruckValues}. Similar to the resale of buildings it is also possible to sell the vehicles at their residual value if they are no longer used or the delivery is carried out by a logistics partner. The cost of the vehicles and their useful life are described in Chapter \ref{logistic_simulation}. %The \textit{resellPrice} corresponds to the residual value from equation \ref{calc:residualvalue}.
+    \begin{equation}
+        totalTruckValues = \sum resellPrice_{Truck}
+    \end{equation}
+    \item \textit{totalMachineValues}. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}. %The \textit{resellPrice} corresponds to the formula \ref{eq:sellMachine}.
+    \begin{equation}
+        totalMachineValues = \sum resellPrice_{Machinery}
+    \end{equation}
+\end{itemize}
+
+Also investments decrease cash and increase assets when bought. Investment returns are either positive or negative incomes from the investment area in the financial dashboard. Investing in real estate funds, stocks or venture capital can provide the player with an investment gain, which is displayed in the finance view %wieso Reference auf manual?
+[REFERENCE TO MANUAL!!!]. However, if he risks too much, he can suffer high losses and thus put his own company at risk. Chapter \ref{sec:investments_simulation} describes the process in detail.
 
 \subsubsection{NOPAT}
 
@@ -90,7 +119,7 @@ The next important key figure is the \gls{NOPAT}. The \textit{NOPAT} can be calc
 
 In CapitalismX the \textit{incomeTax} is levied on a daily basis and can be compared to the income tax paid by a large corporation in the United States of America according to the IAS 12 \textit{Income Taxes} paragraph from the IFRS\footnote{https://www.ifrs.org/-/media/feature/meetings/2018/october/iasb/ap12c-ias12.pdf}. To determine realistic tax rates, corporations selling similar products to the ones in CapitalismX were compared, using the IFRS statements from yahoo finance, resulting is a \textit{taxRate} of 20\% for CapitalismX. The compared corporations with their tax rate can be seen in table \ref{Example_Tax}.
 
-\begin{table}[!htbp]
+\begin{table}[!h]
 \centering
 \begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
@@ -111,53 +140,22 @@ As described in chapter \ref{logistic_simulation} the produced products per day 
 
 \subsubsection{EBIT}
 
-The next level under the company's \textit{NOPAT} is the \textit{EBIT}, which are the earnings before interest and tax, a commonly used key financial indicator in company's financial statements. \cite{lee_e_2006} Again, the calculation of the \textit{EBIT} is simplified for the business simulation game at hand. To sum it up, all revenues are added to the \textit{EBIT} whereas the total expenses are subtracted. The \textit{EBIT} is displayed in the cashflow section of the finance view and updated on a daily basis. This means, also the total revenues and total expenses are calculated on a daily basis.\\
+The next level under the company's \textit{NOPAT} is the \textit{EBIT}, which are the earnings before interest and tax, a commonly used key financial indicator in company's financial statements. \cite{lee_e_2006} Again, the calculation of the \textit{EBIT} is simplified for the business simulation game at hand. To sum it up, %all! ist ja nur noch ein Wert, richtig?
+revenues are added to the \textit{EBIT} whereas the total expenses are subtracted. The \textit{EBIT} is displayed in the cashflow section of the finance view and updated on a daily basis. This means, also the total revenues and total expenses are calculated on a daily basis.\\
 \\
 \textbf{Revenues}\\
 \\
-In order to calculate the EBIT, it is necessary to first consolidate all the revenues. The total revenue is calculated by adding all incoming cash flows, which are:
-\begin{itemize}
-    \item Goods sold, displayed by the \textit{totalSalesRevenues}, which can be derived by multiplying a product’s sales price \textit{(sP)} with the amount of units sold, which are the sales figures (\gls{sFig}). 
+%In order to calculate the EBIT, it is necessary to first consolidate all the revenues. Brauchen wir diesen Satz noch?
+The total revenue is calculated by adding all incoming cash flows from the goods sold (\textit{productSale}). The sum of \textit{productSale} is displayed by the \textit{totalSalesRevenues}, which can be derived by multiplying a product’s sales price \textit{(sP)} with the amount of units sold, which are the sales figures (\gls{sFig}). 
     \begin{equation}
         totalSalesRevenue~(\gls{tSR}) = \sum_{p \in P}(sFig \cdot sP) 
     \end{equation}
-    \item Assets Sold (\textit{assetsSold}). The assets of a company consist of elements necessary to operate productively. The cost of an asset is reported in the balance sheet in order to identify impairment. In CapitalismX, this is represented by straight-line depreciation using the formula \ref{calc:depreciation}. If the player now decides to sell one of the elements before the end of its useful life, he can sell it at its residual value (\ref{calc:residualvalue}). In CapitalismX the player can invest in vehicle fleets, buildings and machinery.
-    
-    \begin{equation}
-     \label{calc:depreciation}
-     Annual \ depreciation = {\frac{cost \ of \ the \ asset}{useful \ life \ of \ the \ asset}}
-    \end{equation}
-     \begin{equation}
-     \label{calc:residualvalue}
-     resellPrice = {{purchasePrice} - {annual \ depreciation \cdot t }}    
-     \end{equation}
-     
-        \subitem \textit{buildingsSold}. The player has the possibility to build a warehouse to store his products. However, it may happen that the warehouse is no longer needed. The residual value corresponds to the \textit{resellPrice} \ref{calc:residualvalue}. The cost calculation of the warehouse and the useful life are described in chapter \ref{warehouse_simulation}.
-        \subitem \textit{vehiclesSold}. Similar to the resale of buildings it is also possible to sell the vehicles at their residual value if they are no longer used or the delivery is carried out by a logistics partner. The cost of the vehicles and their useful life are described in Chapter \ref{logistic_simulation}. The \textit{resellPrice} corresponds to the residual value from equation \ref{calc:residualvalue}.
-     \subitem \textit{machinerySold}. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}. The \textit{resellPrice} corresponds to the formula \ref{eq:sellMachine}.
-
-The total revenue from the assetSold is calculated as follows:
-\begin{equation}
-\label{func:assetsSold}
-\begin{aligned}
-    assetsSold= & ~ buildingsSold \\
-    & + vehiclesSold \\
-    & + machinerySold
-\end{aligned}
-\end{equation}
-
-    \item Investments, which are either positive or negative incomes from the investment area in the financial dashboard. Investing in real estate funds, stocks or venture capital can provide the player with additional revenue. However, if he risks too much, he can suffer high losses and thus put his own company at risk. Chapter \ref{sec:investments_simulation} describes the process in detail.
-\end{itemize}
-
-To put it into a nutshell, the total revenues can be calculated according to the formula \ref{func:totalRevenue}:
+To put it into a nutshell, the total revenues equal the \textit{totalSalesRevenue} calculated according to the equation \ref{func:totalRevenue}:
 
 \begin{equation}
 \label{func:totalRevenue}
-\begin{aligned}
-    totalRevenues = & ~totalSalesRevenues \\
-    & + assetsSold \\
-    & + totalInvestmentEarnings \\
-\end{aligned}
+    totalRevenues = \& ~totalSalesRevenues 
+    % \& was stellt das & dar?
 \end{equation}\\
 \\
 \textbf{Expenses}\\
@@ -204,7 +202,7 @@ The other part needed to calculate the EBIT are the total expenses. All costs an
     \item \textit{totalSupportCosts} (\textit{tSC}), which occur if the player chooses to offer product support and maintenance for customers. The \textit{tSC} calculation can be found in chapter \ref{product_support_simulation}.
 \end{itemize}
 
-According to the list of total revenues and total expenses above, the EBIT can be calculated as follows in function \ref{func:ebit1}. This equation is illustrated by the total finance graph, which can be found in the appendix [REFERENCE]. 
+According to the list of total revenues and total expenses above, the EBIT can be calculated as follows in function \ref{func:ebit1}. This equation is illustrated by the total finance graph, which can be found in the appendix \ref{fig:finance_graph}. % Diesen Graphen wolltest du ja haben, oder? 
 \begin{equation}
 \label{func:ebit1}
     EBIT = totalRevenues - totalExpenses
@@ -264,7 +262,7 @@ loanRate = a+ i\textsubscript{t}
 \end{aligned}    
 \end{equation}
 
-% @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder? - AUF JEDEN FALL, zumindest in den Appendix :o
+% @Nike: Glaube es wäre verständlicher, wenn ich hier eine Beispielkalkulation aus dem Exceltool einfüge, oder? - AUF JEDEN FALL, zumindest in den Appendix :o \ref{fig:loanRepayment}
 
 However, the raising of capital from the bank is restricted.
 The requested loan \textit{S} must not be larger than 70 \% of the company value, which is for reasons of simplification the current company net worth. If this is fulfilled, the player receives three offers with the duration and the interest rate as described above. In the event of a negative check by the bank, so if the requested loan \textit{S} is in fact larger than 70\% of the company value, then the player receives an adjusted offer corresponding to the company value. The new loan amount offered is not greater than 70\% of the company value. The process of the banking simulation is displayed in an activity diagram in figure \ref{jpg:banking}.\\
@@ -283,9 +281,46 @@ For a better understanding, the following algorithm can be helpful:
 	\label{jpg:banking}
 \end{figure}
 
-\subsection{The Finance Dashboard}
 
-The finance dashboard summarizes all cash flows of the company in one overview. In fact, the finance dashboard represents exactly the graph [REFERENCE EBIT and NetWorth Graph] described at the beginning in a user-friendly way. All displayed figures are calculated in the backend on a daily basis. Thus the balance sheet, which in reality is drawn up at the end of the year is even calculated to daily accuracy in the Finance dashboard - displayed in the left sidebar. %reference to screenshot of dashboard (toDo)
+\subsection{Investments}
+\label{sec:investments_simulation}
+
+ Investments in CapitalismX are a way to allocate your residual cash to assets with an expected profit. However, each investment is risky and positive return isn't guaranteed. Thus, your liquidity may suffer if you put too much money into investments.
+  
+  We decided for three classes of investments with different expected returns and assume higher risk for higher return:
+\begin{itemize}
+	\item Real estate fund
+	\item Stocks (index fund)
+	\item Venture capital fund
+\end{itemize}
+
+Although return distributions are negatively skewed and characterized by an excess kurtosis \cite{ANDERSEN200143}, a normal distribution can be used as an approximation \cite{doi:10.1080/01621459.1972.10481297}. In 2017, the expected return for real estate in the US is about $7\%$ \footnote{https://www.msci.com/documents/10199/f3d1af7c-6069-6e60-a818-71ca9c45e85c}. The compounded annual return of the S\&P from its introduction in 1965 to 2017 is approximately $10\%$ \footnote{http://www.berkshirehathaway.com/letters/2017ltr.pdf}. Venture capital funds in the US have an expected return of $14.2\%$ \footnote{http://www.eif.org/news\_centre/publications/eif\_wp\_41.pdf}.
+
+In our game, the investment worth adjusts daily. Therefore, we take the geometric mean of the average yearly return $\overline{\mu_y}$ to estimate the expected daily return:
+\begin{equation}
+	\overline{\mu_d} = \sqrt[365]{\frac{1 + \overline{\mu_y}}{1}}
+\end{equation}
+
+For our game, we use the return volatility as a representative of the risk of an investment. In an efficient market, a higher risk has to correspond to a higher return. As we are not able to model more complex anomalies like volatility clustering \cite{lux2000volatility} we choose the daily standard deviation $\sigma$ by testing different values instead of relying on historical data in order to allow reasonable game mechanics. However, as a reference point, the yearly standard deviation of the S\&P 500 was 19.7\% \footnote{https://seekingalpha.com/instablog/605212-robert-allan-schwartz/4831186-annual-returns-s-and-p-500-1928-2015}. For our game, we choose the yearly standard deviations 0.2, 0.3 and 0.5 for real estate, stocks and venture capital respectively.
+As we specify the yearly standard deviation $\sigma_T$. Thus, we need to calculate the standard deviation of a single day, which we assume is the same in each period. \textit{square-root-of-time-rule} gives the standard deviation of the entire time frame $T$.
+\begin{equation}
+    \sigma_T = \sigma*\sqrt{T}
+\end{equation}
+Thus, we can calculate the daily return from the yearly returns by applying algebraic transformations:
+\begin{equation}
+    \sigma = \frac{\sigma_T}{\sqrt{T}}
+\end{equation}
+In the end, our daily return is generated by a Gaussian distribution:
+\begin{equation}
+	\mu_d \sim \mathcal{N}(\overline{\mu_d},\,\sigma^{2})\,.
+\end{equation}
+
+
+
+\subsection{The Finance Dashboard}
+\label{sec:finance_dashboard}
+
+The finance dashboard summarizes all cash flows of the company in one overview. In fact, the finance dashboard represents exactly the finance graph in \ref{fig:finance_graph} described at the beginning in a user-friendly way. All displayed figures are calculated in the backend on a daily basis. Thus the balance sheet, which in reality is drawn up at the end of the year is even calculated to daily accuracy in the Finance dashboard - displayed in the left sidebar (cf. [REFERENCE TO MANUAL].
 
 The banking system is intended, but not implemented, and will also take its place in the left sidebar. This area also serves as an action field, so that the player enters the desired loan amount to receive an offer. The player also has access to credits already received. The structure of the banking system can be read in chapter \ref{sec: banking}. 
 

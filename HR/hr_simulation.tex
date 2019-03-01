@@ -8,11 +8,12 @@ The HR process starts with hiring human resources. Therefore, available engineer
 \subsection{Salary}
 Salaries are an important factor in the HR process. In order to make the simulation as realistic as possible, we use the following salaries which are derived from a salary-list of a real world IT company. The salaries of available employees are randomized value out of the corresponding salary-range entry in table \ref{tab:Salaries}
 
-\begin{table}
+
+\begin{table}[H]
     \centering
 \begin{tabular}{c|c}
     \hline
-     \textbf{Skilllevel} & \textbf{Salary-range in thousands cc} \\
+     \textbf{Skill Level} & \textbf{Salary-range in thousands cc} \\
      \hline \hline
      0-20 & 38-45  \\
      21-40 & 45-55 \\
@@ -87,7 +88,7 @@ The table \ref{tab:benefitsJSS} shows the possible influencing factors which can
     \label{tab:benefitsJSS}
 \end{table}
 
-For each of the above mentioned categories (salary, worktime, company car, homeoffice, IT equipment, food and sports) the player needs to make a decision which benefit category to offer. The job satisfaction score can have a minimum of 0 points and a maximum of 28 points.
+For each of the above mentioned categories (salary, working time model, working hours, company car, IT equipment, food benefits and sports) the player needs to make a decision which benefit category to offer. The job satisfaction score can have a minimum of 0 points and a maximum of 28 points.
 
 As this scale is too simple in order to be somehow realistic, a manipulation of the original scale is needed. The marginal impact of an additional increase of factors which lead to a higher job satisfaction decreases over time, e.g. an employee which has an above average salary, a company car, trusted based working hours and all other benefits on the highest level, would not value the additional offering of a free sports club voucher as much as an employee that has no benefits at all and gets a sports club voucher. Thus the scale of 0 - 28 was transformed to a root function.
 
@@ -113,12 +114,12 @@ Moreover, the job satisfaction also depends on the level of the employee. Each e
 \end{tikzpicture}
 
 \subsubsection{Quality of Work}
-The quality of work is a measure for the output quality of every process step in the corporation where an employee is involved. We are aware, that the quality of process outputs is influenced by more than the chosen factors here. However, for the sake of the realization of the game, we concentrated on the factors which can be chosen by a player simulating the role of a CEO or Chief Human Resources Officer (CHRO). Besides the influencing factors, which are defined and explained below, the skill level is the most important factor for the quality of an employee. The underlying assumption is that higher skilled employees have more experience and perform similar activities better than employees with a lower skilllevel in a comparable position.
+The quality of work is a measure for the output quality of every process step in the corporation where an employee is involved. We are aware, that the quality of process outputs is influenced by more than the chosen factors here. However, for the sake of the realization of the game, we concentrated on the factors which can be chosen by a player simulating the role of a CEO or Chief Human Resources Officer (CHRO). Besides the influencing factors, which are defined and explained below, the skill level is the most important factor for the quality of an employee. The underlying assumption is that higher skilled employees have more experience and perform similar activities better than employees with a lower skill level in a comparable position.
 
-The skilllevel becomes a strategic mechanism as it influences the quality of work significantly. In fact, a better quality of work leads to higher output of the production, can decrease product failure and improve the quality of the products, allows new products to be developed, and for example in case of sales employees generate more sales. 
+The skill level becomes a strategic mechanism as it influences the quality of work significantly. In fact, a better quality of work leads to higher output of the production, can decrease product failure and improve the quality of the products, allows new products to be developed, and for example in case of sales employees generate more sales. 
 
-The skilllevel alone is not enough to describe the influence on the Quality of work. The happiness and satisfaction with the job is also a measure that influences the quality of the delivered work by the employees.
-Thus, the total quality of work is measured by an equal weighted average of the skilllevel and the job satisfaction. The skilllevel of employees can be influenced by trainings which is described in the section below.
+The skill level alone is not enough to describe the influence on the Quality of work. The happiness and satisfaction with the job is also a measure that influences the quality of the delivered work by the employees.
+Thus, the total quality of work is measured by an equal weighted average of the skill level and the job satisfaction. The skill level of employees can be influenced by trainings which is described in the section below.
 
 \subsubsection{Training}
 Employees can be categorized into 5 groups:
@@ -129,9 +130,9 @@ Employees can be categorized into 5 groups:
     \item Specialist (60)
     \item Expert (80)
 \end{itemize}
-The initial skill level for these employees is set to (20, 30, 40, 60, 80) according to the order of the list above. In order to improve the skilllevel and by this the quality of work of the employees, training can be added to the learning journey of employees. 
+The initial skill level for these employees is set to (20, 30, 40, 60, 80) according to the order of the list above. In order to improve the skill level and by this the quality of work of the employees, training can be added to the learning journey of employees. 
 
-Training can be assigned to a certain number of employees. The cost per training and also the increase of the skill level of the single employee depends on the kind of training. There are two different training types: courses and workshops. Both training types influence the skilllevel of the employee and the salary of the employee. The  table \ref{tab:trainings_employees} shows the impact of trainings on the salary and the skilllevel of employees.
+Training can be assigned to a certain number of employees. The cost per training and also the increase of the skill level of the single employee depends on the kind of training. There are two different training types: courses and workshops. Both training types influence the skill level of the employee and the salary of the employee. The  table \ref{tab:trainings_employees} shows the impact of trainings on the salary and the skill level of employees.
 
 \begin{table}
     \centering
@@ -141,7 +142,7 @@ Training can be assigned to a certain number of employees. The cost per training
      \hline \hline
      Price & 3000 cc & 5500 cc \\
      Salary & +1\% & +2\%  \\
-     Skilllevel & +1 & +2  \\
+     Skill Level & +1 & +2  \\
      \hline
 \end{tabular}
 \caption{Influence of trainings on employees}
@@ -152,18 +153,23 @@ Training can be assigned to a certain number of employees. The cost per training
 \subsection{Summary}
 
 The single KPIs are calculated as follows:\\\\
-
-Quality of Work(\gls{QoW})
+Quality of Work (\gls{QoW})
 \begin{equation}
      QoW = JSS \cdot 0.5 + SkillLevel \cdot 0.5   
      \label{QoW}
 \end{equation}
-
-% Philipp:
-% This needs to be formatted similarly, also glossary entries need to be added.
+Employer Branding (\gls{EB})
+\begin{equation}
+  \begin{array}{l}
+     Employer Branding = JSS \cdot 0.6 + CIS \cdot 0.4 \\ 
+    \text{and applying the punishment function} 
+    % Which punishment function? 
+    % Create an equation for the punishment function and reference it.
+  \end{array}
+\end{equation}
+Furthermore, we have the following KPIs:
 \begin{itemize}
-\item Skill Level = Initial Skill Level (based on employee category + influence training
-\item Job Satisfaction Score (JSS) = Calculation based on JSS section \ref{subsub:jss}
-\item Company Image Score (CIS) = Calculation based on CIS section \ref{company_image}
-\item Employer Branding = $JSS \cdot 0.6 + CIS \cdot 0.4$ and applying the punishment function. 
+\item Skill Level = InitialSkillLevel (based on employee category + influence training)
+\item Job Satisfaction Score (JSS): Calculation based on JSS section \ref{subsub:jss}
+\item Company Image (CI): Calculation based on CI section \ref{company_image}
 \end{itemize}

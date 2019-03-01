@@ -1,6 +1,6 @@
 \section{Procurement Simulation}
 \label{procuresim}
-The procurement simulation represents the marketplace for suppliers, so  the place where the player can buy the components needed for producing the products. In the UI the procurement view is also referred to as harbour. At the marketplace the player can also buy the retail products, whereas the buying process works the same way as for the products that need to be manufactured. However, the retail products are not part of the current prototype implementation.
+The procurement simulation represents the marketplace for suppliers, so  the place where the player can buy the components needed for producing the products. In the UI the procurement view is also referred to as harbour. At the marketplace the player can also buy the resell products, whereas the buying process works the same way as for the products that need to be manufactured. However, the resell products are not part of the current prototype implementation.
 
 In order to be able to produce a product, the player needs all the required components of a certain product. For example, he would need exactly one component (\gls{c}) out of the following \textit{componentCategories}, to produce a smartphone: Power supply , display and case, CPU, camera, connectivity. Moreover, each \textit{componentCategory} has different levels, such as the "camera", which has the levels "1.2 MP", "2 MP", "5 MP", "8 MP" and "12 MP".  As soon as the player chooses to produce a new smartphone, the first level of a component is selected. For the component "camera" this would be the level "1.2 MP". However, the camera component would not be unlocked until the first level of the camera component is activated. For the camera component this would be the year 2004. This behavior will be explained in more detail later in this chapter.
 
@@ -23,7 +23,7 @@ Apart from that, each individual component has the following attributes:
 Each of these attributes fulfills a specific need. For example, the \textit{baseCost} of a component, which represents a components purchase price offered by one supplier, depends (not linearly) on the \textit{supplierQuality} and the \textit{supplierEcoIndex}. This is achieved by the settings shown in table \ref{component_price_calculation}.
     \begin{table}[ht]
     \centering
-    \begin{tabular}{|l|r|r|r|}
+    \begin{tabular}{|l|l|l|l|}
     \hline
     supplierCategory & supplierCostMultiplicator & supplierQuality & supplierEcoIndex \\
     \hline
@@ -46,6 +46,7 @@ The \textit{baseCost} of a component is calculated by multiplying the \textit{ti
 \end{aligned}    
 \end{equation}
 
+% Explain somewhere that the availabilityDate is the availability year, or rename it to availabilityYear
 The \textit{timeBasedComponentPrice} is the calculated price of a component that is based on the \textit{initialComponentPrice} and depends on a component's \textit{availabilityDate}. The \textit{availabilityDate} is required to activate a \textit{componentLevel}. This means that a particular level of a component is activated when it reaches the year in which it is released, as it is locked before exceeding its \textit{availabilityDate}. In summary, the use of the \textit{availabilityDate} ensures that the player cannot directly select the latest level of a component, but is bound to the chronological development of the components.
 
 Moreover, a component's \textit{ecoIndex} and \textit{supplierQuality} are calculated by selecting a random integer value within the defined value range. An example of determining the \textit{supplierEcoIndex} of a "premium" component is shown in equation \ref{supplierEcoIndex}.
