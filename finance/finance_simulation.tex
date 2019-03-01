@@ -18,8 +18,7 @@ The finance simulation is connected to almost all other simulations, as costs an
 \subsubsection{Company Net Worth}
 The main financial key figure is the company net worth (\textit{netWorth}). A company's net worth is the difference between assets and liabilities\footnote{https://www.investopedia.com/terms/n/networth.asp}. In a successful company, this value should be positive and increase continuously. This is adapted from a balance sheet that is usually updated annually. The balance sheet template in table \ref{tab:balanceSheet} shows an exemplary balance sheet in CapitalismX which is updated daily for the calculations in the backend. On the assets side there are non-current assets, which include buildings, machinery, vehicle fleets and investments, and current assets, which include components, products, bank and cash. On the liabilities side, the equity capital and the liabilities are shown including loans and total expenses.
 
-However, in CapitalismX the company \textit{netWorth} as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. The company \textit{netWorth} is calculated in equation \ref{func:netWorth}. Currently, the player gets 1,000,000 CapCoins equity capital as starting capital. In later implementation, this value needs to be adjusted according to tests with all financial costs and profits. Also, currently the balance sheet in the prototype does neither include the current assets nor the total expenses, due to reasons of complexity. Nevertheless, the current assets as well as the total expenses are included in the cashflow %still called cashflow?
-section of the finance dashboard, which is explained in section \ref{sec:finance_dashboard}.
+However, in CapitalismX the company \textit{netWorth} as well as all other financial key figures are calculated in a simplified manner, due to the high complexity in the real world. The company \textit{netWorth} is calculated in equation \ref{func:netWorth}. Currently, the player gets 1,000,000 CapCoins equity capital as starting capital. In later implementation, this value needs to be adjusted according to tests with all financial costs and profits. Also, currently the balance sheet in the prototype does neither include the current assets nor the total expenses, due to reasons of complexity. Nevertheless, the current assets as well as the total expenses are included in the operations section of the finance dashboard, which is explained in section \ref{sec:finance_dashboard}.
 
 \begin{table}[ht]
 \begin{tabular}{|p{5.8cm}|p{5.8cm}|}
@@ -47,9 +46,8 @@ section of the finance dashboard, which is explained in section \ref{sec:finance
 \begin{equation}
 \label{func:netWorth}
 \begin{split}
-    netWorth = cash + assets - loanAmount \\ ~\text{whereas}~liabilities = loanAmount
+    netWorth = cash + assets - liabilities \\ ~\text{whereas}~liabilities = loanAmount
     \end{split}
-    %Vorschlag für die Formel: cash+assets-liabilities
 \end{equation}
 
 \subsubsection{The Relation Between Assets and Cash}
@@ -72,8 +70,8 @@ The cash can be calculated as follows in equation \ref{func:cash}, whereas the c
 \end{equation}
 
 % Describe relationship between assets and cash, so if buying a machine is shoving money from cash to assets
-When purchasing assets, the amount of the asset's \textit{purchasePrice} is simply shoved from cash to assets, because the value of assets increases whereas the cash decreases by the amount of the \textit{purchasePrice}. This does not affect the \textit{netWorth}.
-The assets of a company consist of elements necessary to operate productively. The cost of an asset is reported in the balance sheet in order to identify impairment. In CapitalismX, this is represented by straight-line depreciation using the formula \ref{calc:depreciation}. 
+When purchasing assets, the amount of the asset's \textit{purchasePrice} is simply shoved from cash to assets, because the value of assets increases whereas the cash decreases by the amount of the \textit{purchasePrice}. This accounting exchange does not affect the \textit{netWorth}.
+The assets of a company consist of elements necessary to operate productively. The \textit{purchasePrice} of an asset is reported in the balance sheet in order to identify impairment. In CapitalismX, this is represented by a straight-line depreciation using the formula \ref{calc:depreciation}. 
     
 \begin{equation}
      \label{calc:depreciation}
@@ -88,16 +86,16 @@ If the player now decides to sell one of the assets before the end of its useful
 If assets are sold, the \textit{cash} increases by the amount of \textit{assetsSold}, which are defined by the following values:
    
 \begin{itemize}
-    \item \textit{totalWarehouseValues}. The player has the possibility to build a warehouse to store his products. However, it may happen that the warehouse is no longer needed. %The residual value corresponds to the \textit{resellPrice} \ref{calc:residualvalue}. 
+    \item \textit{totalWarehouseValues}. The player has the possibility to build a warehouse to store his products. However, it may happen that the warehouse is no longer needed. 
     The cost calculation of the warehouse and the useful life are described in chapter \ref{warehouse_simulation}. The sum of all resold warehouses is described by the \textit{totalWarehouseValues}, 
     \begin{equation}
         totalWarehouseValues = \sum resellPrice_{Warehouse}
     \end{equation}
-    \item \textit{totalTruckValues}. Similar to the resale of buildings it is also possible to sell the vehicles at their residual value if they are no longer used or the delivery is carried out by a logistics partner. The cost of the vehicles and their useful life are described in Chapter \ref{logistic_simulation}. %The \textit{resellPrice} corresponds to the residual value from equation \ref{calc:residualvalue}.
+    \item \textit{totalTruckValues}. Similar to the resale of buildings it is also possible to sell the vehicles at their residual value if they are no longer used or the delivery is carried out by a logistics partner. The cost of the vehicles and their useful life are described in Chapter \ref{logistic_simulation}.
     \begin{equation}
         totalTruckValues = \sum resellPrice_{Truck}
     \end{equation}
-    \item \textit{totalMachineValues}. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}. %The \textit{resellPrice} corresponds to the formula \ref{eq:sellMachine}.
+    \item \textit{totalMachineValues}. The player has the possibility to sell used machinery, that he or she does not need anymore. The calculation for the residual value is based on a modified depreciation because our machinery can be maintained or upgraded. The calculation can be found in chapter \ref{sec:productionSim}. The \textit{resellPrice} corresponds to the equation \ref{eq:sellMachine}.
     \begin{equation}
         totalMachineValues = \sum resellPrice_{Machinery}
     \end{equation}
@@ -141,7 +139,7 @@ As described in chapter \ref{logistic_simulation} the produced products per day 
 \subsubsection{EBIT}
 
 The next level under the company's \textit{NOPAT} is the \textit{EBIT}, which are the earnings before interest and tax, a commonly used key financial indicator in company's financial statements. \cite{lee_e_2006} Again, the calculation of the \textit{EBIT} is simplified for the business simulation game at hand. To sum it up, %all! ist ja nur noch ein Wert, richtig?
-revenues are added to the \textit{EBIT} whereas the total expenses are subtracted. The \textit{EBIT} is displayed in the cashflow section of the finance view and updated on a daily basis. This means, also the total revenues and total expenses are calculated on a daily basis.\\
+revenues are added to the \textit{EBIT} whereas the total expenses are subtracted. The \textit{EBIT} is displayed in the operations section of the finance view and updated on a daily basis. This means, also the total revenues and total expenses are calculated on a daily basis.\\
 \\
 \textbf{Revenues}\\
 \\

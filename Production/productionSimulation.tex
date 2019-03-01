@@ -9,12 +9,12 @@ In this simulation we are going to focus on three very important indicators, nam
 
 Firstly, \textit{totalProductQuality} (\gls{tPQ}) is considered a very important element in the production simulation, nevertheless it is a very volatile concept and thus challenging to define and implement in this simulation. Often defined as conformance to requirements \cite{crosby_quality_1979}, quality is an elusive factor of production, which we have tried to frame in order to serve the scope of this project.
 
-% Start list with tProcureQ, as the the factors are multiplicators of this factor
  Several factors that affect the \textit{totalProductQuality} in our Capitalism X simulation are listed below:
 \begin{itemize}
+\item totalProcurementQuality (tProcureQ)
 \item productionTechnology (\gls{pT})
 \item totalEngineerProductivity (\gls{tEP}) 
-\item totalProcurementQuality (tProcureQ)
+
 \item R\&D
 \end{itemize}
 The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerProductivity} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, etc. 
@@ -25,7 +25,7 @@ These elements all correlate in order to give an estimation of the \textit{total
  \label{eq:pT}
  \end{equation}
  
-By using formula \ref{eq:pT} the impact that \textit{productionTechnology} has on the \textit{totalProductQuality} can vary from $0.8$ to $1.2$, we measure this in the \textit{productionTechnologyFactor} (pTF). Meaning that if the \textit{pT} is lower than level $3$ which is the normal, good conditions state, this newly calculated \textit{pT} will have a decreasing effect on the \textit{totalProductQuality}, and if it is higher than $3$ the effect will be positive.
+By using formula \ref{eq:pT} the impact that \textit{productionTechnology} has on the \textit{totalProductQuality} can vary from $0.8$ to $1.2$, we measure this in the \textit{productionTechnologyFactor} (\gls{pTF}). Meaning that if the \textit{pT} is lower than level $3$ which is the normal, good conditions state, this newly calculated \textit{pT} will have a decreasing effect on the \textit{totalProductQuality}, and if it is higher than $3$ the effect will be positive.
 \begin{equation}
 \gls{RDF}= 0.95 + 0.05 \cdot R\&D
 \label{eq:R\&D}
@@ -34,10 +34,10 @@ By using formula \ref{eq:pT} the impact that \textit{productionTechnology} has o
 A similar scaling has also been carried out for R\&D, in which the level of impact is between $1$ and $1.2$. Meaning that even if the player has the lowest level of \textit{productionInvestments}, he or she does not lower the \textit{totalProductQuality} as the level of R\&D does not impact it. Our company will have no \textit{productionInvestment} in the beginnings and that should not lower the \textit{totalProductQuality}. If R\&D is in the highest levels than it will maximally influence the \textit{totalProductQuality} by $1.2$ times.
 
 \begin{equation}
-\gls{pAF}= 0.95 + 0.05 \cdot pA
-\label{eq:R\&D}
+pAF= 0.95 + 0.05 \cdot pA
+\label{eq:pAF}
 \end{equation}
-The \textit{processAutomationFactor} is also calculated in the same way. This is because even if there are no investments in \textit{processAutomation} \gls{}, this does not mean that the process is bad, and this factor should affect the \textit{totalProductQuality} negatively. It only means that there are no futuristic automatization processes running. If \textit{processAutomation} is in high levels, it can improve our products quality with a factor of $1.2$. 
+The \textit{processAutomationFactor} (\gls{pAF}) is also calculated in the same way. This is because even if there are no investments in \textit{processAutomation} (pA), this does not mean that the process is bad, and this factor should affect the \textit{totalProductQuality} negatively. It only means that there are no futuristic automatization processes running. If \textit{processAutomation} is in high levels, it can improve our products quality with a factor of $1.2$. 
 
 \begin{center}
 \begin{equation}

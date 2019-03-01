@@ -3,7 +3,7 @@
 The HR simulation handles all parts of the Human Resources process. Two employee types have to be hired: engineers and salespeople. The role of HR, finance and marketing is performed by the player itself, thus it is not required to hire employees in these departments for the simulation. 
 
 \subsection{Hiring and Firing}
-The HR process starts with hiring human resources. Therefore, available engineers and salespeople need to be chosen from the market. Each employee has a requested salary. Moreover, hiring and also firing of employees is associated with cost of 5,000 CapCoins. \cite{recruiterbox}
+The HR process starts with hiring human resources. Therefore, available engineers and salespeople need to be chosen from the market. Each employee has a requested salary. Moreover, hiring and also firing of employees is associated with cost of 5,000 CapCoins.\footnote{https://recruiterbox.com/blog/the-cost-of-hiring-new-employees-infographic}
 
 \subsection{Salary}
 Salaries are an important factor in the HR process. In order to make the simulation as realistic as possible, we use the following salaries which are derived from a salary-list of a real world IT company. The salaries of available employees are randomized value out of the corresponding salary-range entry in table \ref{tab:Salaries}
@@ -31,9 +31,9 @@ Salaries are an important factor in the HR process. In order to make the simulat
 
 \subsubsection{Job Satisfaction}
 \label{subsub:jss}
-The job satisfaction is an essential part of a Key Performance Indicator framework in order to measure the management quality of the player. Many different parts in the cooperation depend on the job satisfaction of employees, thus, in order to increase the performance, managers need to make sure that the satisfaction of their employees is constantly high. \cite{KOYS}
+The \textit{jobSatisfaction} is an essential part of a Key Performance Indicator framework in order to measure the management quality of the player. Many different parts in the corporation depend on the \textit{jobSatisfaction} of employees, thus, in order to increase the performance, managers need to make sure that the satisfaction of their employees is constantly high. \cite{KOYS}
 
-The job satisfaction is such an important factor due to the fact that the employer branding is influenced by it. This is critical as the employer branding has a huge impact on how the company is perceived on the markets by potential employees but also by customers and suppliers. Moreover, the employer branding is also influenced by the general company image and can be influenced through marketing and PR activities. 
+The \textit{jobSatisfaction} is such an important factor due to the fact that the \textit{employerBranding} is influenced by it. This is critical as the \textit{employerBranding} has a huge impact on how the company is perceived on the markets by potential employees but also by customers and suppliers. Moreover, the \textit{employerBranding} is also influenced by the general \textit{companyImage} and can be influenced through marketing and PR activities. 
 
 %maybe add min and max of employee satisfaction? because without, "below 50" appears a bit weird.
 The success of a company highly depends on the ability of attracting the best people. The ease of recruitment is highly dependent on the job satisfaction of the employees. Extrinsic motivation needs to be provided to attract employees in case the job satisfaction and by this the employer branding are low. A low job satisfaction makes it necessary to pay higher salaries. Not only the recruiting of employees is more difficult with a lower job satisfaction but also the employee turnover is higher. A job satisfaction below 50 leads to an increase in hiring costs of 50\% which sums up to 7500 CapCoins \cite{frederiksen2016}
@@ -160,7 +160,7 @@ Quality of Work (\gls{QoW})
      QoW = JSS \cdot 0.5 + SkillLevel \cdot 0.5   
      \label{QoW}
 \end{equation}
-Employer Branding (\gls{EB})
+Employer Branding (\gls{eB})
 \begin{equation}
   \begin{array}{l}
      Employer Branding = JSS \cdot 0.6 + CIS \cdot 0.4 \\ 
