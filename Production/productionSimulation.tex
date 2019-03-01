@@ -13,9 +13,8 @@ Firstly, \textit{totalProductQuality} (\gls{tPQ}) is considered a very important
 \begin{itemize}
 \item totalProcurementQuality (tProcureQ)
 \item productionTechnology (\gls{pT})
-\item totalEngineerProductivity (\gls{tEP}) 
-
 \item R\&D
+\item totalEngineerProductivity (\gls{tEP}) 
 \end{itemize}
 The \textit{totalProductQuality} is influenced by many elements, that in principle belong to the extend of other departments in the company. To illustrate, \textit{totalEngineerProductivity} is included in the HR simulation, the \textit{totalProcurementQuality} is included in the procurement simulation, etc. 
 
@@ -56,19 +55,14 @@ Equation \ref{eq:tEP} mentioned above, shows the calculation of the \textit{tota
 
 In order to converge all the above mentioned elements and to measure the \textit{totalProductQuality} per product, we have compiled the following equation. 
 
-% Vertical lines are not needed, root can't be less than 0
 \begin{equation}
-tPQ_{perProduct} = tProcureQ \cdot pTF \cdot |\sqrt[10]{tEP}| \cdot  RDF
+tPQ_{perProduct} = tProcureQ \cdot pTF \cdot \sqrt[10]{tEP} \cdot  RDF
 \label{eq:PQ}
 \end{equation}
  We measure the \textit{totalProductQuality} as a product of the three factors that were defined above, and the most important factor \textit{totalProcurementQuality}. We have defined it as most important, because the base material and components of our product constitute a large part in determining its quality.
- The factor \textit{totalEngineeringProductivity}
- % The growth of the factor \textit{totalEngineeringProductivity} has been slowed down by putting it in the 10th root
- has been normalized by putting it in the square root of power $10$. 
- % I don't understand this sentence, I think it could be clearer
- To further support this normalization into the range of the other factors the absolute value of this operation has been calculated.
+ The factor \textit{totalEngineeringProductivity} has been slowed down by putting it in the $10^{th}$ root. 
  
- Furthermore we will introduce the \textit{numberProducedProducts} (\gls{nPP}) variable. This variable is measured in terms of daily amount of units produced for every product. This variable is used when calculating demand in chapter \ref{demandCalc}. %Janine where is this var used? -> added the reference to the chapter 
+ Furthermore we will introduce the \textit{numberProducedProducts} (\gls{nPP}) variable. This variable is measured in terms of daily amount of units produced for every product. This variable is used when calculating demand in chapter \ref{demandCalc}. 
  
  An additional element of a product that we would like to explain is the \textit{launchDate}. By using the \textit{launchDate}, we can prioritize the production process, in the case of a capacity limit. Meaning, if we have two different smartphones in line to be produced, and the machines do not have enough capacity to produce them both, the smartphone with an earlier \textit{launchDate} would be produced first.
 
@@ -76,7 +70,6 @@ After giving you an understanding of our concept of  \textit{totalProductQuality
 
 \subsection{Production Technology Level}
 We will focus on \textit{productionTechnology} in this chapter, as you will encounter all the other elements in the following simulations. \\
-% Sure it's a Likert scale?
 Table \ref{table:my-label}, explains the $5$ points Likert-Scale for measuring \textit{productionTechnology}. This scale has a range of $[1-5]$, where $1$ is the lowest value and $5$ the highest.
 
 \begin{table}[ht]

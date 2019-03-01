@@ -579,14 +579,14 @@ description={Job Satisfaction Score}%
    {Handbook \& Documentation\\}
    \vspace{2cm}
    {presented by\\
-   Philipp Epstein \\
-    Daniel G\"otz \\
-Maike Jansen \\
-Nike Klaubert \\
-Salih \"Ozdemir \\
-Livja Papuciu \\
-Janine Salomon \\
-Steffen Waldmann \\
+   Philipp Epstein, 1624235 \\
+    Daniel G\"otz, 1533213 \\
+Maike Jansen, 1624246\\
+Nike Klaubert, 1624393\\
+Salih \"Ozdemir, 1373080 \\
+Livja Papuciu, 1625283\\
+Janine Salomon, 1624268\\
+Steffen Waldmann, 1418219\\
    }
    \vspace{1cm} 
    {submitted to the\\
@@ -676,13 +676,12 @@ An important element that is included in the game-play is the make or buy decisi
 
 Moreover you will be faced with external events. These events will take place during the time-span of the game-play, and they will arise as a consequence to the company’s operations or they can be independent. Independent operations are those operation that do not rely on any company indicator and will happen nonetheless. These events will be further explained in section \ref{sec:ectEvent}.	
 
-The figure below shows our concept of the map of our fictional city. All the elements mentioned in table \ref{table:map-el}, should be included in this view. But the building asset creation was not the scope of our project, so we created only some general buildings as to give an impression
-of what should our city look like. The asset creation was made by using MagicaVoxel\footnotemark. 
+The figure below shows our concept of the map of our fictional city. All the elements mentioned in table \ref{table:map-el}, should be included in this view. But the building asset creation was not the scope of our project, so we created only some general buildings as to give an impression of what should our city look like. The asset creation was made by using MagicaVoxel\footnotemark. As the exporting algorithm of the voxel editor we used produces very inefficient meshes with far too many vertices the assets are not included in the deployed prototype.
 \footnotetext{http://www.voxelmade.com/magicavoxel/}
 \begin{figure} [!ht]
     \centering
-    \includegraphics[scale=0.23]{images/screenshot-map.png}
-    \caption{CapitalismX Map Concept}
+    \includegraphics[scale=0.22]{images/screenshot-map.png}
+    \caption{Capitalism X Map Concept}
     \label{fig:map}
 \end{figure}
 
@@ -696,9 +695,7 @@ of what should our city look like. The asset creation was made by using MagicaVo
 
 Are you ready to get started? If yes, enter the following URL to the Google Chrome browser and start your first game of Capitalism X: \\
 \texttt{https://swaldmann.github.io/CapitalismX}.
-However, it is advisable to have a look at the limitations as described in chapter \ref{sub:currentState} first.
-
-Now you have the possibility to start a new game or load an existing game and start right away where to took off earlier. %(requires sign-in). When starting a new game, you have to create an account first, so that you can stop the game and continue later on. For registration you will need a valid email address and your name. After successful registration, you can select a nickname and a company name. I DONT AGREE - we should keep that here, because this is our concept...
+However, it is advisable to have a look at the limitations as described in chapter \ref{sub:currentState} first. Now you have the possibility to start a new game or load an existing game and start right away where to took off earlier. 
 
 It is recommended to have a look at the following tutorial if you have not played Capitalism X before. Also, it might be very helpful to read this game manual, as it gives you a couple of hints about how to handle some situations. The manual at hand gives you an overview about the different buildings and views in the game. Also, it provides you with step-by-step instructions on how to perform the most important activities.
 
@@ -725,7 +722,7 @@ Throughout the game, time passes starting from January 1st, 1990 on. You can see
 \begin{figure} [!htbp]
     \centering
     \includegraphics{images/time.png}
-    \caption{Time in CapitalismX}
+    \caption{Time in Capitalism X}
     \label{fig:time}
 \end{figure}
 Next to the time box, there is a little "pause" sign, where you can pause the time in case you want to adapt some settings and do not want the time to elapse before you finished your adaptations.
@@ -755,8 +752,7 @@ You as the CEO decide which products you want to offer. In Capitalism X, there a
 
 To start with the resale products, consisting of two different sub-groups of products: the mass storage devices and the movie playback devices. As the products evolve over the time frame of the game, the scope of the single product group also changes. Mass storage devices will evolve, given a decent investment to innovate, from CD over DVD to Blu-Ray, from small SD cards to SD cards with very large memory, and from USB sticks with small memory and in simple versions to evolved versions with large memory. Movie playback devices may evolve from simple video recorders for recording tapes to DVD and Blu-Ray player, that even can become smart.
 
-% Don't understand the first sentence - SUGGESTION: There are more products to offer as manufactured goods than as resell goods???
-The larger part of the product portfolio is displayed by the manufactured goods. To produce those, you have to slip into the role of a strategic head of manufacturing and you have to take care about the education and satisfaction of employees in order to provide a high manufacturing and therefore also high product quality; about the procurement of components and warehousing of products; and so on.
+The larger part of the product portfolio consists of the manufactured goods. To produce those, you have to slip into the role of a strategic head of manufacturing and you have to take care about the education and satisfaction of employees in order to provide a high manufacturing and therefore also high product quality; about the procurement of components and warehousing of products; and so on.
 The manufactured goods are divided into four product sub-groups, which are notebooks, phones, Game Boys, and televisions. 
 
 Contrary to resale products, the manufactured products consist of single components, that you have to procure in the procurement view. Also, you need engineers in order to aggregate the components to products. As described in section \ref{HR_manual}, the education and skills of the engineers influence the quality of the product. Other than that, the product quality is also determined on the component's age, meaning the duration a specific component is available on the market. Another difference to the resale products is, that the manufactured product's evolution is depicted by different levels, meaning that a notebook always stays a notebook, but it surely evolves to a higher performing version. To put it into a nutshell, you must continuously innovate and invest in new components, skilled engineers, and procurement of components in order to achieve the best competitive products. 
@@ -775,11 +771,9 @@ Their effects become visible via various indicators, like financial figures, cap
 \section{Overview of Game Mechanics} 
 \label{sec:link}
 
-%Maybe describe the full graph a bit more? such as displays all simulations, basis for implementation of prototype, blah?
 A functioning business simulation requires that all mechanics play well together. A graphical representation contains all information in one place. This helps when implementing the prototype. In addition, such an overview supports the alignment of the different in-game simulations. The overall graph, which connects all simulations, is shown below in figure \ref{fig:OverallGraph}. 
 It is also assumed that we can use the game time in our calculations. With $t_d$ we denote the time of elapsed days, whereas $t_y$ is the number of years elapsed. The game time starts on January 1st, 1990. 
 
-% Legend not recent 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{fullGraph_legend.pdf}
@@ -838,7 +832,6 @@ It is also assumed that we can use the game time in our calculations. With $t_d$
 \label{sec:ectEvent}
 Companies have to deal with influencing factors which are neither planned nor foreseeable. \cite{Campbell} This section describes external events which influence the course of the game. The term 'external' events is used as they are out of the player's visible and obvious control. Technically, they are excluded from the typical cycle of the game mechanics, but manipulate them from the 'outside'. Actions taken may have an influence on an event's probability to happen, but this is invisible to the player. From a location point of view events can take place inside the company, for example strikes, or outside like increasing taxes. A punishing character of events is common, but the player may also be rewarded when outstanding performance is present. There are 18 distinct events. A full overview of them and their real-world background are listed in table \ref{table:Examples_events} below: \\ 
 
-% What a monster you've created :D
 \begin{longtable}{|l|l|l|}
 \hline
 \textbf{\#} & \textbf{External Event} & \textbf{Real-World example} \\ \hline
@@ -901,26 +894,24 @@ From an UI point of view, the events displayed as informing Pop-Ups or they are 
 The project at hand is a concept of a business simulation game called Capitalism X. The first two chapters constitute a user manual for a potential player of the game, explaining what to expect from the  game, what role the player has and how the game is meant to be played. The third chapter addresses the game mechanics which are mostly covered and tested in the implemented prototype. The game mechanics cover the following areas: Human Resources, procurement, production, warehousing, logistics, support, marketing, finance and the customer demand. Additionally, external events are defined and described. Happening randomly or as a reaction to the player's behavior, they impact the business in various ways. 
 In chapter \ref{cha:alg} also the implementation of the prototype is explained, which will make it much easier for a follow-up project, to understand how the prototype was implemented and used to test the game mechanics. 
 However, the game mechanics described in chapter \ref{cha:alg} contain more functionality than the prototype currently provides. When some functionality is not covered in the prototype, this is stated in the respective simulation. All simulations are consolidated in the overall graph, which can be found in figure \ref{fig:OverallGraph}. In most cases, each individual simulation corresponds to the real world.
-Moreover, throughout the development process of Capitalism X, several KPIs have been designed to determine the player's performance. Finally, the overall goal of this game, as in almost every business simulation game, is to maximize the net worth. Thus, the player has to figure out which settings influence which parts of the game.
+Moreover, throughout the development process of Capitalism X, several KPIs have been designed to determine the player's performance. Finally, the overall goal of this game, as in almost every business simulation game, is to maximize the net worth. In order to lead the company to success, the player must accept the challenge of trying out various strategies to lead the company. This includes purchasing the components, hiring and managing the employees, producing the products themselves, storing and delivering the products, marketing them and managing the financial affairs. 
 
-
-% In the end this resulted in a sound concept. 
-% Some trivial facts of the project like the course, personal opinion
-% fullGraph includes all simulations and with all simulations you get an entire business simulation game including the following parts: HR, Finance, ....
+From the team's perspective, a lot of lessons were learned during the one year of the project. Working in a group of $8$, coordinating tasks and establishing an efficient collaboration was definitively a challenge. Organizational topics occupied a significant amount of time. Nevertheless, it was difficult at first but then we learned how to work in a team and could increase our team efficiency continuously.
 
 \section{Future Work}
 \label{sec:future}
 In summary, there were far more ideas than could be captured during the conceptualisation of this game. However, these ideas should not be over-passed as the game can be further extended. This might be the case in a follow-up project. Ultimately, the game concept might be sold to a gaming company, which is willing to fully program and publish Capitalism X. 
 
-% I'd use mode not modality
 The original concept was to introduce another (future) phase of the game taking take place from 2018-2030. In this following phase, the company would evolve to a big player like Google, Facebook or Amazon, with the goal to build an environment which allows to control every aspect of people’s lives. 
 Moreover, different modes of game-play were established. First, the player would start playing a normal desktop game. In the second stage the multiplayer mode would be introduced and as the game proceeds there would be the possibility to extend it to virtual reality. These ideas and more can be found in table \ref{future_work}.
 
 \begin{longtable}{|l|l|}
 \hline
 \textbf{Idea} & \textbf{Description} \\ \hline
-\textbf{Multiple countries} & Cross-country business is far more complicated\\ \hline
-\textbf{Online mode} & Enable multiplayer mode across country borders \\ \hline
+\textbf{Online multiplayer game}  &
+\begin{tabular}[c]{@{}l@{}} Realize multiplayer game by connecting different, \\ countries via Internet (include B2B)\end{tabular} \\ \hline
+\textbf{Multi role game} &
+\begin{tabular}[c]{@{}l@{}} Each player can slip into a different role \\ (e.g. CEO, employee of a specific department) \end{tabular} \\ \hline
 \textbf{Highscore list} & Provide an online high-score list \\ \hline
 \textbf{Different roles} & \begin{tabular}[c]{@{}l@{}}Assign different roles of employees \\ to players, like CFO or COO\end{tabular}\\ \hline
 \textbf{Mobile device integration} & Complement the game with mobile devices \\ \hline
@@ -931,7 +922,7 @@ Moreover, different modes of game-play were established. First, the player would
 \textbf{Intelligent Consultancies} & \begin{tabular}[c]{@{}l@{}}Instead of affecting the company's KPIs a \\ consultancy could give hints what to do\end{tabular} \\ \hline \textbf{Private CEO options} & Include private investments for the CEO \\ \hline
 \textbf{Improving simulations} & \begin{tabular}[c]{@{}l@{}}Build in more real-world features to \\ make the game more realistic \end{tabular} \\ \hline
 \textbf{Futuristic products} & \begin{tabular}[c]{@{}l@{}}In the future there will be products with features \\ not developed yet in real \end{tabular} \\ \hline
-% Interactive Tutorial
+\textbf{Interactive tutorial} & \begin{tabular}[c]{@{}l@{}}  \\  \end{tabular} \\ \hline
 
 \hline
 \caption{Future work ideas}
